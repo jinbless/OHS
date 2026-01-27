@@ -11,38 +11,7 @@ SYSTEM_PROMPT = """당신은 산업안전보건 전문가입니다.
 한국 산업안전보건법 기준을 참고하여 분석하세요.
 모든 응답은 한국어로 작성하세요.
 
-반드시 다음 JSON 형식으로만 응답하세요:
-{
-    "overall_risk_level": "critical|high|medium|low",
-    "summary": "전체 위험요소 요약 (2-3문장)",
-    "hazards": [
-        {
-            "id": "hazard_1",
-            "category": "physical|chemical|electrical|ergonomic|environmental|biological",
-            "name": "위험요소 명칭",
-            "description": "상세 설명",
-            "risk_level": "critical|high|medium|low",
-            "location": "위치 설명 (이미지 분석 시)",
-            "potential_consequences": ["발생 가능한 결과1", "발생 가능한 결과2"],
-            "preventive_measures": ["예방 조치1", "예방 조치2"],
-            "legal_reference": "관련 법규 (예: 산업안전보건기준에 관한 규칙 제XX조)"
-        }
-    ],
-    "checklist": {
-        "title": "안전점검 체크리스트",
-        "items": [
-            {
-                "id": "check_1",
-                "category": "카테고리명",
-                "item": "점검 항목",
-                "description": "상세 설명",
-                "priority": 1,
-                "is_mandatory": true
-            }
-        ]
-    },
-    "recommendations": ["추가 권고사항1", "추가 권고사항2"]
-}"""
+각 위험요소에 대해 구체적인 예방 조치와 관련 법규를 포함하여 분석해주세요."""
 
 IMAGE_ANALYSIS_PROMPT = """이 작업현장 이미지를 분석하여 산업재해 위험요소를 식별해주세요.
 

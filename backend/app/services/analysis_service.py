@@ -65,6 +65,46 @@ class AnalysisService:
             input_preview=input_preview
         )
 
+    # GPT-5.2 category_code → HazardCategory 매핑
+    CATEGORY_MAP = {
+        "FALL": "physical",
+        "COLLISION": "physical",
+        "CRUSH": "physical",
+        "CUT": "physical",
+        "FALLING_OBJECT": "physical",
+        "SLIP": "physical",
+        "PHYSICAL": "physical",
+        "CHEMICAL": "chemical",
+        "FIRE_EXPLOSION": "chemical",
+        "CORROSION": "chemical",
+        "TOXIC": "chemical",
+        "ELECTRIC": "electrical",
+        "ELECTRICAL": "electrical",
+        "ARC_FLASH": "electrical",
+        "ERGONOMIC": "ergonomic",
+        "REPETITIVE": "ergonomic",
+        "HEAVY_LIFTING": "ergonomic",
+        "POSTURE": "ergonomic",
+        "NOISE": "environmental",
+        "TEMPERATURE": "environmental",
+        "LIGHTING": "environmental",
+        "ENVIRONMENTAL": "environmental",
+        "BIOLOGICAL": "biological",
+    }
+
+    def _map_category(self, category_code: str) -> str:
+        """GPT-5.2 category_code를 HazardCategory 값으로 변환"""
+        return self.CATEGORY_MAP.get(category_code.upper(), "physical")
+
+    def _derive_overall_risk_level(self, risks: list) -> str:
+        """risks의 최고 severity에서 overall_risk_level 도출"""
+        severity_priority = {"HIGH": "high", "MEDIUM": "medium", "LOW": "low"}
+        severity_order = ["HIGH", "MEDIUM", "LOW"]
+        for sev in severity_order:
+            if any(r.get("severity") == sev for r in risks):
+                return severity_priority[sev]
+        return "medium"
+
     def _create_response(
         self,
         db: Session,
@@ -72,43 +112,42 @@ class AnalysisService:
         analysis_type: str,
         input_preview: str
     ) -> AnalysisResponse:
-        """분석 결과를 응답 형식으로 변환하고 DB에 저장"""
+        """GPT-5.2 분석 결과를 응답 형식으로 변환하고 DB에 저장"""
         analysis_id = str(uuid.uuid4())
         analyzed_at = datetime.now()
 
-        # Hazards 변환
+        # GPT-5.2 risks → Hazards 변환
         hazards = []
         hazard_categories = []
-        for h in result.get("hazards", []):
-            category = h.get("category", "physical")
+        for r in result.get("risks", []):
+            category = self._map_category(r.get("category_code", "PHYSICAL"))
             hazard_categories.append(category)
             hazards.append(Hazard(
-                id=h.get("id", str(uuid.uuid4())),
+                id=str(uuid.uuid4()),
                 category=HazardCategory(category) if category in [e.value for e in HazardCategory] else HazardCategory.PHYSICAL,
-                name=h.get("name", ""),
-                description=h.get("description", ""),
-                risk_level=RiskLevel(h.get("risk_level", "medium")),
-                location=h.get("location"),
-                potential_consequences=h.get("potential_consequences", []),
-                preventive_measures=h.get("preventive_measures", []),
-                legal_reference=h.get("legal_reference")
+                name=r.get("category_name", ""),
+                description=r.get("description", ""),
+                risk_level=RiskLevel(r.get("severity", "MEDIUM").lower()),
+                location=r.get("location"),
+                potential_consequences=[r.get("description", "")],
+                preventive_measures=r.get("recommendations", []),
+                legal_reference=None
             ))
 
-        # Checklist 변환
-        checklist_data = result.get("checklist", {})
+        # GPT-5.2 immediate_actions → Checklist 변환
         checklist_items = []
-        for item in checklist_data.get("items", []):
+        for i, action in enumerate(result.get("immediate_actions", []), start=1):
             checklist_items.append(ChecklistItem(
-                id=item.get("id", str(uuid.uuid4())),
-                category=item.get("category", ""),
-                item=item.get("item", ""),
-                description=item.get("description"),
-                priority=item.get("priority", 1),
-                is_mandatory=item.get("is_mandatory", False)
+                id=str(uuid.uuid4()),
+                category="즉시 조치",
+                item=action,
+                description=None,
+                priority=i,
+                is_mandatory=True
             ))
 
         checklist = Checklist(
-            title=checklist_data.get("title", "안전점검 체크리스트"),
+            title="안전점검 체크리스트",
             workplace_type=None,
             items=checklist_items
         )
@@ -116,16 +155,25 @@ class AnalysisService:
         # 관련 리소스 가져오기
         resources = resource_service.get_resources_by_categories(hazard_categories)
 
+        # overall_risk_level 도출
+        overall_risk_level = self._derive_overall_risk_level(result.get("risks", []))
+
+        # GPT-5.2 overall_assessment → summary
+        summary = result.get("overall_assessment", "")
+
+        # immediate_actions → recommendations
+        recommendations = result.get("immediate_actions", [])
+
         # 응답 생성
         response = AnalysisResponse(
             analysis_id=analysis_id,
             analysis_type=analysis_type,
-            overall_risk_level=RiskLevel(result.get("overall_risk_level", "medium")),
-            summary=result.get("summary", ""),
+            overall_risk_level=RiskLevel(overall_risk_level),
+            summary=summary,
             hazards=hazards,
             checklist=checklist,
             resources=resources,
-            recommendations=result.get("recommendations", []),
+            recommendations=recommendations,
             analyzed_at=analyzed_at
         )
 
@@ -134,8 +182,8 @@ class AnalysisService:
             db=db,
             analysis_id=analysis_id,
             analysis_type=analysis_type,
-            overall_risk_level=result.get("overall_risk_level", "medium"),
-            summary=result.get("summary", ""),
+            overall_risk_level=overall_risk_level,
+            summary=summary,
             input_preview=input_preview,
             result_json=response.model_dump()
         )

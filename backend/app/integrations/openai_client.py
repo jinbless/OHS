@@ -9,10 +9,73 @@ from app.integrations.prompts.analysis_prompts import (
 )
 
 
+# JSON Schema 정의 (위험분석 응답 구조)
+RISK_ANALYSIS_SCHEMA = {
+    "name": "risk_analysis",
+    "strict": True,
+    "schema": {
+        "type": "object",
+        "properties": {
+            "risks": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "category_code": {
+                            "type": "string",
+                            "description": "위험 카테고리 코드 (FALL, ELECTRIC, FIRE_EXPLOSION 등)"
+                        },
+                        "category_name": {
+                            "type": "string",
+                            "description": "위험 카테고리 한글명"
+                        },
+                        "severity": {
+                            "type": "string",
+                            "enum": ["HIGH", "MEDIUM", "LOW"],
+                            "description": "위험도"
+                        },
+                        "confidence": {
+                            "type": "number",
+                            "description": "신뢰도 (0.0 ~ 1.0)"
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "위험 상황 설명"
+                        },
+                        "location": {
+                            "type": ["string", "null"],
+                            "description": "이미지 내 위험 위치"
+                        },
+                        "recommendations": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "권장 조치사항"
+                        }
+                    },
+                    "required": ["category_code", "category_name", "severity", "confidence", "description", "location", "recommendations"],
+                    "additionalProperties": False
+                }
+            },
+            "overall_assessment": {
+                "type": "string",
+                "description": "전반적인 안전 평가"
+            },
+            "immediate_actions": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "즉시 필요한 조치사항"
+            }
+        },
+        "required": ["risks", "overall_assessment", "immediate_actions"],
+        "additionalProperties": False
+    }
+}
+
+
 class OpenAIClient:
     def __init__(self):
         self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "gpt-4o"
+        self.model = "gpt-5.2"
 
     async def analyze_image(
         self,
@@ -29,7 +92,7 @@ class OpenAIClient:
         response = await self.client.chat.completions.create(
             model=self.model,
             messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "developer", "content": SYSTEM_PROMPT},
                 {
                     "role": "user",
                     "content": [
@@ -44,7 +107,11 @@ class OpenAIClient:
                     ]
                 }
             ],
-            response_format={"type": "json_object"},
+            response_format={
+                "type": "json_schema",
+                "json_schema": RISK_ANALYSIS_SCHEMA
+            },
+            reasoning_effort="high",
             max_tokens=4096,
             temperature=0.3
         )
@@ -68,10 +135,14 @@ class OpenAIClient:
         response = await self.client.chat.completions.create(
             model=self.model,
             messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "developer", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}
             ],
-            response_format={"type": "json_object"},
+            response_format={
+                "type": "json_schema",
+                "json_schema": RISK_ANALYSIS_SCHEMA
+            },
+            reasoning_effort="high",
             max_tokens=4096,
             temperature=0.3
         )
