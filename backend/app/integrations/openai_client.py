@@ -12,7 +12,7 @@ from app.integrations.prompts.analysis_prompts import (
 class OpenAIClient:
     def __init__(self):
         self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "gpt-5.1"
+        self.model = "gpt-4o"
 
     async def analyze_image(
         self,
