@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ohs-backend
+    restart: unless-stopped
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ALLOWED_ORIGINS=["http://localhost","http://localhost:80","https://${DOMAIN}"]
+      - DATABASE_URL=sqlite:///./ohs.db
+    volumes:
+      - backend_data:/app/data
+    ports:
+      - "8000:8000"
+    networks:
+      - ohs-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=https://${DOMAIN}/api/v1
+    container_name: ohs-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - ohs-network
+
+networks:
+  ohs-network:
+    driver: bridge
+
+volumes:
+  backend_data:
