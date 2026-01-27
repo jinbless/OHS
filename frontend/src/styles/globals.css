@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-50 text-gray-900;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Risk level badges */
+.risk-critical {
+  @apply bg-red-100 text-red-800 border-red-200;
+}
+
+.risk-high {
+  @apply bg-orange-100 text-orange-800 border-orange-200;
+}
+
+.risk-medium {
+  @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+}
+
+.risk-low {
+  @apply bg-green-100 text-green-800 border-green-200;
+}
+
+/* Dropzone styles */
+.dropzone {
+  @apply border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition-colors;
+}
+
+.dropzone:hover {
+  @apply border-primary-400 bg-primary-50;
+}
+
+.dropzone.active {
+  @apply border-primary-500 bg-primary-100;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+}
+
+/* Button styles */
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-500;
+}
+
+.btn-danger {
+  @apply bg-danger-600 text-white hover:bg-danger-700 focus:ring-danger-500;
+}
