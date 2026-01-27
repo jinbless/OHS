@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import ImageUploader from '../components/analysis/ImageUploader';
 import TextInput from '../components/analysis/TextInput';
@@ -18,49 +18,32 @@ const AnalysisPage: React.FC = () => {
   const [analysisType, setAnalysisType] = useState<AnalysisType>(initialType);
   const { isLoading, error, setLoading, setError, setCurrentAnalysis } = useAnalysisStore();
 
-  // 디버깅용 로그
-  useEffect(() => {
-    console.log('[DEBUG] isLoading changed:', isLoading);
-  }, [isLoading]);
-
   const handleImageAnalysis = async (file: File) => {
-    console.log('[DEBUG] handleImageAnalysis started');
     setLoading(true);
-    console.log('[DEBUG] setLoading(true) called');
     setError(null);
 
     try {
-      console.log('[DEBUG] Calling API...');
       const result = await analysisApi.analyzeImage(file);
-      console.log('[DEBUG] API result:', result);
       setCurrentAnalysis(result);
       navigate(`/result/${result.analysis_id}`);
     } catch (err) {
-      console.log('[DEBUG] API error:', err);
       setError(err instanceof Error ? err.message : '분석 중 오류가 발생했습니다.');
     } finally {
-      console.log('[DEBUG] setLoading(false) called');
       setLoading(false);
     }
   };
 
   const handleTextAnalysis = async (request: TextAnalysisRequest) => {
-    console.log('[DEBUG] handleTextAnalysis started');
     setLoading(true);
-    console.log('[DEBUG] setLoading(true) called');
     setError(null);
 
     try {
-      console.log('[DEBUG] Calling API...');
       const result = await analysisApi.analyzeText(request);
-      console.log('[DEBUG] API result:', result);
       setCurrentAnalysis(result);
       navigate(`/result/${result.analysis_id}`);
     } catch (err) {
-      console.log('[DEBUG] API error:', err);
       setError(err instanceof Error ? err.message : '분석 중 오류가 발생했습니다.');
     } finally {
-      console.log('[DEBUG] setLoading(false) called');
       setLoading(false);
     }
   };
