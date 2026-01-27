@@ -25,6 +25,6 @@ export const useAnalysisStore = create<AnalysisState>((set) => ({
   setCurrentAnalysis: (analysis) => set({ currentAnalysis: analysis, error: null }),
   setHistory: (items, total) => set({ history: items, totalHistory: total }),
   setLoading: (loading) => set({ isLoading: loading }),
-  setError: (error) => set({ error, isLoading: false }),
+  setError: (error) => set({ error }),
   clearAnalysis: () => set({ currentAnalysis: null, error: null }),
 }));
