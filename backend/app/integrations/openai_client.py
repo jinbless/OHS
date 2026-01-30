@@ -111,7 +111,7 @@ class OpenAIClient:
                 "type": "json_schema",
                 "json_schema": RISK_ANALYSIS_SCHEMA
             },
-            reasoning_effort="high",
+            reasoning_effort="low",
             max_completion_tokens=4096
         )
 
@@ -141,7 +141,7 @@ class OpenAIClient:
                 "type": "json_schema",
                 "json_schema": RISK_ANALYSIS_SCHEMA
             },
-            reasoning_effort="high",
+            reasoning_effort="low",
             max_completion_tokens=4096
         )
 
