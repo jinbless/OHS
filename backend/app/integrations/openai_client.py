@@ -112,8 +112,7 @@ class OpenAIClient:
                 "json_schema": RISK_ANALYSIS_SCHEMA
             },
             reasoning_effort="high",
-            max_tokens=4096,
-            temperature=0.3
+            max_completion_tokens=4096
         )
 
         result = response.choices[0].message.content
@@ -143,8 +142,7 @@ class OpenAIClient:
                 "json_schema": RISK_ANALYSIS_SCHEMA
             },
             reasoning_effort="high",
-            max_tokens=4096,
-            temperature=0.3
+            max_completion_tokens=4096
         )
 
         result = response.choices[0].message.content
