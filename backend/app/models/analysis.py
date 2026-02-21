@@ -4,6 +4,7 @@ from datetime import datetime
 from app.models.hazard import Hazard, RiskLevel
 from app.models.checklist import Checklist
 from app.models.resource import Resource
+from app.models.article import ArticleMatch
 
 
 class ImageAnalysisRequest(BaseModel):
@@ -25,6 +26,7 @@ class AnalysisResponse(BaseModel):
     hazards: List[Hazard]
     checklist: Checklist
     resources: List[Resource]
+    related_articles: List[ArticleMatch] = []
     recommendations: List[str]
     analyzed_at: datetime
 

@@ -64,9 +64,28 @@ RISK_ANALYSIS_SCHEMA = {
                 "type": "array",
                 "items": {"type": "string"},
                 "description": "즉시 필요한 조치사항"
+            },
+            "related_articles": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "article_number": {
+                            "type": "string",
+                            "description": "산업안전보건기준에 관한 규칙 조문번호 (예: 제42조)"
+                        },
+                        "reason": {
+                            "type": "string",
+                            "description": "해당 조문이 관련된 이유"
+                        }
+                    },
+                    "required": ["article_number", "reason"],
+                    "additionalProperties": False
+                },
+                "description": "위험요소와 관련된 산안법 조문번호 (최대 5개)"
             }
         },
-        "required": ["risks", "overall_assessment", "immediate_actions"],
+        "required": ["risks", "overall_assessment", "immediate_actions", "related_articles"],
         "additionalProperties": False
     }
 }
@@ -75,7 +94,7 @@ RISK_ANALYSIS_SCHEMA = {
 class OpenAIClient:
     def __init__(self):
         self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "gpt-5.2"
+        self.model = "gpt-4.1"
 
     async def analyze_image(
         self,
@@ -111,8 +130,7 @@ class OpenAIClient:
                 "type": "json_schema",
                 "json_schema": RISK_ANALYSIS_SCHEMA
             },
-            reasoning_effort="none",
-            max_completion_tokens=4096
+            max_tokens=4096
         )
 
         result = response.choices[0].message.content
@@ -141,8 +159,7 @@ class OpenAIClient:
                 "type": "json_schema",
                 "json_schema": RISK_ANALYSIS_SCHEMA
             },
-            reasoning_effort="none",
-            max_completion_tokens=4096
+            max_tokens=4096
         )
 
         result = response.choices[0].message.content

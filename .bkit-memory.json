@@ -1,0 +1,25 @@
+{
+  "currentFeature": "ohs-article-matching",
+  "phase": "do",
+  "level": "Dynamic",
+  "history": [
+    {
+      "action": "plan",
+      "feature": "ohs-article-matching",
+      "timestamp": "2026-02-21T13:40:00Z",
+      "output": "docs/01-plan/features/ohs-article-matching.plan.md"
+    },
+    {
+      "action": "design",
+      "feature": "ohs-article-matching",
+      "timestamp": "2026-02-21T14:00:00Z",
+      "output": "docs/02-design/features/ohs-article-matching.design.md"
+    },
+    {
+      "action": "do",
+      "feature": "ohs-article-matching",
+      "timestamp": "2026-02-21T14:30:00Z",
+      "output": "backend/app/services/article_service.py"
+    }
+  ]
+}

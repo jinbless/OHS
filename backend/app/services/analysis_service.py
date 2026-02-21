@@ -3,13 +3,19 @@ from datetime import datetime
 import uuid
 from sqlalchemy.orm import Session
 
+import logging
+
 from app.integrations.openai_client import openai_client
 from app.services.resource_service import resource_service
+from app.services.article_service import article_service
 from app.models.analysis import AnalysisResponse
+from app.models.article import ArticleMatch
 from app.models.hazard import Hazard, RiskLevel, HazardCategory
 from app.models.checklist import Checklist, ChecklistItem
 from app.db import crud
 from app.utils.exceptions import OpenAIAPIError
+
+logger = logging.getLogger(__name__)
 
 
 class AnalysisService:
@@ -155,6 +161,27 @@ class AnalysisService:
         # 관련 리소스 가져오기
         resources = resource_service.get_resources_by_categories(hazard_categories)
 
+        # 관련 법조항 검색 (하이브리드 파이프라인 v2)
+        related_articles = []
+        try:
+            if article_service.collection.count() > 0:
+                hazard_dicts = [
+                    {
+                        "category_code": r.get("category_code", ""),
+                        "name": r.get("category_name", ""),
+                        "description": r.get("description", ""),
+                    }
+                    for r in result.get("risks", [])
+                ]
+                gpt_recommended = result.get("related_articles", [])
+                article_results = article_service.hybrid_search_for_hazards(
+                    hazards=hazard_dicts,
+                    gpt_recommended_articles=gpt_recommended if gpt_recommended else None,
+                )
+                related_articles = [ArticleMatch(**a) for a in article_results]
+        except Exception as e:
+            logger.warning(f"법조항 검색 실패 (무시하고 계속): {e}")
+
         # overall_risk_level 도출
         overall_risk_level = self._derive_overall_risk_level(result.get("risks", []))
 
@@ -173,6 +200,7 @@ class AnalysisService:
             hazards=hazards,
             checklist=checklist,
             resources=resources,
+            related_articles=related_articles,
             recommendations=recommendations,
             analyzed_at=analyzed_at
         )

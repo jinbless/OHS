@@ -13,8 +13,10 @@ services:
       - DATABASE_URL=sqlite:///./ohs.db
     volumes:
       - backend_data:/app/data
+      - ./ohs_articles:/home/blessjin/cashtoss/ohs/ohs_articles:ro
+      - chromadb_data:/home/blessjin/cashtoss/ohs/backend/data/chromadb
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     networks:
       - ohs-network
 
@@ -27,7 +29,7 @@ services:
     container_name: ohs-frontend
     restart: unless-stopped
     ports:
-      - "3000:80"
+      - "127.0.0.1:3000:80"
     depends_on:
       - backend
     networks:
@@ -39,3 +41,4 @@ networks:
 
 volumes:
   backend_data:
+  chromadb_data:

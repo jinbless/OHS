@@ -42,3 +42,8 @@ htmlcov/
 # Uploads
 uploads/
 temp/
+
+# Large data files
+guide/
+ohs_articles/
+backend/data/
