@@ -459,7 +459,7 @@ class GuideService:
                             }
                             for s in sections
                         ],
-                        "relevance_score": mapping.relevance_score or 0.9,
+                        "relevance_score": min(mapping.relevance_score or 0.9, 0.75),
                         "mapping_type": mapping.mapping_type,
                     }
 
@@ -517,6 +517,107 @@ class GuideService:
             reverse=True,
         )
         return sorted_results[:n_results]
+
+    # ── Path B: 직접 벡터 검색 (법조항 우회) ──────────────────
+
+    def search_guides_by_description(
+        self,
+        db: Session,
+        hazard_descriptions: List[str],
+        guide_keywords: List[str] = None,
+        n_results: int = 3,
+        exclude_codes: List[str] = None,
+    ) -> List[dict]:
+        """위험 설명 + GPT 키워드로 KOSHA GUIDE 직접 검색 (법조항 우회)
+
+        Path B: 법조항 매핑 없이 위험 설명에서 바로 관련 가이드를 찾는다.
+        """
+        if self.collection.count() == 0:
+            return []
+
+        exclude_codes = exclude_codes or []
+
+        # 검색 쿼리 구성: 키워드가 있으면 키워드만 사용 (dilution 방지)
+        if guide_keywords:
+            query = " ".join(guide_keywords) + " 안전지침 기술지침"
+        else:
+            query = " ".join(hazard_descriptions)[:500]
+
+        if not query.strip():
+            return []
+
+        try:
+            response = self._openai.embeddings.create(
+                model="text-embedding-3-small",
+                input=[query],
+            )
+            query_embedding = response.data[0].embedding
+
+            results = self.collection.query(
+                query_embeddings=[query_embedding],
+                n_results=n_results * 3,
+                include=["metadatas", "distances"],
+            )
+
+            guide_results: Dict[str, dict] = {}
+
+            if results and results["metadatas"] and results["metadatas"][0]:
+                for i, meta in enumerate(results["metadatas"][0]):
+                    code = meta.get("guide_code", "")
+                    if code in guide_results or code in exclude_codes:
+                        continue
+
+                    distance = results["distances"][0][i] if results["distances"] else 0.5
+                    score = round(1 - distance, 4)
+
+                    if score < 0.45:
+                        continue
+
+                    # DB에서 해당 가이드의 핵심 섹션 조회
+                    guide_id = meta.get("guide_id")
+                    sections = []
+                    if guide_id:
+                        sections = (
+                            db.query(GuideSectionModel)
+                            .filter(GuideSectionModel.guide_id == guide_id)
+                            .filter(GuideSectionModel.section_type.in_(["standard", "procedure"]))
+                            .order_by(GuideSectionModel.section_order)
+                            .limit(2)
+                            .all()
+                        )
+
+                    guide_results[code] = {
+                        "guide_code": code,
+                        "title": meta.get("title", ""),
+                        "classification": meta.get("classification", ""),
+                        "relevant_sections": [
+                            {
+                                "section_title": s.section_title or "",
+                                "excerpt": s.body_text[:200] if s.body_text else "",
+                                "section_type": s.section_type or "standard",
+                            }
+                            for s in sections
+                        ] if sections else [{
+                            "section_title": meta.get("section_title", ""),
+                            "excerpt": "",
+                            "section_type": meta.get("section_type", "standard"),
+                        }],
+                        "relevance_score": score,
+                        "mapping_type": "direct",
+                    }
+
+                    if len(guide_results) >= n_results:
+                        break
+
+            return sorted(
+                guide_results.values(),
+                key=lambda x: x["relevance_score"],
+                reverse=True,
+            )[:n_results]
+
+        except Exception as e:
+            logger.warning(f"KOSHA GUIDE 직접 벡터 검색 실패: {e}")
+            return []
 
 
 guide_service = GuideService()

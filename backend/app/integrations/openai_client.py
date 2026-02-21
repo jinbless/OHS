@@ -83,9 +83,14 @@ RISK_ANALYSIS_SCHEMA = {
                     "additionalProperties": False
                 },
                 "description": "위험요소와 관련된 산안법 조문번호 (최대 5개)"
+            },
+            "recommended_guide_keywords": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "KOSHA GUIDE 검색용 한국어 키워드 (구체적 도구명/작업명/위험유형, 최대 5개)"
             }
         },
-        "required": ["risks", "overall_assessment", "immediate_actions", "related_articles"],
+        "required": ["risks", "overall_assessment", "immediate_actions", "related_articles", "recommended_guide_keywords"],
         "additionalProperties": False
     }
 }

@@ -10,7 +10,7 @@ services:
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ALLOWED_ORIGINS=["http://localhost","http://localhost:80","https://${DOMAIN}","https://www.${DOMAIN}"]
-      - DATABASE_URL=sqlite:///./ohs.db
+      - DATABASE_URL=sqlite:///./data/ohs.db
     volumes:
       - backend_data:/app/data
       - ./ohs_articles:/home/blessjin/cashtoss/ohs/ohs_articles:ro
