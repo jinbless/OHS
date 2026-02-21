@@ -14,6 +14,7 @@ services:
     volumes:
       - backend_data:/app/data
       - ./ohs_articles:/home/blessjin/cashtoss/ohs/ohs_articles:ro
+      - ./guide:/home/blessjin/cashtoss/ohs/guide:ro
       - chromadb_data:/home/blessjin/cashtoss/ohs/backend/data/chromadb
     ports:
       - "127.0.0.1:8000:8000"

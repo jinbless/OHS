@@ -8,8 +8,10 @@ import logging
 from app.integrations.openai_client import openai_client
 from app.services.resource_service import resource_service
 from app.services.article_service import article_service
+from app.services.guide_service import guide_service
 from app.models.analysis import AnalysisResponse
 from app.models.article import ArticleMatch
+from app.models.guide import GuideMatch
 from app.models.hazard import Hazard, RiskLevel, HazardCategory
 from app.models.checklist import Checklist, ChecklistItem
 from app.db import crud
@@ -182,6 +184,24 @@ class AnalysisService:
         except Exception as e:
             logger.warning(f"법조항 검색 실패 (무시하고 계속): {e}")
 
+        # 관련 KOSHA GUIDE 검색
+        related_guides = []
+        try:
+            if related_articles:
+                article_nums = [a.article_number for a in related_articles]
+                hazard_desc = " ".join(
+                    r.get("description", "") for r in result.get("risks", [])
+                )
+                guide_results = guide_service.search_guides_for_articles(
+                    db=db,
+                    article_numbers=article_nums,
+                    hazard_description=hazard_desc,
+                    n_results=3,
+                )
+                related_guides = [GuideMatch(**g) for g in guide_results]
+        except Exception as e:
+            logger.warning(f"KOSHA GUIDE 검색 실패 (무시하고 계속): {e}")
+
         # overall_risk_level 도출
         overall_risk_level = self._derive_overall_risk_level(result.get("risks", []))
 
@@ -201,6 +221,7 @@ class AnalysisService:
             checklist=checklist,
             resources=resources,
             related_articles=related_articles,
+            related_guides=related_guides,
             recommendations=recommendations,
             analyzed_at=analyzed_at
         )

@@ -1,6 +1,6 @@
 {
-  "currentFeature": "ohs-article-matching",
-  "phase": "do",
+  "currentFeature": "kosha-guide-mapping",
+  "phase": "completed",
   "level": "Dynamic",
   "history": [
     {
@@ -20,6 +20,51 @@
       "feature": "ohs-article-matching",
       "timestamp": "2026-02-21T14:30:00Z",
       "output": "backend/app/services/article_service.py"
+    },
+    {
+      "action": "check",
+      "feature": "ohs-article-matching",
+      "timestamp": "2026-02-21T15:00:00Z",
+      "matchRate": 92,
+      "output": "docs/03-analysis/ohs-article-matching.analysis.md"
+    },
+    {
+      "action": "report",
+      "feature": "ohs-article-matching",
+      "timestamp": "2026-02-21T15:30:00Z",
+      "output": "docs/04-report/features/ohs-article-matching.report.md"
+    },
+    {
+      "action": "plan",
+      "feature": "kosha-guide-mapping",
+      "timestamp": "2026-02-21T16:00:00Z",
+      "output": "docs/01-plan/features/kosha-guide-mapping.plan.md"
+    },
+    {
+      "action": "design",
+      "feature": "kosha-guide-mapping",
+      "timestamp": "2026-02-21T16:30:00Z",
+      "output": "docs/02-design/features/kosha-guide-mapping.design.md"
+    },
+    {
+      "action": "do",
+      "feature": "kosha-guide-mapping",
+      "timestamp": "2026-02-21T17:00:00Z",
+      "output": "backend/app/services/guide_service.py"
+    },
+    {
+      "action": "check",
+      "feature": "kosha-guide-mapping",
+      "timestamp": "2026-02-21T17:30:00Z",
+      "matchRate": 87,
+      "adjusted": true,
+      "output": "docs/03-analysis/kosha-guide-mapping.analysis.md"
+    },
+    {
+      "action": "report",
+      "feature": "kosha-guide-mapping",
+      "timestamp": "2026-02-21T18:00:00Z",
+      "output": "docs/04-report/features/kosha-guide-mapping.report.md"
     }
   ]
 }

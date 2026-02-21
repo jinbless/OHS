@@ -7,6 +7,7 @@ import HazardList from '../components/results/HazardList';
 import ChecklistView from '../components/results/ChecklistView';
 import ResourceLinks from '../components/results/ResourceLinks';
 import RelatedArticles from '../components/results/RelatedArticles';
+import RelatedGuides from '../components/results/RelatedGuides';
 import Loading from '../components/common/Loading';
 import ErrorMessage from '../components/common/ErrorMessage';
 
@@ -14,7 +15,7 @@ const ResultPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { currentAnalysis, setCurrentAnalysis, isLoading, error, setLoading, setError } =
     useAnalysisStore();
-  const [activeTab, setActiveTab] = useState<'hazards' | 'articles' | 'checklist' | 'resources'>('hazards');
+  const [activeTab, setActiveTab] = useState<'hazards' | 'articles' | 'guides' | 'checklist' | 'resources'>('hazards');
 
   useEffect(() => {
     const fetchAnalysis = async () => {
@@ -106,6 +107,18 @@ const ResultPage: React.FC = () => {
         >
           관련 법조항 ({currentAnalysis.related_articles?.length || 0})
         </button>
+        {(currentAnalysis as any).related_guides?.length > 0 && (
+          <button
+            onClick={() => setActiveTab('guides')}
+            className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px ${
+              activeTab === 'guides'
+                ? 'border-green-600 text-green-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            KOSHA GUIDE ({(currentAnalysis as any).related_guides.length})
+          </button>
+        )}
         <button
           onClick={() => setActiveTab('checklist')}
           className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px ${
@@ -132,6 +145,7 @@ const ResultPage: React.FC = () => {
       <div className="mt-6">
         {activeTab === 'hazards' && <HazardList hazards={currentAnalysis.hazards} />}
         {activeTab === 'articles' && <RelatedArticles articles={currentAnalysis.related_articles || []} />}
+        {activeTab === 'guides' && <RelatedGuides guides={(currentAnalysis as any).related_guides || []} />}
         {activeTab === 'checklist' && <ChecklistView checklist={currentAnalysis.checklist} />}
         {activeTab === 'resources' && <ResourceLinks resources={currentAnalysis.resources} />}
       </div>
