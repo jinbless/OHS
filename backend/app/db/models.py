@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Text, DateTime, Integer, Float, Enum as SQLEnum, UniqueConstraint
+from sqlalchemy import Column, String, Text, DateTime, Integer, Float, Enum as SQLEnum, UniqueConstraint, Index
 from sqlalchemy.sql import func
 from app.db.database import Base
 from app.models.hazard import RiskLevel
@@ -61,4 +61,67 @@ class RegGuideMapping(Base):
 
     __table_args__ = (
         UniqueConstraint('article_number', 'guide_id', name='uq_reg_guide'),
+    )
+
+
+class NormStatement(Base):
+    """법조항을 규범명제(요건→효과) 단위로 분해한 결과"""
+    __tablename__ = "norm_statements"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    article_number = Column(String(30), nullable=False, index=True)  # "제42조"
+    paragraph = Column(String(20), nullable=True)  # "제1항"
+    statement_order = Column(Integer, nullable=False, default=1)
+
+    # 규범명제 구성요소 (온톨로지 L3 레이어)
+    subject_role = Column(Text, nullable=True)       # "사업주" | "근로자" | "관리감독자"
+    action = Column(Text, nullable=True)             # "추락방지조치" | "설치" | "점검"
+    object = Column(Text, nullable=True)             # "안전난간" | "방호장치" | "보호구"
+    condition_text = Column(Text, nullable=True)     # "높이 2m 이상" | "인화성 물질 부근"
+    legal_effect = Column(String(20), nullable=False, index=True)  # OBLIGATION | PROHIBITION | PERMISSION | EXCEPTION
+    effect_description = Column(Text, nullable=True)  # "설치 의무" | "사용 금지"
+
+    # 메타데이터
+    full_text = Column(Text, nullable=False)
+    norm_category = Column(String(20), nullable=True, index=True)  # safety | procedure | equipment | management
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint('article_number', 'paragraph', 'statement_order', name='uq_norm_stmt'),
+    )
+
+
+class SemanticMapping(Base):
+    """온톨로지 기반 의미적 매핑 (기존 reg_guide_mapping 보강)"""
+    __tablename__ = "semantic_mappings"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+
+    # 소스 (법조항 or 규범명제)
+    source_type = Column(String(20), nullable=False)  # "article" | "norm_statement"
+    source_id = Column(String(50), nullable=False)    # "제42조" or norm_statement.id
+
+    # 타겟 (가이드 or 법조항)
+    target_type = Column(String(20), nullable=False)  # "guide" | "article"
+    target_id = Column(String(50), nullable=False)    # guide_id or "제44조"
+
+    # 관계 정보 (온톨로지 L4 레이어)
+    relation_type = Column(String(30), nullable=False)  # IMPLEMENTS | SUPPLEMENTS | ...
+    relation_detail = Column(Text, nullable=True)
+
+    # 발견 메타데이터
+    confidence = Column(Float, nullable=False, default=0.0)
+    discovery_method = Column(String(20), nullable=False)  # "llm" | "vector" | "reference" | "keyword"
+    discovery_tier = Column(String(5), nullable=True)      # "A" ~ "F"
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        UniqueConstraint('source_type', 'source_id', 'target_type', 'target_id', 'relation_type',
+                         name='uq_semantic_map'),
+        Index('idx_sm_source', 'source_type', 'source_id'),
+        Index('idx_sm_target', 'target_type', 'target_id'),
+        Index('idx_sm_relation', 'relation_type'),
+        Index('idx_sm_confidence', 'confidence'),
     )

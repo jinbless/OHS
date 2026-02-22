@@ -5,6 +5,7 @@
 | Feature | PDCA Cycle | Match Rate | Archived Date |
 |---------|:----------:|:----------:|:------------:|
 | kosha-guide-matching-v2 | #3 | 93% | 2026-02-22 |
+| analysis-ontology-integration | #4 | 90% | 2026-02-22 |
 
 ## Documents
 
@@ -16,3 +17,12 @@
 | Design | [kosha-guide-matching-v2.design.md](kosha-guide-matching-v2/kosha-guide-matching-v2.design.md) |
 | Check | [kosha-guide-matching-v2.analysis.md](kosha-guide-matching-v2/kosha-guide-matching-v2.analysis.md) |
 | Report | [kosha-guide-matching-v2.report.md](kosha-guide-matching-v2/kosha-guide-matching-v2.report.md) |
+
+### analysis-ontology-integration
+
+| Phase | Document |
+|-------|----------|
+| Plan | [analysis-ontology-integration.plan.md](analysis-ontology-integration/analysis-ontology-integration.plan.md) |
+| Design | [analysis-ontology-integration.design.md](analysis-ontology-integration/analysis-ontology-integration.design.md) |
+| Check | [analysis-ontology-integration.analysis.md](analysis-ontology-integration/analysis-ontology-integration.analysis.md) |
+| Report | [analysis-ontology-integration.report.md](analysis-ontology-integration/analysis-ontology-integration.report.md) |

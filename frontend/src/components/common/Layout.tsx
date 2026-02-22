@@ -13,6 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { path: '/', label: '홈', icon: '🏠' },
     { path: '/analysis', label: '위험요소 분석', icon: '🔍' },
     { path: '/history', label: '분석 기록', icon: '📋' },
+    { path: '/ontology', label: '온톨로지', icon: '🔗' },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);

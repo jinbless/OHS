@@ -1,9 +1,7 @@
 import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 from app.config import settings
 from app.api.v1.router import router as api_v1_router
@@ -66,11 +64,6 @@ app.add_middleware(
 )
 
 app.include_router(api_v1_router, prefix="/api/v1")
-
-# PDF 파일 직접 제공 (프론트엔드에서 PDF 뷰어로 열기 위함)
-articles_path = Path("/home/blessjin/cashtoss/ohs/ohs_articles")
-if articles_path.exists():
-    app.mount("/articles-pdf", StaticFiles(directory=str(articles_path)), name="articles-pdf")
 
 
 @app.get("/")

@@ -9,10 +9,10 @@ from app.integrations.openai_client import openai_client
 from app.services.resource_service import resource_service
 from app.services.article_service import article_service
 from app.services.guide_service import guide_service
-from app.models.analysis import AnalysisResponse
-from app.models.article import ArticleMatch
+from app.services.ontology_service import ontology_service
+from app.models.analysis import AnalysisResponse, NormContext, LinkedGuideSummary
 from app.models.guide import GuideMatch, GuideArticleRef
-from app.models.hazard import Hazard, RiskLevel, HazardCategory
+from app.models.hazard import Hazard, RiskLevel, HazardCategory, NormSummary
 from app.models.checklist import Checklist, ChecklistItem
 from app.db import crud
 from app.utils.exceptions import OpenAIAPIError
@@ -163,27 +163,6 @@ class AnalysisService:
         # 관련 리소스 가져오기
         resources = resource_service.get_resources_by_categories(hazard_categories)
 
-        # 관련 법조항 검색 (하이브리드 파이프라인 v2)
-        related_articles = []
-        try:
-            if article_service.collection.count() > 0:
-                hazard_dicts = [
-                    {
-                        "category_code": r.get("category_code", ""),
-                        "name": r.get("category_name", ""),
-                        "description": r.get("description", ""),
-                    }
-                    for r in result.get("risks", [])
-                ]
-                gpt_recommended = result.get("related_articles", [])
-                article_results = article_service.hybrid_search_for_hazards(
-                    hazards=hazard_dicts,
-                    gpt_recommended_articles=gpt_recommended if gpt_recommended else None,
-                )
-                related_articles = [ArticleMatch(**a) for a in article_results]
-        except Exception as e:
-            logger.warning(f"법조항 검색 실패 (무시하고 계속): {e}")
-
         # 관련 KOSHA GUIDE 검색 (Dual-Path + 키워드 Re-rank)
         related_guides = []
         try:
@@ -191,7 +170,6 @@ class AnalysisService:
             hazard_descs = [
                 r.get("description", "") for r in result.get("risks", [])
             ]
-            hazard_text = " ".join(hazard_descs)
             guide_keywords = result.get("recommended_guide_keywords", [])[:5]  # 최대 5개 (dilution 방지)
             logger.warning(f"[KOSHA] GPT 키워드: {guide_keywords}")
 
@@ -225,33 +203,33 @@ class AnalysisService:
                     guide_results_map[g["guide_code"]] = g
             logger.warning(f"[KOSHA] Path B (벡터): {len(path_b)}건 ({[g['guide_code'] for g in path_b]})")
 
-            # Path A: 법조항 매핑 기반 검색 (보조)
-            if related_articles:
-                article_nums = [a.article_number for a in related_articles]
-                path_a = guide_service.search_guides_for_articles(
-                    db=db,
-                    article_numbers=article_nums,
-                    hazard_description=hazard_text,
-                    n_results=5,
+            # 시맨틱 매핑 부스트 조회
+            semantic_boost = {}
+            try:
+                semantic_boost = ontology_service.get_semantic_boost_for_guides(
+                    db, list(guide_results_map.keys())
                 )
-                for g in path_a:
-                    if g["guide_code"] not in guide_results_map:
-                        guide_results_map[g["guide_code"]] = g
-                logger.warning(f"[KOSHA] Path A (법조항): {len(path_a)}건 ({[g['guide_code'] for g in path_a]})")
+            except Exception as e:
+                logger.warning(f"시맨틱 부스트 조회 실패: {e}")
 
-            # Re-rank: effective_keywords(GPT 또는 자동추출) + 핵심 명사 기반 점수 조정
+            # Re-rank: effective_keywords + 시맨틱 부스트 기반 점수 조정
             for code, g in guide_results_map.items():
                 title = g.get("title", "")
-                # 키워드 매칭 (가장 강한 시그널) - GPT 키워드든 자동추출이든
+                # 키워드 매칭 (가장 강한 시그널)
                 keyword_hits = sum(1 for kw in effective_keywords if kw in title) if effective_keywords else 0
 
                 if keyword_hits > 0:
                     boost = min(0.35, keyword_hits * 0.15)
                     g["relevance_score"] = min(0.99, g["relevance_score"] + boost)
                 elif g.get("mapping_type") == "explicit":
-                    # explicit 매핑이지만 키워드와 전혀 무관 → 강한 페널티
                     g["relevance_score"] = g["relevance_score"] * 0.4
-                logger.warning(f"[KOSHA] Re-rank: {code} kw={keyword_hits} {g['relevance_score']:.3f} ({title[:30]})")
+
+                # 시맨틱 매핑 부스트 적용
+                sm_boost = semantic_boost.get(code, 0.0)
+                if sm_boost > 0:
+                    g["relevance_score"] = min(0.99, g["relevance_score"] + sm_boost)
+
+                logger.warning(f"[KOSHA] Re-rank: {code} kw={keyword_hits} sm={sm_boost:.2f} {g['relevance_score']:.3f} ({title[:30]})")
 
             # 점수 순 정렬, 최대 5개
             sorted_guides = sorted(
@@ -265,13 +243,11 @@ class AnalysisService:
             guide_article_map = guide_service.get_mapped_articles_for_guides(db, guide_codes)
 
             # 가이드에 매핑된 법조항의 상세 정보를 article_service에서 조회
-            guide_covered_articles = set()  # 가이드에서 이미 커버된 법조항
             for g in sorted_guides:
                 mapped_refs = guide_article_map.get(g["guide_code"], [])
                 enriched_refs = []
                 for ref in mapped_refs:
                     article_num = ref["article_number"]
-                    guide_covered_articles.add(article_num)
                     # ChromaDB에서 상세 정보 조회
                     detail = article_service._find_article_by_number(article_num)
                     if detail:
@@ -287,13 +263,6 @@ class AnalysisService:
 
             related_guides = [GuideMatch(**g) for g in sorted_guides]
 
-            # 독립 검색 법조항에서 가이드에 이미 포함된 것 제외
-            if guide_covered_articles and related_articles:
-                related_articles = [
-                    a for a in related_articles
-                    if a.article_number not in guide_covered_articles
-                ]
-
         except Exception as e:
             logger.warning(f"KOSHA GUIDE 검색 실패 (무시하고 계속): {e}")
 
@@ -306,6 +275,34 @@ class AnalysisService:
         # immediate_actions → recommendations
         recommendations = result.get("immediate_actions", [])
 
+        # 온톨로지 법조항 매칭 + 규범명제 조회
+        norm_context_list = []
+        try:
+            hazard_descs = [r.get("description", "") for r in result.get("risks", [])]
+            raw_norms = ontology_service.find_related_articles_for_hazards(
+                db, hazard_descs, hazard_categories
+            )
+
+            for nc in raw_norms:
+                norm_context_list.append(NormContext(
+                    article_number=nc["article_number"],
+                    article_title=nc.get("article_title"),
+                    norms=[NormSummary(**n) for n in nc.get("norms", [])],
+                    linked_guides=[LinkedGuideSummary(**g) for g in nc.get("linked_guides", [])],
+                ))
+
+            # Hazard.legal_reference + related_norms 채우기
+            for hazard in hazards:
+                best = self._find_best_norm_for_hazard(hazard, raw_norms)
+                if best:
+                    hazard.legal_reference = f"{best['article_number']} ({best.get('article_title', '')})"
+                    hazard.related_norms = [
+                        NormSummary(**n) for n in best.get("norms", [])[:3]
+                    ]
+
+        except Exception as e:
+            logger.warning(f"온톨로지 매칭 실패 (무시하고 계속): {e}")
+
         # 응답 생성
         response = AnalysisResponse(
             analysis_id=analysis_id,
@@ -315,8 +312,8 @@ class AnalysisService:
             hazards=hazards,
             checklist=checklist,
             resources=resources,
-            related_articles=related_articles,
             related_guides=related_guides,
+            norm_context=norm_context_list,
             recommendations=recommendations,
             analyzed_at=analyzed_at
         )
@@ -333,6 +330,53 @@ class AnalysisService:
         )
 
         return response
+
+
+    # 카테고리별 법조항 범위 (ontology_service와 동일)
+    CATEGORY_ARTICLE_RANGE = {
+        "physical": [(32, 67), (86, 166)],
+        "chemical": [(225, 290)],
+        "electrical": [(301, 339)],
+        "ergonomic": [(656, 671)],
+        "environmental": [(559, 586)],
+        "biological": [(592, 604)],
+    }
+
+    def _find_best_norm_for_hazard(self, hazard: Hazard, norm_contexts: list) -> Optional[dict]:
+        """Hazard에 가장 적합한 법조항+규범명제를 찾기
+
+        우선순위:
+        1. 위험요소 설명 키워드가 규범명제 텍스트에 포함된 법조항
+        2. 카테고리 범위 내 법조항
+        3. 첫 번째 법조항 (벡터 유사도 최상위)
+        """
+        if not norm_contexts:
+            return None
+
+        # 위험요소 설명에서 주요 키워드 추출
+        desc = hazard.description
+        keywords = [w for w in desc.split() if len(w) >= 2]
+
+        # 1차: 키워드가 규범명제 텍스트에 포함되는 법조항
+        best_score = 0
+        best_nc = None
+        for nc in norm_contexts:
+            score = 0
+            all_norm_text = " ".join(n.get("full_text", "") for n in nc.get("norms", []))
+            article_title = nc.get("article_title", "") or ""
+            combined_text = article_title + " " + all_norm_text
+            for kw in keywords:
+                if kw in combined_text:
+                    score += 1
+            if score > best_score:
+                best_score = score
+                best_nc = nc
+
+        if best_nc and best_score >= 2:
+            return best_nc
+
+        # 2차: 첫 번째 반환 (벡터 유사도 순서 유지)
+        return norm_contexts[0] if norm_contexts else None
 
 
 analysis_service = AnalysisService()

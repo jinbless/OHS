@@ -19,6 +19,14 @@ class RiskLevel(str, Enum):
     LOW = "low"
 
 
+class NormSummary(BaseModel):
+    """위험요소에 연결된 규범명제 요약"""
+    article_number: str
+    legal_effect: str
+    action: Optional[str] = None
+    full_text: str
+
+
 class Hazard(BaseModel):
     id: str
     category: HazardCategory
@@ -29,3 +37,4 @@ class Hazard(BaseModel):
     potential_consequences: List[str]
     preventive_measures: List[str]
     legal_reference: Optional[str] = None
+    related_norms: List[NormSummary] = []

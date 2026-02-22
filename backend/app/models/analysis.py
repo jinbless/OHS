@@ -1,10 +1,9 @@
 from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
-from app.models.hazard import Hazard, RiskLevel
+from app.models.hazard import Hazard, RiskLevel, NormSummary
 from app.models.checklist import Checklist
 from app.models.resource import Resource
-from app.models.article import ArticleMatch
 from app.models.guide import GuideMatch
 
 
@@ -19,6 +18,21 @@ class TextAnalysisRequest(BaseModel):
     industry_sector: Optional[str] = None
 
 
+class LinkedGuideSummary(BaseModel):
+    guide_code: str
+    title: str
+    relation_type: str
+    confidence: float
+
+
+class NormContext(BaseModel):
+    """분석 결과에 포함되는 온톨로지 컨텍스트"""
+    article_number: str
+    article_title: Optional[str] = None
+    norms: List[NormSummary] = []
+    linked_guides: List[LinkedGuideSummary] = []
+
+
 class AnalysisResponse(BaseModel):
     analysis_id: str
     analysis_type: str  # "image" or "text"
@@ -27,8 +41,8 @@ class AnalysisResponse(BaseModel):
     hazards: List[Hazard]
     checklist: Checklist
     resources: List[Resource]
-    related_articles: List[ArticleMatch] = []
     related_guides: List[GuideMatch] = []
+    norm_context: List[NormContext] = []
     recommendations: List[str]
     analyzed_at: datetime
 

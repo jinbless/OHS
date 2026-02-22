@@ -1,7 +1,7 @@
 {
-  "currentFeature": "kosha-guide-matching-v2",
+  "currentFeature": "analysis-ontology-integration",
   "phase": "archived",
-  "archivedTo": "docs/archive/2026-02/kosha-guide-matching-v2/",
+  "archivedTo": "docs/archive/2026-02/analysis-ontology-integration/",
   "level": "Dynamic",
   "history": [
     {
@@ -97,6 +97,12 @@
       "feature": "kosha-guide-matching-v2",
       "timestamp": "2026-02-22T10:40:00Z",
       "output": "docs/04-report/features/kosha-guide-matching-v2.report.md"
+    },
+    {
+      "action": "plan",
+      "feature": "analysis-ontology-integration",
+      "timestamp": "2026-02-22T11:30:00Z",
+      "output": "docs/01-plan/features/analysis-ontology-integration.plan.md"
     }
   ]
 }

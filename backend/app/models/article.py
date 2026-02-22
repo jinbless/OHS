@@ -10,12 +10,6 @@ class ArticleMatch(BaseModel):
     relevance_score: float
 
 
-class ArticleSearchResponse(BaseModel):
-    query: str
-    results: List[ArticleMatch]
-    total: int
-
-
 class ArticleIndexResponse(BaseModel):
     total_indexed: int
     message: str

@@ -2,14 +2,6 @@ import { Hazard, RiskLevel } from './hazard';
 import { Checklist } from './checklist';
 import { Resource } from './resource';
 
-export interface ArticleMatch {
-  article_number: string;
-  title: string;
-  content: string;
-  source_file: string;
-  relevance_score: number;
-}
-
 export interface GuideArticleRef {
   article_number: string;
   title: string;
@@ -47,7 +39,6 @@ export interface AnalysisResponse {
   hazards: Hazard[];
   checklist: Checklist;
   resources: Resource[];
-  related_articles: ArticleMatch[];
   related_guides: GuideMatch[];
   recommendations: string[];
   analyzed_at: string;
