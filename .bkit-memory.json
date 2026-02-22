@@ -1,6 +1,7 @@
 {
-  "currentFeature": "kosha-guide-mapping",
-  "phase": "completed",
+  "currentFeature": "kosha-guide-matching-v2",
+  "phase": "archived",
+  "archivedTo": "docs/archive/2026-02/kosha-guide-matching-v2/",
   "level": "Dynamic",
   "history": [
     {
@@ -65,6 +66,37 @@
       "feature": "kosha-guide-mapping",
       "timestamp": "2026-02-21T18:00:00Z",
       "output": "docs/04-report/features/kosha-guide-mapping.report.md"
+    },
+    {
+      "action": "plan",
+      "feature": "kosha-guide-matching-v2",
+      "timestamp": "2026-02-22T10:00:00Z",
+      "output": "docs/01-plan/features/kosha-guide-matching-v2.plan.md"
+    },
+    {
+      "action": "design",
+      "feature": "kosha-guide-matching-v2",
+      "timestamp": "2026-02-22T10:10:00Z",
+      "output": "docs/02-design/features/kosha-guide-matching-v2.design.md"
+    },
+    {
+      "action": "do",
+      "feature": "kosha-guide-matching-v2",
+      "timestamp": "2026-02-22T10:20:00Z",
+      "output": "backend/app/services/guide_service.py"
+    },
+    {
+      "action": "check",
+      "feature": "kosha-guide-matching-v2",
+      "timestamp": "2026-02-22T10:30:00Z",
+      "matchRate": 93,
+      "output": "docs/03-analysis/kosha-guide-matching-v2.analysis.md"
+    },
+    {
+      "action": "report",
+      "feature": "kosha-guide-matching-v2",
+      "timestamp": "2026-02-22T10:40:00Z",
+      "output": "docs/04-report/features/kosha-guide-matching-v2.report.md"
     }
   ]
 }
