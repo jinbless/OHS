@@ -192,10 +192,40 @@ class AnalysisService:
                 r.get("description", "") for r in result.get("risks", [])
             ]
             hazard_text = " ".join(hazard_descs)
-            guide_keywords = result.get("recommended_guide_keywords", [])
-            logger.info(f"KOSHA GUIDE 검색 - GPT 키워드: {guide_keywords}")
+            guide_keywords = result.get("recommended_guide_keywords", [])[:5]  # 최대 5개 (dilution 방지)
+            logger.warning(f"[KOSHA] GPT 키워드: {guide_keywords}")
 
-            # Path A: 법조항 매핑 기반 검색
+            # 키워드가 없으면 설명에서 자동 추출 (re-ranking용)
+            effective_keywords = guide_keywords
+            if not effective_keywords:
+                effective_keywords = guide_service._extract_key_nouns(hazard_descs)
+                logger.warning(f"[KOSHA] 자동추출 키워드: {effective_keywords}")
+
+            # Path C: 키워드로 타이틀 직접 매칭 (결정론적, 가장 먼저)
+            path_c = guide_service.search_guides_by_title_keywords(
+                db=db,
+                keywords=effective_keywords,
+                n_results=5,
+                exclude_codes=[],
+            )
+            for g in path_c:
+                guide_results_map[g["guide_code"]] = g
+            logger.warning(f"[KOSHA] Path C (타이틀): {len(path_c)}건 ({[g['guide_code'] for g in path_c]})")
+
+            # Path B: 직접 벡터검색
+            path_b = guide_service.search_guides_by_description(
+                db=db,
+                hazard_descriptions=hazard_descs,
+                guide_keywords=guide_keywords if guide_keywords else None,
+                n_results=5,
+                exclude_codes=list(guide_results_map.keys()),
+            )
+            for g in path_b:
+                if g["guide_code"] not in guide_results_map:
+                    guide_results_map[g["guide_code"]] = g
+            logger.warning(f"[KOSHA] Path B (벡터): {len(path_b)}건 ({[g['guide_code'] for g in path_b]})")
+
+            # Path A: 법조항 매핑 기반 검색 (보조)
             if related_articles:
                 article_nums = [a.article_number for a in related_articles]
                 path_a = guide_service.search_guides_for_articles(
@@ -205,48 +235,23 @@ class AnalysisService:
                     n_results=5,
                 )
                 for g in path_a:
-                    guide_results_map[g["guide_code"]] = g
+                    if g["guide_code"] not in guide_results_map:
+                        guide_results_map[g["guide_code"]] = g
+                logger.warning(f"[KOSHA] Path A (법조항): {len(path_a)}건 ({[g['guide_code'] for g in path_a]})")
 
-            # Path B: 위험 설명 + GPT 키워드로 직접 벡터 검색
-            path_b = guide_service.search_guides_by_description(
-                db=db,
-                hazard_descriptions=hazard_descs,
-                guide_keywords=guide_keywords,
-                n_results=5,
-                exclude_codes=list(guide_results_map.keys()),
-            )
-            for g in path_b:
-                if g["guide_code"] not in guide_results_map:
-                    guide_results_map[g["guide_code"]] = g
-
-            # Re-rank: GPT 키워드 + 핵심 명사 기반 점수 조정
-            # 핵심 명사만 추출 (2글자 이상, 일반적 단어 제외)
-            stop_words = {
-                "위험", "사고", "작업", "안전", "관련", "발생", "가능", "경우", "상태", "조치",
-                "방치", "예방", "존재", "높음", "관한", "위한", "대한", "인한", "의한", "따른",
-                "통한", "해당", "있어", "있음", "없음", "등으로", "인해", "경미한", "심각한",
-                "부딪혀", "입을", "때문", "중상", "경상", "가능성", "우려", "특히", "정리",
-            }
-            core_terms = [
-                kw for desc in hazard_descs
-                for kw in desc.split() if len(kw) >= 2 and kw not in stop_words
-            ]
-
+            # Re-rank: effective_keywords(GPT 또는 자동추출) + 핵심 명사 기반 점수 조정
             for code, g in guide_results_map.items():
                 title = g.get("title", "")
-                # GPT 키워드 매칭 (가장 강한 시그널)
-                keyword_hits = sum(1 for kw in guide_keywords if kw in title) if guide_keywords else 0
-                # 핵심 명사 매칭
-                core_hits = sum(1 for term in core_terms if term in title)
+                # 키워드 매칭 (가장 강한 시그널) - GPT 키워드든 자동추출이든
+                keyword_hits = sum(1 for kw in effective_keywords if kw in title) if effective_keywords else 0
 
                 if keyword_hits > 0:
                     boost = min(0.35, keyword_hits * 0.15)
                     g["relevance_score"] = min(0.99, g["relevance_score"] + boost)
-                elif core_hits >= 2:
-                    g["relevance_score"] = min(0.95, g["relevance_score"] + 0.1)
-                elif core_hits == 0 and g.get("mapping_type") == "explicit":
-                    # explicit 매핑이지만 핵심 명사와 전혀 무관
-                    g["relevance_score"] = g["relevance_score"] * 0.5
+                elif g.get("mapping_type") == "explicit":
+                    # explicit 매핑이지만 키워드와 전혀 무관 → 강한 페널티
+                    g["relevance_score"] = g["relevance_score"] * 0.4
+                logger.warning(f"[KOSHA] Re-rank: {code} kw={keyword_hits} {g['relevance_score']:.3f} ({title[:30]})")
 
             # 점수 순 정렬, 최대 5개
             sorted_guides = sorted(

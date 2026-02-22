@@ -520,6 +520,34 @@ class GuideService:
 
     # ── Path B: 직접 벡터 검색 (법조항 우회) ──────────────────
 
+    # 설명문에서 핵심 명사 자동 추출 (키워드 폴백용)
+    _DESC_STOP_WORDS = {
+        "위험", "사고", "작업", "안전", "관련", "발생", "가능", "경우", "상태", "조치",
+        "방치", "예방", "존재", "높음", "관한", "위한", "대한", "인한", "의한", "따른",
+        "통한", "해당", "있어", "있음", "없음", "등으로", "인해", "경미한", "심각한",
+        "위험이", "수", "할", "등이", "것이", "놓여", "드러난", "무방비로", "젖었을",
+        "가능성이", "이어질", "발생할", "흩어져", "떨어져", "위에", "주변에",
+        "사용하여", "바닥이", "바닥에", "과정에서", "실수로", "다듬는", "다칠",
+    }
+
+    def _extract_key_nouns(self, descriptions: List[str]) -> List[str]:
+        """위험 설명에서 핵심 명사를 추출 (GPT 키워드가 없을 때 폴백)"""
+        nouns = []
+        for desc in descriptions:
+            for token in desc.split():
+                # 조사/어미 제거 (간이 처리)
+                clean = token.rstrip("이가을를은는에서와도의")
+                if len(clean) >= 2 and clean not in self._DESC_STOP_WORDS:
+                    nouns.append(clean)
+        # 중복 제거, 최대 7개
+        seen = set()
+        unique = []
+        for n in nouns:
+            if n not in seen:
+                seen.add(n)
+                unique.append(n)
+        return unique[:7]
+
     def search_guides_by_description(
         self,
         db: Session,
@@ -531,17 +559,25 @@ class GuideService:
         """위험 설명 + GPT 키워드로 KOSHA GUIDE 직접 검색 (법조항 우회)
 
         Path B: 법조항 매핑 없이 위험 설명에서 바로 관련 가이드를 찾는다.
+        키워드가 없으면 설명에서 핵심 명사를 자동 추출하여 사용.
         """
         if self.collection.count() == 0:
             return []
 
         exclude_codes = exclude_codes or []
 
-        # 검색 쿼리 구성: 키워드가 있으면 키워드만 사용 (dilution 방지)
+        # 검색 쿼리 구성
         if guide_keywords:
+            # GPT 키워드가 있으면 키워드만 사용 (dilution 방지)
             query = " ".join(guide_keywords) + " 안전지침 기술지침"
         else:
-            query = " ".join(hazard_descriptions)[:500]
+            # 키워드 없음: 설명에서 핵심 명사 추출 + 안전지침 접미사
+            extracted = self._extract_key_nouns(hazard_descriptions)
+            if extracted:
+                query = " ".join(extracted) + " 안전지침 기술지침"
+                logger.warning(f"KOSHA Path B: GPT 키워드 없음, 자동추출: {extracted}")
+            else:
+                query = " ".join(hazard_descriptions)[:500]
 
         if not query.strip():
             return []
@@ -560,6 +596,8 @@ class GuideService:
             )
 
             guide_results: Dict[str, dict] = {}
+            # 키워드가 있으면 높은 threshold, 없으면 낮은 threshold
+            threshold = 0.45 if guide_keywords else 0.35
 
             if results and results["metadatas"] and results["metadatas"][0]:
                 for i, meta in enumerate(results["metadatas"][0]):
@@ -570,7 +608,7 @@ class GuideService:
                     distance = results["distances"][0][i] if results["distances"] else 0.5
                     score = round(1 - distance, 4)
 
-                    if score < 0.45:
+                    if score < threshold:
                         continue
 
                     # DB에서 해당 가이드의 핵심 섹션 조회
@@ -619,6 +657,91 @@ class GuideService:
             logger.warning(f"KOSHA GUIDE 직접 벡터 검색 실패: {e}")
             return []
 
+
+    # ── Path C: 키워드 타이틀 직접 매칭 (벡터 검색 보완) ────────
+
+    def search_guides_by_title_keywords(
+        self,
+        db: Session,
+        keywords: List[str],
+        n_results: int = 3,
+        exclude_codes: List[str] = None,
+    ) -> List[dict]:
+        """키워드로 가이드 타이틀 직접 검색
+
+        벡터 검색의 non-determinism을 보완하기 위한 결정론적 검색.
+        복합 키워드 분리, 2글자 이상만, 단어 경계 매칭.
+        """
+        exclude_codes = exclude_codes or []
+        if not keywords:
+            return []
+
+        # 복합 키워드를 개별 단어로 분리, 2글자 이상만 사용
+        clean_keywords = []
+        for kw in keywords:
+            for word in kw.split():
+                if len(word) >= 2 and word not in {
+                    "안전", "관한", "위한", "대한", "예방", "관리", "작업",
+                    "방지", "설치", "기준", "기술", "지침", "규정", "시행",
+                    "사용", "보건", "산업", "일반", "운용", "프로그램",
+                }:
+                    clean_keywords.append(word)
+        # 중복 제거
+        seen = set()
+        clean_keywords = [kw for kw in clean_keywords if not (kw in seen or seen.add(kw))]
+
+        if not clean_keywords:
+            return []
+
+        logger.warning(f"[KOSHA] Path C 정제 키워드: {clean_keywords}")
+
+        guides = db.query(KoshaGuide).all()
+        scored = []
+
+        for guide in guides:
+            if guide.guide_code in exclude_codes:
+                continue
+            title = guide.title or ""
+            # 단어 경계 매칭: 키워드가 타이틀의 독립 단어로 포함되는지 확인
+            # "수공구" in "수공구 사용 안전지침" → O
+            # "칼" in "수산화칼륨" → X (단어 경계 아님)
+            title_words = title.replace("·", " ").replace(",", " ").replace("(", " ").replace(")", " ").split()
+            hits = 0
+            for kw in clean_keywords:
+                # 타이틀의 각 단어에 키워드가 포함되는지 (단어 시작부)
+                for tw in title_words:
+                    if tw.startswith(kw) or kw == tw:
+                        hits += 1
+                        break
+            if hits > 0:
+                # 히트 수 기반 점수 (0.5 + 히트 비율 * 0.3)
+                score = 0.5 + (hits / len(clean_keywords)) * 0.3
+                sections = (
+                    db.query(GuideSectionModel)
+                    .filter(GuideSectionModel.guide_id == guide.id)
+                    .filter(GuideSectionModel.section_type.in_(["standard", "procedure"]))
+                    .order_by(GuideSectionModel.section_order)
+                    .limit(2)
+                    .all()
+                )
+                scored.append({
+                    "guide_code": guide.guide_code,
+                    "title": guide.title,
+                    "classification": guide.classification,
+                    "relevant_sections": [
+                        {
+                            "section_title": s.section_title or "",
+                            "excerpt": s.body_text[:200] if s.body_text else "",
+                            "section_type": s.section_type or "standard",
+                        }
+                        for s in sections
+                    ] if sections else [],
+                    "relevance_score": round(score, 4),
+                    "mapping_type": "title_match",
+                })
+
+        scored.sort(key=lambda x: x["relevance_score"], reverse=True)
+        return scored[:n_results]
 
     # ── 가이드 → 법조항 역매핑 ──────────────────────────────
 
