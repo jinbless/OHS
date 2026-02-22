@@ -620,4 +620,43 @@ class GuideService:
             return []
 
 
+    # ── 가이드 → 법조항 역매핑 ──────────────────────────────
+
+    def get_mapped_articles_for_guides(
+        self,
+        db: Session,
+        guide_codes: List[str],
+    ) -> Dict[str, List[dict]]:
+        """KOSHA GUIDE 코드 목록에 대해 매핑된 법조항 조회
+
+        Returns:
+            {guide_code: [{"article_number": "제86조", "title": "...", ...}, ...]}
+        """
+        result: Dict[str, List[dict]] = {}
+
+        guides = (
+            db.query(KoshaGuide)
+            .filter(KoshaGuide.guide_code.in_(guide_codes))
+            .all()
+        )
+
+        for guide in guides:
+            articles = []
+            if guide.related_regulations:
+                try:
+                    regs = json.loads(guide.related_regulations)
+                    for article_num in regs:
+                        articles.append({
+                            "article_number": article_num,
+                            "title": "",
+                            "content": "",
+                            "source_file": "",
+                        })
+                except (json.JSONDecodeError, Exception):
+                    pass
+            result[guide.guide_code] = articles
+
+        return result
+
+
 guide_service = GuideService()

@@ -86,10 +86,10 @@ const ResultPage: React.FC = () => {
       <ResultSummary analysis={currentAnalysis} />
 
       {/* 탭 네비게이션 */}
-      <div className="flex gap-2 my-6 border-b border-gray-200">
+      <div className="flex gap-2 my-6 border-b border-gray-200 overflow-x-auto">
         <button
           onClick={() => setActiveTab('hazards')}
-          className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px ${
+          className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px whitespace-nowrap ${
             activeTab === 'hazards'
               ? 'border-primary-600 text-primary-600'
               : 'border-transparent text-gray-500 hover:text-gray-700'
@@ -97,31 +97,33 @@ const ResultPage: React.FC = () => {
         >
           위험요소 ({currentAnalysis.hazards.length})
         </button>
-        <button
-          onClick={() => setActiveTab('articles')}
-          className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px ${
-            activeTab === 'articles'
-              ? 'border-primary-600 text-primary-600'
-              : 'border-transparent text-gray-500 hover:text-gray-700'
-          }`}
-        >
-          관련 법조항 ({currentAnalysis.related_articles?.length || 0})
-        </button>
         {(currentAnalysis as any).related_guides?.length > 0 && (
           <button
             onClick={() => setActiveTab('guides')}
-            className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px ${
+            className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px whitespace-nowrap ${
               activeTab === 'guides'
                 ? 'border-green-600 text-green-600'
                 : 'border-transparent text-gray-500 hover:text-gray-700'
             }`}
           >
-            KOSHA GUIDE ({(currentAnalysis as any).related_guides.length})
+            안전지침 & 법조항 ({(currentAnalysis as any).related_guides.length})
+          </button>
+        )}
+        {currentAnalysis.related_articles?.length > 0 && (
+          <button
+            onClick={() => setActiveTab('articles')}
+            className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px whitespace-nowrap ${
+              activeTab === 'articles'
+                ? 'border-primary-600 text-primary-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            추가 참고 법조항 ({currentAnalysis.related_articles.length})
           </button>
         )}
         <button
           onClick={() => setActiveTab('checklist')}
-          className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px ${
+          className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px whitespace-nowrap ${
             activeTab === 'checklist'
               ? 'border-primary-600 text-primary-600'
               : 'border-transparent text-gray-500 hover:text-gray-700'
@@ -131,7 +133,7 @@ const ResultPage: React.FC = () => {
         </button>
         <button
           onClick={() => setActiveTab('resources')}
-          className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px ${
+          className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px whitespace-nowrap ${
             activeTab === 'resources'
               ? 'border-primary-600 text-primary-600'
               : 'border-transparent text-gray-500 hover:text-gray-700'

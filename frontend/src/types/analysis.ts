@@ -10,6 +10,29 @@ export interface ArticleMatch {
   relevance_score: number;
 }
 
+export interface GuideArticleRef {
+  article_number: string;
+  title: string;
+  content?: string;
+  source_file?: string;
+}
+
+export interface GuideSectionInfo {
+  section_title: string;
+  excerpt: string;
+  section_type?: string;
+}
+
+export interface GuideMatch {
+  guide_code: string;
+  title: string;
+  classification: string;
+  relevant_sections: GuideSectionInfo[];
+  relevance_score: number;
+  mapping_type: string;
+  mapped_articles: GuideArticleRef[];
+}
+
 export interface TextAnalysisRequest {
   description: string;
   workplace_type?: string;
@@ -25,6 +48,7 @@ export interface AnalysisResponse {
   checklist: Checklist;
   resources: Resource[];
   related_articles: ArticleMatch[];
+  related_guides: GuideMatch[];
   recommendations: string[];
   analyzed_at: string;
 }

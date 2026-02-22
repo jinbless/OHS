@@ -11,7 +11,7 @@ from app.services.article_service import article_service
 from app.services.guide_service import guide_service
 from app.models.analysis import AnalysisResponse
 from app.models.article import ArticleMatch
-from app.models.guide import GuideMatch
+from app.models.guide import GuideMatch, GuideArticleRef
 from app.models.hazard import Hazard, RiskLevel, HazardCategory
 from app.models.checklist import Checklist, ChecklistItem
 from app.db import crud
@@ -254,7 +254,41 @@ class AnalysisService:
                 key=lambda x: x["relevance_score"],
                 reverse=True,
             )[:5]
+
+            # 각 KOSHA GUIDE에 매핑된 법조항 추가 (역매핑)
+            guide_codes = [g["guide_code"] for g in sorted_guides]
+            guide_article_map = guide_service.get_mapped_articles_for_guides(db, guide_codes)
+
+            # 가이드에 매핑된 법조항의 상세 정보를 article_service에서 조회
+            guide_covered_articles = set()  # 가이드에서 이미 커버된 법조항
+            for g in sorted_guides:
+                mapped_refs = guide_article_map.get(g["guide_code"], [])
+                enriched_refs = []
+                for ref in mapped_refs:
+                    article_num = ref["article_number"]
+                    guide_covered_articles.add(article_num)
+                    # ChromaDB에서 상세 정보 조회
+                    detail = article_service._find_article_by_number(article_num)
+                    if detail:
+                        enriched_refs.append({
+                            "article_number": detail["article_number"],
+                            "title": detail.get("title", ""),
+                            "content": detail.get("content", "")[:300],
+                            "source_file": detail.get("source_file", ""),
+                        })
+                    else:
+                        enriched_refs.append(ref)
+                g["mapped_articles"] = enriched_refs
+
             related_guides = [GuideMatch(**g) for g in sorted_guides]
+
+            # 독립 검색 법조항에서 가이드에 이미 포함된 것 제외
+            if guide_covered_articles and related_articles:
+                related_articles = [
+                    a for a in related_articles
+                    if a.article_number not in guide_covered_articles
+                ]
+
         except Exception as e:
             logger.warning(f"KOSHA GUIDE 검색 실패 (무시하고 계속): {e}")
 
