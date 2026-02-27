@@ -20,5 +20,12 @@
     "iterationCount": 1,
     "startedAt": "2026-02-26T00:00:00Z",
     "checkNote": "690 articles from law.go.kr (was 442 PDFs), 0% artifacts"
+  },
+  "ontology-restructure": {
+    "phase": "check",
+    "matchRate": 99,
+    "iterationCount": 1,
+    "startedAt": "2026-02-27T00:00:00Z",
+    "checkNote": "Article 98.0% (49/50), KOSHA 100.0% (49/49). 목표 초과 달성."
   }
 }

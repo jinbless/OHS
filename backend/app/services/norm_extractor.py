@@ -32,12 +32,29 @@ SYSTEM_PROMPT = """당신은 산업안전보건법 법조항 분석 전문가입
   - procedure: 절차/관리 (신고, 보고, 교육, 점검 등)
   - equipment: 설비/장비 (보호구, 기계, 장치 등)
   - management: 행정/관리 (서류, 기록, 자격 등)
+- hazard_major: 규범명제가 다루는 위험의 대분류 (하나만 선택):
+  - physical: 물리적 (추락, 전도, 충돌, 끼임, 절단, 낙하물)
+  - chemical: 화학적 (유해물질, 화재/폭발, 독성, 부식)
+  - electrical: 전기적 (감전, 아크플래시)
+  - ergonomic: 인간공학적 (반복작업, 중량물, 부적절한 자세)
+  - environmental: 환경적 (소음, 온도, 조명, 밀폐공간)
+  - biological: 생물학적 (감염, 병원체)
+  - null: 특정 위험 유형에 해당하지 않는 관리/행정 조항
+- hazard_codes: 규범명제가 다루는 세부 위험코드 (배열, 해당하는 것만 1~3개):
+  물리적: FALL(추락), SLIP(전도), COLLISION(충돌), CRUSH(끼임), CUT(절단), FALLING_OBJECT(낙하물)
+  화학적: CHEMICAL(유해물질), FIRE_EXPLOSION(화재/폭발), TOXIC(독성), CORROSION(부식)
+  전기적: ELECTRIC(감전), ARC_FLASH(아크플래시)
+  인간공학적: ERGONOMIC(근골격계), REPETITIVE(반복작업), HEAVY_LIFTING(중량물), POSTURE(부적절자세)
+  환경적: NOISE(소음), TEMPERATURE(온도), LIGHTING(조명), ENVIRONMENTAL(밀폐/환경)
+  생물학적: BIOLOGICAL(감염/병원체)
 
 규칙:
 1. 하나의 법조항에 여러 의무/금지가 있으면 각각 별개의 규범명제로 분해
 2. 항(①, ② 등)이 있으면 항 단위로 분해
 3. 단서 조항("다만...")은 EXCEPTION으로 별도 분해
 4. full_text는 해당 규범명제에 대응하는 원문 텍스트를 그대로 포함
+5. hazard_major는 규범명제 내용 기준으로 가장 적합한 하나만 선택
+6. hazard_codes는 해당하는 세부코드를 모두 포함 (1~3개)
 
 반드시 JSON 배열로만 응답하세요. 추가 설명 없이 JSON만 출력합니다."""
 
@@ -66,12 +83,21 @@ NORM_SCHEMA = {
                             "type": "string",
                             "enum": ["safety", "procedure", "equipment", "management"]
                         },
+                        "hazard_major": {
+                            "type": ["string", "null"],
+                            "enum": ["physical", "chemical", "electrical",
+                                     "ergonomic", "environmental", "biological", None]
+                        },
+                        "hazard_codes": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
                         "full_text": {"type": "string"}
                     },
                     "required": [
                         "subject_role", "action", "object", "condition_text",
                         "legal_effect", "effect_description", "paragraph",
-                        "norm_category", "full_text"
+                        "norm_category", "hazard_major", "hazard_codes", "full_text"
                     ],
                     "additionalProperties": False
                 }
@@ -184,6 +210,13 @@ class NormExtractor:
         cat = norm.get("norm_category")
         if cat and cat not in VALID_CATEGORIES:
             norm["norm_category"] = "management"  # 기본값
+
+        # hazard_codes → JSON 문자열로 변환 (DB 저장용)
+        codes = norm.get("hazard_codes", [])
+        if isinstance(codes, list):
+            norm["hazard_codes"] = json.dumps(codes, ensure_ascii=False)
+        elif codes is None:
+            norm["hazard_codes"] = "[]"
 
         return True
 

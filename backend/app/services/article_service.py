@@ -78,7 +78,7 @@ class ArticleService:
 
     # ── PDF 파싱 ──────────────────────────────────────────
 
-    def parse_all_pdfs(self) -> List[ArticleChunk]:
+    def load_articles(self) -> List[ArticleChunk]:
         """조문 텍스트를 추출 (캐시 우선, 폴백으로 PDF 파싱)"""
         # 1. 캐시 파일이 있으면 캐시에서 로드 (PDF 불필요)
         if self.CACHE_FILE.exists():
@@ -140,6 +140,9 @@ class ArticleService:
 
         return chunks
 
+    # 하위 호환 alias
+    parse_all_pdfs = load_articles
+
     def _parse_filename(self, filename: str) -> dict:
         """파일명에서 조문 정보 추출"""
         info = {}
@@ -194,7 +197,7 @@ class ArticleService:
             self.chroma_client.delete_collection(self.COLLECTION_NAME)
             self._collection = None
 
-        chunks = self.parse_all_pdfs()
+        chunks = self.load_articles()
         if not chunks:
             logger.warning("파싱된 조문이 없습니다.")
             return 0

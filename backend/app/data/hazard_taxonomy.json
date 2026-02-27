@@ -1,0 +1,58 @@
+{
+  "version": "1.0",
+  "major_categories": {
+    "physical": {
+      "label": "물리적 위험",
+      "codes": ["FALL", "SLIP", "COLLISION", "CRUSH", "CUT", "FALLING_OBJECT"],
+      "legacy_norm_category": ["safety", "equipment"]
+    },
+    "chemical": {
+      "label": "화학적 위험",
+      "codes": ["CHEMICAL", "FIRE_EXPLOSION", "TOXIC", "CORROSION"],
+      "legacy_norm_category": ["safety"]
+    },
+    "electrical": {
+      "label": "전기적 위험",
+      "codes": ["ELECTRIC", "ARC_FLASH"],
+      "legacy_norm_category": ["safety", "equipment"]
+    },
+    "ergonomic": {
+      "label": "인간공학적 위험",
+      "codes": ["ERGONOMIC", "REPETITIVE", "HEAVY_LIFTING", "POSTURE"],
+      "legacy_norm_category": ["procedure"]
+    },
+    "environmental": {
+      "label": "환경적 위험",
+      "codes": ["NOISE", "TEMPERATURE", "LIGHTING", "ENVIRONMENTAL"],
+      "legacy_norm_category": ["safety", "procedure"]
+    },
+    "biological": {
+      "label": "생물학적 위험",
+      "codes": ["BIOLOGICAL"],
+      "legacy_norm_category": ["safety"]
+    }
+  },
+  "code_to_major": {
+    "FALL": "physical",
+    "SLIP": "physical",
+    "COLLISION": "physical",
+    "CRUSH": "physical",
+    "CUT": "physical",
+    "FALLING_OBJECT": "physical",
+    "CHEMICAL": "chemical",
+    "FIRE_EXPLOSION": "chemical",
+    "TOXIC": "chemical",
+    "CORROSION": "chemical",
+    "ELECTRIC": "electrical",
+    "ARC_FLASH": "electrical",
+    "ERGONOMIC": "ergonomic",
+    "REPETITIVE": "ergonomic",
+    "HEAVY_LIFTING": "ergonomic",
+    "POSTURE": "ergonomic",
+    "NOISE": "environmental",
+    "TEMPERATURE": "environmental",
+    "LIGHTING": "environmental",
+    "ENVIRONMENTAL": "environmental",
+    "BIOLOGICAL": "biological"
+  }
+}

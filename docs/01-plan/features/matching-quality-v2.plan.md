@@ -1,5 +1,7 @@
 # matching-quality-v2 Planning Document
 
+> **Note (2026-02-27)**: 이 문서에서 언급된 `CATEGORY_ARTICLE_RANGE`는 ontology-restructure에서 `taxonomy.py`로 교체되었습니다.
+
 > **Summary**: 분석 결과 ↔ 법조항/KOSHA GUIDE 매칭 품질 전면 개선
 >
 > **Project**: OHS 위험요소 분석 서비스

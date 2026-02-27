@@ -1,5 +1,7 @@
 # kosha-guide-mapping Design Document
 
+> **Note (2026-02-27)**: 이 문서는 작성 시점의 코드 상태를 기술합니다. 이후 ontology-restructure에서 `CLASSIFICATION_TO_ARTICLE_RANGE` → `taxonomy.py`로 교체되었습니다.
+
 > **Summary**: KOSHA GUIDE PDF 파싱, DB 저장, 산안법 조문 매핑, 서비스 통합 설계
 >
 > **Project**: OHS 위험요소 분석 서비스

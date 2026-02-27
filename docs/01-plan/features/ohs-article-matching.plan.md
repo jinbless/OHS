@@ -1,5 +1,7 @@
 # ohs-article-matching Planning Document
 
+> **Note (2026-02-27)**: 이 문서는 작성 시점의 코드 상태를 기술합니다. 이후 ontology-restructure에서 `analysis_prompts.py`가 `prompt_builder.py` 기반 동적 생성으로 교체되었습니다.
+
 > **Summary**: 위험요소 분석 결과와 산안법 조문의 정확한 매칭 시스템 구축
 >
 > **Project**: OHS 위험요소 분석 서비스

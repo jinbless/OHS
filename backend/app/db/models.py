@@ -85,6 +85,10 @@ class NormStatement(Base):
     full_text = Column(Text, nullable=False)
     norm_category = Column(String(20), nullable=True, index=True)  # safety | procedure | equipment | management
 
+    # 통합 분류 체계 (Phase 1)
+    hazard_major = Column(String(20), nullable=True, index=True)   # physical|chemical|electrical|ergonomic|environmental|biological
+    hazard_codes = Column(Text, nullable=True)                      # JSON array: ["FALL","SLIP"]
+
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     __table_args__ = (

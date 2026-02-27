@@ -1,6 +1,6 @@
 # OHS 시스템 아키텍처 문서
 
-> 최종 업데이트: 2026-02-27 | 버전: 2.0.0
+> 최종 업데이트: 2026-02-27 | 버전: 2.1.0
 
 ## 1. 시스템 개요
 
@@ -108,7 +108,7 @@
    - UNIQUE(article_number, guide_id)
 
 5. **norm_statements** - 규범명제 분해
-   - `id`(PK), `article_number`(indexed), `paragraph`, `statement_order`, `subject_role`, `action`, `object`, `condition_text`, `legal_effect`(indexed, OBLIGATION/PROHIBITION/PERMISSION/EXCEPTION), `full_text`, `norm_category`(indexed)
+   - `id`(PK), `article_number`(indexed), `paragraph`, `statement_order`, `subject_role`, `action`, `object`, `condition_text`, `legal_effect`(indexed, OBLIGATION/PROHIBITION/PERMISSION/EXCEPTION), `full_text`, `norm_category`(indexed), `hazard_major`(indexed, physical/chemical/electrical/ergonomic/environmental/biological), `hazard_codes`(JSON array)
 
 6. **semantic_mappings** - 온톨로지 의미적 매핑
    - `id`(PK), `source_type`, `source_id`, `target_type`, `target_id`, `relation_type`(IMPLEMENTS/SUPPLEMENTS/SPECIFIES_CRITERIA/SPECIFIES_METHOD/CROSS_REFERENCES), `confidence`, `discovery_method`, `discovery_tier`(A~F)
@@ -194,20 +194,12 @@ analysis_service (오케스트레이터)
 
 ### 4.3 article_service.py - 법조항 관리
 
-- PDF 파싱: PyMuPDF, 정규식 `제\d+조(?:의\d+)?\s*[\(（]([^)）]+)[\)）]`
+- 조문 로드: `load_articles()` (캐시 우선 → PDF 폴백). 구 이름 `parse_all_pdfs()`는 alias로 유지.
 - 하이브리드 검색: 벡터 50% + BM25 50%
 - 카테고리 장(chapter) 매칭: +0.15 부스트
 - BM25 전용 결과: bm25_score >= 0.3일 때 * 0.5로 편입
 
-**CATEGORY_CHAPTERS** (카테고리→장 키워드):
-```
-physical: ["작업장", "통로", "보호구", "추락", "붕괴", "비계", "기계", ...]
-chemical: ["폭발", "화재", "위험물", "유해물질", ...]
-electrical: ["전기"]
-ergonomic: ["근골격계"]
-environmental: ["소음", "진동", "온도", "습도", "분진", "밀폐공간", ...]
-biological: ["병원체", "감염"]
-```
+**카테고리→조문 범위 매핑**: `article_chapters.json` + `taxonomy.py` 기반 (하드코딩 제거됨)
 
 ### 4.4 guide_service.py - KOSHA GUIDE 관리
 
@@ -217,6 +209,7 @@ biological: ["병원체", "감염"]
 - BM25: guide_code + title + classification 토크나이징
 
 **분류 예측**: `CLASSIFICATION_KEYWORDS` 12개 분류코드별 ~180개 키워드
+**분류→조문 범위**: `taxonomy.get_article_range_for_classification()` 사용 (하드코딩 `CLASSIFICATION_TO_ARTICLE_RANGE` 제거됨)
 
 ### 4.5 ontology_service.py - 온톨로지 매핑
 
@@ -237,7 +230,7 @@ SUPPLEMENTS:        +0.05
 
 - 동시성: `asyncio.Semaphore(5)`
 - 재시도: 3회, 지수 백오프 (2^attempt초)
-- 출력: subject_role, action, object, condition_text, legal_effect, norm_category
+- 출력: subject_role, action, object, condition_text, legal_effect, norm_category, hazard_major, hazard_codes
 
 ### 4.7 search_enhancer.py - 검색 품질 강화
 
@@ -249,6 +242,16 @@ SUPPLEMENTS:        +0.05
 
 - 데이터: `app/data/safety_videos.json`에서 시드
 - 3-Layer: 카테고리(0.4) + 키워드(0.4) + 온톨로지(0.3)
+- 온톨로지 레이어: `taxonomy.get_chapter_for_article()` 기반 키워드 유추 (하드코딩 범위 제거됨)
+
+### 4.9 온톨로지 데이터 파일
+
+| 파일 | 용도 |
+|------|------|
+| `app/data/hazard_taxonomy.json` | 통합 분류 체계 (6대분류 + 24세부코드 + 레거시 매핑) |
+| `app/data/article_chapters.json` | 산안법 편/장 구조 (27장, 조문 범위 + KOSHA 분류 매핑) |
+| `app/utils/taxonomy.py` | 분류/계층 조회 유틸리티 |
+| `app/integrations/prompts/prompt_builder.py` | 온톨로지 JSON 기반 동적 SYSTEM_PROMPT 생성 |
 
 ---
 

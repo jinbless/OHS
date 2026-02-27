@@ -634,16 +634,6 @@ class AnalysisService:
         return response
 
 
-    # 카테고리별 법조항 범위 (_find_best_norm_for_hazard 폴백용)
-    CATEGORY_ARTICLE_RANGE = {
-        "physical": [(3, 70), (86, 224), (328, 419)],
-        "chemical": [(225, 300), (420, 511)],
-        "electrical": [(301, 327)],
-        "ergonomic": [(656, 670)],
-        "environmental": [(512, 521), (558, 617), (618, 644)],
-        "biological": [(592, 604)],
-    }
-
     def _find_best_norm_for_hazard(self, hazard: Hazard, norm_contexts: list) -> Optional[dict]:
         """Hazard에 가장 적합한 법조항+규범명제를 찾기
 

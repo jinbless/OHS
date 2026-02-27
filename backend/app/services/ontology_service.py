@@ -18,7 +18,8 @@ from app.db.models import (
 )
 from app.services.norm_extractor import norm_extractor
 from app.services.article_service import article_service
-from app.services.guide_service import guide_service, CLASSIFICATION_TO_ARTICLE_RANGE
+from app.services.guide_service import guide_service
+from app.utils.taxonomy import get_articles_for_category, get_article_range_for_classification
 
 logger = logging.getLogger(__name__)
 
@@ -49,7 +50,7 @@ class OntologyService:
         )
 
         # 전체 법조항 로드
-        articles = article_service.parse_all_pdfs()
+        articles = article_service.load_articles()
         if not articles:
             return {"status": "error", "message": "법조항 데이터 없음"}
 
@@ -91,6 +92,8 @@ class OntologyService:
                     effect_description=norm.get("effect_description"),
                     full_text=norm["full_text"],
                     norm_category=norm.get("norm_category"),
+                    hazard_major=norm.get("hazard_major"),
+                    hazard_codes=norm.get("hazard_codes", "[]"),
                 )
                 db.add(stmt)
                 saved_count += 1
@@ -191,8 +194,8 @@ class OntologyService:
 
         # 2. classification과 법조항 범위 매칭 → SPECIFIES_METHOD
         article_num = self._extract_article_num(mapping.article_number)
-        if article_num and guide.classification in CLASSIFICATION_TO_ARTICLE_RANGE:
-            range_ = CLASSIFICATION_TO_ARTICLE_RANGE[guide.classification]
+        if article_num:
+            range_ = get_article_range_for_classification(guide.classification)
             if range_ and range_[0] <= article_num <= range_[1]:
                 return "SPECIFIES_METHOD"
 
@@ -226,7 +229,7 @@ class OntologyService:
         )
 
         # 전체 법조항
-        all_articles = article_service.parse_all_pdfs()
+        all_articles = article_service.load_articles()
         unmapped = [a for a in all_articles if a.article_number not in mapped_articles]
 
         if not unmapped:
@@ -339,7 +342,7 @@ class OntologyService:
         logger.info(f"미매핑 가이드 {len(unmapped)}개 법조항 후보 발견 시작")
 
         # 전체 법조항 로드 (키워드 매칭용)
-        all_articles = article_service.parse_all_pdfs()
+        all_articles = article_service.load_articles()
         article_map = {a.article_number: a for a in all_articles}
 
         # 확대된 안전 키워드 사전 (28개 → 85개)
@@ -381,7 +384,7 @@ class OntologyService:
                             matched_articles.append((art_num, 0.7))
 
             # classification 범위 필터 (완화: range 없으면 전체 허용)
-            range_ = CLASSIFICATION_TO_ARTICLE_RANGE.get(guide.classification)
+            range_ = get_article_range_for_classification(guide.classification)
             if range_:
                 filtered = [
                     (num, score) for num, score in matched_articles
@@ -525,7 +528,7 @@ class OntologyService:
 
     async def discover_cross_references(self, db: Session) -> dict:
         """법조항 간 상호 참조 관계 발견 (Tier C)"""
-        all_articles = article_service.parse_all_pdfs()
+        all_articles = article_service.load_articles()
         pattern = re.compile(r"제(\d+)조(?:의(\d+))?(?:제(\d+)항)?(?:에\s*따른|의\s*규정|을\s*준용)")
 
         new_refs = 0
@@ -683,7 +686,7 @@ class OntologyService:
     def get_mapping_stats(self, db: Session) -> dict:
         """전체 매핑 통계"""
         # 전체 법조항 수
-        all_articles = article_service.parse_all_pdfs()
+        all_articles = article_service.load_articles()
         total_articles = len(set(a.article_number for a in all_articles))
 
         # 매핑된 법조항 (explicit)
@@ -766,7 +769,7 @@ class OntologyService:
 
     def get_gap_analysis(self, db: Session) -> dict:
         """미매핑 현황 + 자동 발견 후보"""
-        all_articles = article_service.parse_all_pdfs()
+        all_articles = article_service.load_articles()
         article_map = {a.article_number: a for a in all_articles}
 
         # 매핑된 법조항
@@ -1085,15 +1088,7 @@ class OntologyService:
     #  분석 연동 메서드
     # ===================================================================
 
-    # 카테고리별 법조항 범위 (산업안전보건규칙 장 구조)
-    CATEGORY_ARTICLE_RANGE = {
-        "physical": [(32, 67), (86, 166)],
-        "chemical": [(225, 290)],
-        "electrical": [(301, 339)],
-        "ergonomic": [(656, 671)],
-        "environmental": [(559, 586)],
-        "biological": [(592, 604)],
-    }
+    # CATEGORY_ARTICLE_RANGE → taxonomy.get_articles_for_category() 대체 (Phase 2)
 
     def find_related_articles_for_hazards(
         self, db: Session, hazard_descriptions: List[str], hazard_categories: List[str]
@@ -1138,7 +1133,7 @@ class OntologyService:
         # 2) 카테고리 기반: 보충용 (벡터 결과가 부족할 때만)
         cat_ranges = []
         for cat in set(hazard_categories):
-            cat_ranges.extend(self.CATEGORY_ARTICLE_RANGE.get(cat, []))
+            cat_ranges.extend(get_articles_for_category(cat))
 
         if cat_ranges:
             all_norm_articles = set(

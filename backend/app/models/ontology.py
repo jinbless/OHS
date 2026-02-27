@@ -18,6 +18,8 @@ class NormStatementResponse(BaseModel):
     effect_description: Optional[str] = None
     full_text: str
     norm_category: Optional[str] = None
+    hazard_major: Optional[str] = None
+    hazard_codes: List[str] = []
 
 
 class LinkedGuideInfo(BaseModel):

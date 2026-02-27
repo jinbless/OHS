@@ -1,5 +1,7 @@
 # kosha-guide-mapping Gap Analysis
 
+> **Note (2026-02-27)**: 이 문서는 작성 시점의 코드 상태를 기술합니다. 이후 ontology-restructure에서 `CLASSIFICATION_TO_ARTICLE_RANGE` → `taxonomy.py`로 교체되었습니다.
+
 > **Feature**: KOSHA GUIDE 파싱, 인덱싱, 매핑, 검색 서비스
 >
 > **Phase**: Check (Gap Analysis)

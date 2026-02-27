@@ -75,24 +75,7 @@ def predict_classifications(text: str, max_cls: int = 3) -> list[str]:
     return [cls for cls, _ in sorted_cls[:max_cls]]
 
 
-# ── 분류코드 → 산안법 조문 범위 매핑 ─────────────────────────
-CLASSIFICATION_TO_ARTICLE_RANGE = {
-    "G": None,           # 일반안전 - 전체 범위
-    "C": (328, 419),     # 건설안전
-    "D": (328, 419),     # 건설안전(설계)
-    "E": (301, 327),     # 전기안전
-    "M": (86, 224),      # 기계안전
-    "P": (225, 300),     # 공정안전(화재폭발)
-    "H": (420, 670),     # 보건
-    "B": (420, 670),     # 보건(일반)
-    "A": (420, 670),     # 작업환경측정
-    "W": (420, 670),     # 작업환경(기타)
-    "T": None,           # 교육 - 전체 범위
-    "X": None,           # 기타 - 전체 범위
-    "O": (420, 670),     # 산업보건
-    "F": (225, 300),     # 화재폭발
-    "K": None,           # KOSHA 기타
-}
+# CLASSIFICATION_TO_ARTICLE_RANGE → taxonomy.get_article_range_for_classification() 대체 (Phase 2)
 
 # 섹션 타입 분류
 SECTION_TYPE_MAP = {

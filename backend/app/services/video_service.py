@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from app.db.models import SafetyVideo
 from app.models.resource import Resource, ResourceType
+from app.utils.taxonomy import get_chapter_for_article
 
 logger = logging.getLogger(__name__)
 
@@ -183,17 +184,23 @@ class VideoService:
             kws = classification_keywords.get(cls, [])
             match_keywords.update(kws)
 
-        # 법조항 번호에서 키워드 유추
+        # 법조항 번호에서 키워드 유추 (taxonomy 기반)
+        _HAZARD_KEYWORDS = {
+            "physical": ["추락", "건설", "비계", "사다리", "끼임", "충돌", "절단"],
+            "chemical": ["화학", "폭발", "중독", "유해물질", "화재"],
+            "electrical": ["전기", "감전", "아크"],
+            "ergonomic": ["근골격", "반복작업", "중량물"],
+            "environmental": ["소음", "밀폐", "분진", "온도"],
+            "biological": ["감염", "병원체"],
+        }
         for article in norm_articles:
             num_match = re.search(r'(\d+)', article)
             if num_match:
                 num = int(num_match.group(1))
-                if 32 <= num <= 67 or 86 <= num <= 166:
-                    match_keywords.update(["추락", "건설", "비계", "사다리", "끼임"])
-                elif 225 <= num <= 290:
-                    match_keywords.update(["화학", "폭발", "중독"])
-                elif 301 <= num <= 339:
-                    match_keywords.update(["전기", "감전"])
+                ch = get_chapter_for_article(num)
+                if ch and ch.get("hazard_major"):
+                    kws = _HAZARD_KEYWORDS.get(ch["hazard_major"], [])
+                    match_keywords.update(kws)
 
         if not match_keywords:
             return []

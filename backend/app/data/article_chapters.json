@@ -1,0 +1,222 @@
+{
+  "version": "1.0",
+  "description": "산업안전보건기준에 관한 규칙 편/장 구조",
+  "chapters": [
+    {
+      "part": "제1편 총칙",
+      "chapter": "제2장 작업장",
+      "article_range": [3, 21],
+      "hazard_major": null,
+      "hazard_codes": [],
+      "kosha_classifications": ["G"]
+    },
+    {
+      "part": "제1편 총칙",
+      "chapter": "제3장 통로",
+      "article_range": [22, 31],
+      "hazard_major": "physical",
+      "hazard_codes": ["FALL", "SLIP"],
+      "kosha_classifications": ["G", "C"]
+    },
+    {
+      "part": "제1편 총칙",
+      "chapter": "제4장 보호구",
+      "article_range": [32, 35],
+      "hazard_major": "physical",
+      "hazard_codes": [],
+      "kosha_classifications": ["G", "B"]
+    },
+    {
+      "part": "제1편 총칙",
+      "chapter": "제5장 관리감독자의 직무",
+      "article_range": [35, 40],
+      "hazard_major": null,
+      "hazard_codes": [],
+      "kosha_classifications": ["G"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제6장 추락·붕괴 위험 방지",
+      "article_range": [42, 55],
+      "hazard_major": "physical",
+      "hazard_codes": ["FALL", "FALLING_OBJECT"],
+      "kosha_classifications": ["G", "C"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제7장 비계",
+      "article_range": [56, 70],
+      "hazard_major": "physical",
+      "hazard_codes": ["FALL"],
+      "kosha_classifications": ["C"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제8장 환기장치",
+      "article_range": [71, 77],
+      "hazard_major": "environmental",
+      "hazard_codes": ["ENVIRONMENTAL"],
+      "kosha_classifications": ["E"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제9장 휴게시설 등",
+      "article_range": [78, 82],
+      "hazard_major": null,
+      "hazard_codes": [],
+      "kosha_classifications": ["G"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제10장 잔재물",
+      "article_range": [83, 85],
+      "hazard_major": "chemical",
+      "hazard_codes": ["CHEMICAL"],
+      "kosha_classifications": ["G"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제1장 기계·기구 위험예방",
+      "article_range": [86, 131],
+      "hazard_major": "physical",
+      "hazard_codes": ["CRUSH", "CUT", "COLLISION"],
+      "kosha_classifications": ["M"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "크레인·양중기",
+      "article_range": [132, 170],
+      "hazard_major": "physical",
+      "hazard_codes": ["CRUSH", "FALLING_OBJECT", "COLLISION"],
+      "kosha_classifications": ["M", "C", "B"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "건설기계·차량",
+      "article_range": [172, 224],
+      "hazard_major": "physical",
+      "hazard_codes": ["COLLISION", "CRUSH", "FALL"],
+      "kosha_classifications": ["C", "M"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제2장 폭발·화재·위험물",
+      "article_range": [225, 300],
+      "hazard_major": "chemical",
+      "hazard_codes": ["FIRE_EXPLOSION", "CHEMICAL", "TOXIC"],
+      "kosha_classifications": ["P", "F"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제3장 전기 안전",
+      "article_range": [301, 327],
+      "hazard_major": "electrical",
+      "hazard_codes": ["ELECTRIC", "ARC_FLASH"],
+      "kosha_classifications": ["E"]
+    },
+    {
+      "part": "제2편 안전기준",
+      "chapter": "제4장 건설작업 위험예방",
+      "article_range": [329, 419],
+      "hazard_major": "physical",
+      "hazard_codes": ["FALL", "CRUSH", "COLLISION"],
+      "kosha_classifications": ["C"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제1장 관리대상 유해물질",
+      "article_range": [420, 451],
+      "hazard_major": "chemical",
+      "hazard_codes": ["CHEMICAL", "TOXIC"],
+      "kosha_classifications": ["H", "P"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제2장 허가대상 유해물질·석면",
+      "article_range": [452, 511],
+      "hazard_major": "chemical",
+      "hazard_codes": ["CHEMICAL", "TOXIC"],
+      "kosha_classifications": ["H"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제4장 소음·진동",
+      "article_range": [512, 521],
+      "hazard_major": "environmental",
+      "hazard_codes": ["NOISE"],
+      "kosha_classifications": ["A", "H"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제5장 이상기압",
+      "article_range": [522, 557],
+      "hazard_major": "environmental",
+      "hazard_codes": ["ENVIRONMENTAL"],
+      "kosha_classifications": ["H"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제6장 온도·습도·유해물질접촉",
+      "article_range": [558, 572],
+      "hazard_major": "environmental",
+      "hazard_codes": ["TEMPERATURE", "CHEMICAL"],
+      "kosha_classifications": ["W", "H"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제7장 방사선",
+      "article_range": [573, 591],
+      "hazard_major": "environmental",
+      "hazard_codes": ["ENVIRONMENTAL"],
+      "kosha_classifications": ["H"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제8장 병원체",
+      "article_range": [592, 604],
+      "hazard_major": "biological",
+      "hazard_codes": ["BIOLOGICAL"],
+      "kosha_classifications": ["H"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제9장 분진",
+      "article_range": [606, 617],
+      "hazard_major": "environmental",
+      "hazard_codes": ["ENVIRONMENTAL"],
+      "kosha_classifications": ["H", "A"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제10장 밀폐공간",
+      "article_range": [618, 644],
+      "hazard_major": "environmental",
+      "hazard_codes": ["ENVIRONMENTAL"],
+      "kosha_classifications": ["E", "X"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제11장 사무실 건강장해",
+      "article_range": [645, 655],
+      "hazard_major": "environmental",
+      "hazard_codes": ["ENVIRONMENTAL"],
+      "kosha_classifications": ["H"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제12장 근골격계 건강장해",
+      "article_range": [656, 673],
+      "hazard_major": "ergonomic",
+      "hazard_codes": ["ERGONOMIC", "REPETITIVE", "HEAVY_LIFTING", "POSTURE"],
+      "kosha_classifications": ["H", "M"]
+    },
+    {
+      "part": "제3편 보건기준",
+      "chapter": "제13장 그 밖의 유해인자",
+      "article_range": [674, 676],
+      "hazard_major": "ergonomic",
+      "hazard_codes": ["ERGONOMIC"],
+      "kosha_classifications": ["H"]
+    }
+  ]
+}

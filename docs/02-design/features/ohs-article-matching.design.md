@@ -1,5 +1,7 @@
 # ohs-article-matching Design Document
 
+> **Note (2026-02-27)**: 이 문서는 작성 시점의 코드 상태를 기술합니다. 이후 ontology-restructure에서 `analysis_prompts.py`가 `prompt_builder.py` 기반 동적 생성으로 교체되었습니다.
+
 > **Summary**: 위험요소-법조항 매칭 정확도 개선을 위한 하이브리드 검색 파이프라인 설계
 >
 > **Project**: OHS 위험요소 분석 서비스
