@@ -13,7 +13,6 @@ services:
       - DATABASE_URL=sqlite:///./data/ohs.db
     volumes:
       - backend_data:/app/data
-      - ./ohs_articles:/home/blessjin/cashtoss/ohs/ohs_articles:ro
       - ./guide:/home/blessjin/cashtoss/ohs/guide:ro
       - chromadb_data:/home/blessjin/cashtoss/ohs/backend/data/chromadb
     ports:

@@ -7,11 +7,6 @@ from app.models.resource import Resource
 from app.models.guide import GuideMatch
 
 
-class ImageAnalysisRequest(BaseModel):
-    workplace_type: Optional[str] = None
-    additional_context: Optional[str] = None
-
-
 class TextAnalysisRequest(BaseModel):
     description: str
     workplace_type: Optional[str] = None

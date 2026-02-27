@@ -125,3 +125,24 @@ class SemanticMapping(Base):
         Index('idx_sm_relation', 'relation_type'),
         Index('idx_sm_confidence', 'confidence'),
     )
+
+
+class SafetyVideo(Base):
+    """KOSHA 안전 숏폼영상"""
+    __tablename__ = "safety_videos"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    title = Column(Text, nullable=False)
+    url = Column(String(255), unique=True, nullable=False)
+    category = Column(Text, nullable=False)          # 원본 분야 (예: "건설안전 / 추락예방")
+    tags = Column(Text, nullable=True)               # JSON array of keywords
+    hazard_categories = Column(Text, nullable=False)  # JSON array (예: ["physical","fall"])
+    series = Column(String(30), nullable=True)        # 시리즈명
+    is_korean = Column(Integer, nullable=False, default=1)  # 1=한국어, 0=영어
+    thumbnail_url = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    __table_args__ = (
+        Index('idx_sv_hazard_cat', 'hazard_categories'),
+        Index('idx_sv_series', 'series'),
+    )

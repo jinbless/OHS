@@ -10,6 +10,8 @@ from typing import List, Optional, Dict
 from sqlalchemy.orm import Session
 from sqlalchemy import func as sa_func, distinct
 
+from app.utils.text_utils import extract_article_number
+
 from app.db.models import (
     NormStatement, SemanticMapping,
     RegGuideMapping, KoshaGuide, GuideSection,
@@ -208,8 +210,8 @@ class OntologyService:
 
     def _extract_article_num(self, article_number: str) -> Optional[int]:
         """'제42조' → 42"""
-        m = re.match(r"제(\d+)조", article_number)
-        return int(m.group(1)) if m else None
+        result = extract_article_number(article_number)
+        return result if result != 0 else None
 
     # ===================================================================
     #  Phase 2: 미매핑 자동 발견
@@ -624,16 +626,6 @@ class OntologyService:
             .order_by(NormStatement.statement_order)
             .all()
         )
-
-        # 연결된 가이드
-        linked = (
-            db.query(SemanticMapping, KoshaGuide)
-            .join(KoshaGuide, SemanticMapping.target_id == sa_func.cast(KoshaGuide.id, db.bind.dialect.name == 'sqlite' and type(None) or type(None)))
-            .filter(SemanticMapping.source_id == article_number)
-            .filter(SemanticMapping.target_type == "guide")
-            .order_by(SemanticMapping.confidence.desc())
-            .all()
-        ) if False else []  # 복잡한 JOIN 대신 직접 쿼리
 
         # 간소화된 가이드 조회
         sm_list = (

@@ -7,7 +7,6 @@ import HazardList from '../components/results/HazardList';
 import ChecklistView from '../components/results/ChecklistView';
 import ResourceLinks from '../components/results/ResourceLinks';
 import RelatedGuides from '../components/results/RelatedGuides';
-import NormStatementsView from '../components/results/NormStatementsView';
 import Loading from '../components/common/Loading';
 import ErrorMessage from '../components/common/ErrorMessage';
 
@@ -15,7 +14,7 @@ const ResultPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { currentAnalysis, setCurrentAnalysis, isLoading, error, setLoading, setError } =
     useAnalysisStore();
-  const [activeTab, setActiveTab] = useState<'hazards' | 'guides' | 'norms' | 'checklist' | 'resources'>('hazards');
+  const [activeTab, setActiveTab] = useState<'hazards' | 'guides' | 'checklist' | 'resources'>('hazards');
 
   useEffect(() => {
     const fetchAnalysis = async () => {
@@ -109,18 +108,6 @@ const ResultPage: React.FC = () => {
             안전지침 & 법조항 ({(currentAnalysis as any).related_guides.length})
           </button>
         )}
-        {(currentAnalysis as any).norm_context?.length > 0 && (
-          <button
-            onClick={() => setActiveTab('norms')}
-            className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px whitespace-nowrap ${
-              activeTab === 'norms'
-                ? 'border-blue-600 text-blue-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700'
-            }`}
-          >
-            법적 근거 ({(currentAnalysis as any).norm_context.length})
-          </button>
-        )}
         <button
           onClick={() => setActiveTab('checklist')}
           className={`px-4 py-2 font-medium transition-colors border-b-2 -mb-px whitespace-nowrap ${
@@ -147,7 +134,6 @@ const ResultPage: React.FC = () => {
       <div className="mt-6">
         {activeTab === 'hazards' && <HazardList hazards={currentAnalysis.hazards} />}
         {activeTab === 'guides' && <RelatedGuides guides={(currentAnalysis as any).related_guides || []} />}
-        {activeTab === 'norms' && <NormStatementsView norms={(currentAnalysis as any).norm_context || []} />}
         {activeTab === 'checklist' && <ChecklistView checklist={currentAnalysis.checklist} />}
         {activeTab === 'resources' && <ResourceLinks resources={currentAnalysis.resources} />}
       </div>

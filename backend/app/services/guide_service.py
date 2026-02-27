@@ -1,6 +1,7 @@
 """KOSHA GUIDE 파싱, 인덱싱, 매핑, 검색 서비스
 
 PDF 파싱 → SQLite 저장 → ChromaDB 임베딩 → 산안법 조문 자동 매핑
+BM25 하이브리드 검색 지원 (v2.2)
 """
 import re
 import json
@@ -14,10 +15,64 @@ from chromadb.config import Settings as ChromaSettings
 from openai import OpenAI
 from sqlalchemy.orm import Session
 
+try:
+    from rank_bm25 import BM25Okapi
+    HAS_BM25 = True
+except ImportError:
+    HAS_BM25 = False
+
 from app.config import settings
+from app.utils.text_utils import tokenize_korean
 from app.db.models import KoshaGuide, GuideSection as GuideSectionModel, RegGuideMapping
 
 logger = logging.getLogger(__name__)
+
+
+# ── 분류 사전 라우팅 키워드 사전 ───────────────────────────────
+CLASSIFICATION_KEYWORDS = {
+    "G": ["일반안전", "사다리", "작업장", "고령", "야간", "교대", "동물원", "공연", "행사",
+          "화약", "드럼", "탱크 화기", "화기작업", "폐유", "세척 용접", "무대", "트러스",
+          "사육사", "맹수", "굴착 매설물", "교통 안전", "운반차량"],
+    "M": ["기계", "선반", "CNC", "밀링", "프레스", "사출", "절삭", "연삭", "소음",
+          "셰이퍼", "인간공학", "작업대", "공작기계", "목재가공", "가구 제작", "식음료",
+          "유리병", "현미경", "반복작업", "롤러", "컨베이어", "포장기계"],
+    "C": ["건설", "철골", "콘크리트", "굴착", "크레인 건설", "비계", "거푸집", "아스팔트",
+          "도로포장", "터널", "용접용단", "철골 절단", "가스 절단", "건설현장 용접"],
+    "E": ["전기", "감전", "가공전선", "전선로", "배선", "누전", "방폭", "정전기",
+          "이온화", "환기설비", "국소배기", "진동", "직무스트레스", "밀폐공간",
+          "제어반", "접지", "과전류", "가스감지기", "교정주기", "도장부스", "배기장치",
+          "브레이커", "백색증상", "의료기관", "글루타르알데히드", "소독"],
+    "P": ["공정안전", "반응기", "화학공장", "혼합", "가연성", "가스 누출", "분진폭발",
+          "시약", "시료채취", "화학물질 보관", "공압 이송", "집진기 폭발", "방산구",
+          "산알칼리", "혼합 반응", "시약 창고"],
+    "H": ["보건", "건강진단", "건강검진", "피부질환", "피부염", "폐질환", "COPD",
+          "심폐소생", "CPR", "AED", "구강", "치아", "제련", "중금속", "크롬",
+          "심정지", "응급처치", "용융금속", "납 카드뮴", "비철금속", "치아 부식",
+          "도금 공장", "산 증기", "정밀검사", "사후관리", "검진 소견", "청력 이상",
+          "접촉성피부염", "파마약", "염색약", "만성기침", "호흡곤란", "벤조피렌",
+          "아스팔트 포장"],
+    "B": ["조선", "선박", "도크", "지게차", "안전대", "끼임", "절단재해",
+          "포크리프트", "크레인", "와이어로프", "방폭전기", "방폭등급", "회전기계"],
+    "W": ["MSDS", "물질안전보건자료", "한랭", "냉동", "저온", "작업환경", "방한", "동상",
+          "냉동창고", "방한복", "저체온"],
+    "A": ["측정", "분석", "시료", "노출평가", "작업환경측정"],
+    "D": ["설비설계", "분진폭발방지", "배관", "압력용기", "화재폭발방지", "가연성가스", "폭발한계"],
+    "F": ["화재", "목재가공", "화재폭발", "목분진", "합판", "집진 덕트"],
+    "X": ["위험성평가", "리스크", "밀폐공간 위험", "LNG", "저장탱크"],
+    "T": ["시험", "독성시험", "피부자극", "눈자극", "안전성시험", "토끼", "드레이즈", "눈 부식"],
+}
+
+
+def predict_classifications(text: str, max_cls: int = 3) -> list[str]:
+    """시나리오 텍스트에서 가장 관련 높은 KOSHA 분류 예측"""
+    scores = {}
+    text_lower = text.lower()
+    for cls, keywords in CLASSIFICATION_KEYWORDS.items():
+        score = sum(1 for kw in keywords if kw.lower() in text_lower)
+        if score > 0:
+            scores[cls] = score
+    sorted_cls = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    return [cls for cls, _ in sorted_cls[:max_cls]]
 
 
 # ── 분류코드 → 산안법 조문 범위 매핑 ─────────────────────────
@@ -62,6 +117,8 @@ class GuideService:
         self._client: Optional[chromadb.ClientAPI] = None
         self._collection = None
         self._openai = OpenAI(api_key=settings.OPENAI_API_KEY)
+        self._bm25_index = None
+        self._bm25_docs = None
 
     @property
     def chroma_client(self):
@@ -518,6 +575,65 @@ class GuideService:
         )
         return sorted_results[:n_results]
 
+    # ── BM25 인덱스 (가이드 제목 기반) ─────────────────────────
+    def _build_guide_bm25_index(self, db: Session):
+        """KOSHA 가이드 제목으로 BM25 인덱스 구축 (lazy)"""
+        if not HAS_BM25 or self._bm25_index is not None:
+            return
+        try:
+            guides = db.query(KoshaGuide).all()
+            docs = []
+            tokenized = []
+            for g in guides:
+                text = f"{g.guide_code} {g.title} {g.classification}"
+                tokens = tokenize_korean(text)
+                # 제목에서 중요 단어 추가 (·로 분리된 것도)
+                for w in (g.title or "").replace("·", " ").replace(",", " ").split():
+                    if len(w) >= 2:
+                        tokens.append(w)
+                tokenized.append(tokens)
+                docs.append({
+                    "guide_code": g.guide_code,
+                    "title": g.title,
+                    "classification": g.classification,
+                    "guide_id": g.id,
+                })
+            if tokenized:
+                self._bm25_index = BM25Okapi(tokenized)
+                self._bm25_docs = docs
+                logger.info(f"KOSHA BM25 인덱스 구축: {len(docs)}개 가이드")
+        except Exception as e:
+            logger.warning(f"KOSHA BM25 인덱스 실패: {e}")
+
+    def search_guides_bm25(self, db: Session, query_text: str, n_results: int = 5) -> List[dict]:
+        """BM25 키워드 기반 KOSHA 가이드 검색"""
+        if not HAS_BM25:
+            return []
+        self._build_guide_bm25_index(db)
+        if self._bm25_index is None:
+            return []
+
+        tokens = tokenize_korean(query_text.replace("·", " ").replace(",", " "))
+        if not tokens:
+            return []
+
+        scores = self._bm25_index.get_scores(tokens)
+        max_s = max(scores) if max(scores) > 0 else 1
+        indexed = [(i, scores[i] / max_s) for i in range(len(scores)) if scores[i] > 0]
+        indexed.sort(key=lambda x: x[1], reverse=True)
+
+        results = []
+        for idx, norm_score in indexed[:n_results]:
+            doc = self._bm25_docs[idx]
+            results.append({
+                "guide_code": doc["guide_code"],
+                "title": doc["title"],
+                "classification": doc["classification"],
+                "guide_id": doc["guide_id"],
+                "bm25_score": round(norm_score, 4),
+            })
+        return results
+
     # ── Path B: 직접 벡터 검색 (법조항 우회) ──────────────────
 
     # 설명문에서 핵심 명사 자동 추출 (키워드 폴백용)
@@ -566,15 +682,18 @@ class GuideService:
 
         exclude_codes = exclude_codes or []
 
-        # 검색 쿼리 구성
+        # 검색 쿼리 구성 — "안전지침 기술지침" 접미사는 키워드가 적을 때만 추가
         if guide_keywords:
-            # GPT 키워드가 있으면 키워드만 사용 (dilution 방지)
-            query = " ".join(guide_keywords) + " 안전지침 기술지침"
+            # GPT 키워드가 충분하면(3개+) 접미사 없이 키워드만 사용 (dilution 방지)
+            if len(guide_keywords) >= 3:
+                query = " ".join(guide_keywords)
+            else:
+                query = " ".join(guide_keywords) + " 안전지침"
         else:
-            # 키워드 없음: 설명에서 핵심 명사 추출 + 안전지침 접미사
+            # 키워드 없음: 설명에서 핵심 명사 추출
             extracted = self._extract_key_nouns(hazard_descriptions)
             if extracted:
-                query = " ".join(extracted) + " 안전지침 기술지침"
+                query = " ".join(extracted)
                 logger.warning(f"KOSHA Path B: GPT 키워드 없음, 자동추출: {extracted}")
             else:
                 query = " ".join(hazard_descriptions)[:500]
@@ -596,8 +715,13 @@ class GuideService:
             )
 
             guide_results: Dict[str, dict] = {}
-            # 키워드가 있으면 높은 threshold, 없으면 낮은 threshold
-            threshold = 0.45 if guide_keywords else 0.35
+            # 키워드 개수에 따른 동적 threshold
+            if guide_keywords and len(guide_keywords) >= 3:
+                threshold = 0.38  # 풍부한 키워드: 더 넓은 검색
+            elif guide_keywords:
+                threshold = 0.42  # 적은 키워드
+            else:
+                threshold = 0.30  # 키워드 없음: 최대한 넓게
 
             if results and results["metadatas"] and results["metadatas"][0]:
                 for i, meta in enumerate(results["metadatas"][0]):

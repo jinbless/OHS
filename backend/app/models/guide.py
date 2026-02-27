@@ -26,8 +26,3 @@ class GuideMatch(BaseModel):
     mapped_articles: List[GuideArticleRef] = []  # 이 가이드에 매핑된 법조항
 
 
-class GuideIndexResponse(BaseModel):
-    total_parsed: int
-    total_sections: int
-    total_mappings: int
-    message: str

@@ -1,6 +1,7 @@
 """산안법 조문 PDF 파싱 및 ChromaDB 인덱싱 서비스
 
 KOSHA GUIDE 가이드-법조항 매핑에서 조문 상세 정보 조회 용도로 사용.
+BM25 하이브리드 검색 지원 (v2.2)
 """
 import re
 import json
@@ -13,7 +14,14 @@ import chromadb
 from chromadb.config import Settings as ChromaSettings
 from openai import OpenAI
 
+try:
+    from rank_bm25 import BM25Okapi
+    HAS_BM25 = True
+except ImportError:
+    HAS_BM25 = False
+
 from app.config import settings
+from app.utils.text_utils import tokenize_korean, extract_article_number
 
 logger = logging.getLogger(__name__)
 
@@ -46,6 +54,8 @@ class ArticleService:
         self._client: Optional[chromadb.ClientAPI] = None
         self._collection = None
         self._openai = OpenAI(api_key=settings.OPENAI_API_KEY)
+        self._bm25_index = None
+        self._bm25_docs = None  # [{article_number, title, content, ...}, ...]
 
     @property
     def chroma_client(self):
@@ -69,7 +79,31 @@ class ArticleService:
     # ── PDF 파싱 ──────────────────────────────────────────
 
     def parse_all_pdfs(self) -> List[ArticleChunk]:
-        """모든 PDF에서 조문 텍스트를 추출"""
+        """조문 텍스트를 추출 (캐시 우선, 폴백으로 PDF 파싱)"""
+        # 1. 캐시 파일이 있으면 캐시에서 로드 (PDF 불필요)
+        if self.CACHE_FILE.exists():
+            try:
+                with open(self.CACHE_FILE, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                chunks = [
+                    ArticleChunk(
+                        article_number=d.get("article_number", ""),
+                        title=d.get("title", ""),
+                        content=d.get("content", ""),
+                        source_file=d.get("source_file", ""),
+                    )
+                    for d in data
+                ]
+                logger.info(f"캐시에서 {len(chunks)}개 조문 로드 완료 ({self.CACHE_FILE.name})")
+                return chunks
+            except Exception as e:
+                logger.warning(f"캐시 로드 실패, PDF 파싱으로 폴백: {e}")
+
+        # 2. 폴백: PDF 파싱
+        if not self.ARTICLES_DIR.exists():
+            logger.warning(f"PDF 디렉토리 없음: {self.ARTICLES_DIR}")
+            return []
+
         chunks: List[ArticleChunk] = []
         pdf_files = sorted(self.ARTICLES_DIR.glob("*.pdf"))
         logger.info(f"PDF 파일 {len(pdf_files)}개 파싱 시작")
@@ -203,6 +237,216 @@ class ArticleService:
         """조문번호에서 숫자를 추출 (예: '제42조' → 42, '제42조의2' → 42)"""
         m = re.match(r"제(\d+)조", article_number)
         return int(m.group(1)) if m else None
+
+    # ── BM25 인덱스 구축 ────────────────────────────────────
+    def _build_bm25_index(self):
+        """ChromaDB 데이터로 BM25 인덱스 구축 (lazy)"""
+        if not HAS_BM25:
+            return
+        if self._bm25_index is not None:
+            return
+
+        try:
+            all_data = self.collection.get(include=["metadatas", "documents"])
+            if not all_data or not all_data["metadatas"]:
+                return
+
+            docs = []
+            tokenized = []
+            for i, meta in enumerate(all_data["metadatas"]):
+                doc_text = all_data["documents"][i] if all_data["documents"] else ""
+                art_num = meta.get("article_number", "")
+                title = meta.get("title", "")
+                content = meta.get("content", "")
+                combined = f"{art_num} {title} {content} {doc_text}"
+                tokens = tokenize_korean(combined)
+                tokenized.append(tokens)
+                docs.append({
+                    "article_number": art_num,
+                    "title": title,
+                    "content": content[:500],
+                    "source_file": meta.get("source_file", ""),
+                    "chapter": meta.get("chapter", ""),
+                })
+
+            if tokenized:
+                self._bm25_index = BM25Okapi(tokenized)
+                self._bm25_docs = docs
+                logger.info(f"BM25 인덱스 구축 완료: {len(docs)}개 조문")
+        except Exception as e:
+            logger.warning(f"BM25 인덱스 구축 실패: {e}")
+
+    def search_articles_bm25(self, query_text: str, n_results: int = 10) -> List[dict]:
+        """BM25 키워드 기반 검색"""
+        if not HAS_BM25:
+            return []
+        self._build_bm25_index()
+        if self._bm25_index is None or self._bm25_docs is None:
+            return []
+
+        tokens = tokenize_korean(query_text)
+        if not tokens:
+            return []
+
+        scores = self._bm25_index.get_scores(tokens)
+        # 점수 정규화 (0~1)
+        max_score = max(scores) if max(scores) > 0 else 1
+        indexed = [(i, scores[i] / max_score) for i in range(len(scores)) if scores[i] > 0]
+        indexed.sort(key=lambda x: x[1], reverse=True)
+
+        results = []
+        seen = set()
+        for idx, norm_score in indexed[:n_results * 2]:
+            doc = self._bm25_docs[idx]
+            art_num = doc["article_number"]
+            if art_num in seen:
+                continue
+            seen.add(art_num)
+            results.append({
+                "article_number": art_num,
+                "title": doc["title"],
+                "content": doc["content"],
+                "source_file": doc["source_file"],
+                "chapter": doc["chapter"],
+                "bm25_score": round(norm_score, 4),
+            })
+            if len(results) >= n_results:
+                break
+        return results
+
+    # ── 카테고리 기반 필터링 검색 ────────────────────────────
+
+    # 카테고리 → 관련 장(chapter) 키워드 매핑 (law.go.kr 편/장/절 구조 기반)
+    CATEGORY_CHAPTERS = {
+        "physical": [
+            "작업장", "통로", "보호구", "추락", "붕괴", "비계",
+            "기계", "설비", "위험예방", "건설작업", "중량물",
+            "하역작업", "벌목", "궤도",
+        ],
+        "chemical": [
+            "폭발", "화재", "위험물", "유해물질", "허가대상", "금지유해",
+        ],
+        "electrical": [
+            "전기",
+        ],
+        "ergonomic": [
+            "근골격계",
+        ],
+        "environmental": [
+            "소음", "진동", "온도", "습도", "분진", "밀폐공간",
+            "이상기압", "방사선",
+        ],
+        "biological": [
+            "병원체", "감염",
+        ],
+    }
+
+    def _is_chapter_match(self, chapter: str, category: str) -> bool:
+        """장(chapter) 이름이 카테고리에 해당하는지 확인"""
+        keywords = self.CATEGORY_CHAPTERS.get(category, [])
+        return any(kw in chapter for kw in keywords)
+
+    def search_articles_with_filter(
+        self,
+        query_text: str,
+        hazard_categories: List[str] = None,
+        n_results: int = 10,
+        min_score: float = 0.45,
+    ) -> List[dict]:
+        """편/장/절 메타데이터 + 벡터검색 결합
+
+        1차: 카테고리 관련 장(chapter) 내에서 벡터검색 (precision)
+        2차: 전체 범위 벡터검색 보충 (recall)
+        """
+        if self.collection.count() == 0 or not query_text.strip():
+            return []
+
+        try:
+            response = self._openai.embeddings.create(
+                model="text-embedding-3-small",
+                input=[query_text],
+            )
+            query_embedding = response.data[0].embedding
+        except Exception as e:
+            logger.warning(f"임베딩 생성 실패: {e}")
+            return []
+
+        results_map = {}
+
+        # 1차: 벡터검색 후 카테고리 장(chapter) 기반 부스트
+        try:
+            chroma_results = self.collection.query(
+                query_embeddings=[query_embedding],
+                n_results=min(n_results * 4, 50),
+                include=["metadatas", "distances"],
+            )
+            if chroma_results and chroma_results["metadatas"] and chroma_results["metadatas"][0]:
+                cats = set(hazard_categories) if hazard_categories else set()
+                for i, meta in enumerate(chroma_results["metadatas"][0]):
+                    art_num_str = meta.get("article_number", "")
+                    if not art_num_str:
+                        continue
+
+                    distance = chroma_results["distances"][0][i]
+                    score = round(1 - distance, 4)
+                    if score < min_score:
+                        continue
+
+                    # 편/장/절 메타데이터 기반 부스트
+                    chapter = meta.get("chapter", "")
+                    in_category = False
+                    if cats and chapter:
+                        for cat in cats:
+                            if self._is_chapter_match(chapter, cat):
+                                in_category = True
+                                score = min(0.99, score + 0.15)
+                                break
+
+                    if art_num_str not in results_map or results_map[art_num_str]["score"] < score:
+                        results_map[art_num_str] = {
+                            "article_number": art_num_str,
+                            "title": meta.get("title", ""),
+                            "content": meta.get("content", "")[:500],
+                            "source_file": meta.get("source_file", ""),
+                            "chapter": chapter,
+                            "score": score,
+                            "in_category_range": in_category,
+                        }
+        except Exception as e:
+            logger.warning(f"벡터검색 실패: {e}")
+
+        # BM25 하이브리드: 벡터 결과에 BM25 점수 병합
+        if HAS_BM25:
+            bm25_results = self.search_articles_bm25(query_text, n_results=20)
+            bm25_map = {r["article_number"]: r["bm25_score"] for r in bm25_results}
+
+            # 기존 벡터 결과에 BM25 점수 병합
+            for art_num, info in results_map.items():
+                bm25_s = bm25_map.pop(art_num, 0)
+                if bm25_s > 0:
+                    # 하이브리드: 벡터 50% + BM25 50%
+                    info["score"] = round(info["score"] * 0.5 + bm25_s * 0.5, 4)
+                    info["bm25_score"] = bm25_s
+
+            # BM25에만 있는 결과도 추가 (벡터가 놓친 것)
+            for art_num, bm25_s in bm25_map.items():
+                if bm25_s >= 0.3 and art_num not in results_map:
+                    # BM25 전용 결과 (벡터 검색에서 누락된 것)
+                    bm25_doc = next((r for r in bm25_results if r["article_number"] == art_num), None)
+                    if bm25_doc:
+                        results_map[art_num] = {
+                            "article_number": art_num,
+                            "title": bm25_doc["title"],
+                            "content": bm25_doc["content"],
+                            "source_file": bm25_doc["source_file"],
+                            "chapter": bm25_doc.get("chapter", ""),
+                            "score": round(bm25_s * 0.5, 4),  # BM25만이므로 절반
+                            "in_category_range": False,
+                            "bm25_score": bm25_s,
+                        }
+
+        sorted_results = sorted(results_map.values(), key=lambda x: x["score"], reverse=True)
+        return sorted_results[:n_results]
 
     def _find_article_by_number(self, article_number: str) -> Optional[dict]:
         """조문번호로 ChromaDB에서 상세 정보 조회"""

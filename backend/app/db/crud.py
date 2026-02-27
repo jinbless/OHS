@@ -2,7 +2,6 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 import json
 from app.db.models import AnalysisRecord
-from app.models.analysis import AnalysisResponse, AnalysisHistoryItem
 
 
 def create_analysis_record(

@@ -14,9 +14,6 @@ from app.models.ontology import (
     MappingStatsResponse,
     GapAnalysisResponse,
     SemanticMappingResponse,
-    ExtractionResult,
-    ClassificationResult,
-    DiscoveryResult,
 )
 
 logger = logging.getLogger(__name__)

@@ -1,0 +1,4162 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "조충현의 안전꿀팁 톡! 지붕 외벽작업(개인 보호구) 편",
+      "url": "https://youtube.com/shorts/GQcMe5EFCIE",
+      "category": "건설안전 / 보호구",
+      "tags": [
+        "개인",
+        "건설안전",
+        "보호구",
+        "안전꿀팁",
+        "외벽작업",
+        "조충현의",
+        "지붕"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "조충현안전꿀팁",
+      "is_korean": true
+    },
+    {
+      "id": 2,
+      "title": "Jo Chung-hyun's Safety Tips Talk! Roof Exterior Work",
+      "url": "https://youtube.com/shorts/Pu-LNLkL66Q",
+      "category": "건설안전 / 추락예방",
+      "tags": [
+        "건설안전",
+        "추락예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "SafetyTips",
+      "is_korean": false
+    },
+    {
+      "id": 3,
+      "title": "[살아있는 포스터] 논버벌 안전보건 무빙픽쳐 – 이동식 사다리 편",
+      "url": "https://youtube.com/shorts/BgADVel6xWw",
+      "category": "건설안전 / 사다리",
+      "tags": [
+        "건설안전",
+        "논버벌",
+        "무빙픽쳐",
+        "사다리",
+        "살아있는",
+        "안전보건",
+        "이동식",
+        "포스터"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "살아있는포스터",
+      "is_korean": true
+    },
+    {
+      "id": 4,
+      "title": "Safe Workplace Support Campaign📣 Ajin Industries",
+      "url": "https://youtube.com/shorts/WH-mpulvWrI",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터 응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": false
+    },
+    {
+      "id": 5,
+      "title": "Safety Interference🔎 Please stop the verbal abuse!",
+      "url": "https://youtube.com/shorts/dOAo8dlcb8A",
+      "category": "직장 내 언어폭력",
+      "tags": [
+        "직장 내 언어폭력"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 6,
+      "title": "Safety Interference🔎 Process Safety Management, Petrochemical",
+      "url": "https://youtube.com/shorts/hWo8rj8PDDw",
+      "category": "화학/석유화학 안전",
+      "tags": [
+        "석유화학 안전",
+        "화학"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 7,
+      "title": "Safety Interference🔎 Management of Process Safety",
+      "url": "https://youtube.com/shorts/AUzwmb_9z88",
+      "category": "공정안전관리(PSM)",
+      "tags": [
+        "공정안전관리(PSM)"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 8,
+      "title": "Safety Interference🔎 Cases of Heatstroke Accidents",
+      "url": "https://youtube.com/shorts/kobAKWUN1fA",
+      "category": "온열질환 / 폭염안전",
+      "tags": [
+        "온열질환",
+        "폭염안전"
+      ],
+      "hazard_categories": [
+        "environmental"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 9,
+      "title": "Safety Interference🔎 Heat-related illness",
+      "url": "https://youtube.com/shorts/W9yYfhyirK0",
+      "category": "온열질환 / 폭염안전",
+      "tags": [
+        "온열질환",
+        "폭염안전"
+      ],
+      "hazard_categories": [
+        "environmental"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 10,
+      "title": "Safety Interference🔎 Foreign Safety Leader",
+      "url": "https://youtube.com/shorts/5_a_rm8zBvA",
+      "category": "외국인 근로자 안전",
+      "tags": [
+        "외국인 근로자 안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 11,
+      "title": "Safety Interference🔎 Industrial Safety with AI Technology",
+      "url": "https://youtube.com/shorts/IiK7KiWHOBE",
+      "category": "산업안전 / AI 기술",
+      "tags": [
+        "AI 기술",
+        "산업안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 12,
+      "title": "Safety Tips 🔎 The Risk of Chemical Waste Tank Explosions",
+      "url": "https://youtube.com/shorts/A0yGnkIy34Q",
+      "category": "화학안전 / 폭발예방",
+      "tags": [
+        "폭발예방",
+        "화학안전"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "SafetyTips",
+      "is_korean": false
+    },
+    {
+      "id": 13,
+      "title": "Safety Tips 🔎 The Risk of Chemical Waste Tank Explosions",
+      "url": "https://youtube.com/shorts/v6pAE9_wbu4",
+      "category": "화학안전 / 폭발예방",
+      "tags": [
+        "폭발예방",
+        "화학안전"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "SafetyTips",
+      "is_korean": false
+    },
+    {
+      "id": 14,
+      "title": "Safety Interference🔎 Chemical Industry",
+      "url": "https://youtube.com/shorts/-3MaJc3Z0Hk",
+      "category": "화학안전",
+      "tags": [
+        "화학안전"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 15,
+      "title": "Safety Interference🔎 Risk Assessment at Construction Sites",
+      "url": "https://youtube.com/shorts/NCRjmBOzgjw",
+      "category": "건설안전 / 위험성평가",
+      "tags": [
+        "건설안전",
+        "위험성평가"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 16,
+      "title": "Safety Interference🔎 Risk Assessment",
+      "url": "https://youtube.com/shorts/W3JP4tQxQSA",
+      "category": "위험성평가",
+      "tags": [
+        "위험성평가"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "SafetyInterference",
+      "is_korean": false
+    },
+    {
+      "id": 17,
+      "title": "Why did Rudolph stop Santa?",
+      "url": "https://youtube.com/shorts/As5KKRwdaMk",
+      "category": "안전 홍보 / 캠페인",
+      "tags": [
+        "안전 홍보",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 18,
+      "title": "What is the identity of the new employee wearing red?",
+      "url": "https://youtube.com/shorts/SY4rNFoAwtg",
+      "category": "안전 홍보 / 캠페인",
+      "tags": [
+        "안전 홍보",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 19,
+      "title": "Safe Workplace Support Campaign📣 OB Beer Gwangju",
+      "url": "https://youtube.com/shorts/l52KytZeII0",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터 응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": false
+    },
+    {
+      "id": 20,
+      "title": "Kim Seung-hye's Serious Disaster Punishment Act 5",
+      "url": "https://youtube.com/shorts/BKIoDkJTKjM",
+      "category": "중대재해처벌법 / 끼임",
+      "tags": [
+        "끼임",
+        "중대재해처벌법"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 21,
+      "title": "Kim Seung-hye's Serious Disaster Punishment Act 2",
+      "url": "https://youtube.com/shorts/-zogBJ00_18",
+      "category": "중대재해처벌법 / 낙하물",
+      "tags": [
+        "낙하물",
+        "중대재해처벌법"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 22,
+      "title": "질식재해 예방 - 보호구",
+      "url": "https://youtube.com/shorts/cmZC2xiGStY",
+      "category": "밀폐공간 / 질식예방",
+      "tags": [
+        "밀폐공간",
+        "보호구",
+        "예방",
+        "질식예방",
+        "질식재해"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 23,
+      "title": "추락재해 예방 - 보호구",
+      "url": "https://youtube.com/shorts/473VOXQl9Cs",
+      "category": "건설안전 / 추락예방",
+      "tags": [
+        "건설안전",
+        "보호구",
+        "예방",
+        "추락예방",
+        "추락재해"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 24,
+      "title": "[재해사례] 한순간에 작업자의 목숨을 빼앗은 '추락 재해'",
+      "url": "https://youtube.com/shorts/DiJcKnLQPF4",
+      "category": "재해사례 / 추락",
+      "tags": [
+        "목숨을",
+        "빼앗은",
+        "작업자의",
+        "재해",
+        "재해사례",
+        "추락",
+        "한순간에"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 25,
+      "title": "Industrial safety game!",
+      "url": "https://youtube.com/shorts/_tuvZRzeOW0",
+      "category": "안전교육 / 게임",
+      "tags": [
+        "게임",
+        "안전교육"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 26,
+      "title": "When using a tow truck, fix it and use it",
+      "url": "https://youtube.com/shorts/go8zABYSnZg",
+      "category": "건설장비 / 견인차 안전",
+      "tags": [
+        "건설장비",
+        "견인차 안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 27,
+      "title": "Let's create the 'safe workplace' that Seon dreams of",
+      "url": "https://youtube.com/shorts/ZOJAx5JBESQ",
+      "category": "안전 홍보 / 캠페인",
+      "tags": [
+        "안전 홍보",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 28,
+      "title": "(Doomchit) Let's learn about personal protective equipment",
+      "url": "https://youtube.com/shorts/jou4jPiZZw4",
+      "category": "보호구 교육",
+      "tags": [
+        "보호구 교육"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 29,
+      "title": "Baby Sea's Safety Message💌 (Mask Edition)",
+      "url": "https://youtube.com/shorts/cUAWVBaGBe0",
+      "category": "보호구 / 마스크",
+      "tags": [
+        "마스크",
+        "보호구"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "아기바다안전",
+      "is_korean": false
+    },
+    {
+      "id": 30,
+      "title": "Safe Workplace Support Campaign📣 Korea Hydro & Nuclear Power",
+      "url": "https://youtube.com/shorts/UhMgQRzlRyI",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터 응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": false
+    },
+    {
+      "id": 31,
+      "title": "Baby Sea's Safety Message💌 (Organizing Edition)",
+      "url": "https://youtube.com/shorts/aL2FdGgY_x0",
+      "category": "정리정돈 / 안전교육",
+      "tags": [
+        "안전교육",
+        "정리정돈"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "아기바다안전",
+      "is_korean": false
+    },
+    {
+      "id": 32,
+      "title": "[재해사례] 한순간에 작업자의 목숨을 빼앗은 '부딪힘 재해'",
+      "url": "https://youtube.com/shorts/eyn3ELXtyws",
+      "category": "재해사례 / 부딪힘",
+      "tags": [
+        "목숨을",
+        "부딪힘",
+        "빼앗은",
+        "작업자의",
+        "재해",
+        "재해사례",
+        "한순간에"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 33,
+      "title": "[Disaster Case] 'Entrapment Disaster'",
+      "url": "https://youtube.com/shorts/ekCPhQqHItE",
+      "category": "재해사례 / 끼임",
+      "tags": [
+        "끼임",
+        "재해사례"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 34,
+      "title": "이륜차 신호준수",
+      "url": "https://youtube.com/shorts/9wwGzTSJavw",
+      "category": "교통안전 / 이륜차",
+      "tags": [
+        "교통안전",
+        "신호준수",
+        "이륜차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 35,
+      "title": "Baby Sea's Safety Message💌 (Protective Gear Edition)",
+      "url": "https://youtube.com/shorts/wTs1hMiyISQ",
+      "category": "보호구 교육",
+      "tags": [
+        "보호구 교육"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "아기바다안전",
+      "is_korean": false
+    },
+    {
+      "id": 36,
+      "title": "[Disaster Case] 'Falling Disaster'",
+      "url": "https://youtube.com/shorts/TffSxxKKzLI",
+      "category": "재해사례 / 낙하",
+      "tags": [
+        "낙하",
+        "재해사례"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 37,
+      "title": "Safe Workplace Support Campaign📣 OCI Iksan Plant",
+      "url": "https://youtube.com/shorts/g4ADbGg3LJs",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터 응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": false
+    },
+    {
+      "id": 38,
+      "title": "산재예방 외국인 서포터즈 안전한 일터 프로젝트🚧",
+      "url": "https://youtube.com/shorts/ItM2SLDiVPE",
+      "category": "외국인 근로자 안전",
+      "tags": [
+        "산재예방",
+        "서포터즈",
+        "안전한",
+        "외국인",
+        "외국인 근로자 안전",
+        "일터",
+        "프로젝트"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "외국인서포터즈",
+      "is_korean": true
+    },
+    {
+      "id": 39,
+      "title": "산재예방 외국인 서포터즈 🚧 추락재해 예방",
+      "url": "https://youtube.com/shorts/9gi8c2bPJH4",
+      "category": "외국인 근로자 / 추락예방",
+      "tags": [
+        "산재예방",
+        "서포터즈",
+        "예방",
+        "외국인",
+        "외국인 근로자",
+        "추락예방",
+        "추락재해"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "외국인서포터즈",
+      "is_korean": true
+    },
+    {
+      "id": 40,
+      "title": "[살아있는 포스터] 논버벌 안전보건 무빙픽쳐 – 용접 편",
+      "url": "https://youtube.com/shorts/HkmdHTyyETk",
+      "category": "용접안전",
+      "tags": [
+        "논버벌",
+        "무빙픽쳐",
+        "살아있는",
+        "안전보건",
+        "용접",
+        "용접안전",
+        "포스터"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "살아있는포스터",
+      "is_korean": true
+    },
+    {
+      "id": 41,
+      "title": "[살아있는 포스터] 논버벌 안전보건 무빙픽쳐 – 넘어짐 예방 편",
+      "url": "https://youtube.com/shorts/PHzm1OgMKJk",
+      "category": "넘어짐 예방",
+      "tags": [
+        "넘어짐",
+        "넘어짐 예방",
+        "논버벌",
+        "무빙픽쳐",
+        "살아있는",
+        "안전보건",
+        "예방",
+        "포스터"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "살아있는포스터",
+      "is_korean": true
+    },
+    {
+      "id": 42,
+      "title": "[CCTV] Drum Can Turned into a Bomb",
+      "url": "https://youtube.com/shorts/HGCBA__W7CQ",
+      "category": "CCTV 사고영상 / 폭발",
+      "tags": [
+        "CCTV 사고영상",
+        "폭발"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "CCTV사고영상",
+      "is_korean": false
+    },
+    {
+      "id": 43,
+      "title": "[CCTV] Dust Blows Out",
+      "url": "https://youtube.com/shorts/PoKpTiJzmFU",
+      "category": "CCTV 사고영상 / 분진",
+      "tags": [
+        "CCTV 사고영상",
+        "분진"
+      ],
+      "hazard_categories": [
+        "chemical",
+        "environmental"
+      ],
+      "series": "CCTV사고영상",
+      "is_korean": false
+    },
+    {
+      "id": 44,
+      "title": "Safe Workplace Support Campaign📣 Hanwha Essential Sejong",
+      "url": "https://youtube.com/shorts/GX9uff0qQNc",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터 응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": false
+    },
+    {
+      "id": 45,
+      "title": "Let's prevent suffocation accidents on pig farms!",
+      "url": "https://youtube.com/shorts/BjQdbibANV4",
+      "category": "농업안전 / 질식예방",
+      "tags": [
+        "농업안전",
+        "질식예방"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 46,
+      "title": "Small Business Safety (Service Industry)",
+      "url": "https://youtube.com/shorts/XmS8KVN8bDw",
+      "category": "소규모 사업장 / 서비스업",
+      "tags": [
+        "서비스업",
+        "소규모 사업장"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "소규모사업장안전",
+      "is_korean": false
+    },
+    {
+      "id": 47,
+      "title": "Small Business Safety (Construction Industry)",
+      "url": "https://youtube.com/shorts/7IESb7Eq08U",
+      "category": "소규모 사업장 / 건설업",
+      "tags": [
+        "건설업",
+        "소규모 사업장"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "소규모사업장안전",
+      "is_korean": false
+    },
+    {
+      "id": 48,
+      "title": "Small Business Safety (Manufacturing)",
+      "url": "https://youtube.com/shorts/G_w_tkE8zIo",
+      "category": "소규모 사업장 / 제조업",
+      "tags": [
+        "소규모 사업장",
+        "제조업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "소규모사업장안전",
+      "is_korean": false
+    },
+    {
+      "id": 49,
+      "title": "Tips for using safety and health education materials!",
+      "url": "https://youtube.com/shorts/GwR5xc-MGaU",
+      "category": "안전교육 자료 활용",
+      "tags": [
+        "안전교육 자료 활용"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 50,
+      "title": "Safe Workplace Support Campaign📣 Hankook Tire",
+      "url": "https://youtube.com/shorts/1l125HfdbKk",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터 응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": false
+    },
+    {
+      "id": 51,
+      "title": "서포터즈의 산안달 방문기!",
+      "url": "https://youtube.com/shorts/RkrlY9scIGg",
+      "category": "안전 홍보 / 서포터즈",
+      "tags": [
+        "방문기",
+        "산안달",
+        "서포터즈",
+        "서포터즈의",
+        "안전 홍보"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 52,
+      "title": "안전일터 응원캠페인📣 서포터즈 편",
+      "url": "https://youtube.com/shorts/4Dtg-Q3-CmI",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "서포터즈",
+        "안전일터",
+        "안전일터 응원캠페인",
+        "응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 53,
+      "title": "[CCTV] Explosion during fireworks on storage tank",
+      "url": "https://youtube.com/shorts/gTwScLAsuuQ",
+      "category": "CCTV 사고영상 / 폭발",
+      "tags": [
+        "CCTV 사고영상",
+        "폭발"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "CCTV사고영상",
+      "is_korean": false
+    },
+    {
+      "id": 54,
+      "title": "🌞Heat Wave Safety👷 5 Basic Rules",
+      "url": "https://youtube.com/shorts/vqohXZrvI2Y",
+      "category": "온열질환 / 폭염안전",
+      "tags": [
+        "온열질환",
+        "폭염안전"
+      ],
+      "hazard_categories": [
+        "environmental"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 55,
+      "title": "안전일터 응원캠페인📣 CJ 제일제당 편",
+      "url": "https://youtube.com/shorts/ZNcwMUEJ-gI",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터",
+        "안전일터 응원캠페인",
+        "응원캠페인",
+        "제일제당"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 56,
+      "title": "Safety Culture Spreading Campaign",
+      "url": "https://youtube.com/shorts/PwG63BLHixE",
+      "category": "안전문화 캠페인",
+      "tags": [
+        "안전문화 캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 57,
+      "title": "2025 안전보건공단 산재예방 외국인 서포터즈 14기 발대식",
+      "url": "https://youtube.com/shorts/QTEJFwPZpWc",
+      "category": "외국인 근로자 / 서포터즈",
+      "tags": [
+        "발대식",
+        "산재예방",
+        "서포터즈",
+        "안전보건공단",
+        "외국인",
+        "외국인 근로자"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "외국인서포터즈",
+      "is_korean": true
+    },
+    {
+      "id": 58,
+      "title": "(택배기사📦) 사진보다는 안전💚",
+      "url": "https://youtube.com/shorts/-yfBGr8Chcs",
+      "category": "물류/택배 안전",
+      "tags": [
+        "물류",
+        "사진보다는",
+        "안전",
+        "택배 안전",
+        "택배기사"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 59,
+      "title": "안전일터 응원캠페인📣 옥계휴게소 편",
+      "url": "https://youtube.com/shorts/2NVWyXyD7mw",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터",
+        "안전일터 응원캠페인",
+        "옥계휴게소",
+        "응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 60,
+      "title": "안전일터 응원캠페인📣 원익큐브 편",
+      "url": "https://youtube.com/shorts/9MGBzRLT1DM",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터",
+        "안전일터 응원캠페인",
+        "원익큐브",
+        "응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 61,
+      "title": "[3D] 조선업 재해사례(9) 용접 분진흡입 건강장해",
+      "url": "https://youtube.com/shorts/TqrC3zEuCgQ",
+      "category": "조선업 / 분진·건강장해",
+      "tags": [
+        "건강장해",
+        "분진",
+        "분진흡입",
+        "용접",
+        "재해사례",
+        "조선업"
+      ],
+      "hazard_categories": [
+        "chemical",
+        "environmental"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 62,
+      "title": "[3D] 조선업 재해사례(8) 사상 작업 감전",
+      "url": "https://youtube.com/shorts/GzJiv1HhZjg",
+      "category": "조선업 / 감전",
+      "tags": [
+        "감전",
+        "사상",
+        "작업",
+        "재해사례",
+        "조선업"
+      ],
+      "hazard_categories": [
+        "electrical"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 63,
+      "title": "[3D] 조선업 재해사례(7) 숫돌 파편 비산",
+      "url": "https://youtube.com/shorts/TrKHq3AOed8",
+      "category": "조선업 / 비산물",
+      "tags": [
+        "비산",
+        "비산물",
+        "숫돌",
+        "재해사례",
+        "조선업",
+        "파편"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 64,
+      "title": "[3D] 조선업 재해사례(6) 용접작업 전도 및 깔림",
+      "url": "https://youtube.com/shorts/Co59cymBqHc",
+      "category": "조선업 / 전도·깔림",
+      "tags": [
+        "깔림",
+        "용접작업",
+        "재해사례",
+        "전도",
+        "조선업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 65,
+      "title": "[3D] 조선업 재해사례(5) 밀폐공간 용접작업 질식",
+      "url": "https://youtube.com/shorts/nfXfkb5dYeo",
+      "category": "조선업 / 밀폐공간·질식",
+      "tags": [
+        "밀폐공간",
+        "용접작업",
+        "재해사례",
+        "조선업",
+        "질식"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 66,
+      "title": "[3D] 조선업 재해사례(4) 용접작업 화재폭발",
+      "url": "https://youtube.com/shorts/0-yMjpKA2HU",
+      "category": "조선업 / 화재·폭발",
+      "tags": [
+        "용접작업",
+        "재해사례",
+        "조선업",
+        "폭발",
+        "화재",
+        "화재폭발"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 67,
+      "title": "[3D] 조선업 재해사례(3) 밀폐공간 도장작업",
+      "url": "https://youtube.com/shorts/jkZV1-aWQqs",
+      "category": "조선업 / 밀폐공간·도장",
+      "tags": [
+        "도장",
+        "도장작업",
+        "밀폐공간",
+        "재해사례",
+        "조선업"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 68,
+      "title": "[3D] 조선업 재해사례(2) 도장작업 화학물질 누출 흡입",
+      "url": "https://youtube.com/shorts/njzJf4irMyY",
+      "category": "조선업 / 화학물질 누출",
+      "tags": [
+        "누출",
+        "도장작업",
+        "재해사례",
+        "조선업",
+        "화학물질",
+        "화학물질 누출",
+        "흡입"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 69,
+      "title": "[3D] 조선업 재해사례(1) 도장작업 고소작업대 추락",
+      "url": "https://youtube.com/shorts/LITwCCdiOxA",
+      "category": "조선업 / 추락",
+      "tags": [
+        "고소작업대",
+        "도장작업",
+        "재해사례",
+        "조선업",
+        "추락"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "3D조선업재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 70,
+      "title": "[3D] 조용한 위험, 밀폐공간 질식사고",
+      "url": "https://youtube.com/shorts/KwyeuA5nlCc",
+      "category": "밀폐공간 / 질식예방",
+      "tags": [
+        "밀폐공간",
+        "위험",
+        "조용한",
+        "질식사고",
+        "질식예방"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "3D재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 71,
+      "title": "[3D] 기계 끼임 사고",
+      "url": "https://youtube.com/shorts/r0fl1ot-Zm8",
+      "category": "제조업 / 기계끼임",
+      "tags": [
+        "기계",
+        "기계끼임",
+        "끼임",
+        "사고",
+        "제조업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "3D재해사례",
+      "is_korean": true
+    },
+    {
+      "id": 72,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 추락(2)",
+      "url": "https://youtube.com/shorts/RVyjxZpKtjo",
+      "category": "안전법규 / 추락",
+      "tags": [
+        "기준",
+        "산업안전보건",
+        "안전",
+        "안전법규",
+        "추락"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 73,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 질식(2)",
+      "url": "https://youtube.com/shorts/G7b955Xk2Wc",
+      "category": "안전법규 / 질식",
+      "tags": [
+        "기준",
+        "산업안전보건",
+        "안전",
+        "안전법규",
+        "질식"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 74,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 질식(1)",
+      "url": "https://youtube.com/shorts/Yn4Q1B2mgnQ",
+      "category": "안전법규 / 질식",
+      "tags": [
+        "기준",
+        "산업안전보건",
+        "안전",
+        "안전법규",
+        "질식"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 75,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 지게차",
+      "url": "https://youtube.com/shorts/Y3PNu-6TWn0",
+      "category": "안전법규 / 지게차",
+      "tags": [
+        "기준",
+        "산업안전보건",
+        "안전",
+        "안전법규",
+        "지게차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 76,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 작업발판 및 비계",
+      "url": "https://youtube.com/shorts/NeGJvJ_D1s0",
+      "category": "안전법규 / 비계",
+      "tags": [
+        "기준",
+        "비계",
+        "산업안전보건",
+        "안전",
+        "안전법규",
+        "작업발판"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 77,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 방사선",
+      "url": "https://youtube.com/shorts/VwB4TIFaGQg",
+      "category": "안전법규 / 방사선",
+      "tags": [
+        "기준",
+        "방사선",
+        "산업안전보건",
+        "안전",
+        "안전법규"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 78,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 롤러",
+      "url": "https://youtube.com/shorts/3jFveUZDCwQ",
+      "category": "안전법규 / 롤러",
+      "tags": [
+        "기준",
+        "롤러",
+        "산업안전보건",
+        "안전",
+        "안전법규"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 79,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 프레스",
+      "url": "https://youtube.com/shorts/_xrsUOa7pVY",
+      "category": "안전법규 / 프레스",
+      "tags": [
+        "기준",
+        "산업안전보건",
+        "안전",
+        "안전법규",
+        "프레스"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 80,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 컨베이어",
+      "url": "https://youtube.com/shorts/RCoaGta4wgo",
+      "category": "안전법규 / 컨베이어",
+      "tags": [
+        "기준",
+        "산업안전보건",
+        "안전",
+        "안전법규",
+        "컨베이어"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 81,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 굴착기",
+      "url": "https://youtube.com/shorts/3Oe2klOYdic",
+      "category": "안전법규 / 굴착기",
+      "tags": [
+        "굴착기",
+        "기준",
+        "산업안전보건",
+        "안전",
+        "안전법규"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 82,
+      "title": "[안전 PLAY] 산업안전보건 기준 - 밀림(2)",
+      "url": "https://youtube.com/shorts/Q3pvw-SYL7U",
+      "category": "안전법규 / 밀림",
+      "tags": [
+        "기준",
+        "밀림",
+        "산업안전보건",
+        "안전",
+        "안전법규"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전PLAY",
+      "is_korean": true
+    },
+    {
+      "id": 83,
+      "title": "슬기로운 사업주 되는 법ㅣ중·소규모 사업장 중점 대비책",
+      "url": "https://youtube.com/shorts/aoTBuGl0CKk",
+      "category": "중대재해처벌법 / 사업주 교육",
+      "tags": [
+        "대비책",
+        "되는",
+        "사업장",
+        "사업주",
+        "사업주 교육",
+        "소규모",
+        "슬기로운",
+        "중대재해처벌법",
+        "중점"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 84,
+      "title": "슬기로운 사업주 되는 법ㅣ중대법 판결 종합분석",
+      "url": "https://youtube.com/shorts/g76ML9QUTRE",
+      "category": "중대재해처벌법 / 판결분석",
+      "tags": [
+        "되는",
+        "사업주",
+        "슬기로운",
+        "종합분석",
+        "중대법",
+        "중대재해처벌법",
+        "판결",
+        "판결분석"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 85,
+      "title": "슬기로운 사업주 되는 법ㅣ안전보건 관리체계 구축 ②",
+      "url": "https://youtube.com/shorts/SW1CMK2jjE0",
+      "category": "중대재해처벌법 / 관리체계",
+      "tags": [
+        "관리체계",
+        "구축",
+        "되는",
+        "사업주",
+        "슬기로운",
+        "안전보건",
+        "중대재해처벌법"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 86,
+      "title": "슬기로운 사업주 되는 법ㅣ안전보건 관리체계 구축 ①",
+      "url": "https://youtube.com/shorts/CMe5dQj1bl0",
+      "category": "중대재해처벌법 / 관리체계",
+      "tags": [
+        "관리체계",
+        "구축",
+        "되는",
+        "사업주",
+        "슬기로운",
+        "안전보건",
+        "중대재해처벌법"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 87,
+      "title": "슬기로운 사업주 되는 법ㅣEP 6. 불기소 사례 ②",
+      "url": "https://youtube.com/shorts/giNScwiOrjM",
+      "category": "중대재해처벌법 / 불기소사례",
+      "tags": [
+        "되는",
+        "불기소",
+        "불기소사례",
+        "사례",
+        "사업주",
+        "슬기로운",
+        "중대재해처벌법"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 88,
+      "title": "슬기로운 사업주 되는 법ㅣEP 5. 불기소 사례 ①",
+      "url": "https://youtube.com/shorts/wxbnn82gnsA",
+      "category": "중대재해처벌법 / 불기소사례",
+      "tags": [
+        "되는",
+        "불기소",
+        "불기소사례",
+        "사례",
+        "사업주",
+        "슬기로운",
+        "중대재해처벌법"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 89,
+      "title": "슬기로운 사업주 되는 법ㅣEP 4. 안전보건 경영방침 수립",
+      "url": "https://youtube.com/shorts/ssrOwlrWVY4",
+      "category": "중대재해처벌법 / 경영방침",
+      "tags": [
+        "경영방침",
+        "되는",
+        "사업주",
+        "수립",
+        "슬기로운",
+        "안전보건",
+        "중대재해처벌법"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 90,
+      "title": "슬기로운 사업주 되는 법ㅣEP 3. 종사자 의견 청취",
+      "url": "https://youtube.com/shorts/vMEtg56tyhM",
+      "category": "중대재해처벌법 / 근로자 참여",
+      "tags": [
+        "근로자 참여",
+        "되는",
+        "사업주",
+        "슬기로운",
+        "의견",
+        "종사자",
+        "중대재해처벌법",
+        "청취"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 91,
+      "title": "슬기로운 사업주 되는 법ㅣEP 2. 유해위험요인 확인 및 개선",
+      "url": "https://youtube.com/shorts/mflHfX1KSwE",
+      "category": "중대재해처벌법 / 위험성평가",
+      "tags": [
+        "개선",
+        "되는",
+        "사업주",
+        "슬기로운",
+        "위험성평가",
+        "유해위험요인",
+        "중대재해처벌법",
+        "확인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 92,
+      "title": "슬기로운 사업주 되는 법ㅣEP 1. 작업 계획서 작성",
+      "url": "https://youtube.com/shorts/_vVzb41P5Vs",
+      "category": "중대재해처벌법 / 작업계획",
+      "tags": [
+        "계획서",
+        "되는",
+        "사업주",
+        "슬기로운",
+        "작성",
+        "작업",
+        "작업계획",
+        "중대재해처벌법"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "슬기로운사업주",
+      "is_korean": true
+    },
+    {
+      "id": 93,
+      "title": "안전일터 응원캠페인 동서발전편",
+      "url": "https://youtube.com/shorts/2fmeXt7HTF4",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "동서발전편",
+        "안전일터",
+        "안전일터 응원캠페인",
+        "응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 94,
+      "title": "쇼미더안전 시즌2. Ep5. #건설업",
+      "url": "https://youtube.com/shorts/TzS62cR8Pww",
+      "category": "쇼미더안전 / 건설업",
+      "tags": [
+        "건설업",
+        "쇼미더안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "쇼미더안전",
+      "is_korean": true
+    },
+    {
+      "id": 95,
+      "title": "쇼미더안전 시즌2. Ep4. #석유화학산업",
+      "url": "https://youtube.com/shorts/OXr5_K9MCvg",
+      "category": "쇼미더안전 / 석유화학",
+      "tags": [
+        "석유화학",
+        "석유화학산업",
+        "쇼미더안전"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "쇼미더안전",
+      "is_korean": true
+    },
+    {
+      "id": 96,
+      "title": "쇼미더안전 시즌2. Ep3. #물류업",
+      "url": "https://youtube.com/shorts/0wP7zl_oy_s",
+      "category": "쇼미더안전 / 물류업",
+      "tags": [
+        "물류업",
+        "쇼미더안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "쇼미더안전",
+      "is_korean": true
+    },
+    {
+      "id": 97,
+      "title": "쇼미더안전 시즌2. Ep2. #글로벌사업장",
+      "url": "https://youtube.com/shorts/GCORIJYYhYI",
+      "category": "쇼미더안전 / 글로벌 사업장",
+      "tags": [
+        "글로벌 사업장",
+        "글로벌사업장",
+        "쇼미더안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "쇼미더안전",
+      "is_korean": true
+    },
+    {
+      "id": 98,
+      "title": "쇼미더안전 시즌2. Ep1. #복합리조트",
+      "url": "https://youtube.com/shorts/1MpmkL1PIls",
+      "category": "쇼미더안전 / 서비스업",
+      "tags": [
+        "복합리조트",
+        "서비스업",
+        "쇼미더안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "쇼미더안전",
+      "is_korean": true
+    },
+    {
+      "id": 99,
+      "title": "산업재해, 그날의기억 EP.2",
+      "url": "https://youtube.com/shorts/4VOCVwG-rIM",
+      "category": "재해사례 / 다큐",
+      "tags": [
+        "그날의기억",
+        "다큐",
+        "산업재해",
+        "재해사례"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "그날의기억",
+      "is_korean": true
+    },
+    {
+      "id": 100,
+      "title": "[안전일터 응원캠페인] 우창이엔씨편",
+      "url": "https://youtube.com/shorts/JcBEdftByD8",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터",
+        "안전일터 응원캠페인",
+        "우창이엔씨편",
+        "응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 101,
+      "title": "[안전일터응원캠페인] 연암전력 편",
+      "url": "https://youtube.com/shorts/1J7MiMZEf-w",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터 응원캠페인",
+        "안전일터응원캠페인",
+        "연암전력"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 102,
+      "title": "[중대재해 사고백서] 폐기물 처리탱크 폭발사고",
+      "url": "https://youtube.com/shorts/hDy2vgxlLek",
+      "category": "중대재해 사고백서 / 폭발",
+      "tags": [
+        "사고백서",
+        "중대재해",
+        "중대재해 사고백서",
+        "처리탱크",
+        "폐기물",
+        "폭발",
+        "폭발사고"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "중대재해사고백서",
+      "is_korean": true
+    },
+    {
+      "id": 103,
+      "title": "[중대재해 사고백서] 콘크리트 타설 작업 붕괴사고",
+      "url": "https://youtube.com/shorts/15d1wSRyYfo",
+      "category": "중대재해 사고백서 / 붕괴",
+      "tags": [
+        "붕괴",
+        "붕괴사고",
+        "사고백서",
+        "작업",
+        "중대재해",
+        "중대재해 사고백서",
+        "콘크리트",
+        "타설"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "중대재해사고백서",
+      "is_korean": true
+    },
+    {
+      "id": 104,
+      "title": "[건설업 YES or NO] 타워크레인 재해예방",
+      "url": "https://youtube.com/shorts/KQX30EYdc5U",
+      "category": "건설업 YES or NO / 타워크레인",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "재해예방",
+        "타워크레인"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 105,
+      "title": "[안전일터응원캠페인] 신성이엔지편",
+      "url": "https://youtube.com/shorts/xwJBXG733Hg",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "신성이엔지편",
+        "안전일터 응원캠페인",
+        "안전일터응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 106,
+      "title": "[건설업 YES or NO] 이동식크레인 재해예방",
+      "url": "https://youtube.com/shorts/3Dd6aV4YdCw",
+      "category": "건설업 YES or NO / 이동식크레인",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "이동식크레인",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 107,
+      "title": "[건설업 YES or NO] 화물자동차 재해예방",
+      "url": "https://youtube.com/shorts/SM4f04pymPM",
+      "category": "건설업 YES or NO / 화물자동차",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "재해예방",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 108,
+      "title": "[건설업 YES or NO] 고소작업대 재해예방",
+      "url": "https://youtube.com/shorts/xP9ric0pHlI",
+      "category": "건설업 YES or NO / 고소작업대",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "고소작업대",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 109,
+      "title": "[건설업 YES or NO] 굴착기 재해예방",
+      "url": "https://youtube.com/shorts/GmIl1nxMXBM",
+      "category": "건설업 YES or NO / 굴착기",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "굴착기",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 110,
+      "title": "[건설업 YES or NO] 달비계 재해예방",
+      "url": "https://youtube.com/shorts/2pQQvnMamlY",
+      "category": "건설업 YES or NO / 달비계",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "달비계",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 111,
+      "title": "[건설업 YES or NO] 이동식비계 재해예방",
+      "url": "https://youtube.com/shorts/JG_Zs-rIPq8",
+      "category": "건설업 YES or NO / 이동식비계",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "이동식비계",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 112,
+      "title": "[건설업 YES or NO] 거푸집 동바리 재해예방",
+      "url": "https://youtube.com/shorts/8Jpe4xP_LgE",
+      "category": "건설업 YES or NO / 거푸집",
+      "tags": [
+        "거푸집",
+        "건설업",
+        "건설업 YES or NO",
+        "동바리",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 113,
+      "title": "[건설업 YES or NO] 철골작업 재해예방",
+      "url": "https://youtube.com/shorts/nAUFO31yo8c",
+      "category": "건설업 YES or NO / 철골작업",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "재해예방",
+        "철골작업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 114,
+      "title": "[건설업 YES or NO] 사다리 재해예방",
+      "url": "https://youtube.com/shorts/FcXlj0RdaUY",
+      "category": "건설업 YES or NO / 사다리",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "사다리",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 115,
+      "title": "[건설업 YES or NO] 비계작업발판 재해예방",
+      "url": "https://youtube.com/shorts/qIbHBYIAZa0",
+      "category": "건설업 YES or NO / 비계",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "비계",
+        "비계작업발판",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 116,
+      "title": "[건설업 YES or NO] 단부개구부 재해예방",
+      "url": "https://youtube.com/shorts/Q1nz8JcCa9I",
+      "category": "건설업 YES or NO / 개구부",
+      "tags": [
+        "개구부",
+        "건설업",
+        "건설업 YES or NO",
+        "단부개구부",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 117,
+      "title": "[Construction YES or NO] Roofing Work Accident Prevention",
+      "url": "https://youtube.com/shorts/RjIcgNmBBQ0",
+      "category": "건설업 YES or NO / 지붕작업",
+      "tags": [
+        "건설업 YES or NO",
+        "지붕작업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 118,
+      "title": "스마트하게 막는 법 [스마트 안전장비 지원사업]",
+      "url": "https://youtube.com/shorts/yTWh-Efu65c",
+      "category": "스마트 안전장비",
+      "tags": [
+        "막는",
+        "스마트",
+        "스마트 안전장비",
+        "스마트하게",
+        "안전장비",
+        "지원사업"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 119,
+      "title": "드라마 속 장면으로 알아보는 안전수칙ㅣ미끄러짐",
+      "url": "https://youtube.com/shorts/WzgvIFeonsM",
+      "category": "안전교육 / 미끄러짐",
+      "tags": [
+        "드라마",
+        "미끄러짐",
+        "안전교육",
+        "안전수칙",
+        "알아보는",
+        "장면으로"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "드라마안전수칙",
+      "is_korean": true
+    },
+    {
+      "id": 120,
+      "title": "드라마 속 장면으로 알아보는 안전수칙ㅣ이동식 사다리",
+      "url": "https://youtube.com/shorts/PSN1UNeGxGk",
+      "category": "안전교육 / 사다리",
+      "tags": [
+        "드라마",
+        "사다리",
+        "안전교육",
+        "안전수칙",
+        "알아보는",
+        "이동식",
+        "장면으로"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "드라마안전수칙",
+      "is_korean": true
+    },
+    {
+      "id": 121,
+      "title": "드라마 속 장면으로 알아보는 안전수칙ㅣ안전보호구 착용",
+      "url": "https://youtube.com/shorts/R30xQcWRfmM",
+      "category": "안전교육 / 보호구",
+      "tags": [
+        "드라마",
+        "보호구",
+        "안전교육",
+        "안전보호구",
+        "안전수칙",
+        "알아보는",
+        "장면으로",
+        "착용"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "드라마안전수칙",
+      "is_korean": true
+    },
+    {
+      "id": 122,
+      "title": "[건설업 YES or NO] 용접작업 재해예방",
+      "url": "https://youtube.com/shorts/BePrummh-W8",
+      "category": "건설업 YES or NO / 용접",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "용접",
+        "용접작업",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "chemical",
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 123,
+      "title": "[건설업 YES or NO] 건설용리프트 재해예방",
+      "url": "https://youtube.com/shorts/A9SyCy2Um2A",
+      "category": "건설업 YES or NO / 리프트",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "건설용리프트",
+        "리프트",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 124,
+      "title": "[건설업 YES or NO] 항타기 및 항발기 재해예방",
+      "url": "https://youtube.com/shorts/qTX7CL5W24Y",
+      "category": "건설업 YES or NO / 항타기",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "재해예방",
+        "항발기",
+        "항타기"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 125,
+      "title": "[건설업 YES or NO] 흙막이지보공 재해예방",
+      "url": "https://youtube.com/shorts/s0r_yYr0M24",
+      "category": "건설업 YES or NO / 흙막이",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "재해예방",
+        "흙막이",
+        "흙막이지보공"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 126,
+      "title": "[건설업 YES or NO] 굴착사면 재해예방",
+      "url": "https://youtube.com/shorts/xxWmsOLtW_w",
+      "category": "건설업 YES or NO / 굴착사면",
+      "tags": [
+        "건설업",
+        "건설업 YES or NO",
+        "굴착사면",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "건설업YESorNO",
+      "is_korean": true
+    },
+    {
+      "id": 127,
+      "title": "안전응원캠페인 쇼츠_KLT편",
+      "url": "https://youtube.com/shorts/Sb3L40tQjhw",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "쇼츠",
+        "안전응원캠페인",
+        "안전일터 응원캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 128,
+      "title": "안전을 착! 착! 착! - 전유진ㅣ2024안전송",
+      "url": "https://youtube.com/shorts/TsTD4sOhglw",
+      "category": "안전송 / 홍보",
+      "tags": [
+        "안전송",
+        "안전을",
+        "전유진",
+        "홍보"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 129,
+      "title": "안전일터 응원 캠페인_티앤씨샤크 편",
+      "url": "https://youtube.com/shorts/szkyzIQC0EA",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "안전일터",
+        "안전일터 응원캠페인",
+        "응원",
+        "캠페인",
+        "티앤씨샤크"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 130,
+      "title": "[안전보건공단 X 전유진] 안전을 착! 착! 착! 숏폼",
+      "url": "https://youtube.com/shorts/taOk81y8t7w",
+      "category": "안전송 / 홍보",
+      "tags": [
+        "숏폼",
+        "안전보건공단",
+        "안전송",
+        "안전을",
+        "전유진",
+        "홍보"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 131,
+      "title": "안전일터 응원 캠페인_성원포밍 편",
+      "url": "https://youtube.com/shorts/7fJahzo3XH0",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "성원포밍",
+        "안전일터",
+        "안전일터 응원캠페인",
+        "응원",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 132,
+      "title": "산업재해, 그날의기억 EP.1 #떨어짐사고",
+      "url": "https://youtube.com/shorts/Dqegitmfc8s",
+      "category": "재해사례 / 추락 다큐",
+      "tags": [
+        "그날의기억",
+        "떨어짐사고",
+        "산업재해",
+        "재해사례",
+        "추락 다큐"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "그날의기억",
+      "is_korean": true
+    },
+    {
+      "id": 133,
+      "title": "안전일터 응원 캠페인_에이치티엠 편 (외국인노동자)",
+      "url": "https://youtube.com/shorts/unvQYFHgkco",
+      "category": "안전일터 응원캠페인 / 외국인",
+      "tags": [
+        "안전일터",
+        "안전일터 응원캠페인",
+        "에이치티엠",
+        "외국인",
+        "외국인노동자",
+        "응원",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 134,
+      "title": "안전일터 응원 캠페인_배달노동자 편",
+      "url": "https://youtube.com/shorts/B1GdjQkIxRI",
+      "category": "안전일터 응원캠페인 / 배달",
+      "tags": [
+        "배달",
+        "배달노동자",
+        "안전일터",
+        "안전일터 응원캠페인",
+        "응원",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 135,
+      "title": "가수 전유진이 전하는 안전메시지",
+      "url": "https://youtube.com/shorts/LtC3dQLeMq8",
+      "category": "안전 홍보 / 연예인",
+      "tags": [
+        "가수",
+        "안전 홍보",
+        "안전메시지",
+        "연예인",
+        "전유진이",
+        "전하는"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 136,
+      "title": "안전한 일터 응원캠페인(동아오츠카편)",
+      "url": "https://youtube.com/shorts/9_toRvRiA-c",
+      "category": "안전일터 응원캠페인",
+      "tags": [
+        "동아오츠카편",
+        "안전일터 응원캠페인",
+        "안전한",
+        "응원캠페인",
+        "일터"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전일터응원캠페인",
+      "is_korean": true
+    },
+    {
+      "id": 137,
+      "title": "온열질환 예방",
+      "url": "https://youtube.com/shorts/SXcDw1UhFyc",
+      "category": "온열질환 / 폭염안전",
+      "tags": [
+        "예방",
+        "온열질환",
+        "폭염안전"
+      ],
+      "hazard_categories": [
+        "environmental"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 138,
+      "title": "위험 표지판 부착으로 안전하게!",
+      "url": "https://youtube.com/shorts/Ro01Y9bXRb0",
+      "category": "안전표지 / 표지판",
+      "tags": [
+        "부착으로",
+        "안전표지",
+        "안전하게",
+        "위험",
+        "표지판"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 139,
+      "title": "[이수지의 괜찮으시겠어요?] 이산화탄소 소화설비(오조작 방지)",
+      "url": "https://youtube.com/shorts/hRRJUHPMTEw",
+      "category": "이산화탄소 소화설비",
+      "tags": [
+        "괜찮으시겠어요",
+        "방지",
+        "소화설비",
+        "오조작",
+        "이산화탄소",
+        "이산화탄소 소화설비",
+        "이수지의"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 140,
+      "title": "[이수지의 괜찮으시겠어요?] 이산화탄소 소화설비(출입 금지)",
+      "url": "https://youtube.com/shorts/BWIZPoKPYpk",
+      "category": "이산화탄소 소화설비",
+      "tags": [
+        "괜찮으시겠어요",
+        "금지",
+        "소화설비",
+        "이산화탄소",
+        "이산화탄소 소화설비",
+        "이수지의",
+        "출입"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 141,
+      "title": "[이수지의 괜찮으시겠어요?] 이산화탄소 소화설비(작업계획서)",
+      "url": "https://youtube.com/shorts/PaKjfw7ph4U",
+      "category": "이산화탄소 소화설비",
+      "tags": [
+        "괜찮으시겠어요",
+        "소화설비",
+        "이산화탄소",
+        "이산화탄소 소화설비",
+        "이수지의",
+        "작업계획서"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 142,
+      "title": "[이수지의 괜찮으시겠어요?] 이산화탄소 소화설비(비상 대피 교육)",
+      "url": "https://youtube.com/shorts/ggoqJrpHhbw",
+      "category": "이산화탄소 소화설비",
+      "tags": [
+        "괜찮으시겠어요",
+        "교육",
+        "대피",
+        "비상",
+        "소화설비",
+        "이산화탄소",
+        "이산화탄소 소화설비",
+        "이수지의"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 143,
+      "title": "[이수지의 괜찮으시겠어요?] 이산화탄소 소화설비(위험성 교육)",
+      "url": "https://youtube.com/shorts/r7kGku1qzuU",
+      "category": "이산화탄소 소화설비",
+      "tags": [
+        "괜찮으시겠어요",
+        "교육",
+        "소화설비",
+        "위험성",
+        "이산화탄소",
+        "이산화탄소 소화설비",
+        "이수지의"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 144,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식비계(탑승 이동 금지)",
+      "url": "https://youtube.com/shorts/y-80V2dQyzE",
+      "category": "이동식비계 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "금지",
+        "이동",
+        "이동식비계",
+        "이동식비계 안전",
+        "이수지의",
+        "탑승"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 145,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식비계(불안전 행동 금지)",
+      "url": "https://youtube.com/shorts/uI7Dd1Bs9ts",
+      "category": "이동식비계 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "금지",
+        "불안전",
+        "이동식비계",
+        "이동식비계 안전",
+        "이수지의",
+        "행동"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 146,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식비계(바퀴 고정장치)",
+      "url": "https://youtube.com/shorts/O8w57yw_WMo",
+      "category": "이동식비계 안전",
+      "tags": [
+        "고정장치",
+        "괜찮으시겠어요",
+        "바퀴",
+        "이동식비계",
+        "이동식비계 안전",
+        "이수지의"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 147,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식비계(작업발판 설치)",
+      "url": "https://youtube.com/shorts/hzlcKWRN3Eg",
+      "category": "이동식비계 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "설치",
+        "이동식비계",
+        "이동식비계 안전",
+        "이수지의",
+        "작업발판"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 148,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식비계(최상부 안전난간)",
+      "url": "https://youtube.com/shorts/d0XPU9hhpac",
+      "category": "이동식비계 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "안전난간",
+        "이동식비계",
+        "이동식비계 안전",
+        "이수지의",
+        "최상부"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 149,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식 사다리(상하단 작업 금지)",
+      "url": "https://youtube.com/shorts/9jE1ss_egmw",
+      "category": "이동식 사다리 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "금지",
+        "사다리",
+        "상하단",
+        "이동식",
+        "이동식 사다리 안전",
+        "이수지의",
+        "작업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 150,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식 사다리(안전모 착용)",
+      "url": "https://youtube.com/shorts/0zWcSfbeP70",
+      "category": "이동식 사다리 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "사다리",
+        "안전모",
+        "이동식",
+        "이동식 사다리 안전",
+        "이수지의",
+        "착용"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 151,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식 사다리(2인 작업)",
+      "url": "https://youtube.com/shorts/Fl7oy7shs6I",
+      "category": "이동식 사다리 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "사다리",
+        "이동식",
+        "이동식 사다리 안전",
+        "이수지의",
+        "작업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 152,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식 사다리(방지장치 설치)",
+      "url": "https://youtube.com/shorts/IpeI2QyliUg",
+      "category": "이동식 사다리 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "방지장치",
+        "사다리",
+        "설치",
+        "이동식",
+        "이동식 사다리 안전",
+        "이수지의"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 153,
+      "title": "[이수지의 괜찮으시겠어요?] 이동식 사다리 작업",
+      "url": "https://youtube.com/shorts/sPGDbCPz9vw",
+      "category": "이동식 사다리 안전",
+      "tags": [
+        "괜찮으시겠어요",
+        "사다리",
+        "이동식",
+        "이동식 사다리 안전",
+        "이수지의",
+        "작업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이수지괜찮으시겠어요",
+      "is_korean": true
+    },
+    {
+      "id": 154,
+      "title": "[안전쏙] 화물자동차(싣거나 내리는 작업)_안전수칙",
+      "url": "https://youtube.com/shorts/AOA72hV10ps",
+      "category": "화물자동차 / 적하 안전",
+      "tags": [
+        "내리는",
+        "싣거나",
+        "안전수칙",
+        "안전쏙",
+        "작업",
+        "적하 안전",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 155,
+      "title": "[Safety Box] Cargo Truck (Loading/Unloading)_Accident Case",
+      "url": "https://youtube.com/shorts/GUfi60T1uIk",
+      "category": "화물자동차 / 사고사례",
+      "tags": [
+        "사고사례",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 156,
+      "title": "[안전쏙] 화물자동차(적재함)_안전수칙",
+      "url": "https://youtube.com/shorts/pfm2Zozb0O8",
+      "category": "화물자동차 / 적재함",
+      "tags": [
+        "안전수칙",
+        "안전쏙",
+        "적재함",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 157,
+      "title": "[안전쏙] 화물자동차(적재함)_사고사례",
+      "url": "https://youtube.com/shorts/KV-mKvNONpg",
+      "category": "화물자동차 / 사고사례",
+      "tags": [
+        "사고사례",
+        "안전쏙",
+        "적재함",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 158,
+      "title": "[안전쏙] 화물자동차(후진 시 주의)_안전수칙",
+      "url": "https://youtube.com/shorts/M0Q4NKChwYw",
+      "category": "화물자동차 / 후진 안전",
+      "tags": [
+        "안전수칙",
+        "안전쏙",
+        "주의",
+        "화물자동차",
+        "후진",
+        "후진 안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 159,
+      "title": "[안전쏙] 화물자동차(후진 시 주의)_사고사례",
+      "url": "https://youtube.com/shorts/kGiELhq3eVU",
+      "category": "화물자동차 / 사고사례",
+      "tags": [
+        "사고사례",
+        "안전쏙",
+        "주의",
+        "화물자동차",
+        "후진"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 160,
+      "title": "[안전쏙] 화물자동차(밀림방지조치)_안전수칙",
+      "url": "https://youtube.com/shorts/b9iWHaFvBbU",
+      "category": "화물자동차 / 밀림방지",
+      "tags": [
+        "밀림방지",
+        "밀림방지조치",
+        "안전수칙",
+        "안전쏙",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 161,
+      "title": "[안전쏙] 화물자동차(밀림방지조치)_사고사례",
+      "url": "https://youtube.com/shorts/q6DDhrBBzQk",
+      "category": "화물자동차 / 사고사례",
+      "tags": [
+        "밀림방지조치",
+        "사고사례",
+        "안전쏙",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 162,
+      "title": "[안전쏙] 화물자동차(유자격자 운전)_안전수칙",
+      "url": "https://youtube.com/shorts/jzEkuOgKTDM",
+      "category": "화물자동차 / 운전 안전",
+      "tags": [
+        "안전수칙",
+        "안전쏙",
+        "운전",
+        "운전 안전",
+        "유자격자",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 163,
+      "title": "[안전쏙] 화물자동차(유자격자 운전)_사고사례",
+      "url": "https://youtube.com/shorts/2mqOFHw9sCY",
+      "category": "화물자동차 / 사고사례",
+      "tags": [
+        "사고사례",
+        "안전쏙",
+        "운전",
+        "유자격자",
+        "화물자동차"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 164,
+      "title": "[안전쏙] 지붕 수리작업_안전수칙",
+      "url": "https://youtube.com/shorts/GDY4__-FTio",
+      "category": "건설안전 / 지붕 수리",
+      "tags": [
+        "건설안전",
+        "수리작업",
+        "안전수칙",
+        "안전쏙",
+        "지붕",
+        "지붕 수리"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 165,
+      "title": "[안전쏙] 지붕 수리작업_사고사례",
+      "url": "https://youtube.com/shorts/AEmUgPyWlxg",
+      "category": "건설안전 / 지붕 사고사례",
+      "tags": [
+        "건설안전",
+        "사고사례",
+        "수리작업",
+        "안전쏙",
+        "지붕",
+        "지붕 사고사례"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 166,
+      "title": "[안전쏙] 지붕 설치작업_안전수칙",
+      "url": "https://youtube.com/shorts/kSFe1VsNUb4",
+      "category": "건설안전 / 지붕 설치",
+      "tags": [
+        "건설안전",
+        "설치작업",
+        "안전수칙",
+        "안전쏙",
+        "지붕",
+        "지붕 설치"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 167,
+      "title": "[안전쏙] 지붕 설치작업_사고사례",
+      "url": "https://youtube.com/shorts/COBpPqbRrbA",
+      "category": "건설안전 / 지붕 사고사례",
+      "tags": [
+        "건설안전",
+        "사고사례",
+        "설치작업",
+        "안전쏙",
+        "지붕",
+        "지붕 사고사례"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 168,
+      "title": "[안전쏙] 식품가공용기계_안전수칙",
+      "url": "https://youtube.com/shorts/p843lnV0fSg",
+      "category": "제조업 / 식품가공 기계",
+      "tags": [
+        "식품가공 기계",
+        "식품가공용기계",
+        "안전수칙",
+        "안전쏙",
+        "제조업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 169,
+      "title": "[안전쏙] 식품가공용기계_사고사례",
+      "url": "https://youtube.com/shorts/efrKV097hkI",
+      "category": "제조업 / 식품가공 사고사례",
+      "tags": [
+        "사고사례",
+        "식품가공 사고사례",
+        "식품가공용기계",
+        "안전쏙",
+        "제조업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 170,
+      "title": "[안전쏙] 산업용로봇_안전수칙",
+      "url": "https://youtube.com/shorts/LQd4zBQd8WY",
+      "category": "제조업 / 산업용 로봇",
+      "tags": [
+        "산업용 로봇",
+        "산업용로봇",
+        "안전수칙",
+        "안전쏙",
+        "제조업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 171,
+      "title": "[안전쏙] 산업용로봇_사고사례",
+      "url": "https://youtube.com/shorts/ptttzpIZuqU",
+      "category": "제조업 / 로봇 사고사례",
+      "tags": [
+        "로봇 사고사례",
+        "사고사례",
+        "산업용로봇",
+        "안전쏙",
+        "제조업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 172,
+      "title": "[안전쏙] 바닥 개구부_안전수칙",
+      "url": "https://youtube.com/shorts/-XFBsEuMrqQ",
+      "category": "건설안전 / 개구부",
+      "tags": [
+        "개구부",
+        "건설안전",
+        "바닥",
+        "안전수칙",
+        "안전쏙"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 173,
+      "title": "[안전쏙] 바닥 개구부_사고사례",
+      "url": "https://youtube.com/shorts/H4aR48s6m2c",
+      "category": "건설안전 / 개구부 사고사례",
+      "tags": [
+        "개구부",
+        "개구부 사고사례",
+        "건설안전",
+        "바닥",
+        "사고사례",
+        "안전쏙"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전쏙",
+      "is_korean": true
+    },
+    {
+      "id": 174,
+      "title": "직업적트라우마 극복(솔루션편)",
+      "url": "https://youtube.com/shorts/GJJx6lsGhFA",
+      "category": "직업건강 / 트라우마",
+      "tags": [
+        "극복",
+        "솔루션편",
+        "직업건강",
+        "직업적트라우마",
+        "트라우마"
+      ],
+      "hazard_categories": [
+        "ergonomic"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 175,
+      "title": "직업적트라우마 극복(이론편)",
+      "url": "https://youtube.com/shorts/-eHXlrrpGmE",
+      "category": "직업건강 / 트라우마",
+      "tags": [
+        "극복",
+        "이론편",
+        "직업건강",
+        "직업적트라우마",
+        "트라우마"
+      ],
+      "hazard_categories": [
+        "ergonomic"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 176,
+      "title": "[안전레벨UP] 안전보건교육의 필요성(사례) 2편",
+      "url": "https://youtube.com/shorts/-ig1kGc2_SY",
+      "category": "안전교육",
+      "tags": [
+        "사례",
+        "안전교육",
+        "안전레벨",
+        "안전보건교육의",
+        "필요성"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전레벨UP",
+      "is_korean": true
+    },
+    {
+      "id": 177,
+      "title": "[안전레벨UP] 안전보건교육의 필요성(사례) 1편",
+      "url": "https://youtube.com/shorts/3EmTNHdw6As",
+      "category": "안전교육",
+      "tags": [
+        "사례",
+        "안전교육",
+        "안전레벨",
+        "안전보건교육의",
+        "필요성"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전레벨UP",
+      "is_korean": true
+    },
+    {
+      "id": 178,
+      "title": "[이지애의 안전있수다] 안전보건교육의 필요성",
+      "url": "https://youtube.com/shorts/LnlBkPDGPEw",
+      "category": "안전교육",
+      "tags": [
+        "안전교육",
+        "안전보건교육의",
+        "안전있수다",
+        "이지애의",
+        "필요성"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 179,
+      "title": "[이지애의 안전있수다] 밀폐공간 질식재해예방",
+      "url": "https://youtube.com/shorts/mdm4Mz4ynpQ",
+      "category": "밀폐공간 / 질식예방",
+      "tags": [
+        "밀폐공간",
+        "안전있수다",
+        "이지애의",
+        "질식예방",
+        "질식재해예방"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 180,
+      "title": "[이지애의 안전있수다] 화학물질 중독사고 예방(방동제)",
+      "url": "https://youtube.com/shorts/WgvAhbK0oLA",
+      "category": "화학안전 / 중독예방",
+      "tags": [
+        "방동제",
+        "안전있수다",
+        "예방",
+        "이지애의",
+        "중독사고",
+        "중독예방",
+        "화학물질",
+        "화학안전"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 181,
+      "title": "[이지애의 안전있수다] 컨베이어 벨트 끼임 재해예방",
+      "url": "https://youtube.com/shorts/nVaMClZaFs4",
+      "category": "제조업 / 컨베이어 끼임",
+      "tags": [
+        "끼임",
+        "벨트",
+        "안전있수다",
+        "이지애의",
+        "재해예방",
+        "제조업",
+        "컨베이어",
+        "컨베이어 끼임"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 182,
+      "title": "[이지애의 안전있수다] 화기작업 화재·폭발 재해예방",
+      "url": "https://youtube.com/shorts/hP-cUdNd1Vg",
+      "category": "화재·폭발 예방",
+      "tags": [
+        "안전있수다",
+        "이지애의",
+        "재해예방",
+        "폭발",
+        "폭발 예방",
+        "화기작업",
+        "화재"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 183,
+      "title": "[이지애의 안전있수다] 굴착기 깔림 재해예방(퀵커플러 안전핀)",
+      "url": "https://youtube.com/shorts/w9qeG-znFvY",
+      "category": "건설장비 / 굴착기",
+      "tags": [
+        "건설장비",
+        "굴착기",
+        "깔림",
+        "안전있수다",
+        "안전핀",
+        "이지애의",
+        "재해예방",
+        "퀵커플러"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 184,
+      "title": "[이지애의 안전있수다] 굴착기 부딪힘 재해예방",
+      "url": "https://youtube.com/shorts/KdAlKX8otYo",
+      "category": "건설장비 / 굴착기",
+      "tags": [
+        "건설장비",
+        "굴착기",
+        "부딪힘",
+        "안전있수다",
+        "이지애의",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 185,
+      "title": "[이지애의 안전있수다] 굴착기 재해예방(사전조사 및 작업계획서)",
+      "url": "https://youtube.com/shorts/fNsjcfWlwmk",
+      "category": "건설장비 / 굴착기",
+      "tags": [
+        "건설장비",
+        "굴착기",
+        "사전조사",
+        "안전있수다",
+        "이지애의",
+        "작업계획서",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 186,
+      "title": "[이지애의 안전있수다] 지게차 깔림 재해예방(안전벨트)",
+      "url": "https://youtube.com/shorts/vDerDY2HfJw",
+      "category": "물류 / 지게차 안전",
+      "tags": [
+        "깔림",
+        "물류",
+        "안전벨트",
+        "안전있수다",
+        "이지애의",
+        "재해예방",
+        "지게차",
+        "지게차 안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 187,
+      "title": "[이지애의 안전있수다] 지게차 재해예방(화물 적재)",
+      "url": "https://youtube.com/shorts/XLgo5_hitsk",
+      "category": "물류 / 지게차 안전",
+      "tags": [
+        "물류",
+        "안전있수다",
+        "이지애의",
+        "재해예방",
+        "적재",
+        "지게차",
+        "지게차 안전",
+        "화물"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 188,
+      "title": "[이지애의 안전있수다] 지게차 떨어짐 재해예방(용도 외 사용 금지)",
+      "url": "https://youtube.com/shorts/jW6qnzI8Dn4",
+      "category": "물류 / 지게차 안전",
+      "tags": [
+        "금지",
+        "떨어짐",
+        "물류",
+        "사용",
+        "안전있수다",
+        "용도",
+        "이지애의",
+        "재해예방",
+        "지게차",
+        "지게차 안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 189,
+      "title": "[이지애의 안전있수다] 지게차 부딪힘 재해예방(충돌방지장치)",
+      "url": "https://youtube.com/shorts/zD_hQbVa_P0",
+      "category": "물류 / 지게차 안전",
+      "tags": [
+        "물류",
+        "부딪힘",
+        "안전있수다",
+        "이지애의",
+        "재해예방",
+        "지게차",
+        "지게차 안전",
+        "충돌방지장치"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 190,
+      "title": "[이지애의 안전있수다] 지게차 재해예방(작업계획서)",
+      "url": "https://youtube.com/shorts/DfDmJOSxbfE",
+      "category": "물류 / 지게차 안전",
+      "tags": [
+        "물류",
+        "안전있수다",
+        "이지애의",
+        "작업계획서",
+        "재해예방",
+        "지게차",
+        "지게차 안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 191,
+      "title": "[이지애의 안전있수다] 이륜차 부딪힘 재해예방(교통법규)",
+      "url": "https://youtube.com/shorts/NKN_r9Uk0UA",
+      "category": "교통안전 / 이륜차",
+      "tags": [
+        "교통법규",
+        "교통안전",
+        "부딪힘",
+        "안전있수다",
+        "이륜차",
+        "이지애의",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 192,
+      "title": "[이지애의 안전있수다] 이륜차 부딪힘 재해예방(안전운행수칙)",
+      "url": "https://youtube.com/shorts/WIyRgCayDqY",
+      "category": "교통안전 / 이륜차",
+      "tags": [
+        "교통안전",
+        "부딪힘",
+        "안전운행수칙",
+        "안전있수다",
+        "이륜차",
+        "이지애의",
+        "재해예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 193,
+      "title": "[이지애의 안전있수다] 단부 떨어짐 재해예방",
+      "url": "https://youtube.com/shorts/LtJWY9MhR-s",
+      "category": "건설안전 / 추락예방",
+      "tags": [
+        "건설안전",
+        "단부",
+        "떨어짐",
+        "안전있수다",
+        "이지애의",
+        "재해예방",
+        "추락예방"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 194,
+      "title": "[이지애의 안전있수다] 위험성평가(TBM 실천방법)",
+      "url": "https://youtube.com/shorts/hpwrjTBkqgM",
+      "category": "위험성평가 / TBM",
+      "tags": [
+        "TBM",
+        "실천방법",
+        "안전있수다",
+        "위험성평가",
+        "이지애의"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 195,
+      "title": "[이지애의 안전있수다] 위험성평가(찾기중심의 핵심요소)",
+      "url": "https://youtube.com/shorts/eZnFYSbPAAk",
+      "category": "위험성평가",
+      "tags": [
+        "안전있수다",
+        "위험성평가",
+        "이지애의",
+        "찾기중심의",
+        "핵심요소"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 196,
+      "title": "[이지애의 안전있수다] 위험성평가(쉽고 간편한 평가 방법)",
+      "url": "https://youtube.com/shorts/vX8cgCkML84",
+      "category": "위험성평가",
+      "tags": [
+        "간편한",
+        "방법",
+        "쉽고",
+        "안전있수다",
+        "위험성평가",
+        "이지애의",
+        "평가"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 197,
+      "title": "[이지애의 안전있수다] 위험성평가(상시평가)",
+      "url": "https://youtube.com/shorts/9lvWKIj1pSg",
+      "category": "위험성평가",
+      "tags": [
+        "상시평가",
+        "안전있수다",
+        "위험성평가",
+        "이지애의"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 198,
+      "title": "[이지애의 안전있수다] 위험성평가(제도&근로자 참여)",
+      "url": "https://youtube.com/shorts/x2on6sc4PSE",
+      "category": "위험성평가",
+      "tags": [
+        "근로자",
+        "안전있수다",
+        "위험성평가",
+        "이지애의",
+        "제도",
+        "참여"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "이지애안전있수다",
+      "is_korean": true
+    },
+    {
+      "id": 199,
+      "title": "화학물질 급성중독 및 밀폐공간 질식재해 예방 보호구 착용법",
+      "url": "https://youtube.com/shorts/8kYAm14l_Pk",
+      "category": "화학안전 / 보호구 착용",
+      "tags": [
+        "급성중독",
+        "밀폐공간",
+        "보호구",
+        "보호구 착용",
+        "예방",
+        "질식재해",
+        "착용법",
+        "화학물질",
+        "화학안전"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 200,
+      "title": "'안전불감증'이 삶에 끼치는 영향",
+      "url": "https://youtube.com/shorts/AC4NvdlfLE8",
+      "category": "안전의식 / 캠페인",
+      "tags": [
+        "끼치는",
+        "삶에",
+        "안전불감증",
+        "안전의식",
+        "영향",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 201,
+      "title": "안전에 대한 생각의 전환",
+      "url": "https://youtube.com/shorts/pbuFx17aCck",
+      "category": "안전문화 / 의식전환",
+      "tags": [
+        "대한",
+        "생각의",
+        "안전문화",
+        "안전에",
+        "의식전환",
+        "전환"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 202,
+      "title": "Risk Assessment: The Core of Self-Discipline Prevention",
+      "url": "https://youtube.com/shorts/9wRwDx42-dA",
+      "category": "위험성평가",
+      "tags": [
+        "위험성평가"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": false
+    },
+    {
+      "id": 203,
+      "title": "누군가의 생명만큼 소중한 것은 없습니다.",
+      "url": "https://youtube.com/shorts/2L3zck1LaLs",
+      "category": "안전 홍보 / 캠페인",
+      "tags": [
+        "것은",
+        "안전 홍보",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 204,
+      "title": "KOSHA X 박성온 \"아들의 소망\"",
+      "url": "https://youtube.com/shorts/H8HHiummmxY",
+      "category": "안전 홍보 / 연예인",
+      "tags": [
+        "박성온",
+        "소망",
+        "아들의",
+        "안전 홍보",
+        "연예인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 205,
+      "title": "인간이 만든 악, 산업재해",
+      "url": "https://youtube.com/shorts/BM72mVWmJcA",
+      "category": "안전의식 / 캠페인",
+      "tags": [
+        "만든",
+        "산업재해",
+        "안전의식",
+        "인간이",
+        "캠페인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 206,
+      "title": "근골격계질환예방을 위한 올바른 들기 자세",
+      "url": "https://youtube.com/shorts/PHhgTTRMRlI",
+      "category": "직업건강 / 근골격계",
+      "tags": [
+        "근골격계",
+        "근골격계질환예방을",
+        "들기",
+        "올바른",
+        "위한",
+        "자세",
+        "직업건강"
+      ],
+      "hazard_categories": [
+        "ergonomic"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 207,
+      "title": "힘들어 하는 당신! 직업트라우마센터가 함께합니다.",
+      "url": "https://youtube.com/shorts/DmMxzWHeCig",
+      "category": "직업건강 / 트라우마센터",
+      "tags": [
+        "당신",
+        "직업건강",
+        "직업트라우마센터가",
+        "트라우마센터",
+        "하는",
+        "힘들어"
+      ],
+      "hazard_categories": [
+        "ergonomic"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 208,
+      "title": "일하는 사람의 건강지킴이 근로자건강센터",
+      "url": "https://youtube.com/shorts/v3Z8lxB4DFc",
+      "category": "직업건강 / 근로자건강센터",
+      "tags": [
+        "건강지킴이",
+        "근로자건강센터",
+        "사람의",
+        "일하는",
+        "직업건강"
+      ],
+      "hazard_categories": [
+        "ergonomic"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 209,
+      "title": "외부 전자파는 출입금지에요~ 산업기계인증부",
+      "url": "https://youtube.com/shorts/YrdgxVjTK74",
+      "category": "인증 / 전자파",
+      "tags": [
+        "산업기계인증부",
+        "외부",
+        "인증",
+        "전자파",
+        "전자파는",
+        "출입금지에요"
+      ],
+      "hazard_categories": [
+        "electrical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 210,
+      "title": "안전맥가이버 가설재인증부",
+      "url": "https://youtube.com/shorts/sxznABgzWIE",
+      "category": "인증 / 가설재",
+      "tags": [
+        "가설재",
+        "가설재인증부",
+        "안전맥가이버",
+        "인증"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 211,
+      "title": "방호장치에 대해 알고 싶어? 안전장치분야",
+      "url": "https://youtube.com/shorts/2OdvkSaNJL4",
+      "category": "인증 / 방호장치",
+      "tags": [
+        "대해",
+        "방호장치",
+        "방호장치에",
+        "싶어",
+        "안전장치분야",
+        "알고",
+        "인증"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 212,
+      "title": "어서 와~ 폭발은 처음이지? 방폭인증분야",
+      "url": "https://youtube.com/shorts/MEvPhYqq-Ng",
+      "category": "인증 / 방폭",
+      "tags": [
+        "방폭",
+        "방폭인증분야",
+        "어서",
+        "인증",
+        "처음이지",
+        "폭발은"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 213,
+      "title": "근로자의 안전 우리가 지킨다! 보호구인증부",
+      "url": "https://youtube.com/shorts/wwRpdSQNiqM",
+      "category": "인증 / 보호구",
+      "tags": [
+        "근로자의",
+        "보호구",
+        "보호구인증부",
+        "안전",
+        "인증",
+        "지킨다"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 214,
+      "title": "산업재해?? 안전인증부가 처리했으니~ QR코드로 스마트하게~",
+      "url": "https://youtube.com/shorts/JcRuxBjFW8Q",
+      "category": "인증 / 안전인증",
+      "tags": [
+        "산업재해",
+        "스마트하게",
+        "안전인증",
+        "안전인증부가",
+        "인증",
+        "처리했으니",
+        "코드로"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 215,
+      "title": "안젤이를 맞춰라! 스크린샷 이벤트",
+      "url": "https://youtube.com/shorts/hQh1hguld4c",
+      "category": "이벤트 / 홍보",
+      "tags": [
+        "맞춰라",
+        "스크린샷",
+        "안젤이를",
+        "이벤트",
+        "홍보"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 216,
+      "title": "어린이 안전사고 예방법",
+      "url": "https://youtube.com/shorts/paIpjkNofE8",
+      "category": "어린이 안전",
+      "tags": [
+        "안전사고",
+        "어린이",
+        "어린이 안전",
+        "예방법"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 217,
+      "title": "낙하물 부딪힘",
+      "url": "https://youtube.com/shorts/mb_KGmX2auI",
+      "category": "재해유형 / 낙하물",
+      "tags": [
+        "낙하물",
+        "부딪힘",
+        "재해유형"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 218,
+      "title": "허가 및 관리대상 유해물질 작업",
+      "url": "https://youtube.com/shorts/hfx0050H_-g",
+      "category": "화학안전 / 유해물질",
+      "tags": [
+        "관리대상",
+        "유해물질",
+        "작업",
+        "허가",
+        "화학안전"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 219,
+      "title": "선박하역 작업",
+      "url": "https://youtube.com/shorts/oViO0ID8Ih4",
+      "category": "항만안전 / 선박하역",
+      "tags": [
+        "선박하역",
+        "작업",
+        "항만안전"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 220,
+      "title": "특별교육 정전 및 활선 작업",
+      "url": "https://youtube.com/shorts/nCqkjUa9nkk",
+      "category": "전기안전 / 정전·활선",
+      "tags": [
+        "작업",
+        "전기안전",
+        "정전",
+        "특별교육",
+        "활선"
+      ],
+      "hazard_categories": [
+        "electrical"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 221,
+      "title": "안전영수증 5화! 안전과 혜택을 동시에",
+      "url": "https://youtube.com/shorts/yNAU75Ksukk",
+      "category": "안전영수증 시리즈",
+      "tags": [
+        "동시에",
+        "안전과",
+        "안전영수증",
+        "안전영수증 시리즈",
+        "혜택을"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전영수증",
+      "is_korean": true
+    },
+    {
+      "id": 222,
+      "title": "[사고사망재해예방] 용접,용단 작업 중 발생한 사망사고",
+      "url": "https://youtube.com/shorts/2Gt3hyteRhk",
+      "category": "사고사망 예방 / 용접",
+      "tags": [
+        "발생한",
+        "사고사망 예방",
+        "사고사망재해예방",
+        "사망사고",
+        "용단",
+        "용접",
+        "작업"
+      ],
+      "hazard_categories": [
+        "chemical"
+      ],
+      "series": "사고사망재해예방",
+      "is_korean": true
+    },
+    {
+      "id": 223,
+      "title": "[사고사망재해예방] 굴착작업 중 사망사고",
+      "url": "https://youtube.com/shorts/HoLKDAxUeRA",
+      "category": "사고사망 예방 / 굴착",
+      "tags": [
+        "굴착",
+        "굴착작업",
+        "사고사망 예방",
+        "사고사망재해예방",
+        "사망사고"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "사고사망재해예방",
+      "is_korean": true
+    },
+    {
+      "id": 224,
+      "title": "[사고사망재해예방] 제조업 사고율 1위 사고",
+      "url": "https://youtube.com/shorts/tKlnq9nFquk",
+      "category": "사고사망 예방 / 제조업",
+      "tags": [
+        "사고",
+        "사고사망 예방",
+        "사고사망재해예방",
+        "사고율",
+        "제조업"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "사고사망재해예방",
+      "is_korean": true
+    },
+    {
+      "id": 225,
+      "title": "[사고사망재해예방] 건설현장에서 무슨 일이?",
+      "url": "https://youtube.com/shorts/n-nmomIEMNA",
+      "category": "사고사망 예방 / 건설",
+      "tags": [
+        "건설",
+        "건설현장에서",
+        "무슨",
+        "사고사망 예방",
+        "사고사망재해예방",
+        "일이"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "사고사망재해예방",
+      "is_korean": true
+    },
+    {
+      "id": 226,
+      "title": "세상을 바꾸는 웹툰 공모전 시상식",
+      "url": "https://youtube.com/shorts/UBNrnCqJCeM",
+      "category": "이벤트 / 웹툰 공모전",
+      "tags": [
+        "공모전",
+        "바꾸는",
+        "세상을",
+        "시상식",
+        "웹툰",
+        "웹툰 공모전",
+        "이벤트"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 227,
+      "title": "안전영수증 4화! 특별한 안전 노하우",
+      "url": "https://youtube.com/shorts/MVEv7KPs9cU",
+      "category": "안전영수증 시리즈",
+      "tags": [
+        "노하우",
+        "안전",
+        "안전영수증",
+        "안전영수증 시리즈",
+        "특별한"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전영수증",
+      "is_korean": true
+    },
+    {
+      "id": 228,
+      "title": "[안전을 We한 그날의 이야기] 24살 청년의 열정을 앗아간 그날",
+      "url": "https://youtube.com/shorts/zX5XtTW-smE",
+      "category": "재해사례 / 다큐",
+      "tags": [
+        "그날",
+        "그날의",
+        "다큐",
+        "안전을",
+        "앗아간",
+        "열정을",
+        "재해사례",
+        "청년의"
+      ],
+      "hazard_categories": [
+        "physical"
+      ],
+      "series": "안전을We한",
+      "is_korean": true
+    },
+    {
+      "id": 229,
+      "title": "안전영수증 3화! 안전경영에 대한 고민",
+      "url": "https://youtube.com/shorts/CUo-doEqj3s",
+      "category": "안전영수증 시리즈",
+      "tags": [
+        "고민",
+        "대한",
+        "안전경영에",
+        "안전영수증",
+        "안전영수증 시리즈"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": "안전영수증",
+      "is_korean": true
+    },
+    {
+      "id": 230,
+      "title": "KOSHA X 국민가수 박창근 '우리가 바라는 세상은'",
+      "url": "https://youtube.com/shorts/ZreT_KCP8OI",
+      "category": "안전 홍보 / 연예인",
+      "tags": [
+        "국민가수",
+        "박창근",
+        "안전 홍보",
+        "연예인"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 231,
+      "title": "2022 산업안전보건강조주간 현장!",
+      "url": "https://youtube.com/shorts/W6c2B6JdEPY",
+      "category": "안전보건 행사",
+      "tags": [
+        "산업안전보건강조주간",
+        "안전보건 행사",
+        "현장"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    },
+    {
+      "id": 232,
+      "title": "안전영수증 2화! 무더위가 두려운 사람들",
+      "url": "https://youtube.com/shorts/d-pW7X7Tz8k",
+      "category": "안전영수증 / 온열질환",
+      "tags": [
+        "안전영수증",
+        "온열질환"
+      ],
+      "hazard_categories": [
+        "environmental"
+      ],
+      "series": "안전영수증",
+      "is_korean": true
+    },
+    {
+      "id": 233,
+      "title": "안보공 이사장, 산업현장을 직접 방문한 이유는?",
+      "url": "https://youtube.com/shorts/gjMi8jTw0qo",
+      "category": "안전 홍보 / 현장방문",
+      "tags": [
+        "방문한",
+        "산업현장을",
+        "안보공",
+        "안전 홍보",
+        "이사장",
+        "직접",
+        "현장방문"
+      ],
+      "hazard_categories": [
+        "general"
+      ],
+      "series": null,
+      "is_korean": true
+    }
+  ],
+  "total": 233,
+  "version": "1.0"
+}

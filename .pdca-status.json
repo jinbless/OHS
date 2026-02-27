@@ -1,0 +1,24 @@
+{
+  "remove-legal-basis-tab": {
+    "phase": "archived",
+    "matchRate": 100,
+    "iterationCount": 0,
+    "startedAt": "2026-02-23T00:00:00Z",
+    "archivedAt": "2026-02-23T01:30:00Z",
+    "archivedTo": "docs/archive/2026-02/remove-legal-basis-tab/"
+  },
+  "matching-quality-v2": {
+    "phase": "check",
+    "matchRate": 100,
+    "iterationCount": 1,
+    "startedAt": "2026-02-26T00:00:00Z",
+    "checkNote": "10 scenarios: article 100%, hazard 100%, combined 100%"
+  },
+  "article-data-source-upgrade": {
+    "phase": "check",
+    "matchRate": 100,
+    "iterationCount": 1,
+    "startedAt": "2026-02-26T00:00:00Z",
+    "checkNote": "690 articles from law.go.kr (was 442 PDFs), 0% artifacts"
+  }
+}

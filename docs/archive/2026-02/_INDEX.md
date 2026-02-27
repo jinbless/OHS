@@ -6,6 +6,7 @@
 |---------|:----------:|:----------:|:------------:|
 | kosha-guide-matching-v2 | #3 | 93% | 2026-02-22 |
 | analysis-ontology-integration | #4 | 90% | 2026-02-22 |
+| remove-legal-basis-tab | #5 | 100% | 2026-02-23 |
 
 ## Documents
 
@@ -26,3 +27,11 @@
 | Design | [analysis-ontology-integration.design.md](analysis-ontology-integration/analysis-ontology-integration.design.md) |
 | Check | [analysis-ontology-integration.analysis.md](analysis-ontology-integration/analysis-ontology-integration.analysis.md) |
 | Report | [analysis-ontology-integration.report.md](analysis-ontology-integration/analysis-ontology-integration.report.md) |
+
+### remove-legal-basis-tab
+
+| Phase | Document |
+|-------|----------|
+| Plan | [remove-legal-basis-tab.plan.md](remove-legal-basis-tab/remove-legal-basis-tab.plan.md) |
+| Check | [remove-legal-basis-tab.analysis.md](remove-legal-basis-tab/remove-legal-basis-tab.analysis.md) |
+| Report | [remove-legal-basis-tab.report.md](remove-legal-basis-tab/remove-legal-basis-tab.report.md) |

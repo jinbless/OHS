@@ -68,21 +68,6 @@ export interface GraphEdge {
   color?: Record<string, unknown>;
 }
 
-export interface SemanticMapping {
-  id: number;
-  source_type: string;
-  source_id: string;
-  source_label: string | null;
-  target_type: string;
-  target_id: string;
-  target_label: string | null;
-  relation_type: string;
-  relation_detail: string | null;
-  confidence: number;
-  discovery_method: string;
-  discovery_tier: string | null;
-}
-
 export const ontologyApi = {
   getStats: () =>
     apiClient.get<MappingStats>('/ontology/stats').then(r => r.data),
@@ -95,13 +80,4 @@ export const ontologyApi = {
 
   getFullGraph: (limit = 50) =>
     apiClient.get<GraphData>(`/ontology/graph?limit=${limit}`).then(r => r.data),
-
-  getMappings: (params?: {
-    relation_type?: string;
-    discovery_method?: string;
-    min_confidence?: number;
-    limit?: number;
-    offset?: number;
-  }) =>
-    apiClient.get<SemanticMapping[]>('/ontology/mappings', { params }).then(r => r.data),
 };

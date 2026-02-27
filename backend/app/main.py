@@ -8,6 +8,7 @@ from app.api.v1.router import router as api_v1_router
 from app.db.database import create_tables, SessionLocal
 from app.services.article_service import article_service
 from app.services.guide_service import guide_service
+from app.services.video_service import video_service
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +40,10 @@ async def lifespan(app: FastAPI):
             # ChromaDB 임베딩 인덱싱 (이미 있으면 스킵)
             indexed = guide_service.build_index(db, force=False)
             logger.info(f"KOSHA GUIDE 인덱스 준비 완료: {indexed}개 섹션")
+
+            # KOSHA 숏폼영상 시드 데이터 로드 (이미 있으면 스킵)
+            video_count = video_service.seed_videos(db, force=False)
+            logger.info(f"KOSHA 숏폼영상 준비 완료: {video_count}개")
         finally:
             db.close()
     except Exception as e:

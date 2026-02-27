@@ -69,9 +69,28 @@ RISK_ANALYSIS_SCHEMA = {
                 "type": "array",
                 "items": {"type": "string"},
                 "description": "KOSHA GUIDE 검색용 한국어 키워드 (구체적 도구명/작업명/위험유형, 최대 5개)"
+            },
+            "related_article_hints": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "article_number": {
+                            "type": "string",
+                            "description": "관련 법조항 번호 (예: '제42조', '제301조')"
+                        },
+                        "reason": {
+                            "type": "string",
+                            "description": "이 조문이 관련된 이유 (1문장)"
+                        }
+                    },
+                    "required": ["article_number", "reason"],
+                    "additionalProperties": False
+                },
+                "description": "위험요소에 직접 관련된 산업안전보건기준에 관한 규칙 조문번호 (최대 5개). 시스템 프롬프트의 조문 구조를 참고."
             }
         },
-        "required": ["risks", "overall_assessment", "immediate_actions", "recommended_guide_keywords"],
+        "required": ["risks", "overall_assessment", "immediate_actions", "recommended_guide_keywords", "related_article_hints"],
         "additionalProperties": False
     }
 }
