@@ -5,6 +5,16 @@ interface ResourceLinksProps {
   resources: Resource[];
 }
 
+const HAZARD_CODE_LABELS: Record<string, string> = {
+  FALL: '추락', SLIP: '미끄러짐', COLLISION: '충돌', CRUSH: '끼임',
+  CUT: '절단', FALLING_OBJECT: '낙하물', CHEMICAL: '화학물질',
+  FIRE_EXPLOSION: '화재·폭발', TOXIC: '중독·질식', CORROSION: '부식',
+  ELECTRIC: '감전', ARC_FLASH: '아크플래시', ERGONOMIC: '인간공학',
+  REPETITIVE: '반복작업', HEAVY_LIFTING: '중량물', POSTURE: '자세',
+  NOISE: '소음', TEMPERATURE: '온열', LIGHTING: '조명',
+  ENVIRONMENTAL: '환경위험', BIOLOGICAL: '생물학적',
+};
+
 const extractVideoId = (url: string): string | null => {
   const match = url.match(/shorts\/([a-zA-Z0-9_-]+)/);
   return match ? match[1] : null;
@@ -45,12 +55,18 @@ const VideoCard: React.FC<{ resource: Resource }> = ({ resource }) => {
         <h3 className="font-medium text-gray-900 text-sm leading-snug line-clamp-2">
           {resource.title}
         </h3>
-        <p className="text-xs text-gray-500 mt-1.5">
+        <p className="text-xs text-gray-500 mt-1.5 line-clamp-2">
           {resource.description}
         </p>
-        <p className="text-xs text-gray-400 mt-1">
-          {resource.source}
-        </p>
+        {resource.hazard_categories?.length > 0 && (
+          <div className="flex flex-wrap gap-1 mt-1.5">
+            {resource.hazard_categories.slice(0, 3).map((code) => (
+              <span key={code} className="text-[10px] bg-orange-50 text-orange-600 px-1.5 py-0.5 rounded border border-orange-200">
+                {HAZARD_CODE_LABELS[code] || code}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </a>
   );
