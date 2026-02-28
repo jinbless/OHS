@@ -7,13 +7,13 @@ from sqlalchemy.orm import Session
 
 from app.db.models import SafetyVideo
 from app.models.resource import Resource, ResourceType
-from app.utils.taxonomy import get_chapter_for_article
+from app.utils.taxonomy import get_chapter_for_article, code_to_major
 
 logger = logging.getLogger(__name__)
 
 
 class VideoService:
-    """KOSHA 안전 숏폼영상 서비스 - 3-Layer 매칭"""
+    """KOSHA 안전 숏폼영상 서비스 - hazard_codes 기반 정밀 매칭"""
 
     def _extract_video_id(self, url: str) -> Optional[str]:
         """YouTube URL에서 video ID 추출"""
@@ -24,15 +24,15 @@ class VideoService:
         """SafetyVideo → Resource 변환"""
         video_id = self._extract_video_id(video.url)
         thumbnail = f"https://img.youtube.com/vi/{video_id}/0.jpg" if video_id else None
-        cats = json.loads(video.hazard_categories) if video.hazard_categories else []
+        codes = json.loads(video.hazard_codes) if video.hazard_codes else []
         return Resource(
             id=f"video-{video.id}",
             type=ResourceType.VIDEO,
             title=video.title,
-            description=video.category,
+            description=video.description or video.category,
             url=video.url,
             source="KOSHA 숏폼",
-            hazard_categories=cats,
+            hazard_categories=codes,
             thumbnail_url=thumbnail,
         )
 
@@ -44,6 +44,12 @@ class VideoService:
         if existing > 0 and not force:
             logger.info(f"SafetyVideo 이미 {existing}개 존재, 스킵")
             return existing
+
+        # force=True일 때 기존 데이터 삭제
+        if force and existing > 0:
+            db.query(SafetyVideo).delete()
+            db.commit()
+            logger.info(f"SafetyVideo {existing}개 삭제 후 재로드")
 
         data_path = Path(__file__).parent.parent / "data" / "safety_videos.json"
         if not data_path.exists():
@@ -64,6 +70,8 @@ class VideoService:
                 category=v["category"],
                 tags=json.dumps(v.get("tags", []), ensure_ascii=False),
                 hazard_categories=json.dumps(v.get("hazard_categories", []), ensure_ascii=False),
+                hazard_codes=json.dumps(v.get("hazard_codes", []), ensure_ascii=False),
+                description=v.get("description", ""),
                 series=v.get("series"),
                 is_korean=1 if v.get("is_korean", True) else 0,
                 thumbnail_url=thumbnail,
@@ -75,11 +83,10 @@ class VideoService:
             db.commit()
         except Exception:
             db.rollback()
-            # URL unique 제약 충돌 시 개별 insert 시도
             count = 0
             for v in videos:
-                existing = db.query(SafetyVideo).filter_by(url=v["url"]).first()
-                if existing:
+                existing_v = db.query(SafetyVideo).filter_by(url=v["url"]).first()
+                if existing_v:
                     count += 1
                     continue
                 video_id = self._extract_video_id(v["url"])
@@ -90,6 +97,8 @@ class VideoService:
                     category=v["category"],
                     tags=json.dumps(v.get("tags", []), ensure_ascii=False),
                     hazard_categories=json.dumps(v.get("hazard_categories", []), ensure_ascii=False),
+                    hazard_codes=json.dumps(v.get("hazard_codes", []), ensure_ascii=False),
+                    description=v.get("description", ""),
                     series=v.get("series"),
                     is_korean=1 if v.get("is_korean", True) else 0,
                     thumbnail_url=thumbnail,
@@ -104,41 +113,52 @@ class VideoService:
         logger.info(f"SafetyVideo {count}개 시드 완료")
         return count
 
-    # ── Layer 1: 카테고리 매칭 ─────────────────────────────
+    # ── Layer 1: hazard_codes 정밀 매칭 ─────────────────────
 
-    def match_by_category(self, db: Session, categories: List[str], limit: int = 10) -> List[dict]:
-        """hazard_categories 기반 매칭"""
-        if not categories:
+    def match_by_category_weights(
+        self, db: Session, category_weights: dict[str, float], limit: int = 10
+    ) -> List[dict]:
+        """대분류 가중치 기반 매칭 — 영상의 대분류가 입력 카테고리와 겹칠수록 높은 점수"""
+        if not category_weights:
             return []
 
         all_videos = db.query(SafetyVideo).all()
         results = []
         for video in all_videos:
-            cats = json.loads(video.hazard_categories) if video.hazard_categories else []
-            overlap = set(categories) & set(cats)
-            if overlap:
-                score = len(overlap) / max(len(categories), 1)
-                results.append({"video": video, "score": score, "method": "category"})
+            codes = json.loads(video.hazard_codes) if video.hazard_codes else []
+            if not codes:
+                continue
+
+            # 영상의 대분류 집합
+            video_majors = set()
+            for c in codes:
+                m = code_to_major(c.upper())
+                if m:
+                    video_majors.add(m)
+
+            # 영상이 매칭하는 카테고리 가중치 합산
+            score = sum(category_weights.get(m, 0) for m in video_majors)
+            if score > 0:
+                results.append({"video": video, "score": score, "method": "hazard_code"})
 
         results.sort(key=lambda x: x["score"], reverse=True)
         return results[:limit]
 
-    # ── Layer 2: 키워드 매칭 ──────────────────────────────
+    # ── Layer 2: 키워드 매칭 (제목 + 태그 + description) ────
 
     def match_by_keywords(self, db: Session, hazard_descriptions: List[str], limit: int = 10) -> List[dict]:
-        """위험요소 설명에서 키워드 추출 후 영상 제목+태그 매칭"""
+        """위험요소 설명에서 키워드 추출 후 영상 제목+태그+description 매칭"""
         if not hazard_descriptions:
             return []
 
-        # 위험요소 설명에서 2글자 이상 키워드 추출
         keywords = set()
         for desc in hazard_descriptions:
             words = re.findall(r'[가-힣]{2,}', desc)
             keywords.update(words)
 
-        # 불용어 제거
         stopwords = {"작업", "위험", "필요", "있는", "하는", "되는", "경우", "가능", "발생", "해야", "때문",
-                     "이상", "하여", "통해", "대한", "관련", "따른", "인한", "것이", "등의", "수가"}
+                     "이상", "하여", "통해", "대한", "관련", "따른", "인한", "것이", "등의", "수가",
+                     "안전", "보건", "교육", "예방", "사고", "산업", "근로자", "사업장"}
         keywords -= stopwords
         if not keywords:
             return []
@@ -147,10 +167,11 @@ class VideoService:
         results = []
         for video in all_videos:
             tags = json.loads(video.tags) if video.tags else []
-            search_text = video.title + " " + " ".join(tags) + " " + video.category
+            desc = video.description or ""
+            search_text = video.title + " " + " ".join(tags) + " " + video.category + " " + desc
             hits = sum(1 for kw in keywords if kw in search_text)
             if hits > 0:
-                score = min(1.0, hits * 0.2)
+                score = min(1.0, hits * 0.15)
                 results.append({"video": video, "score": score, "method": "keyword"})
 
         results.sort(key=lambda x: x["score"], reverse=True)
@@ -161,61 +182,43 @@ class VideoService:
     def match_by_ontology(
         self, db: Session, norm_articles: List[str], guide_classifications: List[str], limit: int = 10
     ) -> List[dict]:
-        """법조항 → 가이드 분류 → 영상 분야 매칭
-
-        norm_articles: 매칭된 법조항 번호 리스트 (예: ["제42조", "제80조"])
-        guide_classifications: 관련 가이드 분류코드 리스트 (예: ["G", "C", "M"])
-        """
+        """법조항 → taxonomy → 대분류 가중치 매칭"""
         if not guide_classifications and not norm_articles:
             return []
 
-        # 가이드 분류 → 영상 분야 키워드 매핑
-        classification_keywords = {
-            "G": ["일반", "안전", "보호구", "정리정돈"],
-            "C": ["건설", "비계", "사다리", "추락", "개구부", "지붕", "철골", "거푸집", "크레인"],
-            "M": ["기계", "프레스", "롤러", "컨베이어", "로봇", "절단", "끼임"],
-            "E": ["전기", "감전", "정전", "활선"],
-            "H": ["화학", "폭발", "중독", "밀폐", "질식", "유해물질"],
-            "B": ["보건", "건강", "근골격계", "분진", "온열"],
-        }
-
-        match_keywords = set()
-        for cls in guide_classifications:
-            kws = classification_keywords.get(cls, [])
-            match_keywords.update(kws)
-
-        # 법조항 번호에서 키워드 유추 (taxonomy 기반)
-        _HAZARD_KEYWORDS = {
-            "physical": ["추락", "건설", "비계", "사다리", "끼임", "충돌", "절단"],
-            "chemical": ["화학", "폭발", "중독", "유해물질", "화재"],
-            "electrical": ["전기", "감전", "아크"],
-            "ergonomic": ["근골격", "반복작업", "중량물"],
-            "environmental": ["소음", "밀폐", "분진", "온도"],
-            "biological": ["감염", "병원체"],
-        }
+        # 법조항에서 대분류 유추
+        inferred_majors: list[str] = []
         for article in norm_articles:
             num_match = re.search(r'(\d+)', article)
             if num_match:
                 num = int(num_match.group(1))
                 ch = get_chapter_for_article(num)
                 if ch and ch.get("hazard_major"):
-                    kws = _HAZARD_KEYWORDS.get(ch["hazard_major"], [])
-                    match_keywords.update(kws)
+                    inferred_majors.append(ch["hazard_major"])
 
-        if not match_keywords:
+        # KOSHA 분류 → 대분류 매핑
+        _CLS_TO_MAJOR = {
+            "G": [],
+            "C": ["physical"],
+            "M": ["physical"],
+            "E": ["electrical"],
+            "H": ["chemical", "environmental"],
+            "B": ["ergonomic", "environmental"],
+        }
+        for cls in guide_classifications:
+            majors = _CLS_TO_MAJOR.get(cls, [])
+            inferred_majors.extend(majors)
+
+        if not inferred_majors:
             return []
 
-        all_videos = db.query(SafetyVideo).all()
-        results = []
-        for video in all_videos:
-            search_text = video.title + " " + video.category
-            hits = sum(1 for kw in match_keywords if kw in search_text)
-            if hits > 0:
-                score = min(0.9, hits * 0.15)
-                results.append({"video": video, "score": score, "method": "ontology"})
+        # 빈도 기반 가중치
+        from collections import Counter
+        freq = Counter(inferred_majors)
+        total = max(len(inferred_majors), 1)
+        weights = {m: c / total for m, c in freq.items()}
 
-        results.sort(key=lambda x: x["score"], reverse=True)
-        return results[:limit]
+        return self.match_by_category_weights(db, weights, limit=limit)
 
     # ── 통합 매칭 (3-Layer 병합) ──────────────────────────
 
@@ -228,9 +231,9 @@ class VideoService:
         guide_classifications: Optional[List[str]] = None,
         max_results: int = 5,
     ) -> List[Resource]:
-        """3-Layer 매칭 통합: 카테고리 + 키워드 + 온톨로지"""
+        """3-Layer 매칭 통합: hazard_codes + 키워드 + 온톨로지"""
 
-        video_scores: dict[int, dict] = {}  # video.id → {video, score, methods}
+        video_scores: dict[int, dict] = {}
 
         def _merge(matches: List[dict], weight: float):
             for m in matches:
@@ -244,15 +247,22 @@ class VideoService:
                 video_scores[vid]["score"] += m["score"] * weight
                 video_scores[vid]["methods"].append(m["method"])
 
-        # Layer 1: 카테고리 (가중치 0.4)
-        cat_matches = self.match_by_category(db, hazard_categories, limit=15)
-        _merge(cat_matches, weight=0.4)
+        # hazard_categories → 대분류별 가중치 계산
+        from collections import Counter
+        cat_freq = Counter(hazard_categories)
+        total = max(len(hazard_categories), 1)
+        category_weights = {cat: count / total for cat, count in cat_freq.items()}
 
-        # Layer 2: 키워드 (가중치 0.4)
+        # Layer 1: 카테고리 가중치 매칭 (weight 0.5)
+        if category_weights:
+            cat_matches = self.match_by_category_weights(db, category_weights, limit=15)
+            _merge(cat_matches, weight=0.5)
+
+        # Layer 2: 키워드 (가중치 0.3)
         kw_matches = self.match_by_keywords(db, hazard_descriptions, limit=15)
-        _merge(kw_matches, weight=0.4)
+        _merge(kw_matches, weight=0.3)
 
-        # Layer 3: 온톨로지 (가중치 0.3)
+        # Layer 3: 온톨로지 (가중치 0.2)
         if norm_articles or guide_classifications:
             onto_matches = self.match_by_ontology(
                 db,
@@ -260,16 +270,17 @@ class VideoService:
                 guide_classifications or [],
                 limit=15,
             )
-            _merge(onto_matches, weight=0.3)
+            _merge(onto_matches, weight=0.2)
 
         # 한국어 영상 우선 부스트
         for vid, entry in video_scores.items():
             if entry["video"].is_korean:
                 entry["score"] += 0.05
             # 다중 레이어 매칭 보너스
-            if len(set(entry["methods"])) >= 2:
+            unique_methods = set(entry["methods"])
+            if len(unique_methods) >= 2:
                 entry["score"] += 0.1
-            if len(set(entry["methods"])) >= 3:
+            if len(unique_methods) >= 3:
                 entry["score"] += 0.15
 
         # 정렬 및 상위 N개 반환

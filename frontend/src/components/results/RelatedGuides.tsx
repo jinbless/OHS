@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import ArticleModal from './ArticleModal';
 
 interface GuideArticleRef {
   article_number: string;
   title: string;
   content?: string;
-  source_file?: string;
+  chapter?: string;
+  part?: string;
 }
 
 interface GuideSectionInfo {
@@ -56,10 +58,9 @@ const CLASSIFICATION_COLORS: Record<string, string> = {
   'A': 'bg-indigo-100 text-indigo-700',
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL?.replace('/api/v1', '') || 'http://localhost:8000';
-
 const RelatedGuides: React.FC<RelatedGuidesProps> = ({ guides }) => {
   const [expandedCode, setExpandedCode] = useState<string | null>(null);
+  const [modalArticle, setModalArticle] = useState<GuideArticleRef | null>(null);
 
   if (!guides || guides.length === 0) {
     return null;
@@ -67,10 +68,6 @@ const RelatedGuides: React.FC<RelatedGuidesProps> = ({ guides }) => {
 
   const getClassLabel = (code: string) => CLASSIFICATION_LABELS[code] || code;
   const getClassColor = (code: string) => CLASSIFICATION_COLORS[code] || 'bg-gray-100 text-gray-700';
-
-  const getPdfUrl = (sourceFile: string) => {
-    return `${API_BASE}/articles-pdf/${encodeURIComponent(sourceFile)}`;
-  };
 
   return (
     <div className="card">
@@ -136,7 +133,7 @@ const RelatedGuides: React.FC<RelatedGuidesProps> = ({ guides }) => {
                     </div>
                   )}
 
-                  {/* 매핑된 법조항 (인라인) */}
+                  {/* 매핑된 법조항 */}
                   {articles.length > 0 && (
                     <div className="mt-3">
                       <div className="text-xs font-semibold text-blue-700 mb-2 flex items-center gap-1">
@@ -149,7 +146,11 @@ const RelatedGuides: React.FC<RelatedGuidesProps> = ({ guides }) => {
                         {articles.map((article, idx) => (
                           <div
                             key={idx}
-                            className="flex items-center justify-between p-2 bg-blue-50 rounded text-sm"
+                            className="flex items-center justify-between p-2 bg-blue-50 rounded text-sm cursor-pointer hover:bg-blue-100 transition-colors"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setModalArticle(article);
+                            }}
                           >
                             <div className="flex items-center gap-2 min-w-0">
                               <span className="font-bold text-blue-700 whitespace-nowrap text-xs">
@@ -161,17 +162,12 @@ const RelatedGuides: React.FC<RelatedGuidesProps> = ({ guides }) => {
                                 </span>
                               )}
                             </div>
-                            {article.source_file && (
-                              <a
-                                href={getPdfUrl(article.source_file)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-xs text-blue-500 hover:text-blue-700 whitespace-nowrap ml-2"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                원문 →
-                              </a>
-                            )}
+                            <span className="text-xs text-blue-500 whitespace-nowrap ml-2 flex items-center gap-0.5">
+                              조문 보기
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -187,6 +183,21 @@ const RelatedGuides: React.FC<RelatedGuidesProps> = ({ guides }) => {
           );
         })}
       </div>
+
+      {/* 법조항 상세 모달 */}
+      {modalArticle && (
+        <ArticleModal
+          article={{
+            article_number: modalArticle.article_number,
+            title: modalArticle.title,
+            content: modalArticle.content || '',
+            chapter: modalArticle.chapter,
+            part: modalArticle.part,
+          }}
+          isOpen={!!modalArticle}
+          onClose={() => setModalArticle(null)}
+        />
+      )}
     </div>
   );
 };

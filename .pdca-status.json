@@ -27,5 +27,11 @@
     "iterationCount": 1,
     "startedAt": "2026-02-27T00:00:00Z",
     "checkNote": "Article 98.0% (49/50), KOSHA 100.0% (49/49). 목표 초과 달성."
+  },
+  "article-viewer-ux": {
+    "phase": "plan",
+    "matchRate": 0,
+    "iterationCount": 0,
+    "startedAt": "2026-02-28T00:00:00Z"
   }
 }

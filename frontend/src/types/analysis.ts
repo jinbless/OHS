@@ -6,7 +6,8 @@ export interface GuideArticleRef {
   article_number: string;
   title: string;
   content?: string;
-  source_file?: string;
+  chapter?: string;
+  part?: string;
 }
 
 export interface GuideSectionInfo {

@@ -13,7 +13,8 @@ class GuideArticleRef(BaseModel):
     article_number: str
     title: str
     content: str = ""
-    source_file: str = ""
+    chapter: str = ""
+    part: str = ""
 
 
 class GuideMatch(BaseModel):

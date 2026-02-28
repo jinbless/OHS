@@ -466,8 +466,9 @@ class ArticleService:
                     return {
                         "article_number": meta["article_number"],
                         "title": meta.get("title", ""),
-                        "content": meta.get("content", "")[:500],
-                        "source_file": meta.get("source_file", ""),
+                        "content": meta.get("content", ""),
+                        "chapter": meta.get("chapter", ""),
+                        "part": meta.get("part", ""),
                     }
 
             # 부분 매칭 (제42조 → 제42조의2 등)
@@ -479,8 +480,9 @@ class ArticleService:
                         return {
                             "article_number": meta["article_number"],
                             "title": meta.get("title", ""),
-                            "content": meta.get("content", "")[:500],
-                            "source_file": meta.get("source_file", ""),
+                            "content": meta.get("content", ""),
+                            "chapter": meta.get("chapter", ""),
+                            "part": meta.get("part", ""),
                         }
         except Exception as e:
             logger.warning(f"조문 조회 실패 ({article_number}): {e}")

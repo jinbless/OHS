@@ -141,6 +141,8 @@ class SafetyVideo(Base):
     category = Column(Text, nullable=False)          # 원본 분야 (예: "건설안전 / 추락예방")
     tags = Column(Text, nullable=True)               # JSON array of keywords
     hazard_categories = Column(Text, nullable=False)  # JSON array (예: ["physical","fall"])
+    hazard_codes = Column(Text, nullable=True)       # JSON array (예: ["FALL","CRUSH"])
+    description = Column(Text, nullable=True)        # GPT 생성 한글 설명
     series = Column(String(30), nullable=True)        # 시리즈명
     is_korean = Column(Integer, nullable=False, default=1)  # 1=한국어, 0=영어
     thumbnail_url = Column(Text, nullable=True)

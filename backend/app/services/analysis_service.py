@@ -446,8 +446,9 @@ class AnalysisService:
                         enriched_refs.append({
                             "article_number": detail["article_number"],
                             "title": detail.get("title", ""),
-                            "content": detail.get("content", "")[:300],
-                            "source_file": detail.get("source_file", ""),
+                            "content": detail.get("content", ""),
+                            "chapter": detail.get("chapter", ""),
+                            "part": detail.get("part", ""),
                         })
                     else:
                         enriched_refs.append(ref)
