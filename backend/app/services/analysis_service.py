@@ -204,9 +204,11 @@ class AnalysisService:
         # risks → Hazards 변환
         hazards = []
         hazard_categories = []
+        hazard_codes_raw = []  # GPT 원본 category_code (서브카테고리)
         for r in result.get("risks", []):
             category = self._map_category(r.get("category_code", "PHYSICAL"))
             hazard_categories.append(category)
+            hazard_codes_raw.append(r.get("category_code", "PHYSICAL").upper())
             hazards.append(Hazard(
                 id=str(uuid.uuid4()),
                 category=HazardCategory(category) if category in [e.value for e in HazardCategory] else HazardCategory.PHYSICAL,
@@ -590,17 +592,12 @@ class AnalysisService:
         except Exception as e:
             logger.warning(f"온톨로지 매칭 실패 (무시하고 계속): {e}")
 
-        # 관련 KOSHA 숏폼영상 (3-Layer 매칭)
+        # 관련 KOSHA 숏폼영상 (hazard_code 직접 매칭)
         try:
-            norm_articles = [nc.article_number for nc in norm_context_list]
-            guide_cls = list({g.classification for g in related_guides}) if related_guides else []
-
             resources = video_service.find_related_videos(
                 db=db,
+                hazard_codes=hazard_codes_raw,
                 hazard_descriptions=[r.get("description", "") for r in result.get("risks", [])],
-                hazard_categories=hazard_categories,
-                norm_articles=norm_articles,
-                guide_classifications=guide_cls,
                 max_results=5,
             )
         except Exception as e:

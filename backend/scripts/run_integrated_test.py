@@ -29,7 +29,9 @@ HAZARD_CODE_KR = {
 }
 
 # 위험유형 → 관련 hazard_code 매핑 (영상 평가용)
+# 키워드 포함 매칭: expected_hazard_type 문자열에 키가 포함되면 매칭
 HAZARD_TYPE_TO_CODES = {
+    # 물리적 위험
     "추락": ["FALL", "FALLING_OBJECT"],
     "미끄러짐": ["SLIP", "FALL"],
     "넘어짐": ["SLIP", "FALL"],
@@ -38,24 +40,92 @@ HAZARD_TYPE_TO_CODES = {
     "절단": ["CUT"],
     "충돌": ["COLLISION"],
     "부딪힘": ["COLLISION"],
+    "낙하": ["FALLING_OBJECT", "FALL"],
     "낙하물": ["FALLING_OBJECT", "FALL"],
+    "붕괴": ["FALLING_OBJECT", "FALL", "CRUSH"],
+    "매몰": ["FALLING_OBJECT", "CRUSH", "ENVIRONMENTAL"],
+    "전도": ["COLLISION", "CRUSH"],
+    "비산물": ["COLLISION", "FALLING_OBJECT"],
+    "파손": ["COLLISION", "FALLING_OBJECT"],
+    "말림": ["CRUSH", "CUT"],
+    # 전기적 위험
     "감전": ["ELECTRIC", "ARC_FLASH"],
     "전기": ["ELECTRIC", "ARC_FLASH"],
+    "누전": ["ELECTRIC"],
+    "아크": ["ARC_FLASH", "ELECTRIC"],
+    # 화학적 위험
     "화재": ["FIRE_EXPLOSION"],
     "폭발": ["FIRE_EXPLOSION"],
+    "화상": ["FIRE_EXPLOSION", "TEMPERATURE"],
+    "고온": ["TEMPERATURE", "FIRE_EXPLOSION"],
     "화학물질": ["CHEMICAL", "TOXIC"],
+    "유해물질": ["CHEMICAL", "TOXIC"],
+    "유해가스": ["TOXIC", "ENVIRONMENTAL", "CHEMICAL", "FIRE_EXPLOSION"],
     "중독": ["TOXIC", "CHEMICAL"],
-    "질식": ["TOXIC", "ENVIRONMENTAL"],
+    "질식": ["TOXIC", "ENVIRONMENTAL", "CHEMICAL"],
     "밀폐공간": ["TOXIC", "ENVIRONMENTAL"],
     "분진": ["ENVIRONMENTAL", "CHEMICAL"],
-    "소음": ["NOISE"],
-    "온열": ["TEMPERATURE"],
-    "고온": ["TEMPERATURE"],
-    "근골격계": ["ERGONOMIC", "REPETITIVE", "HEAVY_LIFTING", "POSTURE"],
-    "중량물": ["HEAVY_LIFTING"],
-    "감염": ["BIOLOGICAL"],
+    "석면": ["CHEMICAL", "ENVIRONMENTAL"],
+    "발암": ["CHEMICAL", "TOXIC"],
     "부식": ["CORROSION", "CHEMICAL"],
+    "피부": ["CHEMICAL", "CORROSION"],
+    "흡입": ["TOXIC", "ENVIRONMENTAL", "CHEMICAL"],
+    "누출": ["CHEMICAL", "TOXIC"],
+    "오염": ["CHEMICAL", "ENVIRONMENTAL"],
+    "중금속": ["CHEMICAL", "TOXIC"],
+    # 인간공학적 위험
+    "근골격계": ["ERGONOMIC", "REPETITIVE", "HEAVY_LIFTING", "POSTURE"],
+    "요통": ["ERGONOMIC", "HEAVY_LIFTING", "POSTURE"],
+    "자세": ["POSTURE", "ERGONOMIC"],
+    "반복": ["REPETITIVE", "ERGONOMIC"],
+    "중량물": ["HEAVY_LIFTING"],
+    "부상": ["ERGONOMIC", "COLLISION"],
+    # 환경적 위험
+    "소음": ["NOISE"],
+    "난청": ["NOISE"],
+    "청력": ["NOISE"],
+    "온열": ["TEMPERATURE"],
+    "환기": ["ENVIRONMENTAL", "TOXIC"],
+    "조명": ["LIGHTING"],
+    "시력": ["LIGHTING", "ERGONOMIC"],
+    "눈의 피로": ["LIGHTING", "ERGONOMIC"],
+    "VDT": ["ERGONOMIC", "LIGHTING"],
+    # 생물학적 위험
+    "감염": ["BIOLOGICAL"],
+    "병원체": ["BIOLOGICAL"],
+    # 기타
+    "방사": ["ENVIRONMENTAL"],
+    "트라우마": ["ERGONOMIC"],
+    "가스": ["TOXIC", "ENVIRONMENTAL", "FIRE_EXPLOSION"],
+    "압축": ["FIRE_EXPLOSION", "ENVIRONMENTAL"],
+    "감압": ["ENVIRONMENTAL"],
+    "기계": ["CRUSH", "CUT"],
+    "신체": ["CRUSH", "CUT"],
+    "안전수칙": [],  # 일반적 - 코드 없음
+    "두부": ["FALLING_OBJECT", "COLLISION"],
+    "발 손상": ["CRUSH", "COLLISION"],
+    "발에": ["CRUSH", "COLLISION"],
+    "산소결핍": ["TOXIC", "ENVIRONMENTAL"],
+    "호흡기": ["TOXIC", "ENVIRONMENTAL", "CHEMICAL"],
+    "진폐": ["ENVIRONMENTAL", "CHEMICAL"],
+    "결핍": ["TOXIC", "ENVIRONMENTAL"],
 }
+
+
+def _resolve_expected_codes(expected_hazard_types: list) -> set:
+    """expected_hazard_types 리스트 → 관련 hazard_codes set 변환.
+    정확 매칭 우선, 없으면 부분 문자열(키 포함) 매칭."""
+    codes = set()
+    for ht in expected_hazard_types:
+        # 정확 매칭
+        if ht in HAZARD_TYPE_TO_CODES:
+            codes.update(HAZARD_TYPE_TO_CODES[ht])
+            continue
+        # 부분 문자열 매칭: ht에 키워드가 포함되어 있으면
+        for key, key_codes in HAZARD_TYPE_TO_CODES.items():
+            if key in ht:
+                codes.update(key_codes)
+    return codes
 
 
 def run_analysis(scenario: str, workplace_type: str) -> dict:
@@ -112,19 +182,19 @@ def evaluate_guide_match(result: dict, expected_hazard_types: list) -> dict:
 
 
 def evaluate_video_match(result: dict, expected_hazard_types: list) -> dict:
-    """숏폼 영상 매칭 평가"""
+    """숏폼 영상 매칭 평가 (v2: 서브카테고리 직접 매칭)
+    - 영상 0건 = "correct_empty" (매칭할 영상 없으면 안 보여주는 게 정답)
+    - 영상 있으면 relevant 비율로 good/partial/poor 판정
+    """
     resources = result.get("resources", [])
     videos = [r for r in resources if r.get("type") == "video"]
     video_count = len(videos)
 
     if video_count == 0:
-        return {"count": 0, "relevance": "none", "score": 0, "details": []}
+        return {"count": 0, "relevance": "correct_empty", "score": 1.0, "details": []}
 
-    # 기대 hazard_code 추출
-    expected_codes = set()
-    for ht in expected_hazard_types:
-        codes = HAZARD_TYPE_TO_CODES.get(ht, [])
-        expected_codes.update(codes)
+    # 기대 hazard_code 추출 (확장 매핑)
+    expected_codes = _resolve_expected_codes(expected_hazard_types)
 
     relevant_count = 0
     details = []
@@ -178,7 +248,7 @@ def main():
     # 결과 수집
     article_results = {"found": 0, "not_found": 0, "errors": 0}
     guide_results = {"has_guides": 0, "no_guides": 0}
-    video_results = {"good": 0, "partial": 0, "poor": 0, "none": 0}
+    video_results = {"good": 0, "partial": 0, "poor": 0, "correct_empty": 0}
     video_code_coverage = Counter()
     failed_cases = []
     all_results = []
@@ -272,15 +342,17 @@ def main():
     print(f"\n📚 KOSHA GUIDE 연계: {guide_results['has_guides']}/{tested} ({guide_pct:.1f}%)")
 
     # 숏폼 영상
-    good_pct = video_results["good"] / tested * 100 if tested > 0 else 0
-    partial_pct = video_results["partial"] / tested * 100 if tested > 0 else 0
-    poor_pct = video_results["poor"] / tested * 100 if tested > 0 else 0
-    none_pct = video_results["none"] / tested * 100 if tested > 0 else 0
-    print(f"\n🎬 숏폼 영상 매칭:")
-    print(f"  좋음(60%↑): {video_results['good']}건 ({good_pct:.1f}%)")
-    print(f"  부분(30%↑): {video_results['partial']}건 ({partial_pct:.1f}%)")
-    print(f"  미흡(<30%): {video_results['poor']}건 ({poor_pct:.1f}%)")
-    print(f"  없음(0건):  {video_results['none']}건 ({none_pct:.1f}%)")
+    good_n = video_results["good"]
+    partial_n = video_results["partial"]
+    poor_n = video_results["poor"]
+    empty_n = video_results["correct_empty"]
+    correct_n = good_n + partial_n + empty_n  # 적중 = good + partial + 정상빈칸
+    video_accuracy = correct_n / tested * 100 if tested > 0 else 0
+    print(f"\n🎬 숏폼 영상 매칭 (정확도: {correct_n}/{tested} = {video_accuracy:.1f}%):")
+    print(f"  좋음(60%↑):  {good_n}건")
+    print(f"  부분(30%↑):  {partial_n}건")
+    print(f"  미흡(<30%):  {poor_n}건 (오매칭)")
+    print(f"  정상빈칸:    {empty_n}건 (매칭영상 없어서 안 보여줌 = 정답)")
 
     # 영상 코드 분포
     print(f"\n🏷️ 매칭된 영상 hazard_code 분포:")
@@ -297,10 +369,11 @@ def main():
                 "tested": tested,
                 "article_accuracy": art_acc,
                 "guide_coverage": guide_pct,
-                "video_good": good_pct,
-                "video_partial": partial_pct,
-                "video_poor": poor_pct,
-                "video_none": none_pct,
+                "video_accuracy": video_accuracy,
+                "video_good": good_n,
+                "video_partial": partial_n,
+                "video_poor": poor_n,
+                "video_correct_empty": empty_n,
             },
             "failed_articles": failed_cases,
             "video_code_distribution": dict(video_code_coverage.most_common()),
