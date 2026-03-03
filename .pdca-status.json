@@ -33,5 +33,11 @@
     "matchRate": 0,
     "iterationCount": 0,
     "startedAt": "2026-02-28T00:00:00Z"
+  },
+  "norm-based-checklist": {
+    "phase": "plan",
+    "matchRate": 0,
+    "iterationCount": 0,
+    "startedAt": "2026-03-03T00:00:00Z"
   }
 }

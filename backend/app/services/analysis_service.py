@@ -230,14 +230,13 @@ class AnalysisService:
                 item=action,
                 description=None,
                 priority=i,
-                is_mandatory=True
+                is_mandatory=True,
+                source_type="gpt",
+                source_ref=None,
             ))
 
-        checklist = Checklist(
-            title="안전점검 체크리스트",
-            workplace_type=None,
-            items=checklist_items
-        )
+        # checklist는 norm 기반 항목 추가 후 아래에서 최종 생성
+        gpt_checklist_items = checklist_items
 
         resources = []
         hazard_descs = [r.get("description", "") for r in result.get("risks", [])]
@@ -592,6 +591,35 @@ class AnalysisService:
         except Exception as e:
             logger.warning(f"온톨로지 매칭 실패 (무시하고 계속): {e}")
 
+        # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        # 규범명제 → 체크리스트 변환 (법적 의무/금지 사항)
+        # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        norm_checklist_items = self._norms_to_checklist(norm_context_list, gpt_checklist_items)
+
+        # 최종 체크리스트: 금지 사항 → 법적 의무 → 즉시 조치 순서
+        all_checklist_items = []
+        priority = 1
+        for item in norm_checklist_items:
+            if item.category == "금지 사항":
+                item.priority = priority
+                all_checklist_items.append(item)
+                priority += 1
+        for item in norm_checklist_items:
+            if item.category == "법적 의무":
+                item.priority = priority
+                all_checklist_items.append(item)
+                priority += 1
+        for item in gpt_checklist_items:
+            item.priority = priority
+            all_checklist_items.append(item)
+            priority += 1
+
+        checklist = Checklist(
+            title="안전점검 체크리스트",
+            workplace_type=None,
+            items=all_checklist_items,
+        )
+
         # 관련 KOSHA 숏폼영상 (hazard_code 직접 매칭)
         try:
             resources = video_service.find_related_videos(
@@ -681,6 +709,181 @@ class AnalysisService:
 
         # 2차: 첫 번째 반환 (벡터 유사도 순서 유지)
         return norm_contexts[0] if norm_contexts else None
+
+
+    def _norms_to_checklist(
+        self,
+        norm_context_list: list,
+        gpt_items: list,
+    ) -> list:
+        """규범명제(NormStatement)에서 법적 의무/금지 사항 체크리스트 항목 생성
+
+        - PROHIBITION → "금지 사항" 카테고리
+        - OBLIGATION  → "법적 의무" 카테고리
+        - GPT 즉시조치와 중복되는 항목은 GPT 항목에 법적 근거를 병합하고 제거
+        - 최대 5개 (PROHIBITION 우선)
+        """
+        from typing import List
+        norm_items: List[ChecklistItem] = []
+
+        # 1) 규범명제에서 OBLIGATION/PROHIBITION 추출
+        candidates = []  # (legal_effect, action_text, article_number, full_text)
+        for nc in norm_context_list:
+            art_num = nc.article_number
+            for norm in nc.norms:
+                effect = (norm.legal_effect or "").upper()
+                if effect not in ("OBLIGATION", "PROHIBITION"):
+                    continue
+                action = norm.action or ""
+                full = norm.full_text or ""
+
+                # 정의 조항 필터링 (체크리스트로 부적합)
+                if action in ("정의한다", "정의하다", "규정하다", "규정한다"):
+                    continue
+                if any(full.lstrip().startswith(p) for p in ['"', '"', '\u201c', '\u201d', "「", "'"]):
+                    continue  # 용어 정의 조항 ("~이란")
+                if "이란 " in full[:40] or "란 " in full[:20]:
+                    if any(w in full for w in ["말한다", "뜻한다", "의미한다", "같다", "다음"]):
+                        continue  # "~이란 ~을 말한다" 패턴
+                # 목록 참조 ("다음 각 호")나 하위 번호 항목 필터링
+                if "다음 각 호" in action:
+                    continue
+                stripped_full = full.lstrip()
+                if stripped_full and stripped_full[0].isdigit() and ". " in stripped_full[:5]:
+                    continue  # "1. ~", "2. ~" 등 하위 항목
+
+                candidates.append({
+                    "effect": effect,
+                    "action": action,
+                    "article_number": art_num,
+                    "full_text": full,
+                })
+
+        # PROHIBITION 우선 정렬
+        candidates.sort(key=lambda c: (0 if c["effect"] == "PROHIBITION" else 1))
+
+        # 2) 체크리스트 문장 생성 (템플릿 변환)
+        seen_texts = set()  # 중복 방지
+        for c in candidates:
+            action = c["action"].strip()
+            full = c["full_text"].strip()
+
+            # 템플릿 변환
+            if c["effect"] == "PROHIBITION":
+                if action and len(action) <= 30:
+                    # action이 이미 부정형이면 그대로 사용
+                    if any(neg in action for neg in ["않을", "않는", "금지", "아니"]):
+                        item_text = f"{action} 준수"
+                    else:
+                        item_text = f"{action} 금지 준수"
+                else:
+                    item_text = self._shorten_norm_text(full, "금지")
+            else:  # OBLIGATION
+                if action and len(action) <= 30:
+                    item_text = f"{action} 여부 확인"
+                else:
+                    item_text = self._shorten_norm_text(full, "의무")
+
+            if not item_text or len(item_text) < 4:
+                continue
+
+            # 동일 문장 중복 제거
+            norm_key = item_text[:20]
+            if norm_key in seen_texts:
+                continue
+            seen_texts.add(norm_key)
+
+            category = "금지 사항" if c["effect"] == "PROHIBITION" else "법적 의무"
+            source_type = "norm_prohibition" if c["effect"] == "PROHIBITION" else "norm_obligation"
+
+            norm_items.append(ChecklistItem(
+                id=str(uuid.uuid4()),
+                category=category,
+                item=item_text,
+                description=full[:100] if full else None,
+                priority=0,  # 나중에 재할당
+                is_mandatory=True,
+                source_type=source_type,
+                source_ref=c["article_number"],
+            ))
+
+        # 3) GPT 즉시조치와 중복 제거 (키워드 2개 이상 겹침)
+        norm_items = self._dedup_norm_vs_gpt(norm_items, gpt_items)
+
+        # 4) 최대 5개 제한
+        return norm_items[:5]
+
+    def _shorten_norm_text(self, full_text: str, effect_type: str) -> str:
+        """규범명제 원문을 체크리스트 어투로 축약"""
+        if not full_text:
+            return ""
+
+        text = full_text.strip()
+
+        # "사업주는 ~" 제거
+        for prefix in ["사업주는 ", "사업주가 ", "근로자는 ", "근로자가 "]:
+            if text.startswith(prefix):
+                text = text[len(prefix):]
+                break
+
+        # 문장 끝 정리
+        for suffix in [
+            "하여야 한다.", "하여야 한다", "하여서는 아니 된다.", "하여서는 아니 된다",
+            "아니 된다.", "아니 된다", "한다.", "한다",
+        ]:
+            if text.endswith(suffix):
+                text = text[:-len(suffix)].strip()
+                break
+
+        # 너무 길면 50자로 자름
+        if len(text) > 50:
+            text = text[:50].rsplit(" ", 1)[0]
+
+        if effect_type == "금지":
+            return f"{text} 금지 준수" if text else ""
+        else:
+            return f"{text} 여부 확인" if text else ""
+
+    def _dedup_norm_vs_gpt(
+        self, norm_items: list, gpt_items: list
+    ) -> list:
+        """규범명제 체크리스트와 GPT 즉시조치 사이 중복 제거
+
+        키워드 2개 이상 겹치면 중복으로 판단:
+        - GPT 항목에 법적 근거(source_ref) 병합
+        - 규범명제 항목은 제거
+        """
+        from app.services.search_enhancer import extract_nouns
+
+        # GPT 항목별 키워드 추출
+        gpt_keywords_list = []
+        for gi in gpt_items:
+            kws = extract_nouns(gi.item)
+            if not kws:
+                kws = [w for w in gi.item.split() if len(w) >= 2]
+            gpt_keywords_list.append(set(kws))
+
+        kept = []
+        for ni in norm_items:
+            norm_kws = extract_nouns(ni.item)
+            if not norm_kws:
+                norm_kws = [w for w in ni.item.split() if len(w) >= 2]
+            norm_kws_set = set(norm_kws)
+
+            is_dup = False
+            for idx, gpt_kws in enumerate(gpt_keywords_list):
+                overlap = norm_kws_set & gpt_kws
+                if len(overlap) >= 2:
+                    # GPT 항목에 법적 근거 병합
+                    gpt_items[idx].source_type = ni.source_type
+                    gpt_items[idx].source_ref = ni.source_ref
+                    is_dup = True
+                    break
+
+            if not is_dup:
+                kept.append(ni)
+
+        return kept
 
 
 analysis_service = AnalysisService()

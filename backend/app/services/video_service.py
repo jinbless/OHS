@@ -17,7 +17,7 @@ class VideoService:
 
     def _extract_video_id(self, url: str) -> Optional[str]:
         """YouTube URL에서 video ID 추출"""
-        match = re.search(r'shorts/([a-zA-Z0-9_-]+)', url)
+        match = re.search(r'(?:shorts/|watch\?v=|youtu\.be/)([a-zA-Z0-9_-]+)', url)
         return match.group(1) if match else None
 
     def _to_resource(self, video: SafetyVideo, score: float = 0.5) -> Resource:
@@ -25,13 +25,15 @@ class VideoService:
         video_id = self._extract_video_id(video.url)
         thumbnail = f"https://img.youtube.com/vi/{video_id}/0.jpg" if video_id else None
         codes = json.loads(video.hazard_codes) if video.hazard_codes else []
+        vtype = getattr(video, 'video_type', 'short') or 'short'
+        source = "KOSHA 숏폼" if vtype == "short" else "KOSHA 교육영상"
         return Resource(
             id=f"video-{video.id}",
             type=ResourceType.VIDEO,
             title=video.title,
             description=video.description or video.category,
             url=video.url,
-            source="KOSHA 숏폼",
+            source=source,
             hazard_categories=codes,
             thumbnail_url=thumbnail,
         )

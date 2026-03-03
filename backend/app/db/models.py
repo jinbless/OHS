@@ -132,7 +132,7 @@ class SemanticMapping(Base):
 
 
 class SafetyVideo(Base):
-    """KOSHA 안전 숏폼영상"""
+    """KOSHA 안전영상 (숏폼 + 일반 교육영상)"""
     __tablename__ = "safety_videos"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -146,9 +146,13 @@ class SafetyVideo(Base):
     series = Column(String(30), nullable=True)        # 시리즈명
     is_korean = Column(Integer, nullable=False, default=1)  # 1=한국어, 0=영어
     thumbnail_url = Column(Text, nullable=True)
+    video_type = Column(String(10), nullable=False, default='short')  # short | long
+    duration = Column(String(10), nullable=True)     # "3:42" 등
+    playlist = Column(String(50), nullable=True)     # 재생목록명
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     __table_args__ = (
         Index('idx_sv_hazard_cat', 'hazard_categories'),
         Index('idx_sv_series', 'series'),
+        Index('idx_sv_video_type', 'video_type'),
     )

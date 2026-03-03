@@ -4079,8 +4079,7273 @@
         "TEMPERATURE"
       ],
       "description": "무더위와 온열질환 예방을 위한 안전수칙을 안내합니다."
+    },
+    {
+      "id": 233,
+      "title": "[CCTV of the Day] The wrong path, a stopped lifeline",
+      "url": "https://www.youtube.com/watch?v=v37Id6TdkC4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "생명줄 오작동으로 인한 추락 위험 재해 사례 영상",
+      "video_type": "long",
+      "duration": "2:13",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 234,
+      "title": "[재해사례] 한순간에 작업자의 목숨을 빼앗은 '추락 재해'",
+      "url": "https://www.youtube.com/watch?v=DiJcKnLQPF4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "작업자의 추락으로 인한 치명적 재해 사례를 보여줌",
+      "video_type": "long",
+      "duration": "0:38",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 235,
+      "title": "[재해사례] 한순간에 작업자의 목숨을 빼앗은 '부딪힘 재해'",
+      "url": "https://www.youtube.com/watch?v=eyn3ELXtyws",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "작업 중 부딪힘으로 발생한 재해 사례 영상",
+      "video_type": "long",
+      "duration": "0:41",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 236,
+      "title": "[재해사례] 한순간에 작업자의 목숨을 빼앗은 '부딪힘 재해'",
+      "url": "https://www.youtube.com/watch?v=glcJnE042Vc",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "작업자의 부딪힘 재해 사례를 다룬 영상",
+      "video_type": "long",
+      "duration": "0:38",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 237,
+      "title": "[Disaster Case] ​​A 'Entrapment Disaster' That Instantly Takes a Worker's Life",
+      "url": "https://www.youtube.com/watch?v=ekCPhQqHItE",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "작업자 끼임으로 인한 치명적 재해 사례 영상",
+      "video_type": "long",
+      "duration": "0:42",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 238,
+      "title": "[재해사례] 한순간에 작업자의 목숨을 빼앗은 '끼임 재해'",
+      "url": "https://www.youtube.com/watch?v=0XzQfv5OdBY",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "끼임 사고로 작업자가 사망한 재해 사례",
+      "video_type": "long",
+      "duration": "0:39",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 239,
+      "title": "[Disaster Case] ​​A 'Falling Disaster' That Instantly Takes a Worker's Life",
+      "url": "https://www.youtube.com/watch?v=TffSxxKKzLI",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "작업자의 추락으로 인한 즉각적 사망 재해 사례",
+      "video_type": "long",
+      "duration": "0:47",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 240,
+      "title": "한순간에 작업자의 목숨을 빼앗은 '추락 재해'",
+      "url": "https://www.youtube.com/watch?v=qFpfVIc0j3M",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "추락 재해로 작업자가 목숨을 잃은 사례 영상",
+      "video_type": "long",
+      "duration": "0:43",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 241,
+      "title": "우연히 일어난 사고는 없다📢 2024 중대재해 사고백서",
+      "url": "https://www.youtube.com/watch?v=DE6hxU31oKE",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "2024년 중대재해 사고 사례를 종합적으로 소개",
+      "video_type": "long",
+      "duration": "1:01",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 242,
+      "title": "[안전보건공단 VR] 전기·통신공사 재해사례",
+      "url": "https://www.youtube.com/watch?v=p0rQq4_hbkw",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC",
+        "COLLISION"
+      ],
+      "description": "전기·통신공사 현장 재해 사례를 VR로 재현",
+      "video_type": "long",
+      "duration": "6:24",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 243,
+      "title": "[안전보건공단 VR] 이륜차 재해사례",
+      "url": "https://www.youtube.com/watch?v=VVeSX9GYZIk",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "이륜차 관련 작업 재해 사례 VR 콘텐츠",
+      "video_type": "long",
+      "duration": "3:22",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 244,
+      "title": "[안전보건공단 VR] 화물자동차 상·하차 작업 재해사례",
+      "url": "https://www.youtube.com/watch?v=oLMF1z7E3AU",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "HEAVY_LIFTING",
+        "CRUSH"
+      ],
+      "description": "화물자동차 상·하차 작업 중 재해 사례 영상",
+      "video_type": "long",
+      "duration": "6:36",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 245,
+      "title": "[Korea Occupational Safety and Health Agency VR] Case Study of a Disaster in a Food Service Kitchen",
+      "url": "https://www.youtube.com/watch?v=ss2Z3CpN92g",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT",
+        "CRUSH"
+      ],
+      "description": "음식점 주방에서 발생한 산업재해 사례 VR 영상",
+      "video_type": "long",
+      "duration": "4:46",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 246,
+      "title": "[안전보건공단 외국어VR_영어] 조선업 재해예방_중대재해 사고사례",
+      "url": "https://www.youtube.com/watch?v=osWNMuF-1cY",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "FALL"
+      ],
+      "description": "조선업 중대재해 사고 사례를 영어로 소개",
+      "video_type": "long",
+      "duration": "6:40",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 247,
+      "title": "[안전보건공단 외국어VR_영어] 각자의 시선으로 보는 사고사례 [컨베이어 편]",
+      "url": "https://www.youtube.com/watch?v=hLPj5ZjXuow",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "컨베이어 작업 중 발생한 사고 사례를 다양한 시선으로 설명",
+      "video_type": "long",
+      "duration": "5:42",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 248,
+      "title": "[안전보건공단 외국어VR_영어] 각자의 시선으로 보는 사고사례(강관비계 편)",
+      "url": "https://www.youtube.com/watch?v=2QiSebj1i5s",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "강관비계 관련 사고 사례를 영어 VR로 제공",
+      "video_type": "long",
+      "duration": "4:08",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 249,
+      "title": "[VR] 산업안전 실제 사고사례 [거푸집동바리 붕괴 편]",
+      "url": "https://www.youtube.com/watch?v=kYqyqfmV6_Q",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "CRUSH"
+      ],
+      "description": "거푸집 동바리 붕괴 사고 사례 VR 영상",
+      "video_type": "long",
+      "duration": "5:14",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 250,
+      "title": "[VR] 산업안전 실제 사고사례 [화학공장 폭발 편]",
+      "url": "https://www.youtube.com/watch?v=BAPlteLyTZw",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION",
+        "TOXIC"
+      ],
+      "description": "화학공장 폭발 사고 사례를 VR로 재현",
+      "video_type": "long",
+      "duration": "5:00",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 251,
+      "title": "[VR] 컨베이어 수리 중 끼임 발생! 각자의 시선으로 보는 사고사례 [컨베이어 편]",
+      "url": "https://www.youtube.com/watch?v=CfIxKQWzjtA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "컨베이어 수리 중 끼임 사고 사례 VR 콘텐츠",
+      "video_type": "long",
+      "duration": "5:42",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 252,
+      "title": "[VR] Fall Accident During Scaffolding Dismantling! A Look at the Accident from Each Perspective [...",
+      "url": "https://www.youtube.com/watch?v=M38-lFqMft0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "비계 해체 중 추락 사고 사례를 VR로 소개",
+      "video_type": "long",
+      "duration": "4:08",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 253,
+      "title": "[VR] 이동식크레인! 사고사례를 통한 작업계획서 알아보기!",
+      "url": "https://www.youtube.com/watch?v=cbCmK9-V8I8",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "FALLING_OBJECT"
+      ],
+      "description": "이동식 크레인 사고 사례와 작업계획서 설명",
+      "video_type": "long",
+      "duration": "6:14",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 254,
+      "title": "[VR] 배달종사자, 이륜차 충돌 사고사례 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=XHOclN_mepY",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "배달종사자 이륜차 충돌 사고 VR 콘텐츠",
+      "video_type": "long",
+      "duration": "5:00",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 255,
+      "title": "[VR] 벌목 작업, 벌도목에 깔림 사고사례 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=bZ6ZWR0ysW0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "벌목 작업 중 벌도목 깔림 사고 사례 VR 영상",
+      "video_type": "long",
+      "duration": "5:04",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 256,
+      "title": "[VR] Forklift! Learn about work plans through accident cases!",
+      "url": "https://www.youtube.com/watch?v=EDrIEgXUBn0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "HEAVY_LIFTING"
+      ],
+      "description": "지게차 사고 사례와 작업계획서 학습 VR 콘텐츠",
+      "video_type": "long",
+      "duration": "5:11",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 257,
+      "title": "산업용 로봇 작업 재해사례(3) 감전 화상",
+      "url": "https://www.youtube.com/watch?v=7K19ADMStv4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC",
+        "FIRE_EXPLOSION"
+      ],
+      "description": "산업용 로봇 작업 중 감전 및 화상 재해 사례",
+      "video_type": "long",
+      "duration": "2:48",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 258,
+      "title": "산업용 로봇 작업 재해사례(2) 부딪힘",
+      "url": "https://www.youtube.com/watch?v=YAOBO2JCTLY",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "산업용 로봇 작업 중 부딪힘 재해 사례 영상",
+      "video_type": "long",
+      "duration": "2:57",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 259,
+      "title": "산업용 로봇 작업 재해사례(1) 끼임",
+      "url": "https://www.youtube.com/watch?v=O5xwPdQqYMg",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "산업용 로봇 작업 중 끼임 사고 사례 영상",
+      "video_type": "long",
+      "duration": "4:31",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 260,
+      "title": "유해물질 작업 재해사례(3) 디클로로메탄",
+      "url": "https://www.youtube.com/watch?v=nyZK_gVnYls",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL",
+        "TOXIC"
+      ],
+      "description": "디클로로메탄 유해물질 작업 재해 사례",
+      "video_type": "long",
+      "duration": "4:14",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 261,
+      "title": "유해물질 작업 재해사례(2) 수은",
+      "url": "https://www.youtube.com/watch?v=EMX-9TB8OrU",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL",
+        "TOXIC"
+      ],
+      "description": "수은 노출로 인한 유해물질 작업 재해 사례",
+      "video_type": "long",
+      "duration": "5:42",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 262,
+      "title": "유해물질 작업 재해사례(1) 메틸알코올",
+      "url": "https://www.youtube.com/watch?v=74J5PecUfjI",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL",
+        "TOXIC"
+      ],
+      "description": "메틸알코올 유해물질 작업 재해 사례 영상",
+      "video_type": "long",
+      "duration": "5:34",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 263,
+      "title": "타워크레인 작업 재해사례(3) 받침대 이탈",
+      "url": "https://www.youtube.com/watch?v=XuKGoamXfNM",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "타워크레인 받침대 이탈로 인한 재해 사례",
+      "video_type": "long",
+      "duration": "4:01",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 264,
+      "title": "타워크레인 작업 재해사례(2) 지브 넘어짐",
+      "url": "https://www.youtube.com/watch?v=-68GV-MREoM",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "타워크레인 지브 넘어짐 사고 사례 영상",
+      "video_type": "long",
+      "duration": "4:09",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 265,
+      "title": "타워크레인 작업 재해사례(1) 하부케이지 핀 이탈",
+      "url": "https://www.youtube.com/watch?v=kFJjoW4VJ4Q",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "타워크레인 하부케이지 핀 이탈 사고 사례",
+      "video_type": "long",
+      "duration": "4:22",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 266,
+      "title": "전기 활선·정전작업 재해사례(2) 감전",
+      "url": "https://www.youtube.com/watch?v=WjXRWforZRw",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC"
+      ],
+      "description": "전기 활선·정전 작업 중 감전 재해 사례 영상",
+      "video_type": "long",
+      "duration": "3:28",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 267,
+      "title": "전기 활선·정전작업 재해사례(3) 감전",
+      "url": "https://www.youtube.com/watch?v=3U6cSZj_w18",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC"
+      ],
+      "description": "전기 활선·정전 작업 감전 사고 사례 영상",
+      "video_type": "long",
+      "duration": "4:53",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 268,
+      "title": "전기 활선·정전작업 재해사례(1) 화상",
+      "url": "https://www.youtube.com/watch?v=pM5g6Jgi4Dg",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "전기 활선·정전 작업 중 화상 재해 사례 영상",
+      "video_type": "long",
+      "duration": "5:00",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 269,
+      "title": "위험물 취급작업 재해사례(3) 누출",
+      "url": "https://www.youtube.com/watch?v=6HhvvW3rFAA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL",
+        "TOXIC"
+      ],
+      "description": "위험물 취급 작업 중 누출 사고 사례 영상",
+      "video_type": "long",
+      "duration": "2:33",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 270,
+      "title": "위험물 취급작업 재해사례(2) 화재, 폭발",
+      "url": "https://www.youtube.com/watch?v=WUPRe-MEh_k",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "위험물 취급 작업 중 화재 및 폭발 사고 사례",
+      "video_type": "long",
+      "duration": "3:27",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 271,
+      "title": "Cases of accidents while handling hazardous materials (1) Fire and explosion",
+      "url": "https://www.youtube.com/watch?v=orQKbH8GWXs",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "위험물 취급 중 화재 및 폭발 사고 사례 영상",
+      "video_type": "long",
+      "duration": "3:01",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 272,
+      "title": "교량 설치 작업 재해사례(2) 떨어짐 사고",
+      "url": "https://www.youtube.com/watch?v=_9g6A8bxAnI",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "교량 설치 작업 중 추락 사고 사례 영상",
+      "video_type": "long",
+      "duration": "3:04",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 273,
+      "title": "교량 설치 작업 재해사례(1) 무너짐 사고",
+      "url": "https://www.youtube.com/watch?v=CzYVSqUuFps",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "교량 설치 작업 중 무너짐 사고 재해사례 소개",
+      "video_type": "long",
+      "duration": "4:33",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 274,
+      "title": "분말·원재료 저장탱크의 내부작업 재해사례(3) 폭발",
+      "url": "https://www.youtube.com/watch?v=d_vJnchucN0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "분말·원재료 저장탱크 내부작업 중 폭발 사고 사례",
+      "video_type": "long",
+      "duration": "3:23",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 275,
+      "title": "교량 설치 작업 재해사례(3) 충돌 사고",
+      "url": "https://www.youtube.com/watch?v=kihSVog7TAk",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "교량 설치 작업 중 충돌 사고 재해사례 설명",
+      "video_type": "long",
+      "duration": "3:27",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 276,
+      "title": "분말·원재료 저장탱크의 내부작업 재해사례(2) 건강장해",
+      "url": "https://www.youtube.com/watch?v=9Nzfh1YJeB0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC"
+      ],
+      "description": "분말·원재료 저장탱크 내부작업 건강장해 사례 소개",
+      "video_type": "long",
+      "duration": "3:39",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 277,
+      "title": "[사고사례] 지게차 사고로 잃어버린 젊음 : 닉",
+      "url": "https://www.youtube.com/watch?v=QR1j8hXWdW4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "지게차 사고로 인한 부상 사례 영상",
+      "video_type": "long",
+      "duration": "4:13",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 278,
+      "title": "[사고사례] 지게차로 잃어버린 젊음 : 존",
+      "url": "https://www.youtube.com/watch?v=DaUiWRaeQRQ",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "지게차 관련 사고로 잃은 젊음 사례",
+      "video_type": "long",
+      "duration": "3:52",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 279,
+      "title": "[사고사례] 식품가공기계로 잃어버린 젊음 : 제니퍼",
+      "url": "https://www.youtube.com/watch?v=B82fS3eMhvw",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "식품가공기계 사고로 인한 부상 사례",
+      "video_type": "long",
+      "duration": "4:02",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 280,
+      "title": "[사고사례 ] 컨베이어로 잃어버린 젊음 : 마이클",
+      "url": "https://www.youtube.com/watch?v=d6SEHQVugXY",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "컨베이어 사고로 인한 끼임 부상 사례",
+      "video_type": "long",
+      "duration": "4:28",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 281,
+      "title": "프레스 재해사례(양수조작식 방호장치)",
+      "url": "https://www.youtube.com/watch?v=i551I9G-H2A",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 양수조작식 방호장치 관련 재해사례",
+      "video_type": "long",
+      "duration": "2:00",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 282,
+      "title": "프레스 재해사례(풋 스위치)",
+      "url": "https://www.youtube.com/watch?v=sJszWGg_CRA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 풋 스위치 사용 중 발생한 사고 사례",
+      "video_type": "long",
+      "duration": "3:54",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 283,
+      "title": "크레인 줄걸이 작업 재해사례",
+      "url": "https://www.youtube.com/watch?v=1zIR16NCDB0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "크레인 줄걸이 작업 중 발생한 재해사례",
+      "video_type": "long",
+      "duration": "2:52",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 284,
+      "title": "크레인 줄걸이 용구 재해사례",
+      "url": "https://www.youtube.com/watch?v=en94e1OELQc",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "크레인 줄걸이 용구 관련 재해사례 소개",
+      "video_type": "long",
+      "duration": "2:56",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 285,
+      "title": "갠트리 크레인 작업 중 재해사례",
+      "url": "https://www.youtube.com/watch?v=d4ca4xJzcE0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "갠트리 크레인 작업 중 발생한 사고 사례",
+      "video_type": "long",
+      "duration": "2:42",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 286,
+      "title": "크레인 클램프 사용 작업 재해사례",
+      "url": "https://www.youtube.com/watch?v=aeuqqSiHpMA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "크레인 클램프 사용 작업 중 재해사례",
+      "video_type": "long",
+      "duration": "4:49",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 287,
+      "title": "[Disaster Case] ​​Materials Falling While Transporting with a Tower Crane",
+      "url": "https://www.youtube.com/watch?v=M3RyAu-VWp4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "타워크레인 운반 중 자재 낙하 사고 사례",
+      "video_type": "long",
+      "duration": "2:19",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 288,
+      "title": "[재해사례] 콘크리트 파쇄작업 중 장비에 맞음",
+      "url": "https://www.youtube.com/watch?v=SJAor0usptU",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "콘크리트 파쇄작업 중 장비에 맞은 사고",
+      "video_type": "long",
+      "duration": "2:15",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 289,
+      "title": "[재해사례] 방동제 음용에 의한 중독",
+      "url": "https://www.youtube.com/watch?v=oAO3xyg1Eb8",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC"
+      ],
+      "description": "방동제 음용으로 인한 중독 재해사례",
+      "video_type": "long",
+      "duration": "3:45",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 290,
+      "title": "[재해사례] 회전 국솥에 의한 화상",
+      "url": "https://www.youtube.com/watch?v=_TCgnqU6b30",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TEMPERATURE"
+      ],
+      "description": "회전 국솥에 의한 화상 사고 사례",
+      "video_type": "long",
+      "duration": "2:48",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 291,
+      "title": "[재해사례] 조리실 바닥에서 미끄러짐",
+      "url": "https://www.youtube.com/watch?v=kFPPSHMN2L0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "SLIP"
+      ],
+      "description": "조리실 바닥에서 미끄러짐 사고 재해사례",
+      "video_type": "long",
+      "duration": "2:08",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 292,
+      "title": "[재해사례] 파절기에 손가락 끼임",
+      "url": "https://www.youtube.com/watch?v=2WjHrSZoBX4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "파절기에 손가락 끼임 사고 사례",
+      "video_type": "long",
+      "duration": "1:54",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 293,
+      "title": "[재해사례] 보 거푸집 설치 중 작업자 떨어짐",
+      "url": "https://www.youtube.com/watch?v=ZknjgzsGxlU",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "보 거푸집 설치 중 작업자 추락 사고",
+      "video_type": "long",
+      "duration": "2:09",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 294,
+      "title": "[재해사례] 세정제 노출에 의한 신체 접촉",
+      "url": "https://www.youtube.com/watch?v=Dj92fWJCdWs",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL"
+      ],
+      "description": "세정제 노출에 의한 신체 접촉 사고 사례",
+      "video_type": "long",
+      "duration": "2:31",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 295,
+      "title": "[재해사례] 암석 굴착작업 중 비산석에 맞음",
+      "url": "https://www.youtube.com/watch?v=06tIGA2-z1s",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "암석 굴착작업 중 비산석에 맞은 사고",
+      "video_type": "long",
+      "duration": "2:31",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 296,
+      "title": "[재해사례] 프레스 정비 작업 중 작업자 끼임",
+      "url": "https://www.youtube.com/watch?v=ZTfa553OKis",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 정비 작업 중 작업자 끼임 사고",
+      "video_type": "long",
+      "duration": "2:07",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 297,
+      "title": "[재해사례] 지반 굴착작업 중 버킷에 깔림",
+      "url": "https://www.youtube.com/watch?v=XcpdCXQsTUc",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "지반 굴착작업 중 버킷에 깔림 사고",
+      "video_type": "long",
+      "duration": "2:39",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 298,
+      "title": "[재해사례] 지반 굴착작업 중 토사에 깔림",
+      "url": "https://www.youtube.com/watch?v=oMmlUW_rBIA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "지반 굴착작업 중 토사에 깔림 사고",
+      "video_type": "long",
+      "duration": "2:32",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 299,
+      "title": "[재해사례] 암석 굴착작업 중 낙석에 깔림",
+      "url": "https://www.youtube.com/watch?v=qQkB3mH7b20",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "CRUSH"
+      ],
+      "description": "암석 굴착작업 중 낙석에 깔림 사고",
+      "video_type": "long",
+      "duration": "2:08",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 300,
+      "title": "[재해사례] 콘크리트 해체작업 중 벽체에 깔림",
+      "url": "https://www.youtube.com/watch?v=kC683A02fpE",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "콘크리트 해체작업 중 벽체에 깔림 사고",
+      "video_type": "long",
+      "duration": "2:08",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 301,
+      "title": "[재해사례] 생활폐기물 수거차량 적재함에서 떨어짐",
+      "url": "https://www.youtube.com/watch?v=ufuNbcNBFFk",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "생활폐기물 수거차량 적재함에서 추락 사고",
+      "video_type": "long",
+      "duration": "2:03",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 302,
+      "title": "[재해사례] 콘크리트 해체작업 중 건물 무너짐",
+      "url": "https://www.youtube.com/watch?v=sVesNIIz4gA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "콘크리트 해체작업 중 건물 무너짐 사고",
+      "video_type": "long",
+      "duration": "2:36",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 303,
+      "title": "[재해사례] 콘크리트 파쇄작업 중 비산석에 맞음",
+      "url": "https://www.youtube.com/watch?v=RhCDxM_QvtU",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "콘크리트 파쇄작업 중 비산석에 맞음 사고",
+      "video_type": "long",
+      "duration": "2:21",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 304,
+      "title": "[재해사례] 생활폐기물 수거차량 후미발판에서 떨어짐",
+      "url": "https://www.youtube.com/watch?v=ATPK2BPypN4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "생활폐기물 수거차량 후미발판에서 추락",
+      "video_type": "long",
+      "duration": "2:26",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 305,
+      "title": "[재해사례] 생활폐기물 수거차량 파카에 끼임",
+      "url": "https://www.youtube.com/watch?v=AGAWiy6fcZo",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "생활폐기물 수거차량 파카에 끼임 사고",
+      "video_type": "long",
+      "duration": "2:53",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 306,
+      "title": "[재해사례] 벨트 컨베이어에 끼임",
+      "url": "https://www.youtube.com/watch?v=6biEi7dirwM",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "벨트 컨베이어에 끼임 사고 사례",
+      "video_type": "long",
+      "duration": "2:07",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 307,
+      "title": "[Disaster Case] ​​Collision with a moving coil bundle",
+      "url": "https://www.youtube.com/watch?v=4t11NuJUej0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "이동 중인 코일 번들에 충돌 사고 사례",
+      "video_type": "long",
+      "duration": "1:18",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 308,
+      "title": "[재해사례] 지게차 전방 시야 미확보로 작업자 부딪힘",
+      "url": "https://www.youtube.com/watch?v=uFJKb_Y02Xw",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "지게차 전방 시야 미확보로 작업자 부딪힘",
+      "video_type": "long",
+      "duration": "1:29",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 309,
+      "title": "[재해사례] 핸드그라인더 작업 중 감전",
+      "url": "https://www.youtube.com/watch?v=qB6hTD3yL0M",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC"
+      ],
+      "description": "핸드그라인더 작업 중 감전 사고 사례",
+      "video_type": "long",
+      "duration": "2:16",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 310,
+      "title": "[재해사례] 지게차 운전 미숙으로 작업자 부딪힘",
+      "url": "https://www.youtube.com/watch?v=c2UL4ImdBuk",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "지게차 운전 미숙으로 작업자 부딪힘 사고",
+      "video_type": "long",
+      "duration": "2:15",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 311,
+      "title": "[재해사례] 고소작업대(시저형) 작업 중 끼임",
+      "url": "https://www.youtube.com/watch?v=Up-7KNjVJQM",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "고소작업대(시저형) 작업 중 끼임 사고",
+      "video_type": "long",
+      "duration": "2:28",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 312,
+      "title": "[재해사례] 고소작업대(차량탑재형) 작업 중 떨어짐",
+      "url": "https://www.youtube.com/watch?v=H90JbyvgqJU",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "고소작업대(차량탑재형) 작업 중 추락 사고",
+      "video_type": "long",
+      "duration": "2:30",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 313,
+      "title": "[재해사례] 지게차 주용도 외 사용 중 작업자 떨어짐",
+      "url": "https://www.youtube.com/watch?v=josE-TnFjxo",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "지게차 부적절 사용 중 작업자 추락 재해사례 소개",
+      "video_type": "long",
+      "duration": "2:17",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 314,
+      "title": "[재해사례] 조리실 내 세척 작업 중 감전",
+      "url": "https://www.youtube.com/watch?v=nI1Dbz39GHY",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC"
+      ],
+      "description": "조리실 세척 작업 중 발생한 감전 사고 사례",
+      "video_type": "long",
+      "duration": "1:52",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 315,
+      "title": "[2017 특별 안전보건 교육] 교량 설치 작업(재해사례) (15분요약)",
+      "url": "https://www.youtube.com/watch?v=bNAbV5NGoIo",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "교량 설치 작업 중 발생한 재해사례 요약 교육 영상",
+      "video_type": "long",
+      "duration": "15:17",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 316,
+      "title": "[2017 특별 안전보건 교육] 교량 설치 작업(재해사례) (10분요약)",
+      "url": "https://www.youtube.com/watch?v=M4b9RUU8amQ",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "교량 설치 작업 재해사례 10분 요약 교육 영상",
+      "video_type": "long",
+      "duration": "10:05",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 317,
+      "title": "[2017 특별 안전보건 교육] 교량 설치 작업(재해사례) (5분요약)",
+      "url": "https://www.youtube.com/watch?v=no94MVnakjQ",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "교량 설치 작업 재해사례 5분 요약 교육 영상",
+      "video_type": "long",
+      "duration": "4:57",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 318,
+      "title": "[2017 특별 안전보건 교육] 교량 설치 작업(재해사례)",
+      "url": "https://www.youtube.com/watch?v=-rcywTR-P08",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "교량 설치 작업 재해사례 상세 안전보건 교육 영상",
+      "video_type": "long",
+      "duration": "29:43",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 319,
+      "title": "[재해사례] [위생및유사서비스업] 작업도구 사용 시 주의요망!",
+      "url": "https://www.youtube.com/watch?v=s0WstvPvezA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT"
+      ],
+      "description": "위생 및 유사서비스업 작업도구 사용 시 안전 주의사항",
+      "video_type": "long",
+      "duration": "6:13",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 320,
+      "title": "[재해사례] [건물관리업] 건물관리는 깨끗하게! 안전수칙은 꼼꼼하게!",
+      "url": "https://www.youtube.com/watch?v=0QpQPUcztOg",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "SLIP",
+        "FALL"
+      ],
+      "description": "건물관리업 안전수칙과 청결 유지 중요성 안내",
+      "video_type": "long",
+      "duration": "6:25",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 321,
+      "title": "[재해사례] [보건및사회복지업] 병원에서는 조심! 조심!",
+      "url": "https://www.youtube.com/watch?v=YE46BPm5ZX4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "BIOLOGICAL"
+      ],
+      "description": "병원 내 작업 시 감염 등 안전사고 주의사항",
+      "video_type": "long",
+      "duration": "5:33",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 322,
+      "title": "[재해사례] [도소매업] 안전한 물품배송",
+      "url": "https://www.youtube.com/watch?v=stMPYybMilg",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "HEAVY_LIFTING",
+        "SLIP"
+      ],
+      "description": "도소매업 물품배송 시 안전사고 예방 교육",
+      "video_type": "long",
+      "duration": "6:18",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 323,
+      "title": "[재해사례] [건설] 음주 후 계단 넘어짐",
+      "url": "https://www.youtube.com/watch?v=DHfalyPmiUg",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "SLIP",
+        "FALL"
+      ],
+      "description": "건설현장 음주 후 계단에서 넘어짐 사고 사례",
+      "video_type": "long",
+      "duration": "6:55",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 324,
+      "title": "[재해사례] [교육서비스업] 안전한 작업! 행복한 학교!",
+      "url": "https://www.youtube.com/watch?v=3RAi3YGonfo",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ERGONOMIC"
+      ],
+      "description": "교육서비스업 안전 작업 환경 조성 중요성",
+      "video_type": "long",
+      "duration": "6:38",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 325,
+      "title": "[재해사례] [음식및숙박업] 요리는 맛있게! 안전은 철저하게!",
+      "url": "https://www.youtube.com/watch?v=SnosiVEoY7s",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT",
+        "SLIP"
+      ],
+      "description": "음식 및 숙박업 안전한 조리 작업 방법 안내",
+      "video_type": "long",
+      "duration": "5:52",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 326,
+      "title": "[재해사례] [운수창고및통신업] 화물차 경사지 뒤집힘",
+      "url": "https://www.youtube.com/watch?v=pzaU5FcaGec",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "FALL"
+      ],
+      "description": "운수창고업 화물차 경사지 뒤집힘 사고 사례",
+      "video_type": "long",
+      "duration": "6:02",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 327,
+      "title": "[재해사례] [운수창고및통신업] 택배차량에 부딪힘",
+      "url": "https://www.youtube.com/watch?v=GWW87dgYECA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "운수창고업 택배차량에 부딪힘 사고 사례",
+      "video_type": "long",
+      "duration": "4:57",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 328,
+      "title": "[재해사례] [건설] 오수관로 확장 중 질식",
+      "url": "https://www.youtube.com/watch?v=JRs-Ri9MmcM",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC",
+        "ENVIRONMENTAL"
+      ],
+      "description": "건설 오수관로 확장 작업 중 질식 사고 사례",
+      "video_type": "long",
+      "duration": "6:37",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 329,
+      "title": "[재해사례] [건설] 방동제 음용 사고",
+      "url": "https://www.youtube.com/watch?v=2CCWXlGS7kQ",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC"
+      ],
+      "description": "건설 현장 방동제 음용으로 인한 사고 사례",
+      "video_type": "long",
+      "duration": "8:03",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 330,
+      "title": "[재해사례] [건설] 지하작업장 화재",
+      "url": "https://www.youtube.com/watch?v=LA-iWBTNUrA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "건설 지하작업장 화재 사고 사례 소개",
+      "video_type": "long",
+      "duration": "5:46",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 331,
+      "title": "[재해사례] [건설] 가물막이 무너짐",
+      "url": "https://www.youtube.com/watch?v=6eLtgXl3gfQ",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설 현장 가물막이 무너짐 사고 사례",
+      "video_type": "long",
+      "duration": "6:05",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 332,
+      "title": "[재해사례] [건설] 거푸집동바리 무너짐",
+      "url": "https://www.youtube.com/watch?v=OcJcuHWI488",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설 거푸집동바리 무너짐 사고 사례",
+      "video_type": "long",
+      "duration": "4:38",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 333,
+      "title": "[재해사례] [광업] 페이로더 부딪힘",
+      "url": "https://www.youtube.com/watch?v=VAUQdN_Asno",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "광업 페이로더 작업 중 부딪힘 사고 사례",
+      "video_type": "long",
+      "duration": "5:44",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 334,
+      "title": "[재해사례] [어업] 양망로라에 끼임",
+      "url": "https://www.youtube.com/watch?v=6xlTkzfr6YY",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "어업 양망로라에 끼임 사고 사례",
+      "video_type": "long",
+      "duration": "4:49",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 335,
+      "title": "[재해사례] [임업] 기계톱 작업 중 넘어짐",
+      "url": "https://www.youtube.com/watch?v=XZQ5KnBdYtg",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "SLIP",
+        "FALL"
+      ],
+      "description": "임업 기계톱 작업 중 넘어짐 사고 사례",
+      "video_type": "long",
+      "duration": "5:29",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 336,
+      "title": "[재해사례] [임업] 잣대기 작업 중 벌도목에 맞음",
+      "url": "https://www.youtube.com/watch?v=hUGXzbj3OCA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "임업 잣대기 작업 중 벌도목에 맞음 사고",
+      "video_type": "long",
+      "duration": "6:17",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 337,
+      "title": "[재해사례] [농업] 트랙터로 감 운반 중 뒤집힘",
+      "url": "https://www.youtube.com/watch?v=jXdKLJw8Lz0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "농업 트랙터 감 운반 중 뒤집힘 사고 사례",
+      "video_type": "long",
+      "duration": "6:22",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 338,
+      "title": "[재해사례] [농업] 스키드로더에 끼임",
+      "url": "https://www.youtube.com/watch?v=DVhqZZtLT4k",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "농업 스키드로더에 끼임 사고 사례",
+      "video_type": "long",
+      "duration": "6:28",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 339,
+      "title": "[재해사례] [제조] 볼밀기 과압 폭발",
+      "url": "https://www.youtube.com/watch?v=-_Bv-Q50yYA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "제조업 볼밀기 과압 폭발 사고 사례",
+      "video_type": "long",
+      "duration": "6:36",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 340,
+      "title": "[재해사례] [제조] 원료 잘못 이송에 따른 누출",
+      "url": "https://www.youtube.com/watch?v=8ArIx7Fe1R4",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL"
+      ],
+      "description": "제조업 원료 잘못 이송에 따른 누출 사고",
+      "video_type": "long",
+      "duration": "6:30",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 341,
+      "title": "[재해사례] 주차관리(떨어짐, 미끄러짐)",
+      "url": "https://www.youtube.com/watch?v=tkM3PgJNRu0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "SLIP"
+      ],
+      "description": "주차관리 작업 중 떨어짐과 미끄러짐 사고 사례",
+      "video_type": "long",
+      "duration": "5:57",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 342,
+      "title": "[재해사례] 통신케이블 작업(전신주, 사다리에서 떨어짐)",
+      "url": "https://www.youtube.com/watch?v=tI7LCq-c-vw",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "통신케이블 작업 중 전신주 사다리에서 떨어짐",
+      "video_type": "long",
+      "duration": "5:53",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 343,
+      "title": "[재해사례] 이삿짐 취급(떨어짐, 미끄러짐)",
+      "url": "https://www.youtube.com/watch?v=cunF8eI3yz8",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "SLIP"
+      ],
+      "description": "이삿짐 취급 중 떨어짐과 미끄러짐 사고 사례",
+      "video_type": "long",
+      "duration": "6:09",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 344,
+      "title": "[재해사례] 화물운전(떨어짐, 졸음운전)",
+      "url": "https://www.youtube.com/watch?v=wyW5G17Lu9k",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "화물운전 중 떨어짐과 졸음운전 사고 사례",
+      "video_type": "long",
+      "duration": "6:22",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 345,
+      "title": "[Disaster Case] ​​Security guard and janitor (falling, being hit by an object)",
+      "url": "https://www.youtube.com/watch?v=Sew7lPSWBeo",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "FALLING_OBJECT"
+      ],
+      "description": "경비원 및 청소원 낙상과 물체 충격 사고 사례",
+      "video_type": "long",
+      "duration": "6:13",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 346,
+      "title": "[재해사례] 물품배달(교통사고, 미끄러짐)",
+      "url": "https://www.youtube.com/watch?v=HyIJnCZVUNI",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "SLIP"
+      ],
+      "description": "물품배달 중 교통사고 및 미끄러짐 사고 사례",
+      "video_type": "long",
+      "duration": "5:40",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 347,
+      "title": "[재해사례] [임업] 벌목 집재작업(나무에 맞음)",
+      "url": "https://www.youtube.com/watch?v=0KwF28tGrvE",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "임업 벌목 집재작업 중 나무에 맞음 사고",
+      "video_type": "long",
+      "duration": "5:51",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 348,
+      "title": "[재해사례] [운수창고및통신업] 하역작업(소맥 정리 중 로더에 깔림)",
+      "url": "https://www.youtube.com/watch?v=_K_eeB0D6Ww",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "운수창고 하역작업 중 로더에 깔림 사고 사례",
+      "video_type": "long",
+      "duration": "4:36",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 349,
+      "title": "[재해사례] [건설] 올바른 안전모 착용(3D)",
+      "url": "https://www.youtube.com/watch?v=mQ-Pb7u-bo0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "건설 현장 올바른 안전모 착용 중요성 안내",
+      "video_type": "long",
+      "duration": "1:57",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 350,
+      "title": "[Disaster Case] ​​Safety and Health of Young Workers",
+      "url": "https://www.youtube.com/watch?v=_v_30oaLNlc",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ERGONOMIC"
+      ],
+      "description": "청년 근로자 안전보건 관련 재해사례 소개",
+      "video_type": "long",
+      "duration": "4:01",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 351,
+      "title": "[재해사례] [건설] 굴착면 내부 작업(토사 무너짐)",
+      "url": "https://www.youtube.com/watch?v=PnSCMPuMDgQ",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설 굴착면 내부 작업 중 토사 무너짐 사고",
+      "video_type": "long",
+      "duration": "4:54",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 352,
+      "title": "[재해사례] [건설] 건물 해체작업(무너짐)",
+      "url": "https://www.youtube.com/watch?v=bxo-gzJiYqw",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설 건물 해체작업 중 무너짐 사고 사례",
+      "video_type": "long",
+      "duration": "6:46",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 353,
+      "title": "[재해사례] [건설] 타워크레인 작업(자재에 맞음)",
+      "url": "https://www.youtube.com/watch?v=e8TEqJTK6_0",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "타워크레인 작업 중 자재에 맞아 발생한 재해사례 영상",
+      "video_type": "long",
+      "duration": "6:24",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 354,
+      "title": "[재해사례] [제조] 폐목재 운반작업(목재에 맞음)",
+      "url": "https://www.youtube.com/watch?v=SRpiaUwda2Y",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "폐목재 운반작업 중 목재에 맞아 발생한 재해사례 소개",
+      "video_type": "long",
+      "duration": "6:37",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 355,
+      "title": "[재해사례] [제조] 천장크레인 작업(물체에 맞음 : 훅 해지장치 기능해지)",
+      "url": "https://www.youtube.com/watch?v=hHZ50P3uVhI",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "천장크레인 훅 해지장치 기능해지로 인한 물체 충돌 재해사례",
+      "video_type": "long",
+      "duration": "5:25",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 356,
+      "title": "[재해사례] [제조]  프레스 작업(끼임 : 방호장치 제거)",
+      "url": "https://www.youtube.com/watch?v=Zl1U0NLmJ20",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 작업 중 방호장치 제거로 인한 끼임 재해사례 영상",
+      "video_type": "long",
+      "duration": "5:32",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 357,
+      "title": "[재해사례] [제조] 탱크 컨테이너 세척 중 용접작업(폭발)",
+      "url": "https://www.youtube.com/watch?v=ixtABpN8ydA",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "탱크 컨테이너 세척 중 용접작업으로 발생한 폭발 재해사례",
+      "video_type": "long",
+      "duration": "6:10",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 358,
+      "title": "[재해사례] [제조] 아르곤 가스누출 재해(질식)",
+      "url": "https://www.youtube.com/watch?v=xAU8eHA_T4s",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC"
+      ],
+      "description": "아르곤 가스 누출로 인한 질식 재해사례 영상",
+      "video_type": "long",
+      "duration": "7:03",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 359,
+      "title": "[재해사례] [제조] 독성화학물질 누출",
+      "url": "https://www.youtube.com/watch?v=LZBsLtEQ6MI",
+      "category": "재해사례",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL"
+      ],
+      "description": "독성 화학물질 누출로 인한 재해사례를 다룬 영상",
+      "video_type": "long",
+      "duration": "5:49",
+      "playlist": "재해사례"
+    },
+    {
+      "id": 360,
+      "title": "조충현의 안전꿀팁 톡! 지붕 외벽작업(개인 보호구) 편",
+      "url": "https://www.youtube.com/watch?v=GQcMe5EFCIE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "지붕 외벽작업 시 개인 보호구 착용 안전꿀팁 소개",
+      "video_type": "long",
+      "duration": "1:03",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 361,
+      "title": "[살아있는 포스터] 논버벌 안전보건 무빙픽쳐 – 이동식 사다리 편",
+      "url": "https://www.youtube.com/watch?v=BgADVel6xWw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "이동식 사다리 사용 시 안전수칙을 논버벌 무빙픽쳐로 설명",
+      "video_type": "long",
+      "duration": "1:38",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 362,
+      "title": "⚠Kim Min-jeong's Special Education⚠ Assembly of structural members of wooden buildings or install...",
+      "url": "https://www.youtube.com/watch?v=MWnGec1a-Nk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "목조 건축물 구조부재 조립 및 설치 작업 안전교육",
+      "video_type": "long",
+      "duration": "6:54",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 363,
+      "title": "⚠Kim Min-jeong's Special Training⚠ Working with Construction Lifts and Gondolas",
+      "url": "https://www.youtube.com/watch?v=ciFKf7aCUI4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설용 리프트 및 곤돌라 작업 시 안전교육 영상",
+      "video_type": "long",
+      "duration": "10:31",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 364,
+      "title": "2026 Joint Safety Management Support Project for Associations and Organizations",
+      "url": "https://www.youtube.com/watch?v=NfhwtcTEVDw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "협회 및 단체 대상 2026년 공동 안전관리 지원 사업 안내",
+      "video_type": "long",
+      "duration": "3:39",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 365,
+      "title": "'Creating a Safe Workplace' Board Game🎲 Description",
+      "url": "https://www.youtube.com/watch?v=hpXPFZean3o",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "안전한 작업장 조성을 위한 보드게임 설명 영상",
+      "video_type": "long",
+      "duration": "5:18",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 366,
+      "title": "[Main] Tips for Using Safety and Health Education Materials",
+      "url": "https://www.youtube.com/watch?v=yOBxuQRd85A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "안전보건 교육자료 활용 팁을 안내하는 영상",
+      "video_type": "long",
+      "duration": "3:35",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 367,
+      "title": "Method for measuring oxygen and harmful gas concentrations",
+      "url": "https://www.youtube.com/watch?v=VxLudzI5DjU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC"
+      ],
+      "description": "산소 및 유해가스 농도 측정 방법 교육 영상",
+      "video_type": "long",
+      "duration": "5:31",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 368,
+      "title": "Method for installing and ventilating a ventilation fan in a confined space",
+      "url": "https://www.youtube.com/watch?v=qScYzPnQCTc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ENVIRONMENTAL"
+      ],
+      "description": "밀폐공간 환기팬 설치 및 환기 방법 교육",
+      "video_type": "long",
+      "duration": "3:02",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 369,
+      "title": "[CCTV of the Day] Dust exploded.",
+      "url": "https://www.youtube.com/watch?v=0k1S1Kf9a_E",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "분진 폭발 사고 CCTV 사례 영상",
+      "video_type": "long",
+      "duration": "2:52",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 370,
+      "title": "[CCTV of the Day] The Drum That Became a Bomb",
+      "url": "https://www.youtube.com/watch?v=XLPiqymPKO0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "드럼통 폭발 사고 CCTV 사례 영상",
+      "video_type": "long",
+      "duration": "3:01",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 371,
+      "title": "Let's prevent suffocation accidents on pig farms with these three safety rules!",
+      "url": "https://www.youtube.com/watch?v=VL_64p3XlLY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC",
+        "BIOLOGICAL"
+      ],
+      "description": "돼지농장 질식사고 예방 3대 안전수칙 소개",
+      "video_type": "long",
+      "duration": "3:19",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 372,
+      "title": "[CCTV of the Day] Explosion Accident During Fireworks on Top of a Storage Tank (Main Story)",
+      "url": "https://www.youtube.com/watch?v=fNAJdNCAOmY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "저장탱크 상부 화기 작업 중 폭발 사고 CCTV 영상",
+      "video_type": "long",
+      "duration": "4:02",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 373,
+      "title": "VR Safety and Health Education Guide (Comprehensive Edition)",
+      "url": "https://www.youtube.com/watch?v=eoIUZkhEOZM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "VR 기반 종합 안전보건 교육 가이드 영상",
+      "video_type": "long",
+      "duration": "2:53",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 374,
+      "title": "Photo VR Safety and Health Education Guide",
+      "url": "https://www.youtube.com/watch?v=F_bYZLE1Fy4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "사진 VR 안전보건 교육 가이드 영상",
+      "video_type": "long",
+      "duration": "2:03",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 375,
+      "title": "[다큐On] AI·스마트 안전 기술 위험을 예측하다",
+      "url": "https://www.youtube.com/watch?v=iHkDcmCoGxU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "AI·스마트 안전기술로 위험 예측 다큐멘터리",
+      "video_type": "long",
+      "duration": "47:43",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 376,
+      "title": "Explanation of the key contents of \"Workplace Health Measures to Prevent Heat-related Illnesses D...",
+      "url": "https://www.youtube.com/watch?v=5Oes1d63v64",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TEMPERATURE"
+      ],
+      "description": "열사병 예방을 위한 작업장 건강관리 주요 내용 설명",
+      "video_type": "long",
+      "duration": "10:14",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 377,
+      "title": "Tips for using safety and health education materials!",
+      "url": "https://www.youtube.com/watch?v=GwR5xc-MGaU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "안전보건 교육자료 활용 팁 안내 영상",
+      "video_type": "long",
+      "duration": "0:48",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 378,
+      "title": "Heat-related illnesses, symptoms and prevention methods, and even emergency treatment tips!",
+      "url": "https://www.youtube.com/watch?v=KvPq7lqyb9k",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TEMPERATURE"
+      ],
+      "description": "열사병 증상, 예방 및 응급처치 방법 소개",
+      "video_type": "long",
+      "duration": "3:07",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 379,
+      "title": "Essential safety rules to prevent suffocation in confined spaces!",
+      "url": "https://www.youtube.com/watch?v=6886vrKJ9-g",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC",
+        "ENVIRONMENTAL"
+      ],
+      "description": "밀폐공간 질식사고 예방 필수 안전수칙 안내",
+      "video_type": "long",
+      "duration": "3:30",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 380,
+      "title": "🚛운전하는 분들을 위한 스트레칭",
+      "url": "https://www.youtube.com/watch?v=f1TS2iuLvDg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ERGONOMIC"
+      ],
+      "description": "운전자를 위한 스트레칭 안전 팁 영상",
+      "video_type": "long",
+      "duration": "0:16",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 381,
+      "title": "[CCTV of the Day] Explosion during fireworks on top of a storage tank.",
+      "url": "https://www.youtube.com/watch?v=gTwScLAsuuQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "저장탱크 상부 화기 작업 중 폭발 사고 CCTV 영상",
+      "video_type": "long",
+      "duration": "0:31",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 382,
+      "title": "[그날의 CCTV] 저장탱크 상부 화기 작업 중 폭발사고",
+      "url": "https://www.youtube.com/watch?v=Z4D4ieKv3Zw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "저장탱크 상부 화기 작업 중 폭발 사고 CCTV 단편 영상",
+      "video_type": "long",
+      "duration": "0:34",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 383,
+      "title": "'안전한 것이 가장 빠른것이다' 끝나지 않는 배달",
+      "url": "https://www.youtube.com/watch?v=BAfVgm08U7E",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "배달 작업 중 안전의 중요성을 강조하는 영상",
+      "video_type": "long",
+      "duration": "1:39",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 384,
+      "title": "10. 아차사고 관리 및 TBM 활용법",
+      "url": "https://www.youtube.com/watch?v=kJf35wwjdiw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "아차사고 관리 및 TBM 활용법 안전교육 영상",
+      "video_type": "long",
+      "duration": "2:41",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 385,
+      "title": "9. 위험성평가 결과 보기",
+      "url": "https://www.youtube.com/watch?v=_yJf6_za1nc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성평가 결과 확인 방법 안내 영상",
+      "video_type": "long",
+      "duration": "0:44",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 386,
+      "title": "8. 위험성평가 실시 (건설상시평가법)",
+      "url": "https://www.youtube.com/watch?v=ISUpupSERA4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "건설상시평가법에 따른 위험성평가 실시 방법 안내",
+      "video_type": "long",
+      "duration": "0:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 387,
+      "title": "6. 위험성평가 실시(화학물질평가법)",
+      "url": "https://www.youtube.com/watch?v=THAq4pNP1nI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL"
+      ],
+      "description": "화학물질평가법에 따른 위험성평가 실시 방법 안내",
+      "video_type": "long",
+      "duration": "1:50",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 388,
+      "title": "7. 위험성평가 실시(산업보건평가법)",
+      "url": "https://www.youtube.com/watch?v=D7vf-jAXTo8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "산업보건평가법에 따른 위험성평가 실시 방법 안내",
+      "video_type": "long",
+      "duration": "3:36",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 389,
+      "title": "5. 위험성평가 실시 (위험성수준 3단계 판단법, 체크리스트법, 핵심요인기술법, 빈도강도법)",
+      "url": "https://www.youtube.com/watch?v=AO_GifDQPhM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성수준 판단법 및 체크리스트법 등 평가법 소개",
+      "video_type": "long",
+      "duration": "8:10",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 390,
+      "title": "4. 위험성평가 안내",
+      "url": "https://www.youtube.com/watch?v=0dKqkqyf_dI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성평가 안내 및 개요 설명 영상",
+      "video_type": "long",
+      "duration": "1:04",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 391,
+      "title": "3. 대시보드 안내",
+      "url": "https://www.youtube.com/watch?v=Fj-Qp41lNxQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성평가 대시보드 사용법 안내 영상",
+      "video_type": "long",
+      "duration": "2:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 392,
+      "title": "[VR]제조업 맞음 재해예방 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=iJi1TU7WGNk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION",
+        "FALL"
+      ],
+      "description": "제조업 현장 재해예방을 위한 VR 안전교육 콘텐츠",
+      "video_type": "long",
+      "duration": "8:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 393,
+      "title": "[VR]건설업 떨어짐 재해예방 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=RE7hjYCnnK8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설업 고소작업 중 추락 재해예방 VR 교육 콘텐츠",
+      "video_type": "long",
+      "duration": "4:50",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 394,
+      "title": "[VR] 덤프트럭 재해예방 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=llp90EBScOs",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "덤프트럭 작업 시 발생 가능한 재해 예방 VR 콘텐츠",
+      "video_type": "long",
+      "duration": "5:26",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 395,
+      "title": "[VR]조선업 동시(혼재)작업 재해예방 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=yFwwInjNtkc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "조선업 동시작업 중 재해예방 VR 교육 콘텐츠",
+      "video_type": "long",
+      "duration": "6:53",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 396,
+      "title": "[VR] 사무실 재해예방 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=kwyCl7-vLQk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "SLIP",
+        "COLLISION"
+      ],
+      "description": "사무실 내 미끄러짐 및 충돌 재해예방 VR 콘텐츠",
+      "video_type": "long",
+      "duration": "6:40",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 397,
+      "title": "[VR] 조선업 떨어짐 재해예방 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=Wi89Gw78u6w",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "조선업 고소작업 추락 재해예방 VR 교육 콘텐츠",
+      "video_type": "long",
+      "duration": "4:52",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 398,
+      "title": "[VR] 지게차 재해예방 VR콘텐츠",
+      "url": "https://www.youtube.com/watch?v=adQHFaQ0S8g",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "지게차 작업 중 발생 가능한 재해 예방 VR 콘텐츠",
+      "video_type": "long",
+      "duration": "6:03",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 399,
+      "title": "[건설업 YES or NO] 지봉공사 작업",
+      "url": "https://www.youtube.com/watch?v=PBXnUsWrP_k",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "지봉공사 작업 시 추락 위험 여부 안내",
+      "video_type": "long",
+      "duration": "0:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 400,
+      "title": "[건설업 YES or NO] 단부개구부 작업",
+      "url": "https://www.youtube.com/watch?v=G6dWOyYxQtA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "단부개구부 작업 시 추락 위험 여부 안내",
+      "video_type": "long",
+      "duration": "0:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 401,
+      "title": "[건설업 YES or NO] 비계작업발판 작업",
+      "url": "https://www.youtube.com/watch?v=BtAlNOQjwC0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "비계작업발판 작업 시 추락 위험 여부 안내",
+      "video_type": "long",
+      "duration": "0:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 402,
+      "title": "[건설업 YES or NO] 사다리 작업",
+      "url": "https://www.youtube.com/watch?v=0G04FfFLxNM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "사다리 작업 시 추락 위험 여부 안내",
+      "video_type": "long",
+      "duration": "0:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 403,
+      "title": "[건설업 YES or NO] 철골공사 작업",
+      "url": "https://www.youtube.com/watch?v=94mGRuQugmk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "철골공사 작업 시 추락 및 끼임 위험 안내",
+      "video_type": "long",
+      "duration": "0:23",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 404,
+      "title": "[건설업 YES or NO] 거푸집동바리 작업",
+      "url": "https://www.youtube.com/watch?v=JOIDsAT0CQw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "거푸집동바리 작업 시 추락 및 끼임 위험 안내",
+      "video_type": "long",
+      "duration": "0:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 405,
+      "title": "[건설업 YES or NO] 이동식비계 작업",
+      "url": "https://www.youtube.com/watch?v=oGZs1SmfpN0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "이동식비계 작업 시 추락 위험 여부 안내",
+      "video_type": "long",
+      "duration": "0:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 406,
+      "title": "[건설업 YES or NO] 굴착기 작업",
+      "url": "https://www.youtube.com/watch?v=CvmM7OhTuq0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "굴착기 작업 시 끼임 및 충돌 위험 안내",
+      "video_type": "long",
+      "duration": "0:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 407,
+      "title": "[건설업 YES or NO] 고소작업대 작업",
+      "url": "https://www.youtube.com/watch?v=qJslVBJFZbg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "고소작업대 작업 시 추락 위험 여부 안내",
+      "video_type": "long",
+      "duration": "0:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 408,
+      "title": "[건설업 YES or NO] 화물자동차 작업",
+      "url": "https://www.youtube.com/watch?v=jE1lMJ_G2eI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "화물자동차 작업 시 충돌 및 끼임 위험 안내",
+      "video_type": "long",
+      "duration": "0:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 409,
+      "title": "[건설업 YES or NO] 이동식크레인 작업",
+      "url": "https://www.youtube.com/watch?v=IOdH1XpRaZQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "이동식크레인 작업 시 끼임 및 충돌 위험 안내",
+      "video_type": "long",
+      "duration": "0:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 410,
+      "title": "[건설업 YES or NO] 굴착사면 작업",
+      "url": "https://www.youtube.com/watch?v=QK6e9gOG3XY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "굴착사면 작업 시 추락 및 끼임 위험 안내",
+      "video_type": "long",
+      "duration": "0:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 411,
+      "title": "[건설업 YES or NO] 흙막이지보공 작업",
+      "url": "https://www.youtube.com/watch?v=dK2yjqiBXDE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "흙막이지보공 작업 시 추락 및 끼임 위험 안내",
+      "video_type": "long",
+      "duration": "0:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 412,
+      "title": "[건설업 YES or NO] 타워크레인 작업",
+      "url": "https://www.youtube.com/watch?v=ZFkHQT3Msh0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "타워크레인 작업 시 추락 및 끼임 위험 안내",
+      "video_type": "long",
+      "duration": "0:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 413,
+      "title": "[건설업 YES or NO] 항타·항발기 작업",
+      "url": "https://www.youtube.com/watch?v=xt6JSbKzPHA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "항타·항발기 작업 시 추락 및 끼임 위험 안내",
+      "video_type": "long",
+      "duration": "0:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 414,
+      "title": "[건설업 YES or NO] 건설용리프트 작업",
+      "url": "https://www.youtube.com/watch?v=PrXurA_ZXE8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "건설용리프트 작업 시 추락 및 끼임 위험 안내",
+      "video_type": "long",
+      "duration": "0:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 415,
+      "title": "[건설업 YES or NO] 용접 작업",
+      "url": "https://www.youtube.com/watch?v=gGXoN9ZHgXA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION",
+        "CUT"
+      ],
+      "description": "용접 작업 시 화재 및 절단 위험 안내",
+      "video_type": "long",
+      "duration": "0:23",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 416,
+      "title": "[건설업 YES or NO] 달비계 작업",
+      "url": "https://www.youtube.com/watch?v=iL-jIRCi3co",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "달비계 작업 시 추락 위험 여부 안내",
+      "video_type": "long",
+      "duration": "0:22",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 417,
+      "title": "[건설업 YES or NO] 이동식크레인 재해예방",
+      "url": "https://www.youtube.com/watch?v=3Dd6aV4YdCw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "이동식크레인 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "1:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 418,
+      "title": "[건설업 YES or NO] 화물자동차 재해예방",
+      "url": "https://www.youtube.com/watch?v=SM4f04pymPM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "화물자동차 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 419,
+      "title": "[건설업 YES or NO] 고소작업대 재해예방",
+      "url": "https://www.youtube.com/watch?v=xP9ric0pHlI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "고소작업대 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 420,
+      "title": "[건설업 YES or NO] 굴착기 재해예방",
+      "url": "https://www.youtube.com/watch?v=GmIl1nxMXBM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "굴착기 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 421,
+      "title": "[건설업 YES or NO] 달비계 재해예방",
+      "url": "https://www.youtube.com/watch?v=2pQQvnMamlY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "달비계 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "1:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 422,
+      "title": "[건설업 YES or NO] 이동식비계 재해예방",
+      "url": "https://www.youtube.com/watch?v=JG_Zs-rIPq8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "이동식비계 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 423,
+      "title": "[건설업 YES or NO] 거푸집 동바리 재해예방",
+      "url": "https://www.youtube.com/watch?v=8Jpe4xP_LgE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "거푸집 동바리 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:58",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 424,
+      "title": "[건설업 YES or NO] 철골작업 재해예방",
+      "url": "https://www.youtube.com/watch?v=nAUFO31yo8c",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "철골작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "1:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 425,
+      "title": "[Construction Industry YES or NO] Ladder Accident Prevention",
+      "url": "https://www.youtube.com/watch?v=FcXlj0RdaUY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "사다리 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 426,
+      "title": "[건설업 YES or NO] 비계작업발판 재해예방",
+      "url": "https://www.youtube.com/watch?v=qIbHBYIAZa0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "비계작업발판 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:58",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 427,
+      "title": "[건설업 YES or NO] 단부개구부 재해예방",
+      "url": "https://www.youtube.com/watch?v=Q1nz8JcCa9I",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "단부개구부 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:58",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 428,
+      "title": "[Construction Industry YES or NO] Roofing Work Accident Prevention",
+      "url": "https://www.youtube.com/watch?v=RjIcgNmBBQ0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "지붕 작업 재해예방 교육 영상",
+      "video_type": "long",
+      "duration": "0:57",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 429,
+      "title": "[VR] VR content for disaster prevention in pre-weeding and landscaping work",
+      "url": "https://www.youtube.com/watch?v=ywjofrj1_Ic",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "SLIP"
+      ],
+      "description": "조경 작업 중 재해 예방을 위한 VR 재난 예방 교육 콘텐츠",
+      "video_type": "long",
+      "duration": "5:49",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 430,
+      "title": "위험성평가 실무지원 교육 영상 ① - 사전 준비",
+      "url": "https://www.youtube.com/watch?v=4S5Jmki0NHw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성평가 실무 지원을 위한 사전 준비 교육 영상",
+      "video_type": "long",
+      "duration": "6:03",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 431,
+      "title": "위험성평가 실무지원 교육 영상 ② - 유해·위험요인 파악",
+      "url": "https://www.youtube.com/watch?v=9TM9MgXlNbQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "유해·위험요인 파악 방법에 대한 위험성평가 교육",
+      "video_type": "long",
+      "duration": "3:04",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 432,
+      "title": "위험성평가 실무지원 교육 영상 ③ - 위험성 결정(위험성 수준 3단계 판단법)",
+      "url": "https://www.youtube.com/watch?v=4TdmTAJWGA4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성 수준 3단계 판단법을 통한 위험성 결정 교육",
+      "video_type": "long",
+      "duration": "2:34",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 433,
+      "title": "위험성평가 실무지원 교육 영상 ④ - 위험성 결정(체크리스트법)",
+      "url": "https://www.youtube.com/watch?v=7QTFxpsfXBM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "체크리스트법을 활용한 위험성 결정 교육 영상",
+      "video_type": "long",
+      "duration": "2:34",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 434,
+      "title": "위험성평가 실무지원 교육 영상 ⑥ - 위험성 결정(핵심요인기술법)",
+      "url": "https://www.youtube.com/watch?v=PnkOOV4rb4Y",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "핵심요인기술법에 의한 위험성 결정 교육 영상",
+      "video_type": "long",
+      "duration": "2:15",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 435,
+      "title": "위험성평가 실무지원 교육 영상 ⑤ - 위험성 결정(빈도·강도법)",
+      "url": "https://www.youtube.com/watch?v=87zKiP3ekD8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "빈도·강도법을 활용한 위험성 결정 교육 영상",
+      "video_type": "long",
+      "duration": "2:36",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 436,
+      "title": "위험성평가 실무지원 교육 영상 ⑦ - 위험성 감소대책의 수립과 실행",
+      "url": "https://www.youtube.com/watch?v=H2LDpr-hGSA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성 감소대책 수립과 실행 방법 교육 영상",
+      "video_type": "long",
+      "duration": "1:55",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 437,
+      "title": "위험성평가 실무지원 교육 영상 ⑧ - 위험성평가의 공유와 기록·보존 및 실시주기",
+      "url": "https://www.youtube.com/watch?v=9tXf246Fyh0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성평가 공유, 기록·보존 및 실시주기 교육",
+      "video_type": "long",
+      "duration": "3:45",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 438,
+      "title": "위험성평가 실무지원 교육 영상 ⑨ - 위험성평가 요약 정리",
+      "url": "https://www.youtube.com/watch?v=sJL8gsDf9tU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성평가 요약 정리 교육 영상",
+      "video_type": "long",
+      "duration": "3:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 439,
+      "title": "[모션그래픽] 위험성평가란 무엇인가요?",
+      "url": "https://www.youtube.com/watch?v=hGAn3OKV4Pg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "위험성평가 개념과 중요성을 설명하는 모션그래픽 영상",
+      "video_type": "long",
+      "duration": "4:38",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 440,
+      "title": "[안전보건공단 VR] 위험성평가 해설편(제조업)",
+      "url": "https://www.youtube.com/watch?v=Qki0RWXkXmU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "제조업 위험성평가 해설을 통한 안전관리 교육",
+      "video_type": "long",
+      "duration": "6:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 441,
+      "title": "[안전보건공단 VR] 위험성평가 해설편(건설업)",
+      "url": "https://www.youtube.com/watch?v=iqloGrnwfqg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "건설업 위험성평가 해설을 통한 안전관리 교육",
+      "video_type": "long",
+      "duration": "5:26",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 442,
+      "title": "[안전보건공단 VR] 거푸집 작업 중 떨어짐 재해",
+      "url": "https://www.youtube.com/watch?v=YzbDeEhcJ7o",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "거푸집 작업 중 추락 재해 예방 VR 교육",
+      "video_type": "long",
+      "duration": "3:44",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 443,
+      "title": "[안전보건공단 VR] 화학물질 취급작업 중독재해 예방",
+      "url": "https://www.youtube.com/watch?v=grnfXCSizXs",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL",
+        "TOXIC"
+      ],
+      "description": "화학물질 취급작업 중독 재해 예방 교육 영상",
+      "video_type": "long",
+      "duration": "8:16",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 444,
+      "title": "[안전보건공단 VR] 산업용로봇 끼임 재해예방",
+      "url": "https://www.youtube.com/watch?v=AUlw2P8qS5A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "산업용 로봇 끼임 재해 예방 VR 교육",
+      "video_type": "long",
+      "duration": "5:19",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 445,
+      "title": "[안전보건공단 외국어VR_영어] 서비스업 재해예방 [건물관리업]",
+      "url": "https://www.youtube.com/watch?v=I-U3B46V72Y",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "COLLISION"
+      ],
+      "description": "서비스업 건물관리업 재해 예방 VR 교육",
+      "video_type": "long",
+      "duration": "6:32",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 446,
+      "title": "초등학생 산업안전보건 교육용 vr애니메이션(저학년용)_요리사",
+      "url": "https://www.youtube.com/watch?v=_R13VaTZoY8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "초등학생 대상 요리사 산업안전보건 VR 애니메이션",
+      "video_type": "long",
+      "duration": "4:21",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 447,
+      "title": "초등학생 산업안전보건 교육용 vr애니메이션(저학년용)_콘텐츠 크리에이터",
+      "url": "https://www.youtube.com/watch?v=JXkn4TF8zlk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "초등학생 대상 콘텐츠 크리에이터 산업안전 VR 애니메이션",
+      "video_type": "long",
+      "duration": "4:33",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 448,
+      "title": "[안전보건공단 외국어VR_영어] 실제 재해자 이야기_화학공장 화재 편",
+      "url": "https://www.youtube.com/watch?v=SkZkZuMbnOQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "화학공장 화재 사고 재해자 이야기 VR 교육",
+      "video_type": "long",
+      "duration": "5:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 449,
+      "title": "[안전보건공단 외국어VR_영어] 실제 재해자 이야기_동바리 붕괴 편",
+      "url": "https://www.youtube.com/watch?v=mYXlmTRCrXE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "CRUSH"
+      ],
+      "description": "동바리 붕괴 사고 재해자 이야기 VR 교육",
+      "video_type": "long",
+      "duration": "5:14",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 450,
+      "title": "[안전보건공단 외국어VR_영어] 사고도돌이표_천장크레인 편",
+      "url": "https://www.youtube.com/watch?v=TsXgDwBmGgU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "FALLING_OBJECT"
+      ],
+      "description": "천장크레인 사고 사례를 통한 안전 교육",
+      "video_type": "long",
+      "duration": "5:40",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 451,
+      "title": "[안전보건공단 외국어VR_영어] 사고도돌이표_고소작업대 편",
+      "url": "https://www.youtube.com/watch?v=jCPSn4T8Iu4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "고소작업대 사고 사례를 통한 안전 교육",
+      "video_type": "long",
+      "duration": "5:44",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 452,
+      "title": "[VR콘텐츠] 밀폐공간 질식재해 예방",
+      "url": "https://www.youtube.com/watch?v=SnTkzyuz1rk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC",
+        "ENVIRONMENTAL"
+      ],
+      "description": "밀폐공간 질식재해 예방을 위한 VR 교육 콘텐츠",
+      "video_type": "long",
+      "duration": "8:36",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 453,
+      "title": "초등학생을 위한 산업안전보건 강의동영상",
+      "url": "https://www.youtube.com/watch?v=N5E6kFIolwU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "초등학생 대상 산업안전보건 기본 강의 동영상",
+      "video_type": "long",
+      "duration": "27:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 454,
+      "title": "위험성평가를 반영한 작업 전 안전점검회의(TBM)_#3 화장품사업장",
+      "url": "https://www.youtube.com/watch?v=KpguAPtPM4w",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "화장품 사업장 작업 전 안전점검회의 사례 영상",
+      "video_type": "long",
+      "duration": "3:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 455,
+      "title": "Pre-work Safety Inspection Meeting (TBM) Reflecting Risk Assessment_#2 Automotive Parts Factory",
+      "url": "https://www.youtube.com/watch?v=Nl4blBZc1zg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "자동차 부품 공장 작업 전 안전점검회의 사례 영상",
+      "video_type": "long",
+      "duration": "3:58",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 456,
+      "title": "위험성평가를 반영한 작업 전 안전점검회의(TBM)_#1 조선사업장",
+      "url": "https://www.youtube.com/watch?v=P0UinPboUKE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "조선사업장 작업 전 안전점검회의 사례 영상",
+      "video_type": "long",
+      "duration": "3:45",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 457,
+      "title": "위험성평가를 반영한 작업 전 안전점검회의(TBM)_#3 호반건설(대규모)",
+      "url": "https://www.youtube.com/watch?v=wQjg7udIP1E",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "호반건설 대규모 현장 작업 전 안전점검회의 사례",
+      "video_type": "long",
+      "duration": "6:45",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 458,
+      "title": "Pre-Work Safety Inspection Meeting (TBM) Reflecting Risk Assessment_#2 POSCO (Large-Scale)",
+      "url": "https://www.youtube.com/watch?v=umPwqwoPHRw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "포스코 대규모 현장 작업 전 안전점검회의 사례 영상",
+      "video_type": "long",
+      "duration": "5:15",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 459,
+      "title": "위험성평가를 반영한 작업 전 안전점검회의(TBM)_#1 현대ENG(대규모)",
+      "url": "https://www.youtube.com/watch?v=KOVC8RWUOBI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "현대ENG 대규모 현장 작업 전 안전점검회의 사례 영상",
+      "video_type": "long",
+      "duration": "4:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 460,
+      "title": "위험성평가를 반영한 작업 전 안전점검회의(TBM)_#3 제이세이프티(소규모)",
+      "url": "https://www.youtube.com/watch?v=AI72xVUsc1U",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "제이세이프티 소규모 현장 작업 전 안전점검회의 사례",
+      "video_type": "long",
+      "duration": "3:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 461,
+      "title": "위험성평가를 반영한 작업 전 안전점검회의(TBM)_#2 한국종합안전(소규모)",
+      "url": "https://www.youtube.com/watch?v=CjQRvnBrUu8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "한국종합안전 소규모 현장 작업 전 안전점검회의 사례",
+      "video_type": "long",
+      "duration": "2:46",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 462,
+      "title": "[안전보건공단X홍지윤] 트롯바비, 일일 근로 감독관 되다? 건설현장에 홍지윤이 떴지윤👷‍♀",
+      "url": "https://www.youtube.com/watch?v=le-4DsN-0tI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "FALLING_OBJECT"
+      ],
+      "description": "건설현장 근로감독관 체험으로 안전사고 예방 교육 진행",
+      "video_type": "long",
+      "duration": "8:01",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 463,
+      "title": "[Safety and Health VR] Falling Steel Frame! A Moment's Choice Can Prevent It!",
+      "url": "https://www.youtube.com/watch?v=fHL1eYa6WQA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "강철 구조물 낙하 사고 예방을 위한 안전 선택 중요성 교육",
+      "video_type": "long",
+      "duration": "4:36",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 464,
+      "title": "[안전보건VR] 사다리 추락! 순간의 선택으로 막을 수 있다!",
+      "url": "https://www.youtube.com/watch?v=3wzOfsyEvow",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "사다리 추락 사고를 순간 선택으로 예방하는 VR 교육",
+      "video_type": "long",
+      "duration": "4:57",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 465,
+      "title": "[안전보건VR] \"나를 살린 꿈\" 프레스 끼임, 다시 주어진 기회!",
+      "url": "https://www.youtube.com/watch?v=ClbuZTrhL2o",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 작업 중 끼임 사고를 다룬 안전 VR 체험 영상",
+      "video_type": "long",
+      "duration": "5:22",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 466,
+      "title": "[계절별 재해 예방] ☀폭염 시 온열질환 주의! 여름 편",
+      "url": "https://www.youtube.com/watch?v=SgYoUQMZVhI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TEMPERATURE"
+      ],
+      "description": "폭염 시 온열질환 예방을 위한 계절별 재해 예방 교육",
+      "video_type": "long",
+      "duration": "7:51",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 467,
+      "title": "[안전보건공단 VR] \"나를 살린 꿈\" 개구부 추락, 다시 주어진 기회!",
+      "url": "https://www.youtube.com/watch?v=eIoenzsekUc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "개구부 추락 사고를 예방하는 VR 기반 안전 교육",
+      "video_type": "long",
+      "duration": "4:33",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 468,
+      "title": "[안전을 만나는 시간] Part2 - 중대재해처벌법",
+      "url": "https://www.youtube.com/watch?v=12ThouO2o94",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "중대재해처벌법에 관한 안전보건 법규 교육 영상",
+      "video_type": "long",
+      "duration": "8:40",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 469,
+      "title": "[Time to Meet Safety] Part 1 - Workplace Bullying",
+      "url": "https://www.youtube.com/watch?v=2Lmd4WGStTE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "직장 내 괴롭힘 예방과 안전한 근무환경 조성 교육",
+      "video_type": "long",
+      "duration": "7:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 470,
+      "title": "[KOSHA VR] Get stuck while working on a mixer! CG-based VR experience.",
+      "url": "https://www.youtube.com/watch?v=pOOwZxjQgC4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "믹서 작업 중 끼임 사고를 VR로 체험하는 교육 영상",
+      "video_type": "long",
+      "duration": "2:26",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 471,
+      "title": "[KOSHA VR] Get caught during press work! CG-based VR experience.",
+      "url": "https://www.youtube.com/watch?v=kpyqUABxQhY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 작업 중 끼임 사고 VR 체험으로 안전교육 실시",
+      "video_type": "long",
+      "duration": "3:47",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 472,
+      "title": "[안전보건공단 VR] 파쇄기 작업 중 끼임! CG기반 VR 체험",
+      "url": "https://www.youtube.com/watch?v=d2qbSlKvPSg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "파쇄기 작업 중 끼임 사고를 다룬 VR 안전 체험 영상",
+      "video_type": "long",
+      "duration": "3:52",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 473,
+      "title": "[KOSHA VR] Suffocation while working in a confined manhole! CG-based VR experience.",
+      "url": "https://www.youtube.com/watch?v=3llJiS-cyt8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC",
+        "ENVIRONMENTAL"
+      ],
+      "description": "밀폐된 맨홀 작업 중 질식 사고 예방 VR 체험 교육",
+      "video_type": "long",
+      "duration": "3:26",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 474,
+      "title": "[안전보건공단 VR] 도로 위 고소작업대 작업 중 추락! CG기반 VR 체험",
+      "url": "https://www.youtube.com/watch?v=aHT18TF7qDk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "고소작업대 작업 중 추락 사고 VR 기반 안전 교육",
+      "video_type": "long",
+      "duration": "3:16",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 475,
+      "title": "[KOSHA VR] Fall while working on the \"end\" of a slab! A realistic VR experience.",
+      "url": "https://www.youtube.com/watch?v=3gcCFS14ICE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "슬래브 끝 작업 중 추락 사고를 다룬 VR 안전 체험",
+      "video_type": "long",
+      "duration": "2:47",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 476,
+      "title": "[KOSHA VR] Falling from a Mobile Scaffold! A Realistic VR Experience",
+      "url": "https://www.youtube.com/watch?v=EjIwZ8EOM78",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "이동식 비계에서의 추락 사고를 VR로 체험하는 교육",
+      "video_type": "long",
+      "duration": "2:50",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 477,
+      "title": "[안전보건공단 VR] “굴착기” 중량물 인양 중 낙하물 맞음! 실감 VR 체험",
+      "url": "https://www.youtube.com/watch?v=F06OvsSOAP4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "HEAVY_LIFTING"
+      ],
+      "description": "굴착기 중량물 인양 중 낙하물 사고 VR 체험 교육",
+      "video_type": "long",
+      "duration": "3:19",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 478,
+      "title": "[안전보건공단 VR] “굴착기” 후진 중 충돌! 실감 VR 체험",
+      "url": "https://www.youtube.com/watch?v=LEwN6Booqbs",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "굴착기 후진 중 충돌 사고를 다룬 VR 안전 체험",
+      "video_type": "long",
+      "duration": "3:03",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 479,
+      "title": "[KOSHA VR] Crushed by an excavator bucket during work! Experience the immersive VR experience.",
+      "url": "https://www.youtube.com/watch?v=MpfT2l68bVg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "굴착기 버킷에 의한 끼임 사고 VR 체험 교육 영상",
+      "video_type": "long",
+      "duration": "2:51",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 480,
+      "title": "[Jo Woo-jong's Storm Search] The Waste Tanker Explosion",
+      "url": "https://www.youtube.com/watch?v=6zvdpl_o4YI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "폐기물 탱커 폭발 사고 사례를 통한 안전 교육",
+      "video_type": "long",
+      "duration": "9:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 481,
+      "title": "[조우종의 폭풍검색] 끼임재해예방 2편",
+      "url": "https://www.youtube.com/watch?v=vV7V_WmJEUA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "끼임 재해 예방을 위한 안전 수칙과 사례 교육",
+      "video_type": "long",
+      "duration": "7:10",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 482,
+      "title": "[Jo Woo-jong's Storm Search] Part 1: Preventing Entrapment Accidents",
+      "url": "https://www.youtube.com/watch?v=KeHlDQ-4454",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "끼임 사고 예방을 주제로 한 안전 교육 영상",
+      "video_type": "long",
+      "duration": "8:15",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 483,
+      "title": "[조우종의 폭풍검색] 타워크레인 신호작업편",
+      "url": "https://www.youtube.com/watch?v=PA-9g7P22Lo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "FALL"
+      ],
+      "description": "타워크레인 신호 작업 시 충돌 및 추락 위험 교육",
+      "video_type": "long",
+      "duration": "8:44",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 484,
+      "title": "[Cho Woo-jong's Storm Search] Combustible Materials and Fire Risk Work",
+      "url": "https://www.youtube.com/watch?v=atDvwkpZ9Kc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "가연성 물질과 화재 위험 작업 안전 교육",
+      "video_type": "long",
+      "duration": "8:12",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 485,
+      "title": "[안전보건공단X달지] 슬기로운 안전생활 - 지진편",
+      "url": "https://www.youtube.com/watch?v=EY2IqNjHbLA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ENVIRONMENTAL"
+      ],
+      "description": "지진 발생 시 안전 행동 요령을 다룬 교육 영상",
+      "video_type": "long",
+      "duration": "2:57",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 486,
+      "title": "[Korea Occupational Safety and Health Agency X Dalji] Smart Safety Lifestyle - Transportation",
+      "url": "https://www.youtube.com/watch?v=LZirYNKA1X0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "교통사고 예방을 위한 안전 생활 수칙 교육",
+      "video_type": "long",
+      "duration": "4:04",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 487,
+      "title": "[Korea Occupational Safety and Health Agency X Dalji] Smart Safety Lifestyle - Fire",
+      "url": "https://www.youtube.com/watch?v=MDw_Z-AufSU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "화재 발생 시 대처법과 예방 교육 영상",
+      "video_type": "long",
+      "duration": "6:53",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 488,
+      "title": "[안전보건공단X달지] 슬기로운 안전생활",
+      "url": "https://www.youtube.com/watch?v=Z4wSOVwffdg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "일상 속 안전생활 실천을 위한 종합 안전 교육",
+      "video_type": "long",
+      "duration": "15:15",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 489,
+      "title": "\"범인은 진드기?!\" 가을철 발열성 질환 예방 수칙!",
+      "url": "https://www.youtube.com/watch?v=i68RpMRpclI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "BIOLOGICAL"
+      ],
+      "description": "가을철 진드기 매개 발열성 질환 예방 수칙 안내",
+      "video_type": "long",
+      "duration": "2:07",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 490,
+      "title": "더운 여름철! 작업 시, 온열질환 예방수칙  ☀️💦",
+      "url": "https://www.youtube.com/watch?v=Vm2ID7k22R0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TEMPERATURE"
+      ],
+      "description": "여름철 작업 시 온열질환 예방 방법 교육",
+      "video_type": "long",
+      "duration": "1:50",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 491,
+      "title": "[특별기획점검] 제조업 점검자 편 \"날카로운 질문, 피할 수 있을까?🧐\"",
+      "url": "https://www.youtube.com/watch?v=a32fGEQezOo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "제조업 점검자를 위한 안전 점검 및 질문 대응 교육",
+      "video_type": "long",
+      "duration": "6:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 492,
+      "title": "[특별기획점검] 제조업 사업주 편 \"나 지금 떨고 있니...?\"😱",
+      "url": "https://www.youtube.com/watch?v=Z1jd1Zf-OdA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "제조업 사업주 대상 안전관리 중요성 교육 영상",
+      "video_type": "long",
+      "duration": "3:15",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 493,
+      "title": "안전교육 꿀잼?!",
+      "url": "https://www.youtube.com/watch?v=J5ujGUGzjeU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "안전교육의 재미와 중요성을 강조하는 짧은 영상",
+      "video_type": "long",
+      "duration": "0:41",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 494,
+      "title": "한눈에 보는! 안전보건자료 활용가이드 📝",
+      "url": "https://www.youtube.com/watch?v=7AkNhklDmbA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "안전보건자료 활용 방법을 한눈에 보여주는 안내 영상",
+      "video_type": "long",
+      "duration": "6:11",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 495,
+      "title": "VR for scaffolds",
+      "url": "https://www.youtube.com/watch?v=ab-p2BqHZzI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "비계 작업 시 추락 위험을 VR로 체험하는 교육 영상",
+      "video_type": "long",
+      "duration": "2:55",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 496,
+      "title": "직무 스트레스! 모조리 관리해주마~! [퀴즈 챌린저] 직무관리 스트레스 편",
+      "url": "https://www.youtube.com/watch?v=X5aW562Z0gA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "직무 스트레스 관리와 안전보건 관련 퀴즈 챌린지",
+      "video_type": "long",
+      "duration": "1:33",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 497,
+      "title": "안전지침은 명확하기보단,  OO적이어야 한다?! [퀴즈 챌린저] 심리사회적 접근과 안전보건 편",
+      "url": "https://www.youtube.com/watch?v=VoHPjTW-qYw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "심리사회적 접근을 통한 안전지침 효과성 교육",
+      "video_type": "long",
+      "duration": "1:38",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 498,
+      "title": "무조건 봐야할, 석면의 진실!! [퀴즈 챌린저] 석면의 이해 편",
+      "url": "https://www.youtube.com/watch?v=1eQdLd_Gku4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL"
+      ],
+      "description": "석면의 위험성과 안전관리 방법을 다룬 교육 영상",
+      "video_type": "long",
+      "duration": "1:31",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 499,
+      "title": "안전사고는 개인의 잘못이 아닌 OO 때문이다!",
+      "url": "https://www.youtube.com/watch?v=TBbby2UvtZU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "안전사고 원인은 개인이 아닌 시스템 문제임을 강조",
+      "video_type": "long",
+      "duration": "1:11",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 500,
+      "title": "사고는 모든 요소가 충족되어야만 일어난다?",
+      "url": "https://www.youtube.com/watch?v=lImS4GyexYo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "산업재해 발생 조건과 사고 원인에 대해 설명한다.",
+      "video_type": "long",
+      "duration": "1:05",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 501,
+      "title": "안전, 더 이상 개인의 문제가 아닙니다!",
+      "url": "https://www.youtube.com/watch?v=P4iAg0r1anw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "안전은 개인 책임을 넘어 조직적 문제임을 강조한다.",
+      "video_type": "long",
+      "duration": "1:10",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 502,
+      "title": "이세라 기상캐스터가 알려주는 '여름철 온열질환 예방법!'",
+      "url": "https://www.youtube.com/watch?v=4CffmMPNBug",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TEMPERATURE"
+      ],
+      "description": "여름철 온열질환 예방 방법을 안내한다.",
+      "video_type": "long",
+      "duration": "0:41",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 503,
+      "title": "시크릿보스_CEO 건설현장을 가다",
+      "url": "https://www.youtube.com/watch?v=nLEOglHXFuY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "건설현장 안전관리와 위험요인을 소개한다.",
+      "video_type": "long",
+      "duration": "7:07",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 504,
+      "title": "산업용 로봇 위험요인 및 안전대책",
+      "url": "https://www.youtube.com/watch?v=bPHmmyM6I88",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "산업용 로봇의 위험요인과 안전대책을 설명한다.",
+      "video_type": "long",
+      "duration": "5:13",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 505,
+      "title": "허가·관리대상 유해물질 취급 작업 예방대책",
+      "url": "https://www.youtube.com/watch?v=rUrRBkIdzPg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL"
+      ],
+      "description": "허가·관리대상 유해물질 취급 예방대책을 안내한다.",
+      "video_type": "long",
+      "duration": "5:41",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 506,
+      "title": "타워크레인 설치·상승·해체작업 유해·위험요인 및 안전대책",
+      "url": "https://www.youtube.com/watch?v=y4MfldF-UKo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "타워크레인 설치·상승·해체 작업 안전대책을 안내한다.",
+      "video_type": "long",
+      "duration": "5:13",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 507,
+      "title": "용접용단 작업 중 발생한 화재사고 예방법",
+      "url": "https://www.youtube.com/watch?v=cmw7I-iOq4s",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "용접용단 작업 중 화재사고 예방법을 설명한다.",
+      "video_type": "long",
+      "duration": "5:27",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 508,
+      "title": "건설현장 철골 조립 작업 시 안전수칙",
+      "url": "https://www.youtube.com/watch?v=GZbSv2L_mmQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "건설현장 철골 조립 작업 안전수칙을 안내한다.",
+      "video_type": "long",
+      "duration": "2:39",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 509,
+      "title": "건설현장 콘크리트 양생  중 질식사고",
+      "url": "https://www.youtube.com/watch?v=FObYRXHS9xg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC",
+        "ENVIRONMENTAL"
+      ],
+      "description": "건설현장 콘크리트 양생 중 질식사고 사례를 다룬다.",
+      "video_type": "long",
+      "duration": "3:49",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 510,
+      "title": "석면 해체, 제거 작업 중 말비계에서 떨어짐 사고",
+      "url": "https://www.youtube.com/watch?v=2Enb5CWsq4A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "석면 해체 작업 중 말비계에서 추락 사고를 설명한다.",
+      "video_type": "long",
+      "duration": "1:42",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 511,
+      "title": "석면 해체, 제거 작업 중 지붕 위에서 떨어짐 사고",
+      "url": "https://www.youtube.com/watch?v=x8A4xQuemWc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "석면 해체 작업 중 지붕 위에서 추락 사고를 다룬다.",
+      "video_type": "long",
+      "duration": "2:37",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 512,
+      "title": "Fall accident during formwork work",
+      "url": "https://www.youtube.com/watch?v=jOy-11EJy4c",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "거푸집 작업 중 추락 사고 사례를 설명한다.",
+      "video_type": "long",
+      "duration": "3:32",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 513,
+      "title": "거푸집 동바리 작업 중 파이프서포트 무너짐",
+      "url": "https://www.youtube.com/watch?v=h433RjYlvt0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "거푸집 동바리 작업 중 파이프서포트 무너짐 사고를 다룬다.",
+      "video_type": "long",
+      "duration": "3:36",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 514,
+      "title": "하역 작업 중 떨어진 파이프에 맞은 사고",
+      "url": "https://www.youtube.com/watch?v=G5zAWk-_vxM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "하역 작업 중 떨어진 파이프에 맞은 사고를 설명한다.",
+      "video_type": "long",
+      "duration": "2:53",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 515,
+      "title": "상차 작업 중 적재함에서 떨어짐 사고",
+      "url": "https://www.youtube.com/watch?v=O5WJSJxiyvs",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "상차 작업 중 적재함에서 추락 사고를 다룬다.",
+      "video_type": "long",
+      "duration": "3:22",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 516,
+      "title": "교량 설치 작업 시 유해·위험요인 및 안전대책",
+      "url": "https://www.youtube.com/watch?v=M44Jtf_-qto",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "FALLING_OBJECT",
+        "CRUSH"
+      ],
+      "description": "교량 설치 작업 시 유해·위험요인과 안전대책 설명",
+      "video_type": "long",
+      "duration": "4:58",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 517,
+      "title": "제조업 지게차 운행 시 안전수칙",
+      "url": "https://www.youtube.com/watch?v=mOg4G9YPZQY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "제조업 지게차 운행 시 안전수칙 안내",
+      "video_type": "long",
+      "duration": "2:58",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 518,
+      "title": "거푸집동바리 무너짐 사고",
+      "url": "https://www.youtube.com/watch?v=RRmzifFHbGw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "CRUSH"
+      ],
+      "description": "거푸집동바리 무너짐 사고 재해사례 설명",
+      "video_type": "long",
+      "duration": "2:45",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 519,
+      "title": "제조현장 줄걸이 작업시 주의사항",
+      "url": "https://www.youtube.com/watch?v=eHI2h4mtpAE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "FALLING_OBJECT"
+      ],
+      "description": "제조현장 줄걸이 작업 시 주의사항 안내",
+      "video_type": "long",
+      "duration": "4:02",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 520,
+      "title": "제조현장 산소절단 작업 중 화재·폭발",
+      "url": "https://www.youtube.com/watch?v=VjixWfwjS4g",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "제조현장 산소절단 작업 중 화재·폭발 사고 사례",
+      "video_type": "long",
+      "duration": "4:01",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 521,
+      "title": "시스템 비계 설치 시 주의사항",
+      "url": "https://www.youtube.com/watch?v=mpbXSA7CGPo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "시스템 비계 설치 시 안전 주의사항 안내",
+      "video_type": "long",
+      "duration": "3:54",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 522,
+      "title": "건설현장 비계 설치 작업 시 주의사항",
+      "url": "https://www.youtube.com/watch?v=p9aa-iyG3as",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설현장 비계 설치 작업 시 안전수칙 설명",
+      "video_type": "long",
+      "duration": "3:50",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 523,
+      "title": "제조현장 용접 작업 시 안전수칙",
+      "url": "https://www.youtube.com/watch?v=_1MiXaiedL0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION",
+        "TOXIC"
+      ],
+      "description": "제조현장 용접 작업 시 안전수칙 안내",
+      "video_type": "long",
+      "duration": "2:46",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 524,
+      "title": "빈 드럼통 용단 중 폭발 사고",
+      "url": "https://www.youtube.com/watch?v=K08KXRP0D-w",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "빈 드럼통 용단 중 발생한 폭발 사고 사례",
+      "video_type": "long",
+      "duration": "3:40",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 525,
+      "title": "지게차 팔레트에서 떨어져 끼임 사고",
+      "url": "https://www.youtube.com/watch?v=7B8n9Ye2Or8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "FALL"
+      ],
+      "description": "지게차 팔레트에서 떨어져 끼임 사고 사례",
+      "video_type": "long",
+      "duration": "3:42",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 526,
+      "title": "건설현장 줄걸이 작업 시 주의사항",
+      "url": "https://www.youtube.com/watch?v=rqqZhX1-Sbo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "FALLING_OBJECT"
+      ],
+      "description": "건설현장 줄걸이 작업 시 안전 주의사항 안내",
+      "video_type": "long",
+      "duration": "4:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 527,
+      "title": "건설 현장 분전반 점검 중 감전",
+      "url": "https://www.youtube.com/watch?v=VvstmUKSI-g",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC"
+      ],
+      "description": "건설 현장 분전반 점검 중 감전 사고 사례",
+      "video_type": "long",
+      "duration": "3:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 528,
+      "title": "이동식크레인으로 강관다발 운반 중 낙하",
+      "url": "https://www.youtube.com/watch?v=oPXjBHAQCUQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "이동식크레인 강관다발 운반 중 낙하 사고 사례",
+      "video_type": "long",
+      "duration": "3:31",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 529,
+      "title": "연삭기 작업 시 필요한 방호방치",
+      "url": "https://www.youtube.com/watch?v=2lt0FLhux_A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT"
+      ],
+      "description": "연삭기 작업 시 필요한 방호장치 설명",
+      "video_type": "long",
+      "duration": "2:11",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 530,
+      "title": "쏘우(톱) 작업 시 방호장치",
+      "url": "https://www.youtube.com/watch?v=p-TKd_wDI6Q",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT"
+      ],
+      "description": "쏘우(톱) 작업 시 방호장치 안전수칙 안내",
+      "video_type": "long",
+      "duration": "2:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 531,
+      "title": "가공 또는 매설전선로 주변 작업 안전",
+      "url": "https://www.youtube.com/watch?v=Fk1lc0jmuY8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC"
+      ],
+      "description": "가공 및 매설전선로 주변 작업 안전수칙 설명",
+      "video_type": "long",
+      "duration": "5:16",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 532,
+      "title": "지게차 작업 시 운전자, 통행자 주의사항",
+      "url": "https://www.youtube.com/watch?v=nYKTgPx0Mew",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "지게차 작업 시 운전자와 통행자 주의사항 안내",
+      "video_type": "long",
+      "duration": "5:27",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 533,
+      "title": "연마 작업 중 보안경 착용 이유",
+      "url": "https://www.youtube.com/watch?v=NBwguhCY3bM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "EYE_PROTECTION"
+      ],
+      "description": "연마 작업 중 보안경 착용 이유와 중요성 설명",
+      "video_type": "long",
+      "duration": "3:16",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 534,
+      "title": "절단·절곡 기계 작업 시 주의사항",
+      "url": "https://www.youtube.com/watch?v=vP6u3xoOZDE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT",
+        "CRUSH"
+      ],
+      "description": "절단·절곡 기계 작업 시 주의사항 안내",
+      "video_type": "long",
+      "duration": "2:34",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 535,
+      "title": "[당신은 전문가입니다] 거푸집에서 떨어짐",
+      "url": "https://www.youtube.com/watch?v=oVGHii8ZNx8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "거푸집 작업 중 추락 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "2:20",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 536,
+      "title": "[당신은 전문가입니다] 지붕 보 작업 중 떨어짐",
+      "url": "https://www.youtube.com/watch?v=iJCuK6FFz_8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "지붕 보 작업 중 추락 사고 예방 안전 수칙",
+      "video_type": "long",
+      "duration": "2:10",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 537,
+      "title": "[당신은 전문가입니다] 사다리에서 떨어짐",
+      "url": "https://www.youtube.com/watch?v=IbJGz3ID0IA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "사다리 사용 시 추락 사고 예방 방법 안내",
+      "video_type": "long",
+      "duration": "2:04",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 538,
+      "title": "[당신은 전문가입니다] 개구부에서 떨어짐",
+      "url": "https://www.youtube.com/watch?v=roXKg0tXo-A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "개구부 작업 중 추락 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "1:46",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 539,
+      "title": "떨어짐 재해 예방법",
+      "url": "https://www.youtube.com/watch?v=zX0O1z1dTI0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "추락 재해 예방을 위한 안전 수칙 안내",
+      "video_type": "long",
+      "duration": "4:04",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 540,
+      "title": "사다리 안전 설치법",
+      "url": "https://www.youtube.com/watch?v=KrdnHZZyKwg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "사다리 안전한 설치 방법과 주의사항 교육",
+      "video_type": "long",
+      "duration": "4:31",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 541,
+      "title": "석면 작업 안전",
+      "url": "https://www.youtube.com/watch?v=OirRcwBP93M",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC"
+      ],
+      "description": "석면 작업 시 안전 수칙과 유해성 교육",
+      "video_type": "long",
+      "duration": "2:03",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 542,
+      "title": "건설업 작업자 안전 주의사항",
+      "url": "https://www.youtube.com/watch?v=CX-XoeVCclQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "건설업 작업자 안전 주의사항과 사고 예방법",
+      "video_type": "long",
+      "duration": "4:14",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 543,
+      "title": "둥근톱 작업시 방호덮개의 필요성",
+      "url": "https://www.youtube.com/watch?v=lVOi_lAbGQM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT"
+      ],
+      "description": "둥근톱 작업 시 방호덮개 필요성 교육 영상",
+      "video_type": "long",
+      "duration": "1:32",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 544,
+      "title": "둥근톱 작업 시 킥백(반동) 주의사항",
+      "url": "https://www.youtube.com/watch?v=mmMs93UeFk4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT"
+      ],
+      "description": "둥근톱 작업 시 킥백 반동 주의사항 안내",
+      "video_type": "long",
+      "duration": "1:29",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 545,
+      "title": "못총 취급시 안전 주의사항",
+      "url": "https://www.youtube.com/watch?v=mXXBIoIea9U",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION",
+        "CRUSH"
+      ],
+      "description": "못총 취급 시 안전 주의사항 교육 영상",
+      "video_type": "long",
+      "duration": "1:07",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 546,
+      "title": "못총 작업 시 주의사항",
+      "url": "https://www.youtube.com/watch?v=I6JlE4-BlfY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION",
+        "CRUSH"
+      ],
+      "description": "못총 작업 시 안전 수칙과 주의사항 안내",
+      "video_type": "long",
+      "duration": "1:13",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 547,
+      "title": "판유리 취급 시 작업안전",
+      "url": "https://www.youtube.com/watch?v=Rx4k75nKjOE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT"
+      ],
+      "description": "판유리 취급 시 작업 안전 수칙 교육",
+      "video_type": "long",
+      "duration": "1:39",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 548,
+      "title": "건식벽체 취급 작업안전",
+      "url": "https://www.youtube.com/watch?v=ZMw2WIMwmgg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT"
+      ],
+      "description": "건식벽체 취급 작업 시 안전 주의사항 안내",
+      "video_type": "long",
+      "duration": "1:42",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 549,
+      "title": "지게차 작업 중 적재물 떨어짐 사고",
+      "url": "https://www.youtube.com/watch?v=MQ-yUg8VANo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "지게차 작업 중 적재물 낙하 사고 사례 교육",
+      "video_type": "long",
+      "duration": "3:28",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 550,
+      "title": "발전소 노내 보수작업 중 비계 붕괴 사고",
+      "url": "https://www.youtube.com/watch?v=gwx949mZESc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "발전소 노내 보수작업 중 비계 붕괴 사고 사례",
+      "video_type": "long",
+      "duration": "3:35",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 551,
+      "title": "천장크레인으로 롤 인양 중 충돌 사고",
+      "url": "https://www.youtube.com/watch?v=gihKOhfP3TQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION"
+      ],
+      "description": "천장크레인 롤 인양 중 충돌 사고 사례 교육",
+      "video_type": "long",
+      "duration": "3:19",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 552,
+      "title": "고소작업대와 배관 사이에 끼임 사고",
+      "url": "https://www.youtube.com/watch?v=w-I1qp6POR4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "고소작업대와 배관 사이 끼임 사고 사례와 예방법 안내",
+      "video_type": "long",
+      "duration": "3:09",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 553,
+      "title": "용접작업 중 갠트리 크레인에 끼임 사고",
+      "url": "https://www.youtube.com/watch?v=Er9b1fGocLg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "용접작업 중 갠트리 크레인에 끼임 사고 사례와 주의사항",
+      "video_type": "long",
+      "duration": "2:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 554,
+      "title": "비계 작업 중 떨어짐 유로폼에 맞음 사고",
+      "url": "https://www.youtube.com/watch?v=ycBO-1V974s",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "FALLING_OBJECT"
+      ],
+      "description": "비계 작업 중 추락과 유로폼 낙하물 사고 사례 소개",
+      "video_type": "long",
+      "duration": "2:40",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 555,
+      "title": "Fall accident during scaffolding installation",
+      "url": "https://www.youtube.com/watch?v=qdCO6UTgf3A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "비계 설치 작업 중 추락 사고 예방 주의사항 안내",
+      "video_type": "long",
+      "duration": "3:26",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 556,
+      "title": "압력용기 작업 중 용접부 파열 사고",
+      "url": "https://www.youtube.com/watch?v=K0xJVZsOH0A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "압력용기 작업 중 용접부 파열로 인한 사고 사례 설명",
+      "video_type": "long",
+      "duration": "2:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 557,
+      "title": "Pressure vessel work (safety accidents occurring during maintenance)",
+      "url": "https://www.youtube.com/watch?v=5cdF04g1qFU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "압력용기 유지보수 작업 중 발생하는 안전사고 주의사항",
+      "video_type": "long",
+      "duration": "2:05",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 558,
+      "title": "Precautions when assembling scaffolding",
+      "url": "https://www.youtube.com/watch?v=_bI3f0xO7d8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "비계 조립 시 안전수칙과 사고 예방 방법 안내",
+      "video_type": "long",
+      "duration": "2:37",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 559,
+      "title": "이동식 크레인 작업 안전",
+      "url": "https://www.youtube.com/watch?v=vqPKHsUh2Tk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "이동식 크레인 작업 시 안전수칙과 사고 예방법 소개",
+      "video_type": "long",
+      "duration": "3:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 560,
+      "title": "이동식 크레인 작업 안전 개요",
+      "url": "https://www.youtube.com/watch?v=NTBBGbkGZCU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "이동식 크레인 작업 안전 개요 및 주의사항 설명",
+      "video_type": "long",
+      "duration": "0:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 561,
+      "title": "이동식 크레인 목적 외 사용",
+      "url": "https://www.youtube.com/watch?v=NUi0sIiwSDg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "이동식 크레인의 목적 외 사용 시 위험성과 예방법 안내",
+      "video_type": "long",
+      "duration": "2:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 562,
+      "title": "지게차 작업 안전 주의사항",
+      "url": "https://www.youtube.com/watch?v=gVgG5Na0vYc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "지게차 작업 시 안전 주의사항과 사고 예방법 소개",
+      "video_type": "long",
+      "duration": "3:08",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 563,
+      "title": "지게차 작업 안전 개요",
+      "url": "https://www.youtube.com/watch?v=_yWsdMyAFqw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "CRUSH"
+      ],
+      "description": "지게차 작업 안전 개요 및 기본 주의사항 안내",
+      "video_type": "long",
+      "duration": "0:49",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 564,
+      "title": "지게차 운전석 외 탑승",
+      "url": "https://www.youtube.com/watch?v=BMa4m4UyiM0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "지게차 운전석 외 탑승 시 발생 가능한 사고와 예방법",
+      "video_type": "long",
+      "duration": "2:27",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 565,
+      "title": "컨베이어 작업 안전",
+      "url": "https://www.youtube.com/watch?v=mYBRQlNQBN0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "컨베이어 작업 시 안전수칙과 사고 예방 방법 안내",
+      "video_type": "long",
+      "duration": "3:00",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 566,
+      "title": "컨베이어 청소 작업안전",
+      "url": "https://www.youtube.com/watch?v=MfF4atHsXQA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "컨베이어 청소 작업 시 안전수칙과 사고 예방법 소개",
+      "video_type": "long",
+      "duration": "0:49",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 567,
+      "title": "컨베이어 청소 작업 중 끼임",
+      "url": "https://www.youtube.com/watch?v=Xf9ZWtrN_WY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "컨베이어 청소 작업 중 끼임 사고 사례와 예방 대책 안내",
+      "video_type": "long",
+      "duration": "2:18",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 568,
+      "title": "달비계의 구조와 점검법",
+      "url": "https://www.youtube.com/watch?v=SDsVzbY9uCc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "달비계 구조와 점검법을 통한 안전관리 방법 소개",
+      "video_type": "long",
+      "duration": "2:19",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 569,
+      "title": "거푸집동바리 작업안전",
+      "url": "https://www.youtube.com/watch?v=1TgofKOIAFw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "거푸집동바리 작업 시 안전수칙과 사고 예방법 안내",
+      "video_type": "long",
+      "duration": "2:28",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 570,
+      "title": "Things to check before pressing",
+      "url": "https://www.youtube.com/watch?v=krCyiWoy2pw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "프레스 작업 전 점검 사항과 안전수칙 안내",
+      "video_type": "long",
+      "duration": "1:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 571,
+      "title": "프레스 금형 설치 및 해체 작업안전",
+      "url": "https://www.youtube.com/watch?v=wzeBKy8KJGY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "프레스 금형 설치 및 해체 작업 시 안전수칙 설명",
+      "video_type": "long",
+      "duration": "2:10",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 572,
+      "title": "프레스 금형 교체 작업",
+      "url": "https://www.youtube.com/watch?v=9fwydoHr-ks",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "프레스 금형 교체 작업 중 위험요인과 안전대책 설명",
+      "video_type": "long",
+      "duration": "1:19",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 573,
+      "title": "Press-type double-acting protective device installation method and inspection tips",
+      "url": "https://www.youtube.com/watch?v=kFrpjVsvb98",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 이중 작동 방호장치 설치 및 점검 방법 안내",
+      "video_type": "long",
+      "duration": "2:11",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 574,
+      "title": "Press photoelectric protection device installation method and inspection tips",
+      "url": "https://www.youtube.com/watch?v=WOGXVZ-fAR8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 광전자식 방호장치 설치 및 점검 요령 교육",
+      "video_type": "long",
+      "duration": "2:43",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 575,
+      "title": "프레스 작업안전(금형 설치 및 해체)",
+      "url": "https://www.youtube.com/watch?v=VbPczgFZ1rk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "프레스 금형 설치 및 해체 작업 시 안전수칙 교육",
+      "video_type": "long",
+      "duration": "3:26",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 576,
+      "title": "프레스 작업안전(광전자식 방호장치)",
+      "url": "https://www.youtube.com/watch?v=BDDu-6G4vzU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 광전자식 방호장치 사용법과 안전관리 교육",
+      "video_type": "long",
+      "duration": "7:30",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 577,
+      "title": "Press Key Risk Factors and Countermeasures",
+      "url": "https://www.youtube.com/watch?v=ZSi2T_lKy1U",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "프레스 작업 주요 위험요인과 대응방안 설명",
+      "video_type": "long",
+      "duration": "3:21",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 578,
+      "title": "프레스 작업안전(풋 스위치 등)",
+      "url": "https://www.youtube.com/watch?v=9oqmoVrh53c",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 풋 스위치 등 작업 시 안전수칙 안내",
+      "video_type": "long",
+      "duration": "7:12",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 579,
+      "title": "Hot work permit and inspection items before welding work",
+      "url": "https://www.youtube.com/watch?v=HZhkjn0-nWk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "용접 작업 전 용접 허가증과 점검사항 안내",
+      "video_type": "long",
+      "duration": "3:44",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 580,
+      "title": "갠트리 크레인 작업안전",
+      "url": "https://www.youtube.com/watch?v=IL7aYC5wjPo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "갠트리 크레인 작업 시 안전수칙과 주의사항 교육",
+      "video_type": "long",
+      "duration": "4:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 581,
+      "title": "크레인 작업안전(클램프 사용)",
+      "url": "https://www.youtube.com/watch?v=J3NjU8ogUaM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "크레인 클램프 사용 시 작업안전 수칙 안내",
+      "video_type": "long",
+      "duration": "5:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 582,
+      "title": "아세틸렌 용접작업 안전수칙",
+      "url": "https://www.youtube.com/watch?v=fO5WMU_EnSw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION",
+        "TOXIC"
+      ],
+      "description": "아세틸렌 용접작업 시 안전수칙과 위험요인 안내",
+      "video_type": "long",
+      "duration": "4:40",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 583,
+      "title": "용접가스 체류에 의한 폭발",
+      "url": "https://www.youtube.com/watch?v=xm1P8s12RZ8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "용접가스 체류로 인한 폭발 사고 사례와 예방법",
+      "video_type": "long",
+      "duration": "3:11",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 584,
+      "title": "용접 작업 중 화재",
+      "url": "https://www.youtube.com/watch?v=UUtajSMIYPs",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "용접 작업 중 발생 가능한 화재 사고와 대처법",
+      "video_type": "long",
+      "duration": "2:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 585,
+      "title": "불꽃 역화로 인한 가스용기 폭발",
+      "url": "https://www.youtube.com/watch?v=awhF3VVOQ_w",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "불꽃 역화로 인한 가스용기 폭발 사고와 예방책",
+      "video_type": "long",
+      "duration": "2:17",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 586,
+      "title": "크레인 작업안전(줄걸이 작업)",
+      "url": "https://www.youtube.com/watch?v=JM0DkiX-LQ4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "크레인 줄걸이 작업 시 안전수칙과 위험요인 안내",
+      "video_type": "long",
+      "duration": "5:23",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 587,
+      "title": "유류 등이 남아있는 용기 절단 중 폭발",
+      "url": "https://www.youtube.com/watch?v=pW7nd-UaWTY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "유류 잔류 용기 절단 중 발생하는 폭발 사고 예방",
+      "video_type": "long",
+      "duration": "2:38",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 588,
+      "title": "크레인 줄걸이 용구 점검사항",
+      "url": "https://www.youtube.com/watch?v=_FmOoUJhntY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "크레인 줄걸이 용구 점검사항과 안전관리 교육",
+      "video_type": "long",
+      "duration": "5:33",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 589,
+      "title": "갠트리 크레인 작업 시 준수사항",
+      "url": "https://www.youtube.com/watch?v=sWt4ji8OH2Y",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "CRUSH"
+      ],
+      "description": "갠트리 크레인 작업 시 안전 준수사항 안내",
+      "video_type": "long",
+      "duration": "2:18",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 590,
+      "title": "크레인 작업 안전(줄걸이 용구)",
+      "url": "https://www.youtube.com/watch?v=ITWH0tkHmdw",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "CRUSH"
+      ],
+      "description": "크레인 작업 시 줄걸이 용구 안전 사용법 교육",
+      "video_type": "long",
+      "duration": "8:26",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 591,
+      "title": "건물 해체 작업시 안전수칙",
+      "url": "https://www.youtube.com/watch?v=Z1t9XJbuoX8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "건물 해체 작업 시 안전수칙과 위험 예방 방법 안내",
+      "video_type": "long",
+      "duration": "3:48",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 592,
+      "title": "크레인 작업 시 올바른 클램프 사용 방법",
+      "url": "https://www.youtube.com/watch?v=hQ5_us0_rqk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "크레인 작업 시 올바른 클램프 사용법 교육",
+      "video_type": "long",
+      "duration": "1:11",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 593,
+      "title": "지게차를 이용한 폐목재 운반 시 주의사항",
+      "url": "https://www.youtube.com/watch?v=_o1aYtJOIZA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "HEAVY_LIFTING"
+      ],
+      "description": "지게차로 폐목재 운반 시 주의사항과 안전수칙 안내",
+      "video_type": "long",
+      "duration": "3:17",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 594,
+      "title": "크레인 줄걸이 작업 방법",
+      "url": "https://www.youtube.com/watch?v=IOZdRjo9X4s",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "CRUSH"
+      ],
+      "description": "크레인 줄걸이 작업 방법과 안전수칙 교육",
+      "video_type": "long",
+      "duration": "2:35",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 595,
+      "title": "프레스 방호장치 제거로 끼임",
+      "url": "https://www.youtube.com/watch?v=cdMNzuAYKaY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "프레스 방호장치 제거로 인한 끼임 사고 사례 설명",
+      "video_type": "long",
+      "duration": "3:10",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 596,
+      "title": "크레인에 인양된 구조물 해체 중 협착",
+      "url": "https://www.youtube.com/watch?v=Yrf6lFCK17k",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "크레인 인양 구조물 해체 중 발생한 협착 사고 사례",
+      "video_type": "long",
+      "duration": "2:44",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 597,
+      "title": "안전한 용접작업 방법",
+      "url": "https://www.youtube.com/watch?v=xYTJaLnRe24",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION",
+        "TOXIC"
+      ],
+      "description": "안전한 용접작업 방법과 위험 예방 교육",
+      "video_type": "long",
+      "duration": "2:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 598,
+      "title": "일터의 끼임재해 예방수칙",
+      "url": "https://www.youtube.com/watch?v=-hJ3XOB76pM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "일터에서 끼임 재해 예방수칙을 안내하는 교육 영상",
+      "video_type": "long",
+      "duration": "0:47",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 599,
+      "title": "[2017 안전보건 애니메이션] 택배업종 작업안전 3D입체 VR",
+      "url": "https://www.youtube.com/watch?v=46JTBwbF11U",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ERGONOMIC",
+        "HEAVY_LIFTING"
+      ],
+      "description": "택배업종 작업안전 3D VR 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "2:45",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 600,
+      "title": "[2017 안전보건 애니메이션] 택배업종 작업안전",
+      "url": "https://www.youtube.com/watch?v=ZIatYUM73_U",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ERGONOMIC",
+        "HEAVY_LIFTING"
+      ],
+      "description": "택배업종 작업안전 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "2:45",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 601,
+      "title": "[2017 안전보건 애니메이션] 철골조립 작업안전 3D입체 VR",
+      "url": "https://www.youtube.com/watch?v=jgNtfsXZ-sE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "철골조립 작업 시 안전수칙을 3D VR로 교육하는 영상",
+      "video_type": "long",
+      "duration": "2:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 602,
+      "title": "[2017 안전보건 애니메이션] 철골조립 작업안전",
+      "url": "https://www.youtube.com/watch?v=FlMdwK8fJXM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "철골조립 작업안전 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "2:56",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 603,
+      "title": "[2017 안전보건 애니메이션] 갱폼해체 작업안전 3D입체 VR",
+      "url": "https://www.youtube.com/watch?v=Pj8Yvc-Wm3w",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "갱폼해체 작업안전 3D VR 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "2:57",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 604,
+      "title": "[2017 안전보건 애니메이션] 갱폼해체 작업안전",
+      "url": "https://www.youtube.com/watch?v=XVkAlyq65_o",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "갱폼해체 작업안전 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "2:57",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 605,
+      "title": "[2017 안전보건 애니메이션] 기계톱 작업안전 3D입체 VR",
+      "url": "https://www.youtube.com/watch?v=vzdnJddt_ec",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CUT"
+      ],
+      "description": "기계톱 작업 시 안전수칙을 3D VR로 교육하는 영상",
+      "video_type": "long",
+      "duration": "2:51",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 606,
+      "title": "[2017 안전보건 애니메이션] 롤러 작업안전 3D입체 VR",
+      "url": "https://www.youtube.com/watch?v=zbXkdnf7pK4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "롤러 작업안전 3D 입체 VR 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "3:02",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 607,
+      "title": "[2017 안전보건 애니메이션] 범용선반 작업안전 3D입체 VR",
+      "url": "https://www.youtube.com/watch?v=LO3OtSY4bDQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "범용선반 작업안전 3D 입체 VR 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "2:51",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 608,
+      "title": "[2017 안전보건 애니메이션] 드릴 작업안전 3D입체 VR",
+      "url": "https://www.youtube.com/watch?v=yl_AvDJWnU8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "드릴 작업안전 3D 입체 VR 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "2:50",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 609,
+      "title": "[2017 Special Safety and Health Training] Tower Crane Installation, Elevation, and Dismantling (1...",
+      "url": "https://www.youtube.com/watch?v=hW2mEP2XB54",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "타워크레인 설치·상승·해체 작업 특별 안전보건 교육",
+      "video_type": "long",
+      "duration": "15:05",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 610,
+      "title": "[2017 Special Safety and Health Training] Tower Crane Installation, Elevation, and Dismantling (1...",
+      "url": "https://www.youtube.com/watch?v=49fEjOw1hN0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "타워크레인 설치·상승·해체 작업 10분 요약 교육 영상",
+      "video_type": "long",
+      "duration": "10:29",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 611,
+      "title": "[2017 특별 안전보건 교육] 타워크레인 설치·상승·해체 작업 (5분요약)",
+      "url": "https://www.youtube.com/watch?v=m_9Iye4VWjE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "타워크레인 설치·상승·해체 작업 5분 요약 안전보건 교육",
+      "video_type": "long",
+      "duration": "5:11",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 612,
+      "title": "[2017 Special Safety and Health Training] Tower Crane Installation, Elevation, and Dismantling Work",
+      "url": "https://www.youtube.com/watch?v=-I4xAjJaOlA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "타워크레인 설치·상승·해체 작업 상세 특별 안전보건 교육",
+      "video_type": "long",
+      "duration": "30:15",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 613,
+      "title": "2017 교육미디어 지게차 작업 안전 애니메이션 (필리핀영어)",
+      "url": "https://www.youtube.com/watch?v=zqYBVW9whw0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "지게차 작업 중 발생할 수 있는 사고 예방과 안전수칙 안내 애니메이션",
+      "video_type": "long",
+      "duration": "3:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 614,
+      "title": "건설현장 추락사고 예방대책",
+      "url": "https://www.youtube.com/watch?v=c0SuOgzM3do",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설현장 추락사고 예방을 위한 기본 안전대책 소개 영상",
+      "video_type": "long",
+      "duration": "0:41",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 615,
+      "title": "[위험성평가] 체크리스트 가상체험 동영상 (제조업-인쇄업)",
+      "url": "https://www.youtube.com/watch?v=z6OU2af71Dg",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ERGONOMIC",
+        "POSTURE"
+      ],
+      "description": "제조업 인쇄업 위험성평가 체크리스트 가상체험 교육 영상",
+      "video_type": "long",
+      "duration": "20:21",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 616,
+      "title": "[위험성평가] 체크리스트 가상체험 동영상 (제조업-철강제조업)",
+      "url": "https://www.youtube.com/watch?v=9JciC60WrA0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "ERGONOMIC"
+      ],
+      "description": "철강제조업 위험성평가 체크리스트 가상체험 교육 영상",
+      "video_type": "long",
+      "duration": "18:57",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 617,
+      "title": "[Risk Assessment] Checklist Virtual Experience Video (Manufacturing - Synthetic Resin Manufacturing)",
+      "url": "https://www.youtube.com/watch?v=5WvTD0uT7RU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL",
+        "TOXIC"
+      ],
+      "description": "합성수지 제조업 위험성평가 체크리스트 가상체험 교육 영상",
+      "video_type": "long",
+      "duration": "19:42",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 618,
+      "title": "[위험성평가] 체크리스트 가상체험 동영상 (건설업-철골작업)",
+      "url": "https://www.youtube.com/watch?v=8XFIfST5cwY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "건설업 철골작업 위험성평가 체크리스트 가상체험 교육 영상",
+      "video_type": "long",
+      "duration": "19:16",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 619,
+      "title": "[위험성평가] 체크리스트 가상체험 동영상 (건설업-콘크리트작업)",
+      "url": "https://www.youtube.com/watch?v=5Exw6_wfwNc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "건설업 콘크리트작업 위험성평가 체크리스트 가상체험 교육 영상",
+      "video_type": "long",
+      "duration": "17:42",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 620,
+      "title": "[Risk Assessment] Checklist Virtual Experience Video (Construction Industry - Masonry and Plaster...",
+      "url": "https://www.youtube.com/watch?v=gL40g-E4loA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL",
+        "CRUSH"
+      ],
+      "description": "건설업 조적 및 미장 작업 위험성평가 체크리스트 가상체험 교육 영상",
+      "video_type": "long",
+      "duration": "18:14",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 621,
+      "title": "[안전보건공단] 용접용단 작업 중 화재사고 예방",
+      "url": "https://www.youtube.com/watch?v=aFxCmt-WZ2A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "용접용단 작업 중 발생할 수 있는 화재사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "6:02",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 622,
+      "title": "지게차 작업 안전 - 안젤이 보건이와 함께하는 안전생활",
+      "url": "https://www.youtube.com/watch?v=XkofzBvHKIA",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "COLLISION"
+      ],
+      "description": "지게차 작업 시 안전수칙과 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "3:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 623,
+      "title": "떨어짐 개구부 재해 예방  - 안젤이 보건이와 함께하는 안전생활",
+      "url": "https://www.youtube.com/watch?v=Rezwfvgg-FU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "개구부에서의 추락 재해 예방을 위한 안전교육 영상",
+      "video_type": "long",
+      "duration": "2:48",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 624,
+      "title": "비계조립시 준수 사항  - 안젤이 보건이와 함께하는 안전생활",
+      "url": "https://www.youtube.com/watch?v=gdTpyN16DzU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "비계 조립 시 준수해야 할 안전수칙 교육 영상",
+      "video_type": "long",
+      "duration": "3:36",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 625,
+      "title": "달비계의 구조와 점검  - 안젤이 보건이와 함께하는 안전생활",
+      "url": "https://www.youtube.com/watch?v=HkxZi9-ZpdQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "달비계 구조와 점검 방법에 대한 안전교육 영상",
+      "video_type": "long",
+      "duration": "3:02",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 626,
+      "title": "Mobile Crane Operation Safety - Safety Life with Angeli Bogangi",
+      "url": "https://www.youtube.com/watch?v=_eRSZzHJ6bE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "FALLING_OBJECT"
+      ],
+      "description": "이동식 크레인 작업 시 안전수칙과 위험요인 교육 영상",
+      "video_type": "long",
+      "duration": "3:33",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 627,
+      "title": "고소작업대 작업 안전  - 안젤이 보건이와 함께하는 안전생활",
+      "url": "https://www.youtube.com/watch?v=ABf9fNjD3Mk",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "고소작업대 작업 시 안전수칙과 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "3:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 628,
+      "title": "컨베이어벨트 작업 안전  - 안젤이와 보건이과 함께하는 안전생활",
+      "url": "https://www.youtube.com/watch?v=Ev7188AiYIM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "컨베이어벨트 작업 시 안전수칙과 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "3:14",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 629,
+      "title": "[안전보건공단] 타워크레인 작업자재에 맞음",
+      "url": "https://www.youtube.com/watch?v=HRxb-VX_mRY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "타워크레인 작업 중 작업자재에 맞음 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "6:24",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 630,
+      "title": "[안전보건공단] 이동식크레인으로 강관다발 운반 중 낙하",
+      "url": "https://www.youtube.com/watch?v=ZvgWrmcWI5A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "이동식 크레인으로 강관다발 운반 중 낙하 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "5:41",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 631,
+      "title": "[Korea Occupational Safety and Health Agency] Clogging between aerial work platforms and pipes",
+      "url": "https://www.youtube.com/watch?v=14zprbXOqE8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "고소작업대와 파이프 사이 끼임 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "4:44",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 632,
+      "title": "[안전보건공단] 거푸집 조립작업 중 비계에서 추락",
+      "url": "https://www.youtube.com/watch?v=MZWOl780f7E",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "거푸집 조립작업 중 비계에서 추락 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "4:28",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 633,
+      "title": "[제조] 독성화학물질 누출사고 예방",
+      "url": "https://www.youtube.com/watch?v=41UqGdQCQwE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC",
+        "CHEMICAL"
+      ],
+      "description": "제조업 독성화학물질 누출사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "18:19",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 634,
+      "title": "[제조] 가스용접 작업안전 교육 동영상",
+      "url": "https://www.youtube.com/watch?v=xmoppP7_Jio",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "제조업 가스용접 작업안전 교육 동영상",
+      "video_type": "long",
+      "duration": "28:16",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 635,
+      "title": "[제조] 크레인 작업안전 교육 동영상",
+      "url": "https://www.youtube.com/watch?v=Zy8UWnNyKf8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT",
+        "COLLISION"
+      ],
+      "description": "제조업 크레인 작업안전 교육 동영상",
+      "video_type": "long",
+      "duration": "27:33",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 636,
+      "title": "[제조] 프레스 작업안전 교육 동영상",
+      "url": "https://www.youtube.com/watch?v=8mRWrZWGJsM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "프레스 작업 시 발생할 수 있는 끼임과 절단 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "31:33",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 637,
+      "title": "[안전보건공단] 폐목재 운반 작업목재에 맞음",
+      "url": "https://www.youtube.com/watch?v=vAtpTTMn2IE",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "COLLISION",
+        "FALLING_OBJECT"
+      ],
+      "description": "폐목재 운반 작업 중 목재에 맞는 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "6:37",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 638,
+      "title": "[안전보건공단] 원심탈수기 누전으로 감전",
+      "url": "https://www.youtube.com/watch?v=RPcoI4mT9_A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC"
+      ],
+      "description": "원심탈수기 누전으로 인한 감전 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "4:28",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 639,
+      "title": "[안전보건공단] 빈 드럼통을 용단하던 중 폭발",
+      "url": "https://www.youtube.com/watch?v=4G6nNcH3quo",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "빈 드럼통 용단 중 발생한 폭발 사고 사례 교육 영상",
+      "video_type": "long",
+      "duration": "6:28",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 640,
+      "title": "[안전보건공단] 발전소 보수작업 중 비계 붕괴",
+      "url": "https://www.youtube.com/watch?v=YJqhct6QPok",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "발전소 보수작업 중 비계 붕괴로 인한 추락 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "5:22",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 641,
+      "title": "[안전보건공단]  공장지붕 보수작업 추락",
+      "url": "https://www.youtube.com/watch?v=UNvIoCFzIDI",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "공장 지붕 보수작업 중 추락 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "4:32",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 642,
+      "title": "[안전보건공단] 저장탱크 질식사고",
+      "url": "https://www.youtube.com/watch?v=LYNIAb7NjPc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "TOXIC",
+        "ENVIRONMENTAL"
+      ],
+      "description": "저장탱크 질식 사고 사례와 예방 교육 영상",
+      "video_type": "long",
+      "duration": "5:20",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 643,
+      "title": "[안전보건공단] 인쇄기에 걸린 종이를 제거하던 중 협착!",
+      "url": "https://www.youtube.com/watch?v=7lXJ07XGRKc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "인쇄기 종이 제거 중 발생하는 협착 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "5:10",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 644,
+      "title": "[안전보건공단] 탱크에 빠져 일어난 감전사고!",
+      "url": "https://www.youtube.com/watch?v=VTHi7kNx64A",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "ELECTRIC"
+      ],
+      "description": "탱크 내 감전 사고 사례와 예방 교육 영상",
+      "video_type": "long",
+      "duration": "4:57",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 645,
+      "title": "[안전보건공단] 컨베이어 점검 중 협착 사고가?",
+      "url": "https://www.youtube.com/watch?v=3g0OGh0d5aY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "컨베이어 점검 중 발생하는 협착 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "5:04",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 646,
+      "title": "[안전보건공단] 지게차에서 적재물이 떨어진다면?",
+      "url": "https://www.youtube.com/watch?v=uZvjkCiOSto",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALLING_OBJECT"
+      ],
+      "description": "지게차 적재물 낙하 사고 예방 교육 영상",
+      "video_type": "long",
+      "duration": "5:30",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 647,
+      "title": "[안전보건공단] 위기탈출넘버원 끼임사고 예방",
+      "url": "https://www.youtube.com/watch?v=cuSmLaFc7WM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH"
+      ],
+      "description": "끼임 사고 예방을 위한 위기탈출넘버원 교육 영상",
+      "video_type": "long",
+      "duration": "8:45",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 648,
+      "title": "[안전보건공단] 위기탈출넘버원 건설업 추락재해예방",
+      "url": "https://www.youtube.com/watch?v=ak1Ufzi2hw4",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FALL"
+      ],
+      "description": "건설업 추락 재해 예방을 위한 위기탈출넘버원 교육 영상",
+      "video_type": "long",
+      "duration": "10:45",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 649,
+      "title": "제조업 안전수칙 웹툰 애니메이션 '콩쥐팥쥐'",
+      "url": "https://www.youtube.com/watch?v=W8WIO_HobxU",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CRUSH",
+        "CUT"
+      ],
+      "description": "제조업 안전수칙을 웹툰 애니메이션으로 설명하는 교육 영상",
+      "video_type": "long",
+      "duration": "3:21",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 650,
+      "title": "방동제 안전수칙 웹툰 애니메이션 '백설공주'",
+      "url": "https://www.youtube.com/watch?v=kteQspDZ1o0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL"
+      ],
+      "description": "방동제 안전수칙을 웹툰 애니메이션으로 설명하는 교육 영상",
+      "video_type": "long",
+      "duration": "3:37",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 651,
+      "title": "배달안전 수칙 웹툰 애니메이션 '빨간모자'",
+      "url": "https://www.youtube.com/watch?v=-U4vYd6tphc",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "HEAVY_LIFTING",
+        "ERGONOMIC"
+      ],
+      "description": "배달 안전 수칙을 웹툰 애니메이션으로 설명하는 교육 영상",
+      "video_type": "long",
+      "duration": "2:31",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 652,
+      "title": "안전수칙준수 샌드애니메이션 1",
+      "url": "https://www.youtube.com/watch?v=1Sk4lOorHg8",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "안전수칙 준수를 강조하는 샌드 애니메이션 교육 영상",
+      "video_type": "long",
+      "duration": "7:41",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 653,
+      "title": "이크안전수칙홍보영상",
+      "url": "https://www.youtube.com/watch?v=KI-h11BijPM",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [],
+      "description": "이크 안전수칙을 홍보하는 교육 영상",
+      "video_type": "long",
+      "duration": "6:58",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 654,
+      "title": "안전한 도장작업 교육애니메이션 3'58'' (안전보건공단 2012.12)",
+      "url": "https://www.youtube.com/watch?v=8d2-IOOozp0",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "CHEMICAL",
+        "FIRE_EXPLOSION"
+      ],
+      "description": "안전한 도장 작업을 위한 교육 애니메이션 영상",
+      "video_type": "long",
+      "duration": "3:59",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 655,
+      "title": "안전한 위험물 운송 교육애니메이션 5'14'' (안전보건공단 2012.12)",
+      "url": "https://www.youtube.com/watch?v=XnueKuxPs20",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION",
+        "CHEMICAL"
+      ],
+      "description": "위험물 운송 시 안전수칙 교육 애니메이션 영상",
+      "video_type": "long",
+      "duration": "5:15",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 656,
+      "title": "안전한 인력운반 작업 교육애니메이션 4'25\" (안전보건공단 2012.12)",
+      "url": "https://www.youtube.com/watch?v=_W_6D0RKhbQ",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "HEAVY_LIFTING",
+        "ERGONOMIC"
+      ],
+      "description": "안전한 인력 운반 작업 교육 애니메이션 영상",
+      "video_type": "long",
+      "duration": "4:25",
+      "playlist": "안전보건 교육자료"
+    },
+    {
+      "id": 657,
+      "title": "Safe Welding Training Animation 3'29\" (Korea Occupational Safety and Health Agency, December 2012)",
+      "url": "https://www.youtube.com/watch?v=s4xiy_134jY",
+      "category": "안전보건 교육자료",
+      "tags": [],
+      "hazard_categories": [],
+      "series": "",
+      "is_korean": true,
+      "hazard_codes": [
+        "FIRE_EXPLOSION"
+      ],
+      "description": "용접 작업 시 안전수칙 교육 애니메이션 영상",
+      "video_type": "long",
+      "duration": "3:29",
+      "playlist": "안전보건 교육자료"
     }
   ],
-  "total": 184,
+  "total": 609,
   "version": "1.0"
 }
