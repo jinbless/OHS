@@ -3,6 +3,7 @@
 KOSHA GUIDE 가이드-법조항 매핑에서 조문 상세 정보 조회 용도로 사용.
 BM25 하이브리드 검색 지원 (v2.2)
 """
+import os
 import re
 import json
 import logging
@@ -45,9 +46,10 @@ class ArticleChunk:
 
 
 class ArticleService:
-    ARTICLES_DIR = Path("/home/blessjin/cashtoss/ohs/ohs_articles")
-    CHROMA_DIR = Path("/home/blessjin/cashtoss/ohs/backend/data/chromadb")
-    CACHE_FILE = Path("/home/blessjin/cashtoss/ohs/backend/data/articles_cache.json")
+    _BASE = Path(os.environ.get("OHS_BASE_DIR", "/home/blessjin/cashtoss/ohs"))
+    ARTICLES_DIR = _BASE / "ohs_articles"
+    CHROMA_DIR = _BASE / "backend" / "data" / "chromadb"
+    CACHE_FILE = _BASE / "backend" / "data" / "articles_cache.json"
     COLLECTION_NAME = "ohs_articles"
 
     def __init__(self):

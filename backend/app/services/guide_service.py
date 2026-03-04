@@ -3,6 +3,7 @@
 PDF 파싱 → SQLite 저장 → ChromaDB 임베딩 → 산안법 조문 자동 매핑
 BM25 하이브리드 검색 지원 (v2.2)
 """
+import os
 import re
 import json
 import logging
@@ -92,8 +93,9 @@ SECTION_TYPE_MAP = {
 
 
 class GuideService:
-    GUIDES_DIR = Path("/home/blessjin/cashtoss/ohs/guide")
-    CHROMA_DIR = Path("/home/blessjin/cashtoss/ohs/backend/data/chromadb")
+    _BASE = Path(os.environ.get("OHS_BASE_DIR", "/home/blessjin/cashtoss/ohs"))
+    GUIDES_DIR = _BASE / "guide"
+    CHROMA_DIR = _BASE / "backend" / "data" / "chromadb"
     COLLECTION_NAME = "kosha_guides"
 
     def __init__(self):

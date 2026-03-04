@@ -11,10 +11,11 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ALLOWED_ORIGINS=["http://localhost","http://localhost:80","https://${DOMAIN}","https://www.${DOMAIN}"]
       - DATABASE_URL=sqlite:///./data/ohs.db
+      - OHS_BASE_DIR=${OHS_BASE_DIR:-/home/blessjin/cashtoss/ohs}
     volumes:
       - backend_data:/app/data
-      - ./guide:/home/blessjin/cashtoss/ohs/guide:ro
-      - chromadb_data:/home/blessjin/cashtoss/ohs/backend/data/chromadb
+      - ./guide:${OHS_BASE_DIR:-/home/blessjin/cashtoss/ohs}/guide:ro
+      - chromadb_data:${OHS_BASE_DIR:-/home/blessjin/cashtoss/ohs}/backend/data/chromadb
     ports:
       - "127.0.0.1:8000:8000"
     networks:
