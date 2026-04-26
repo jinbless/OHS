@@ -110,7 +110,7 @@ async def get_analysis(
     if not record:
         raise AnalysisNotFoundError(analysis_id)
 
-    result_data = json.loads(record.result_json)
+    result_data = record.result_json if isinstance(record.result_json, dict) else json.loads(record.result_json)
     return AnalysisResponse(**result_data)
 
 

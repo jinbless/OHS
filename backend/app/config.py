@@ -19,8 +19,13 @@ class Settings(BaseSettings):
     MAX_FILE_SIZE_MB: int = 10
     ALLOWED_EXTENSIONS: List[str] = [".jpg", ".jpeg", ".png", ".webp"]
 
-    # Database
-    DATABASE_URL: str = "sqlite:///./ohs.db"
+    # Database (PostgreSQL — koshaontology single source of truth)
+    DATABASE_URL: str = "postgresql://kosha:1229@localhost/kosha"
+
+    # Fuseki SPARQL (OWL DL inference engine)
+    FUSEKI_ENDPOINT: str = "http://kosha-fuseki:3030/kosha/sparql"
+    FUSEKI_TIMEOUT: int = 5
+    FUSEKI_ENABLED: bool = True
 
     class Config:
         env_file = ".env"

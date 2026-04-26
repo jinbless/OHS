@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { ontologyApi } from '../api/ontologyApi';
+import { sparqlApi } from '../api/sparqlApi';
 import type { MappingStats, ArticleNorms, GraphData } from '../api/ontologyApi';
+import type { SparqlHealth, SparqlStats, FacetedQueryResult } from '../api/sparqlApi';
 import StatsCard from '../components/ontology/StatsCard';
 import OntologyGraph from '../components/ontology/OntologyGraph';
 import NormDetail from '../components/ontology/NormDetail';
 
-type Tab = 'graph' | 'norms';
+type Tab = 'graph' | 'norms' | 'fuseki';
 
 const OntologyPage: React.FC = () => {
   const [stats, setStats] = useState<MappingStats | null>(null);
@@ -18,7 +20,16 @@ const OntologyPage: React.FC = () => {
   const [searchInput, setSearchInput] = useState('');
   const [selectedArticle, setSelectedArticle] = useState<string | null>(null);
   const [graphLimit, setGraphLimit] = useState(50);
+  const [includeInferred, setIncludeInferred] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Fuseki tab state
+  const [fusekiHealth, setFusekiHealth] = useState<SparqlHealth | null>(null);
+  const [fusekiStats, setFusekiStats] = useState<SparqlStats | null>(null);
+  const [facetedResults, setFacetedResults] = useState<FacetedQueryResult[]>([]);
+  const [facetedLoading, setFacetedLoading] = useState(false);
+  const [facetAt, setFacetAt] = useState('');
+  const [facetAg, setFacetAg] = useState('');
+  const [facetWc, setFacetWc] = useState('');
 
   // 초기 데이터 로드
   useEffect(() => {
@@ -27,10 +38,12 @@ const OntologyPage: React.FC = () => {
         setLoading(true);
         const [s, g] = await Promise.all([
           ontologyApi.getStats(),
-          ontologyApi.getFullGraph(graphLimit),
+          ontologyApi.getFullGraph(graphLimit, includeInferred),
         ]);
         setStats(s);
         setGraphData(g);
+        // Fuseki health probe (non-blocking)
+        sparqlApi.getHealth().then(setFusekiHealth).catch(() => {});
       } catch (e) {
         setError('데이터를 불러오는 데 실패했습니다.');
         console.error(e);
@@ -46,14 +59,61 @@ const OntologyPage: React.FC = () => {
     setGraphLimit(limit);
     setGraphLoading(true);
     try {
-      const g = await ontologyApi.getFullGraph(limit);
+      const g = await ontologyApi.getFullGraph(limit, includeInferred);
       setGraphData(g);
     } catch (e) {
       console.error(e);
     } finally {
       setGraphLoading(false);
     }
+  }, [includeInferred]);
+
+  // 추론 관계 토글
+  const handleInferredToggle = useCallback(async () => {
+    const next = !includeInferred;
+    setIncludeInferred(next);
+    setGraphLoading(true);
+    try {
+      const g = await ontologyApi.getFullGraph(graphLimit, next);
+      setGraphData(g);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setGraphLoading(false);
+    }
+  }, [includeInferred, graphLimit]);
+
+  // Fuseki 탭 로드
+  const loadFusekiData = useCallback(async () => {
+    try {
+      const [h, s] = await Promise.all([
+        sparqlApi.getHealth(),
+        sparqlApi.getStats(),
+      ]);
+      setFusekiHealth(h);
+      setFusekiStats(s);
+    } catch (e) {
+      console.error('Fuseki data load failed:', e);
+    }
   }, []);
+
+  // Faceted SPARQL 쿼리
+  const handleFacetedQuery = useCallback(async () => {
+    setFacetedLoading(true);
+    try {
+      const result = await sparqlApi.facetedQuery({
+        accident_types: facetAt || undefined,
+        hazardous_agents: facetAg || undefined,
+        work_contexts: facetWc || undefined,
+        limit: 50,
+      });
+      setFacetedResults(result.results);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setFacetedLoading(false);
+    }
+  }, [facetAt, facetAg, facetWc]);
 
   // 법조항 검색
   const handleSearch = useCallback(async () => {
@@ -108,14 +168,14 @@ const OntologyPage: React.FC = () => {
     setSearchInput('');
     setGraphLoading(true);
     try {
-      const g = await ontologyApi.getFullGraph(graphLimit);
+      const g = await ontologyApi.getFullGraph(graphLimit, includeInferred);
       setGraphData(g);
     } catch (e) {
       console.error(e);
     } finally {
       setGraphLoading(false);
     }
-  }, [graphLimit]);
+  }, [graphLimit, includeInferred]);
 
   if (loading) {
     return (
@@ -206,26 +266,53 @@ const OntologyPage: React.FC = () => {
             >
               규범명제
             </button>
+            <button
+              onClick={() => { setActiveTab('fuseki'); loadFusekiData(); }}
+              className={`px-4 py-1.5 text-sm rounded-md transition-colors ${
+                activeTab === 'fuseki'
+                  ? 'bg-white text-purple-700 font-medium shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Fuseki 추론
+              {fusekiHealth && (
+                <span className={`ml-1.5 inline-block w-2 h-2 rounded-full ${
+                  fusekiHealth.fuseki_reachable ? 'bg-green-400' : 'bg-red-400'
+                }`} />
+              )}
+            </button>
           </div>
         </div>
 
-        {/* 그래프 노드 수 조절 */}
+        {/* 그래프 노드 수 조절 + 추론 토글 */}
         {activeTab === 'graph' && !selectedArticle && (
-          <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
-            <span>노드 수:</span>
-            {[30, 50, 100, 200].map((n) => (
-              <button
-                key={n}
-                onClick={() => handleLimitChange(n)}
-                className={`px-2 py-1 rounded ${
-                  graphLimit === n
-                    ? 'bg-blue-100 text-blue-700 font-medium'
-                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                }`}
-              >
-                {n}
-              </button>
-            ))}
+          <div className="mt-3 flex items-center gap-4 text-xs text-gray-500">
+            <div className="flex items-center gap-2">
+              <span>노드 수:</span>
+              {[30, 50, 100, 200].map((n) => (
+                <button
+                  key={n}
+                  onClick={() => handleLimitChange(n)}
+                  className={`px-2 py-1 rounded ${
+                    graphLimit === n
+                      ? 'bg-blue-100 text-blue-700 font-medium'
+                      : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                  }`}
+                >
+                  {n}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={handleInferredToggle}
+              className={`px-3 py-1 rounded border transition-colors ${
+                includeInferred
+                  ? 'bg-purple-100 text-purple-700 border-purple-300 font-medium'
+                  : 'bg-gray-50 text-gray-400 border-gray-200 hover:bg-gray-100'
+              }`}
+            >
+              {includeInferred ? '추론 관계 ON' : '추론 관계 OFF'}
+            </button>
           </div>
         )}
       </div>
@@ -269,6 +356,105 @@ const OntologyPage: React.FC = () => {
               </div>
             </div>
           )}
+        </div>
+      )}
+
+      {activeTab === 'fuseki' && (
+        <div className="space-y-4">
+          {/* Fuseki 상태 */}
+          <div className="bg-white rounded-xl border p-4">
+            <div className="flex items-center gap-3 mb-3">
+              <h3 className="font-semibold text-gray-800">Fuseki 추론 엔진</h3>
+              {fusekiHealth ? (
+                <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
+                  fusekiHealth.fuseki_reachable
+                    ? 'bg-green-100 text-green-700'
+                    : 'bg-red-100 text-red-700'
+                }`}>
+                  {fusekiHealth.fuseki_reachable ? '연결됨' : '오프라인'}
+                </span>
+              ) : (
+                <span className="px-2 py-0.5 rounded-full text-xs bg-gray-100 text-gray-500">확인 중...</span>
+              )}
+            </div>
+            {fusekiStats && (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+                <div className="bg-purple-50 rounded-lg p-3">
+                  <div className="text-purple-600 font-semibold text-lg">{fusekiStats.triple_count.toLocaleString()}</div>
+                  <div className="text-purple-400 text-xs">전체 트리플</div>
+                </div>
+                <div className="bg-blue-50 rounded-lg p-3">
+                  <div className="text-blue-600 font-semibold text-lg">{fusekiStats.class_distribution.length}</div>
+                  <div className="text-blue-400 text-xs">클래스 유형</div>
+                </div>
+                <div className="bg-green-50 rounded-lg p-3">
+                  <div className="text-green-600 font-semibold text-lg">{fusekiStats.fuseki_available ? 'Active' : 'Down'}</div>
+                  <div className="text-green-400 text-xs">엔진 상태</div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 3축 SPARQL 쿼리 빌더 */}
+          <div className="bg-white rounded-xl border p-4">
+            <h3 className="font-semibold text-gray-800 mb-3">Faceted 3축 SPARQL 쿼리</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+              <div>
+                <label className="text-xs text-gray-500 block mb-1">사고유형 (AccidentType)</label>
+                <select value={facetAt} onChange={e => setFacetAt(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-lg text-sm">
+                  <option value="">전체</option>
+                  {['Fall','Collision','Collapse','FallingObject','Crush','Cut','Ergonomic'].map(c =>
+                    <option key={c} value={c}>{c}</option>
+                  )}
+                </select>
+              </div>
+              <div>
+                <label className="text-xs text-gray-500 block mb-1">유해인자 (Agent)</label>
+                <select value={facetAg} onChange={e => setFacetAg(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-lg text-sm">
+                  <option value="">전체</option>
+                  {['Chemical','Dust','Toxic','Radiation','Fire','Electricity','Noise','HeatCold','Biological'].map(c =>
+                    <option key={c} value={c}>{c}</option>
+                  )}
+                </select>
+              </div>
+              <div>
+                <label className="text-xs text-gray-500 block mb-1">작업맥락 (WorkContext)</label>
+                <select value={facetWc} onChange={e => setFacetWc(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-lg text-sm">
+                  <option value="">전체</option>
+                  {['Machine','PressureVessel','Crane','Excavation','ConfinedSpace','Scaffold','MaterialHandling','Conveyor','ConstructionEquip','Vehicle','Rail','Steelwork','Robot'].map(c =>
+                    <option key={c} value={c}>{c}</option>
+                  )}
+                </select>
+              </div>
+            </div>
+            <button
+              onClick={handleFacetedQuery}
+              disabled={facetedLoading || (!facetAt && !facetAg && !facetWc)}
+              className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 disabled:opacity-50 transition-colors"
+            >
+              {facetedLoading ? '조회 중...' : 'SPARQL 쿼리 실행'}
+            </button>
+
+            {facetedResults.length > 0 && (
+              <div className="mt-4 max-h-80 overflow-y-auto">
+                <div className="text-xs text-gray-500 mb-2">{facetedResults.length}건 조회됨</div>
+                <div className="space-y-1">
+                  {facetedResults.map((r, i) => (
+                    <div key={i} className="flex items-center gap-3 px-3 py-2 bg-gray-50 rounded text-sm">
+                      <span className="font-mono text-purple-600 text-xs">{r.sr_id}</span>
+                      <span className="flex-1 text-gray-700 truncate">{r.title}</span>
+                      {r.article_code && (
+                        <span className="text-xs text-blue-500">{r.article_code}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

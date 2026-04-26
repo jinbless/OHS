@@ -2,16 +2,18 @@ import { apiClient } from './index';
 
 export interface MappingStats {
   total_articles: number;
-  mapped_articles: number;
-  unmapped_articles: number;
   total_guides: number;
-  mapped_guides: number;
-  unmapped_guides: number;
+  total_norms: number;
+  total_sr: number;
+  total_ci: number;
+  explicit_mapped_articles: number;
+  semantic_mapped_articles: number;
+  all_mapped_articles: number;
+  all_mapped_guides: number;
   total_explicit_mappings: number;
   total_semantic_mappings: number;
-  mapping_by_relation_type: Record<string, number>;
-  mapping_by_discovery: Record<string, number>;
-  coverage_improvement: { before: number; after: number };
+  relation_distribution: Record<string, number>;
+  method_distribution: Record<string, number>;
 }
 
 export interface NormStatement {
@@ -78,6 +80,6 @@ export const ontologyApi = {
   getArticleGraph: (articleNumber: string) =>
     apiClient.get<GraphData>(`/ontology/articles/${articleNumber}/graph`).then(r => r.data),
 
-  getFullGraph: (limit = 50) =>
-    apiClient.get<GraphData>(`/ontology/graph?limit=${limit}`).then(r => r.data),
+  getFullGraph: (limit = 50, includeInferred = false) =>
+    apiClient.get<GraphData>(`/ontology/graph?limit=${limit}&include_inferred=${includeInferred}`).then(r => r.data),
 };

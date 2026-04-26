@@ -1,158 +1,232 @@
-from sqlalchemy import Column, String, Text, DateTime, Integer, Float, Enum as SQLEnum, UniqueConstraint, Index
+"""ORM 모델 — PostgreSQL koshaontology DB 직접 참조.
+
+PG 기존 테이블: 읽기 전용 ORM (스키마 변경 없음)
+OHS 전용 테이블: ohs_analysis_records, ohs_safety_videos (신규 생성)
+"""
+from sqlalchemy import Column, String, Text, DateTime, Integer, Float, Boolean
+from sqlalchemy import Index, UniqueConstraint
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.sql import func
 from app.db.database import Base
-from app.models.hazard import RiskLevel
 import uuid
 
 
-class AnalysisRecord(Base):
-    __tablename__ = "analysis_records"
+# ═══════════════════════════════════════════════════════════
+# PG 기존 테이블 — 읽기 전용 ORM (koshaontology 소유)
+# ═══════════════════════════════════════════════════════════
+
+class PgKoshaGuide(Base):
+    """kosha_guides — PK: guide_code (VARCHAR)"""
+    __tablename__ = "kosha_guides"
+    __table_args__ = {"extend_existing": True}
+
+    guide_code = Column(String(20), primary_key=True)
+    short_code = Column(String(10), unique=True, nullable=False)
+    title = Column(Text, nullable=False)
+    domain = Column(String(1), nullable=False)  # A/B/C/D/E
+    sub_category = Column(Text)
+    total_pages = Column(Integer)
+    ci_count = Column(Integer, nullable=False, default=0)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+
+class PgChecklistItem(Base):
+    """checklist_items — PK: identifier (VARCHAR, CI-XX-NNN)"""
+    __tablename__ = "checklist_items"
+    __table_args__ = {"extend_existing": True}
+
+    identifier = Column(String(30), primary_key=True)
+    text = Column(Text, nullable=False)
+    guide_context = Column(Text)
+    additional_detail = Column(Text)
+    work_process_phase = Column(String(30))
+    binding_force = Column(String(15), nullable=False)  # MANDATORY/RECOMMENDED
+    requirement_type = Column(String(25))
+    source_section = Column(Text, nullable=False)
+    source_guide = Column(String(20), nullable=False)  # FK → kosha_guides
+    accident_types = Column(JSONB)
+    hazardous_agents = Column(JSONB)
+    work_contexts = Column(JSONB)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+
+class PgNormStatement(Base):
+    """norm_statements — PK: identifier (VARCHAR, NS-XX-N)"""
+    __tablename__ = "norm_statements"
+    __table_args__ = {"extend_existing": True}
+
+    identifier = Column(String(30), primary_key=True)
+    article_code = Column(String(20), nullable=False)
+    law_id = Column(String(10), nullable=False)
+    paragraph_ref = Column(Text, nullable=False)
+    text = Column(Text, nullable=False)
+    has_modality = Column(String(15), nullable=False)  # OBLIGATION/PROHIBITION/...
+    has_subject_role = Column(Text)
+    has_action = Column(Text)
+    has_object = Column(Text)
+    has_condition = Column(JSONB)
+    has_sanction = Column(JSONB)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+
+class PgSafetyRequirement(Base):
+    """safety_requirements — PK: identifier (VARCHAR, SR-XX-NNN)"""
+    __tablename__ = "safety_requirements"
+    __table_args__ = {"extend_existing": True}
+
+    identifier = Column(String(30), primary_key=True)
+    title = Column(Text, nullable=False)
+    text = Column(Text, nullable=False)
+    requirement_type = Column(String(25), nullable=False)
+    binding_force = Column(String(15), nullable=False)
+    addresses_hazard = Column(JSONB)
+    has_sanction = Column(JSONB)
+    accident_types = Column(JSONB)
+    hazardous_agents = Column(JSONB)
+    work_contexts = Column(JSONB)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+
+class PgArticle(Base):
+    """articles — composite PK: (law_type, article_code)"""
+    __tablename__ = "articles"
+    __table_args__ = {"extend_existing": True}
+
+    law_type = Column(String(10), primary_key=True)
+    article_code = Column(String(20), primary_key=True)
+    title = Column(Text, nullable=False)
+    full_text = Column(Text, nullable=False)
+    deleted = Column(Boolean, nullable=False, default=False)
+    section = Column(Text)
+    paragraph_count = Column(Integer, nullable=False, default=0)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+
+class PgPenaltyRoute(Base):
+    """penalty_routes — composite PK: (law_type, article_code)"""
+    __tablename__ = "penalty_routes"
+    __table_args__ = {"extend_existing": True}
+
+    law_type = Column(String(10), primary_key=True)
+    article_code = Column(String(20), primary_key=True)
+    title = Column(Text, nullable=False)
+    has_penalty = Column(Boolean, nullable=False, default=False)
+    has_administrative_fine = Column(Boolean, nullable=False, default=False)
+    criminal_employer_law = Column(Text)
+    criminal_employer_penalty = Column(Text)
+    criminal_death_law = Column(Text)
+    criminal_death_penalty = Column(Text)
+    criminal_serious_law = Column(Text)
+    criminal_serious_death = Column(Text)
+    criminal_serious_injury = Column(Text)
+    admin_law = Column(Text)
+    admin_max_fine = Column(Text)
+
+
+class PgCiSrMapping(Base):
+    """ci_sr_mapping — composite PK: (ci_id, sr_id)"""
+    __tablename__ = "ci_sr_mapping"
+    __table_args__ = {"extend_existing": True}
+
+    ci_id = Column(String(30), primary_key=True)
+    sr_id = Column(String(30), primary_key=True)
+
+
+class PgSrArticleMapping(Base):
+    """sr_article_mapping — composite PK: (sr_id, law_type, article_code)"""
+    __tablename__ = "sr_article_mapping"
+    __table_args__ = {"extend_existing": True}
+
+    sr_id = Column(String(30), primary_key=True)
+    law_type = Column(String(10), primary_key=True)
+    article_code = Column(String(20), primary_key=True)
+
+
+class PgGuideArticleMapping(Base):
+    """guide_article_mapping — composite PK: (guide_code, law_type, article_code)"""
+    __tablename__ = "guide_article_mapping"
+    __table_args__ = {"extend_existing": True}
+
+    guide_code = Column(String(20), primary_key=True)
+    law_type = Column(String(10), primary_key=True)
+    article_code = Column(String(20), primary_key=True)
+
+
+# ═══════════════════════════════════════════════════════════
+# OHS 전용 테이블 — 읽기/쓰기 (OHS가 소유)
+# ═══════════════════════════════════════════════════════════
+
+class OhsAnalysisRecord(Base):
+    """OHS 분석 기록"""
+    __tablename__ = "ohs_analysis_records"
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    analysis_type = Column(String(10), nullable=False)  # "image" or "text"
+    analysis_type = Column(String(10), nullable=False)  # "image" / "text"
     overall_risk_level = Column(String(20), nullable=False)
     summary = Column(Text, nullable=False)
-    input_preview = Column(Text, nullable=True)  # 텍스트 입력 또는 이미지 파일명
-    result_json = Column(Text, nullable=False)  # 전체 결과 JSON
+    input_preview = Column(Text)
+    image_path = Column(Text)
+    result_json = Column(JSONB)
+    gpt_free_hazards = Column(JSONB)       # Phase 3: Track A
+    coded_hazards = Column(JSONB)           # Phase 3: Track B
+    divergence_report = Column(JSONB)       # Phase 3: gap detection
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 
-class KoshaGuide(Base):
-    __tablename__ = "kosha_guides"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    guide_code = Column(String(30), unique=True, nullable=False)  # "G-1-2023"
-    classification = Column(String(5), nullable=False)  # "G"
-    guide_number = Column(Integer, nullable=False)  # 1
-    guide_year = Column(Integer, nullable=False)  # 2023
-    title = Column(Text, nullable=False)
-    author = Column(Text, nullable=True)
-    related_regulations = Column(Text, nullable=True)  # JSON array of article numbers
-    pdf_filename = Column(Text, nullable=False)
-    total_pages = Column(Integer, nullable=True)
-    total_chars = Column(Integer, nullable=True)
-    parsed_at = Column(DateTime(timezone=True), server_default=func.now())
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-
-class GuideSection(Base):
-    __tablename__ = "guide_sections"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    guide_id = Column(Integer, nullable=False)  # FK to kosha_guides.id
-    section_order = Column(Integer, nullable=False)
-    section_title = Column(Text, nullable=True)
-    section_type = Column(String(20), nullable=True)  # purpose/scope/definition/standard/procedure/appendix
-    body_text = Column(Text, nullable=False)
-    char_count = Column(Integer, nullable=True)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-
-class RegGuideMapping(Base):
-    __tablename__ = "reg_guide_mapping"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    article_number = Column(String(30), nullable=False)  # "제42조"
-    guide_id = Column(Integer, nullable=False)  # FK to kosha_guides.id
-    mapping_type = Column(String(20), nullable=False)  # "explicit" / "auto"
-    mapping_basis = Column(Text, nullable=True)
-    relevance_score = Column(Float, nullable=True)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-    __table_args__ = (
-        UniqueConstraint('article_number', 'guide_id', name='uq_reg_guide'),
-    )
-
-
-class NormStatement(Base):
-    """법조항을 규범명제(요건→효과) 단위로 분해한 결과"""
-    __tablename__ = "norm_statements"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    article_number = Column(String(30), nullable=False, index=True)  # "제42조"
-    paragraph = Column(String(20), nullable=True)  # "제1항"
-    statement_order = Column(Integer, nullable=False, default=1)
-
-    # 규범명제 구성요소 (온톨로지 L3 레이어)
-    subject_role = Column(Text, nullable=True)       # "사업주" | "근로자" | "관리감독자"
-    action = Column(Text, nullable=True)             # "추락방지조치" | "설치" | "점검"
-    object = Column(Text, nullable=True)             # "안전난간" | "방호장치" | "보호구"
-    condition_text = Column(Text, nullable=True)     # "높이 2m 이상" | "인화성 물질 부근"
-    legal_effect = Column(String(20), nullable=False, index=True)  # OBLIGATION | PROHIBITION | PERMISSION | EXCEPTION
-    effect_description = Column(Text, nullable=True)  # "설치 의무" | "사용 금지"
-
-    # 메타데이터
-    full_text = Column(Text, nullable=False)
-    norm_category = Column(String(20), nullable=True, index=True)  # safety | procedure | equipment | management
-
-    # 통합 분류 체계 (Phase 1)
-    hazard_major = Column(String(20), nullable=True, index=True)   # physical|chemical|electrical|ergonomic|environmental|biological
-    hazard_codes = Column(Text, nullable=True)                      # JSON array: ["FALL","SLIP"]
-
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-    __table_args__ = (
-        UniqueConstraint('article_number', 'paragraph', 'statement_order', name='uq_norm_stmt'),
-    )
-
-
-class SemanticMapping(Base):
-    """온톨로지 기반 의미적 매핑 (기존 reg_guide_mapping 보강)"""
-    __tablename__ = "semantic_mappings"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-
-    # 소스 (법조항 or 규범명제)
-    source_type = Column(String(20), nullable=False)  # "article" | "norm_statement"
-    source_id = Column(String(50), nullable=False)    # "제42조" or norm_statement.id
-
-    # 타겟 (가이드 or 법조항)
-    target_type = Column(String(20), nullable=False)  # "guide" | "article"
-    target_id = Column(String(50), nullable=False)    # guide_id or "제44조"
-
-    # 관계 정보 (온톨로지 L4 레이어)
-    relation_type = Column(String(30), nullable=False)  # IMPLEMENTS | SUPPLEMENTS | ...
-    relation_detail = Column(Text, nullable=True)
-
-    # 발견 메타데이터
-    confidence = Column(Float, nullable=False, default=0.0)
-    discovery_method = Column(String(20), nullable=False)  # "llm" | "vector" | "reference" | "keyword"
-    discovery_tier = Column(String(5), nullable=True)      # "A" ~ "F"
-
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-    __table_args__ = (
-        UniqueConstraint('source_type', 'source_id', 'target_type', 'target_id', 'relation_type',
-                         name='uq_semantic_map'),
-        Index('idx_sm_source', 'source_type', 'source_id'),
-        Index('idx_sm_target', 'target_type', 'target_id'),
-        Index('idx_sm_relation', 'relation_type'),
-        Index('idx_sm_confidence', 'confidence'),
-    )
-
-
-class SafetyVideo(Base):
+class OhsSafetyVideo(Base):
     """KOSHA 안전영상 (숏폼 + 일반 교육영상)"""
-    __tablename__ = "safety_videos"
+    __tablename__ = "ohs_safety_videos"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(Text, nullable=False)
     url = Column(String(255), unique=True, nullable=False)
-    category = Column(Text, nullable=False)          # 원본 분야 (예: "건설안전 / 추락예방")
-    tags = Column(Text, nullable=True)               # JSON array of keywords
-    hazard_categories = Column(Text, nullable=False)  # JSON array (예: ["physical","fall"])
-    hazard_codes = Column(Text, nullable=True)       # JSON array (예: ["FALL","CRUSH"])
-    description = Column(Text, nullable=True)        # GPT 생성 한글 설명
-    series = Column(String(30), nullable=True)        # 시리즈명
-    is_korean = Column(Integer, nullable=False, default=1)  # 1=한국어, 0=영어
-    thumbnail_url = Column(Text, nullable=True)
-    video_type = Column(String(10), nullable=False, default='short')  # short | long
-    duration = Column(String(10), nullable=True)     # "3:42" 등
-    playlist = Column(String(50), nullable=True)     # 재생목록명
+    category = Column(Text, nullable=False)
+    tags = Column(Text)                  # JSON array
+    hazard_categories = Column(Text, nullable=False)  # JSON array
+    hazard_codes = Column(Text)          # JSON array
+    description = Column(Text)
+    series = Column(String(30))
+    is_korean = Column(Integer, nullable=False, default=1)
+    thumbnail_url = Column(Text)
+    video_type = Column(String(10), nullable=False, default='short')
+    duration = Column(String(10))
+    playlist = Column(String(50))
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     __table_args__ = (
-        Index('idx_sv_hazard_cat', 'hazard_categories'),
-        Index('idx_sv_series', 'series'),
-        Index('idx_sv_video_type', 'video_type'),
+        Index('idx_osv_hazard_cat', 'hazard_categories'),
+        Index('idx_osv_series', 'series'),
+        Index('idx_osv_video_type', 'video_type'),
     )
+
+
+class OhsHazardCodeGap(Base):
+    """코드 체계 gap 누적 테이블 — Track A/B 괴리에서 발견된 코드 부족"""
+    __tablename__ = "ohs_hazard_code_gaps"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    gap_type = Column(String(20), nullable=False)  # UNMAPPED / FORCED_FIT
+    gpt_free_label = Column(Text)
+    nearest_code = Column(String(30))
+    forced_fit_note = Column(Text)
+    occurrence_count = Column(Integer, nullable=False, default=1)
+    first_seen = Column(DateTime(timezone=True), server_default=func.now())
+    last_seen = Column(DateTime(timezone=True), server_default=func.now())
+    sample_analysis_ids = Column(JSONB)  # UUID[] (최대 5개)
+    promoted_to_code = Column(String(30))
+    promoted_at = Column(DateTime(timezone=True))
+
+
+# ═══════════════════════════════════════════════════════════
+# 하위 호환 별칭 — 기존 import 경로 유지
+# ═══════════════════════════════════════════════════════════
+
+# 기존 코드에서 from app.db.models import AnalysisRecord 형태로 사용
+AnalysisRecord = OhsAnalysisRecord
+KoshaGuide = PgKoshaGuide
+NormStatement = PgNormStatement
+SafetyVideo = OhsSafetyVideo
+
+# 기존 OHS SQLite 테이블(GuideSection, RegGuideMapping, SemanticMapping)은
+# PG 테이블로 대체되었으므로 별칭을 남기지 않음.
+# 서비스 코드에서 직접 PG ORM을 사용하도록 수정.

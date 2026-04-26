@@ -1,7 +1,10 @@
 from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
-from app.models.hazard import Hazard, RiskLevel, NormSummary
+from app.models.hazard import (
+    Hazard, RiskLevel, NormSummary,
+    FacetedHazardCodes, GptFreeObservation, CodeGapWarning, PenaltyInfo,
+)
 from app.models.checklist import Checklist
 from app.models.resource import Resource
 from app.models.guide import GuideMatch
@@ -28,6 +31,15 @@ class NormContext(BaseModel):
     linked_guides: List[LinkedGuideSummary] = []
 
 
+class SparqlEnrichmentSummary(BaseModel):
+    """SPARQL 추론 보강 결과 요약"""
+    source: str = "pg_only"  # "pg_only" | "pg+sparql" | "sparql_inferred"
+    co_applicable_srs: List[dict] = []
+    exemptions: List[dict] = []
+    high_severity_srs: List[dict] = []
+    fuseki_available: bool = False
+
+
 class AnalysisResponse(BaseModel):
     analysis_id: str
     analysis_type: str  # "image" or "text"
@@ -40,6 +52,14 @@ class AnalysisResponse(BaseModel):
     norm_context: List[NormContext] = []
     recommendations: List[str]
     analyzed_at: datetime
+    # Phase 3: Dual-Track
+    canonical_hazards: Optional[FacetedHazardCodes] = None
+    gpt_free_observations: List[GptFreeObservation] = []
+    decision_type: str = "deterministic_rule"  # deterministic_rule / embedding_fallback
+    code_gap_warnings: List[CodeGapWarning] = []
+    penalties: List[PenaltyInfo] = []
+    # Phase 5: SPARQL enrichment
+    sparql_enrichment: Optional[SparqlEnrichmentSummary] = None
 
     class Config:
         from_attributes = True

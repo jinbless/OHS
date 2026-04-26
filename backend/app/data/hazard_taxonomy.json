@@ -1,58 +1,116 @@
 {
-  "version": "1.0",
-  "major_categories": {
-    "physical": {
-      "label": "물리적 위험",
-      "codes": ["FALL", "SLIP", "COLLISION", "CRUSH", "CUT", "FALLING_OBJECT"],
-      "legacy_norm_category": ["safety", "equipment"]
+  "version": "3.0",
+  "structure": "faceted_multi_axis",
+  "axes": {
+    "accident_type": {
+      "label": "사고 유형",
+      "codes": {
+        "FALL": {"label": "추락", "sub": ["SLIP"]},
+        "COLLISION": {"label": "충돌"},
+        "FALLING_OBJECT": {"label": "낙하물"},
+        "CRUSH": {"label": "끼임(압착)"},
+        "CUT": {"label": "절단"},
+        "COLLAPSE": {"label": "붕괴"},
+        "ERGONOMIC": {"label": "근골격계", "sub": ["REPETITIVE", "HEAVY_LIFTING", "POSTURE"]}
+      }
     },
-    "chemical": {
-      "label": "화학적 위험",
-      "codes": ["CHEMICAL", "FIRE_EXPLOSION", "TOXIC", "CORROSION"],
-      "legacy_norm_category": ["safety"]
+    "hazardous_agent": {
+      "label": "유해 인자",
+      "codes": {
+        "CHEMICAL": {"label": "화학물질", "sub": ["DUST", "TOXIC", "CORROSION", "RADIATION"]},
+        "FIRE": {"label": "화재·폭발"},
+        "ELECTRICITY": {"label": "전기", "sub": ["ARC_FLASH"]},
+        "NOISE": {"label": "소음·진동"},
+        "HEAT_COLD": {"label": "온도"},
+        "BIOLOGICAL": {"label": "생물학적"}
+      }
     },
-    "electrical": {
-      "label": "전기적 위험",
-      "codes": ["ELECTRIC", "ARC_FLASH"],
-      "legacy_norm_category": ["safety", "equipment"]
-    },
-    "ergonomic": {
-      "label": "인간공학적 위험",
-      "codes": ["ERGONOMIC", "REPETITIVE", "HEAVY_LIFTING", "POSTURE"],
-      "legacy_norm_category": ["procedure"]
-    },
-    "environmental": {
-      "label": "환경적 위험",
-      "codes": ["NOISE", "TEMPERATURE", "LIGHTING", "ENVIRONMENTAL"],
-      "legacy_norm_category": ["safety", "procedure"]
-    },
-    "biological": {
-      "label": "생물학적 위험",
-      "codes": ["BIOLOGICAL"],
-      "legacy_norm_category": ["safety"]
+    "work_context": {
+      "label": "작업 맥락",
+      "codes": {
+        "SCAFFOLD": {"label": "비계"},
+        "CONFINED_SPACE": {"label": "밀폐공간"},
+        "EXCAVATION": {"label": "굴착"},
+        "MACHINE": {"label": "기계"},
+        "VEHICLE": {"label": "차량"},
+        "CRANE": {"label": "양중기"},
+        "RAIL": {"label": "철도"},
+        "CONVEYOR": {"label": "컨베이어"},
+        "ROBOT": {"label": "로봇"},
+        "PRESSURE_VESSEL": {"label": "압력용기"},
+        "STEELWORK": {"label": "철골"},
+        "MATERIAL_HANDLING": {"label": "자재취급"},
+        "GENERAL_WORKPLACE": {"label": "일반사업장"},
+        "DEMOLITION": {"label": "해체"},
+        "LOGGING": {"label": "벌목"}
+      }
     }
   },
-  "code_to_major": {
-    "FALL": "physical",
-    "SLIP": "physical",
-    "COLLISION": "physical",
-    "CRUSH": "physical",
-    "CUT": "physical",
-    "FALLING_OBJECT": "physical",
-    "CHEMICAL": "chemical",
-    "FIRE_EXPLOSION": "chemical",
-    "TOXIC": "chemical",
-    "CORROSION": "chemical",
-    "ELECTRIC": "electrical",
-    "ARC_FLASH": "electrical",
-    "ERGONOMIC": "ergonomic",
-    "REPETITIVE": "ergonomic",
-    "HEAVY_LIFTING": "ergonomic",
-    "POSTURE": "ergonomic",
-    "NOISE": "environmental",
-    "TEMPERATURE": "environmental",
-    "LIGHTING": "environmental",
-    "ENVIRONMENTAL": "environmental",
-    "BIOLOGICAL": "biological"
+  "legacy_migration": {
+    "FALL": {"axis": "accident_type", "code": "FALL"},
+    "SLIP": {"axis": "accident_type", "code": "FALL"},
+    "COLLISION": {"axis": "accident_type", "code": "COLLISION"},
+    "CRUSH": {"axis": "accident_type", "code": "CRUSH"},
+    "CUT": {"axis": "accident_type", "code": "CUT"},
+    "FALLING_OBJECT": {"axis": "accident_type", "code": "FALLING_OBJECT"},
+    "PHYSICAL": {"axis": "accident_type", "code": "COLLISION"},
+    "CHEMICAL": {"axis": "hazardous_agent", "code": "CHEMICAL"},
+    "FIRE_EXPLOSION": {"axis": "hazardous_agent", "code": "FIRE"},
+    "TOXIC": {"axis": "hazardous_agent", "code": "CHEMICAL"},
+    "CORROSION": {"axis": "hazardous_agent", "code": "CHEMICAL"},
+    "ELECTRIC": {"axis": "hazardous_agent", "code": "ELECTRICITY"},
+    "ELECTRICAL": {"axis": "hazardous_agent", "code": "ELECTRICITY"},
+    "ARC_FLASH": {"axis": "hazardous_agent", "code": "ELECTRICITY"},
+    "ERGONOMIC": {"axis": "accident_type", "code": "ERGONOMIC"},
+    "REPETITIVE": {"axis": "accident_type", "code": "ERGONOMIC"},
+    "HEAVY_LIFTING": {"axis": "accident_type", "code": "ERGONOMIC"},
+    "POSTURE": {"axis": "accident_type", "code": "ERGONOMIC"},
+    "NOISE": {"axis": "hazardous_agent", "code": "NOISE"},
+    "TEMPERATURE": {"axis": "hazardous_agent", "code": "HEAT_COLD"},
+    "LIGHTING": {"axis": "hazardous_agent", "code": "HEAT_COLD"},
+    "ENVIRONMENTAL": {"axis": "work_context", "code": "CONFINED_SPACE"},
+    "BIOLOGICAL": {"axis": "hazardous_agent", "code": "BIOLOGICAL"},
+    "SCAFFOLDING": {"axis": "work_context", "code": "SCAFFOLD"},
+    "CONFINED_SPACE": {"axis": "work_context", "code": "CONFINED_SPACE"}
+  },
+  "legacy_compat": {
+    "major_categories": {
+      "physical": {
+        "label": "물리적 위험",
+        "codes": ["FALL", "SLIP", "COLLISION", "CRUSH", "CUT", "FALLING_OBJECT"]
+      },
+      "chemical": {
+        "label": "화학적 위험",
+        "codes": ["CHEMICAL", "FIRE_EXPLOSION", "TOXIC", "CORROSION"]
+      },
+      "electrical": {
+        "label": "전기적 위험",
+        "codes": ["ELECTRIC", "ARC_FLASH"]
+      },
+      "ergonomic": {
+        "label": "인간공학적 위험",
+        "codes": ["ERGONOMIC", "REPETITIVE", "HEAVY_LIFTING", "POSTURE"]
+      },
+      "environmental": {
+        "label": "환경적 위험",
+        "codes": ["NOISE", "TEMPERATURE", "LIGHTING", "ENVIRONMENTAL"]
+      },
+      "biological": {
+        "label": "생물학적 위험",
+        "codes": ["BIOLOGICAL"]
+      }
+    },
+    "code_to_major": {
+      "FALL": "physical", "SLIP": "physical", "COLLISION": "physical",
+      "CRUSH": "physical", "CUT": "physical", "FALLING_OBJECT": "physical",
+      "CHEMICAL": "chemical", "FIRE_EXPLOSION": "chemical",
+      "TOXIC": "chemical", "CORROSION": "chemical",
+      "ELECTRIC": "electrical", "ARC_FLASH": "electrical",
+      "ERGONOMIC": "ergonomic", "REPETITIVE": "ergonomic",
+      "HEAVY_LIFTING": "ergonomic", "POSTURE": "ergonomic",
+      "NOISE": "environmental", "TEMPERATURE": "environmental",
+      "LIGHTING": "environmental", "ENVIRONMENTAL": "environmental",
+      "BIOLOGICAL": "biological"
+    }
   }
 }

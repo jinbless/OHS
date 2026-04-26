@@ -17,12 +17,18 @@ from app.services.search_enhancer import (
     rewrite_queries_batch,
     rerank_results,
 )
-from app.models.analysis import AnalysisResponse, NormContext, LinkedGuideSummary
+from app.models.analysis import AnalysisResponse, NormContext, LinkedGuideSummary, SparqlEnrichmentSummary
 from app.models.guide import GuideMatch, GuideArticleRef
-from app.models.hazard import Hazard, RiskLevel, HazardCategory, NormSummary
+from app.models.hazard import (
+    Hazard, RiskLevel, HazardCategory, NormSummary,
+    FacetedHazardCodes, GptFreeObservation, CodeGapWarning, PenaltyInfo,
+)
 from app.models.checklist import Checklist, ChecklistItem
 from app.db import crud
 from app.utils.exceptions import OpenAIAPIError
+from app.services.hazard_normalizer import normalize_faceted_hazards
+from app.services import hazard_rule_engine
+from app.services.divergence_detector import detect_divergence, save_gaps_to_db
 
 logger = logging.getLogger(__name__)
 
@@ -201,6 +207,125 @@ class AnalysisService:
         analysis_id = str(uuid.uuid4())
         analyzed_at = datetime.now()
 
+        # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        # [Phase 3] Dual-Track: Track A (자유) + Track B (faceted)
+        # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        gpt_free_observations = []
+        canonical_hazards = None
+        code_gap_warnings = []
+        penalties_list = []
+        faceted_ci_data = []
+
+        try:
+            # Track A: 자유 분류 수집
+            for fh in result.get("free_hazards", []):
+                gpt_free_observations.append(GptFreeObservation(
+                    label=fh.get("label", ""),
+                    description=fh.get("description", ""),
+                    confidence=fh.get("confidence", 0),
+                    visual_evidence=fh.get("visual_evidence"),
+                    severity=fh.get("severity", "MEDIUM"),
+                ))
+
+            # Track B: Faceted 코드 정규화 → 규칙 엔진
+            gpt_faceted = result.get("faceted_hazards", {})
+            context_text = " ".join(
+                fh.get("description", "") for fh in result.get("free_hazards", [])
+            ) + " " + (full_description or input_preview or "")
+
+            normalized = normalize_faceted_hazards(gpt_faceted, context_text)
+            canonical = hazard_rule_engine.apply_rules(normalized, db)
+
+            canonical_hazards = FacetedHazardCodes(
+                accident_types=canonical["accident_types"],
+                hazardous_agents=canonical["hazardous_agents"],
+                work_contexts=canonical["work_contexts"],
+                applied_rules=canonical["applied_rules"],
+                confidence=canonical["confidence"],
+            )
+
+            logger.warning(
+                f"[Phase3] Canonical: AT={canonical['accident_types']}, "
+                f"AG={canonical['hazardous_agents']}, WC={canonical['work_contexts']}"
+            )
+
+            # Divergence detection
+            divergences = detect_divergence(
+                result.get("free_hazards", []),
+                canonical,
+                gpt_faceted.get("forced_fit_notes", []),
+            )
+            for d in divergences:
+                code_gap_warnings.append(CodeGapWarning(
+                    gap_type=d["gap_type"],
+                    gpt_free_label=d.get("gpt_free_label"),
+                    description=d.get("description", ""),
+                ))
+
+            # Gap DB 저장
+            if divergences:
+                try:
+                    save_gaps_to_db(db, divergences, analysis_id)
+                except Exception as e:
+                    logger.warning(f"Gap DB 저장 실패: {e}")
+
+            # Faceted SR → CI → Penalty 조회
+            sr_results = hazard_rule_engine.query_sr_for_facets(
+                db,
+                canonical["accident_types"],
+                canonical["hazardous_agents"],
+                canonical["work_contexts"],
+            )
+            sr_ids = [sr["identifier"] for sr in sr_results]
+
+            # [Phase 5] SPARQL enrichment (Fuseki 추론 보강)
+            sparql_enrichment_data = None
+            try:
+                sparql_enrichment_data = await hazard_rule_engine.enrich_sr_with_sparql(
+                    sr_results,
+                    canonical["accident_types"],
+                    canonical["hazardous_agents"],
+                    canonical["work_contexts"],
+                )
+                # SPARQL로 발견된 추가 SR을 sr_ids에 병합
+                if sparql_enrichment_data:
+                    for co_sr in sparql_enrichment_data.get("co_applicable_srs", []):
+                        co_id = co_sr.get("sr_id")
+                        if co_id and co_id not in sr_ids:
+                            sr_ids.append(co_id)
+            except Exception as e:
+                logger.warning(f"[Phase5] SPARQL enrichment failed (PG-only fallback): {e}")
+
+            # Faceted CI 조회 (Phase 4: 결정론적 체크리스트)
+            faceted_ci_data = hazard_rule_engine.get_checklist_from_srs(db, sr_ids, limit=30)
+
+            # [Phase 6] SR→CI→Guide 역추적으로 KOSHA Guide 후보 확보
+            sr_linked_guides = hazard_rule_engine.get_guides_from_srs(db, sr_ids, limit=5)
+            if sr_linked_guides:
+                logger.warning(f"[Phase6] SR→CI→Guide: {[g['guide_code'] for g in sr_linked_guides]}")
+
+            # Penalty 조회
+            penalty_data = hazard_rule_engine.get_penalties_for_srs(db, sr_ids)
+            for p in penalty_data:
+                penalties_list.append(PenaltyInfo(
+                    article_code=p["article_code"],
+                    title=p["title"],
+                    criminal_employer_penalty=p.get("criminal_employer_penalty"),
+                    criminal_death_penalty=p.get("criminal_death_penalty"),
+                    admin_max_fine=p.get("admin_max_fine"),
+                ))
+
+            # SR→Article 매핑으로 CI에 법적 근거 연결
+            sr_article_map = {}  # sr_id → article_code
+            for sr in sr_results:
+                sid = sr["identifier"]
+                for p in penalty_data:
+                    sr_article_map[sid] = p["article_code"]
+                    break  # 첫 번째 매핑만
+
+        except Exception as e:
+            logger.warning(f"[Phase3] Dual-Track 처리 실패 (기존 흐름 유지): {e}")
+
         # risks → Hazards 변환
         hazards = []
         hazard_categories = []
@@ -363,35 +488,45 @@ class AnalysisService:
                     guide_results_map[code]["kw_raw_score"] = raw_score
                     logger.warning(f"[Phase0] 키워드매핑 점수 부스트: {code} → raw={raw_score}")
                 if code not in guide_results_map:
-                    # DB에서 가이드 정보 조회
-                    from app.db.models import KoshaGuide, GuideSection as GuideSectionModel
-                    guide_row = db.query(KoshaGuide).filter(KoshaGuide.guide_code == code).first()
+                    # DB에서 가이드 정보 조회 (PG)
+                    from app.db.models import PgKoshaGuide, PgChecklistItem
+                    guide_row = db.query(PgKoshaGuide).filter(PgKoshaGuide.guide_code == code).first()
                     if guide_row:
-                        sections = (
-                            db.query(GuideSectionModel)
-                            .filter(GuideSectionModel.guide_id == guide_row.id)
-                            .filter(GuideSectionModel.section_type.in_(["standard", "procedure"]))
-                            .order_by(GuideSectionModel.section_order)
+                        ci_rows = (
+                            db.query(PgChecklistItem)
+                            .filter(PgChecklistItem.source_guide == code)
                             .limit(2)
                             .all()
                         )
                         guide_results_map[code] = {
                             "guide_code": code,
                             "title": guide_row.title,
-                            "classification": guide_row.classification,
+                            "classification": guide_row.domain,
                             "relevant_sections": [
                                 {
-                                    "section_title": s.section_title or "",
-                                    "excerpt": s.body_text[:200] if s.body_text else "",
-                                    "section_type": s.section_type or "standard",
+                                    "section_title": ci.source_section or "",
+                                    "excerpt": ci.text[:200] if ci.text else "",
+                                    "section_type": "checklist",
                                 }
-                                for s in sections
-                            ] if sections else [],
+                                for ci in ci_rows
+                            ] if ci_rows else [],
                             "relevance_score": min(0.97, 0.80 + raw_score * 0.04),
                             "mapping_type": "keyword_match",
                             "kw_raw_score": raw_score,
                         }
                         logger.warning(f"[Phase0] 키워드매핑 가이드 주입: {code}")
+
+            # [Phase 6] SR→CI→Guide 결과 주입 (온톨로지 직접 연결)
+            for slg in sr_linked_guides:
+                code = slg["guide_code"]
+                if code not in guide_results_map:
+                    guide_results_map[code] = slg
+                    logger.warning(f"[Phase6] SR→CI→Guide 주입: {code} (CI {slg.get('ci_hit_count', 0)}건)")
+                else:
+                    # 이미 있으면 점수 부스트
+                    existing_score = guide_results_map[code]["relevance_score"]
+                    guide_results_map[code]["relevance_score"] = min(0.99, existing_score + 0.1)
+                    guide_results_map[code]["mapping_type"] = "sr_ci_link"
 
             # Re-rank: effective_keywords + 시맨틱 부스트 + 분류 라우팅 기반 점수 조정
             for code, g in guide_results_map.items():
@@ -590,15 +725,62 @@ class AnalysisService:
 
         except Exception as e:
             logger.warning(f"온톨로지 매칭 실패 (무시하고 계속): {e}")
+            db.rollback()
+
+        # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        # [Phase 4] Faceted CI → 결정론적 체크리스트 항목 변환
+        # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        faceted_checklist_items = []
+        try:
+            if faceted_ci_data:
+                seen_ci_texts = set()
+                for ci in faceted_ci_data:
+                    ci_text = ci.get("text", "").strip()
+                    if not ci_text or len(ci_text) < 5:
+                        continue
+                    # 중복 제거 (앞 30자 기준)
+                    ci_key = ci_text[:30]
+                    if ci_key in seen_ci_texts:
+                        continue
+                    seen_ci_texts.add(ci_key)
+
+                    # binding_force에 따른 카테고리 결정
+                    bf = (ci.get("binding_force") or "").upper()
+                    if bf == "MANDATORY":
+                        category = "결정론적 의무"
+                        is_mandatory = True
+                    else:
+                        category = "결정론적 권장"
+                        is_mandatory = False
+
+                    faceted_checklist_items.append(ChecklistItem(
+                        id=str(uuid.uuid4()),
+                        category=category,
+                        item=ci_text[:100] + ("..." if len(ci_text) > 100 else ""),
+                        description=f"출처: {ci.get('source_guide', '')} / {ci.get('source_section', '')}",
+                        priority=0,
+                        is_mandatory=is_mandatory,
+                        source_type="faceted_ci",
+                        source_ref=ci.get("identifier", ""),
+                    ))
+                logger.warning(f"[Phase4] Faceted CI → 체크리스트: {len(faceted_checklist_items)}건")
+        except Exception as e:
+            logger.warning(f"Faceted CI 변환 실패: {e}")
 
         # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         # 규범명제 → 체크리스트 변환 (법적 의무/금지 사항)
         # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         norm_checklist_items = self._norms_to_checklist(norm_context_list, gpt_checklist_items)
 
-        # 최종 체크리스트: 금지 사항 → 법적 의무 → 즉시 조치 순서
+        # 최종 체크리스트: 결정론적 의무 → 금지 사항 → 법적 의무 → 즉시 조치 순서
         all_checklist_items = []
         priority = 1
+        # Phase 4: Faceted CI 결정론적 의무 (최우선)
+        for item in faceted_checklist_items:
+            if item.category == "결정론적 의무":
+                item.priority = priority
+                all_checklist_items.append(item)
+                priority += 1
         for item in norm_checklist_items:
             if item.category == "금지 사항":
                 item.priority = priority
@@ -606,6 +788,12 @@ class AnalysisService:
                 priority += 1
         for item in norm_checklist_items:
             if item.category == "법적 의무":
+                item.priority = priority
+                all_checklist_items.append(item)
+                priority += 1
+        # Phase 4: Faceted CI 결정론적 권장
+        for item in faceted_checklist_items:
+            if item.category == "결정론적 권장":
                 item.priority = priority
                 all_checklist_items.append(item)
                 priority += 1
@@ -643,7 +831,15 @@ class AnalysisService:
             related_guides=related_guides,
             norm_context=norm_context_list,
             recommendations=recommendations,
-            analyzed_at=analyzed_at
+            analyzed_at=analyzed_at,
+            # Phase 3: Dual-Track
+            canonical_hazards=canonical_hazards,
+            gpt_free_observations=gpt_free_observations,
+            decision_type="deterministic_rule" if canonical_hazards else "embedding_fallback",
+            code_gap_warnings=code_gap_warnings,
+            penalties=penalties_list,
+            # Phase 5: SPARQL enrichment
+            sparql_enrichment=SparqlEnrichmentSummary(**sparql_enrichment_data) if sparql_enrichment_data else None,
         )
 
         # DB에 저장
@@ -654,7 +850,10 @@ class AnalysisService:
             overall_risk_level=overall_risk_level,
             summary=summary,
             input_preview=input_preview,
-            result_json=response.model_dump()
+            result_json=json.loads(response.model_dump_json()),
+            gpt_free_hazards=[o.model_dump(mode='json') for o in gpt_free_observations] if gpt_free_observations else None,
+            coded_hazards=canonical_hazards.model_dump(mode='json') if canonical_hazards else None,
+            divergence_report=[w.model_dump(mode='json') for w in code_gap_warnings] if code_gap_warnings else None,
         )
 
         return response

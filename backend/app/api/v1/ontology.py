@@ -24,8 +24,8 @@ router = APIRouter(prefix="/ontology", tags=["온톨로지"])
 
 @router.get("/stats", response_model=MappingStatsResponse)
 async def get_mapping_stats(db: Session = Depends(get_db)):
-    """매핑 통계: 전체 현황 + before/after 비교"""
-    return ontology_service.get_mapping_stats(db)
+    """매핑 통계: 전체 현황 + before/after 비교 + SPARQL 통계"""
+    return await ontology_service.get_mapping_stats(db)
 
 
 @router.get("/articles/{article_number}/norms", response_model=ArticleNormsResponse)
@@ -41,9 +41,13 @@ async def get_article_graph(article_number: str, db: Session = Depends(get_db)):
 
 
 @router.get("/graph")
-async def get_full_graph(limit: int = 100, db: Session = Depends(get_db)):
-    """전체 온톨로지 그래프 (노드 수 제한)"""
-    return ontology_service.get_full_graph(db, limit)
+async def get_full_graph(
+    limit: int = 100,
+    include_inferred: bool = False,
+    db: Session = Depends(get_db),
+):
+    """전체 온톨로지 그래프 (노드 수 제한, include_inferred=true 시 Fuseki 추론 엣지 포함)"""
+    return await ontology_service.get_full_graph(db, limit=limit, include_inferred=include_inferred)
 
 
 @router.get("/gap-analysis", response_model=GapAnalysisResponse)
@@ -68,7 +72,7 @@ async def get_semantic_mappings(
         discovery_method=discovery_method,
         min_confidence=min_confidence,
         limit=limit,
-        offset=offset,
+        skip=offset,
     )
 
 
@@ -90,39 +94,17 @@ async def trigger_norm_extraction(
 
 @router.post("/classify-mappings")
 async def trigger_mapping_classification(db: Session = Depends(get_db)):
-    """기존 매핑 관계 유형 자동 분류 실행"""
-    result = await ontology_service.classify_existing_mappings(db)
+    """기존 매핑 관계 유형 자동 분류 실행 (PG 데이터는 사전 분류됨)"""
+    result = await ontology_service.classify_all_mappings(db)
     return result
 
 
 @router.post("/discover-mappings")
 async def trigger_mapping_discovery(db: Session = Depends(get_db)):
-    """미매핑 자동 발견 실행 (벡터+키워드+참조)
-
-    3단계 파이프라인:
-    1. 미매핑 법조항 → 가이드 발견 (벡터 유사도)
-    2. 미매핑 가이드 → 법조항 발견 (키워드+범위)
-    3. 법조항 간 상호 참조 발견
-    """
-    results = {}
-
-    # Step 1: 미매핑 법조항 → 가이드
-    r1 = await ontology_service.discover_unmapped_articles(db)
-    results["unmapped_articles"] = r1
-
-    # Step 2: 미매핑 가이드 → 법조항
+    """미매핑 자동 발견 실행 (PG 데이터 기반)"""
     r2 = await ontology_service.discover_unmapped_guides(db)
-    results["unmapped_guides"] = r2
-
-    # Step 3: 법조항 간 참조
-    r3 = await ontology_service.discover_cross_references(db)
-    results["cross_references"] = r3
-
-    results["status"] = "completed"
-    results["new_mappings_found"] = (
-        r1.get("new_mappings", 0) +
-        r2.get("new_mappings", 0) +
-        r3.get("new_references", 0)
-    )
-
-    return results
+    return {
+        "status": "completed",
+        "unmapped_guides": r2,
+        "new_mappings_found": r2.get("discovered", 0),
+    }

@@ -49,6 +49,17 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"KOSHA GUIDE 초기화 실패 (서비스는 계속 실행): {e}")
 
+    # Fuseki SPARQL probe (non-blocking — service starts regardless)
+    try:
+        from app.integrations.sparql_client import sparql_client
+        health = await sparql_client.health_check()
+        if health["fuseki_reachable"]:
+            logger.info("Fuseki SPARQL 연결 성공: %s", settings.FUSEKI_ENDPOINT)
+        else:
+            logger.warning("Fuseki SPARQL 연결 불가 — PG-only 모드로 동작합니다")
+    except Exception as e:
+        logger.warning(f"Fuseki probe 실패 (무시): {e}")
+
     yield
     # Shutdown
 

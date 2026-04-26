@@ -6,17 +6,17 @@ from typing import Optional, List
 # --- 규범명제 ---
 
 class NormStatementResponse(BaseModel):
-    id: int
+    id: Optional[str] = None
     article_number: str
     paragraph: Optional[str] = None
-    statement_order: int
+    statement_order: int = 0
     subject_role: Optional[str] = None
     action: Optional[str] = None
     object: Optional[str] = None
     condition_text: Optional[str] = None
-    legal_effect: str  # OBLIGATION | PROHIBITION | PERMISSION | EXCEPTION
+    legal_effect: Optional[str] = None
     effect_description: Optional[str] = None
-    full_text: str
+    full_text: Optional[str] = None
     norm_category: Optional[str] = None
     hazard_major: Optional[str] = None
     hazard_codes: List[str] = []
@@ -25,10 +25,10 @@ class NormStatementResponse(BaseModel):
 class LinkedGuideInfo(BaseModel):
     guide_code: str
     title: str
-    classification: str
-    relation_type: str  # IMPLEMENTS | SUPPLEMENTS | ...
-    confidence: float
-    discovery_method: str
+    classification: Optional[str] = None
+    relation_type: str = "IMPLEMENTS"
+    confidence: float = 0.9
+    discovery_method: str = "pg_mapping"
 
 
 class ArticleNormsResponse(BaseModel):
@@ -42,17 +42,18 @@ class ArticleNormsResponse(BaseModel):
 # --- 의미적 매핑 ---
 
 class SemanticMappingResponse(BaseModel):
-    id: int
-    source_type: str
-    source_id: str
+    id: Optional[str] = None
+    source_type: str = "article"
+    source_id: str = ""
     source_label: Optional[str] = None
-    target_type: str
-    target_id: str
+    target_type: str = "guide"
+    target_id: str = ""
     target_label: Optional[str] = None
-    relation_type: str
+    target_title: Optional[str] = None
+    relation_type: str = "IMPLEMENTS"
     relation_detail: Optional[str] = None
-    confidence: float
-    discovery_method: str
+    confidence: float = 0.9
+    discovery_method: str = "pg_mapping"
     discovery_tier: Optional[str] = None
 
 
@@ -60,16 +61,18 @@ class SemanticMappingResponse(BaseModel):
 
 class MappingStatsResponse(BaseModel):
     total_articles: int
-    mapped_articles: int
-    unmapped_articles: int
     total_guides: int
-    mapped_guides: int
-    unmapped_guides: int
-    total_explicit_mappings: int
-    total_semantic_mappings: int
-    mapping_by_relation_type: dict
-    mapping_by_discovery: dict
-    coverage_improvement: dict
+    total_norms: int = 0
+    total_sr: int = 0
+    total_ci: int = 0
+    explicit_mapped_articles: int = 0
+    semantic_mapped_articles: int = 0
+    all_mapped_articles: int = 0
+    all_mapped_guides: int = 0
+    total_explicit_mappings: int = 0
+    total_semantic_mappings: int = 0
+    relation_distribution: dict = {}
+    method_distribution: dict = {}
 
 
 # --- 매핑 갭 분석 ---
@@ -89,9 +92,11 @@ class UnmappedGuide(BaseModel):
 
 
 class GapAnalysisResponse(BaseModel):
-    unmapped_articles: List[UnmappedArticle]
-    unmapped_guides: List[UnmappedGuide]
-    high_priority_count: int
+    total_articles: int = 0
+    mapped_articles: int = 0
+    unmapped_count: int = 0
+    coverage_pct: float = 0.0
+    unmapped_articles: list = []
 
 
 # --- 실행 결과 ---

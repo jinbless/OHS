@@ -10,8 +10,10 @@ services:
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ALLOWED_ORIGINS=["http://localhost","http://localhost:80","https://${DOMAIN}","https://www.${DOMAIN}"]
-      - DATABASE_URL=sqlite:///./data/ohs.db
+      - DATABASE_URL=postgresql://kosha:1229@host.docker.internal/kosha
       - OHS_BASE_DIR=${OHS_BASE_DIR:-/home/blessjin/cashtoss/ohs}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - backend_data:/app/data
       - ./guide:${OHS_BASE_DIR:-/home/blessjin/cashtoss/ohs}/guide:ro
@@ -20,13 +22,14 @@ services:
       - "127.0.0.1:8000:8000"
     networks:
       - ohs-network
+      - kosha-shared
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - VITE_API_BASE_URL=https://${DOMAIN}/api/v1
+        - VITE_API_BASE_URL=/api/v1
     container_name: ohs-frontend
     restart: unless-stopped
     ports:
@@ -39,6 +42,8 @@ services:
 networks:
   ohs-network:
     driver: bridge
+  kosha-shared:
+    external: true
 
 volumes:
   backend_data:

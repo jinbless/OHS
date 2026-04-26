@@ -43,9 +43,10 @@ _CODE_LABELS = {
 def build_category_codes_section() -> str:
     """hazard_taxonomy.json에서 category_code 목록 섹션 생성."""
     taxonomy = _load_taxonomy()
+    compat = taxonomy.get("legacy_compat", taxonomy)
     lines = ["## category_code 목록",
              "위험요소를 분류할 때 아래 코드 중 하나를 사용하세요:"]
-    for major, info in taxonomy["major_categories"].items():
+    for major, info in compat.get("major_categories", {}).items():
         label = info["label"]
         codes_str = ", ".join(
             f"{c}({_CODE_LABELS.get(c, c)})" for c in info["codes"]
@@ -268,6 +269,33 @@ MATCHING_GUIDE = """### 핵심 조문 매칭 가이드 (반드시 참고)
 | 컨베이어이탈 | 제174조(이탈방지: 벨트이탈방지장치) |
 | 보호구전용 | 제34조(전용보호구: 개인별 전용 사용), 제32조(보호구지급) |"""
 
+DUAL_TRACK_SECTION = """## Dual-Track 분석 가이드
+
+응답에 두 가지 트랙의 위험요소 분석을 포함하세요:
+
+### Track A (free_hazards) — 자유 분류
+코드 제약 없이 사진/상황에서 발견한 모든 위험요소를 자유롭게 기술하세요.
+- 각 위험에 label(한글명), description(상세), confidence(0~1), visual_evidence(관찰 근거), severity를 포함
+- 코드 체계에 없는 새로운 위험도 발견하면 반드시 포함
+
+### Track B (faceted_hazards) — Faceted 3축 코드 분류
+각 축에서 해당되는 코드를 모두 선택하세요. 복수 선택 가능합니다.
+
+**[사고 유형 accident_types]**
+FALL(추락), SLIP(미끄러짐), COLLISION(충돌), FALLING_OBJECT(낙하물), CRUSH(끼임/압착), CUT(절단), COLLAPSE(붕괴), ERGONOMIC(근골격계)
+
+**[유해 인자 hazardous_agents]**
+CHEMICAL(화학물질), DUST(분진), TOXIC(독성), CORROSION(부식), RADIATION(방사선), FIRE(화재/폭발), ELECTRICITY(전기/감전), ARC_FLASH(아크), NOISE(소음/진동), HEAT_COLD(온도), BIOLOGICAL(생물학적)
+
+**[작업 맥락 work_contexts]**
+SCAFFOLD(비계), CONFINED_SPACE(밀폐공간), EXCAVATION(굴착), MACHINE(기계), VEHICLE(차량), CRANE(양중기), RAIL(철도), CONVEYOR(컨베이어), PRESSURE_VESSEL(압력용기), STEELWORK(철골), MATERIAL_HANDLING(자재취급), GENERAL_WORKPLACE(일반사업장)
+
+- 정확히 맞는 코드가 없으면 가장 가까운 코드를 선택하고 forced_fit_notes에 이유를 기록
+- 하나의 위험이 여러 축에 걸칠 수 있음 (예: 비계 추락 → accident_types=[FALL], work_contexts=[SCAFFOLD])
+
+### risks (기존 호환)
+Track B의 faceted 코드에 대응하는 risks 배열도 함께 작성하세요. category_code는 기존 코드를 사용합니다."""
+
 KOSHA_GUIDE_SECTION = """## KOSHA GUIDE 검색 키워드
 
 위험요소와 관련된 KOSHA GUIDE(안전보건공단 기술지침)를 찾기 위한 한국어 키워드를 recommended_guide_keywords에 제시해주세요.
@@ -307,6 +335,8 @@ def build_system_prompt() -> str:
     """온톨로지 JSON에서 동적으로 SYSTEM_PROMPT 생성."""
     parts = [
         _INTRO,
+        "",
+        DUAL_TRACK_SECTION,
         "",
         build_category_codes_section(),
         "",

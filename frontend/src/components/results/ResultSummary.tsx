@@ -23,7 +23,7 @@ const ResultSummary: React.FC<ResultSummaryProps> = ({ analysis }) => {
 
       <p className="text-gray-700 mb-4">{analysis.summary}</p>
 
-      <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+      <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-200">
         <div className="text-center">
           <p className="text-2xl font-bold text-gray-900">{analysis.hazards.length}</p>
           <p className="text-sm text-gray-500">식별된 위험요소</p>
@@ -33,10 +33,6 @@ const ResultSummary: React.FC<ResultSummaryProps> = ({ analysis }) => {
             {analysis.checklist.items.length}
           </p>
           <p className="text-sm text-gray-500">점검 항목</p>
-        </div>
-        <div className="text-center">
-          <p className="text-2xl font-bold text-gray-900">{analysis.resources.length}</p>
-          <p className="text-sm text-gray-500">관련 자료</p>
         </div>
       </div>
 

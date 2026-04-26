@@ -13,7 +13,16 @@ const GROUP_COLORS: Record<string, string> = {
   article: '#4FC3F7',
   norm: '#81C784',
   guide: '#FFB74D',
+  inferred_sr: '#CE93D8',
+  exemption: '#EF5350',
+  subject_role: '#4DD0E1',
   unknown: '#BDBDBD',
+};
+
+const EDGE_TYPE_STYLES: Record<string, { color: string; dashes: boolean | number[]; width: number }> = {
+  coApplicable: { color: '#1E88E5', dashes: [5, 5], width: 2 },
+  exemptedBy: { color: '#E53935', dashes: [8, 4], width: 2 },
+  propertyChain: { color: '#43A047', dashes: [3, 3], width: 1.5 },
 };
 
 const OntologyGraph: React.FC<OntologyGraphProps> = ({
@@ -43,17 +52,24 @@ const OntologyGraph: React.FC<OntologyGraphProps> = ({
     );
 
     const edges = new DataSet(
-      data.edges.map((e, i) => ({
-        id: `e_${i}`,
-        from: e.from,
-        to: e.to,
-        label: e.label || '',
-        dashes: e.dashes || false,
-        font: { size: 9, color: '#666', strokeWidth: 0, background: 'white' },
-        arrows: { to: { enabled: true, scaleFactor: 0.5 } },
-        color: { color: '#999', opacity: 0.7 },
-        smooth: { enabled: true, type: 'curvedCW', roundness: 0.2 },
-      }))
+      data.edges.map((e, i) => {
+        const edgeType = (e as any).edge_type as string | undefined;
+        const typeStyle = edgeType ? EDGE_TYPE_STYLES[edgeType] : undefined;
+        return {
+          id: `e_${i}`,
+          from: e.from,
+          to: e.to,
+          label: e.label || edgeType || '',
+          dashes: typeStyle?.dashes ?? (e.dashes || false),
+          font: { size: 9, color: '#666', strokeWidth: 0, background: 'white' },
+          arrows: edgeType === 'coApplicable'
+            ? { to: { enabled: true, scaleFactor: 0.5 }, from: { enabled: true, scaleFactor: 0.5 } }
+            : { to: { enabled: true, scaleFactor: 0.5 } },
+          color: typeStyle ? { color: typeStyle.color, opacity: 0.9 } : { color: '#999', opacity: 0.7 },
+          width: typeStyle?.width ?? 1,
+          smooth: { enabled: true, type: 'curvedCW', roundness: 0.2 },
+        };
+      })
     );
 
     const options = {
@@ -103,6 +119,21 @@ const OntologyGraph: React.FC<OntologyGraphProps> = ({
           shape: 'diamond',
           color: { background: '#FFB74D', border: '#F57C00' },
           font: { color: '#333', size: 10 },
+        },
+        inferred_sr: {
+          shape: 'dot',
+          color: { background: '#CE93D8', border: '#8E24AA' },
+          font: { color: '#fff', size: 10 },
+        },
+        exemption: {
+          shape: 'triangle',
+          color: { background: '#EF5350', border: '#C62828' },
+          font: { color: '#fff', size: 10 },
+        },
+        subject_role: {
+          shape: 'dot',
+          color: { background: '#4DD0E1', border: '#00838F' },
+          font: { color: '#fff', size: 10 },
         },
       },
     };
@@ -155,6 +186,14 @@ const OntologyGraph: React.FC<OntologyGraphProps> = ({
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rotate-45" style={{ background: '#FFB74D' }} />
             <span>KOSHA GUIDE</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-4 h-3 rounded-full" style={{ background: '#CE93D8' }} />
+            <span>추론 SR</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3" style={{ background: '#EF5350', clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }} />
+            <span>면제</span>
           </div>
         </div>
       </div>

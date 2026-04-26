@@ -11,7 +11,10 @@ def create_analysis_record(
     overall_risk_level: str,
     summary: str,
     input_preview: str,
-    result_json: dict
+    result_json: dict,
+    gpt_free_hazards: dict = None,
+    coded_hazards: dict = None,
+    divergence_report: dict = None,
 ) -> AnalysisRecord:
     db_record = AnalysisRecord(
         id=analysis_id,
@@ -19,7 +22,10 @@ def create_analysis_record(
         overall_risk_level=overall_risk_level,
         summary=summary,
         input_preview=input_preview,
-        result_json=json.dumps(result_json, ensure_ascii=False, default=str)
+        result_json=result_json,  # JSONB — no json.dumps needed
+        gpt_free_hazards=gpt_free_hazards,
+        coded_hazards=coded_hazards,
+        divergence_report=divergence_report,
     )
     db.add(db_record)
     db.commit()
