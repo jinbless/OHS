@@ -1,0 +1,11 @@
+{
+  "_description": "SR → Guide static default mapping rules. label_ground_truth.py가 이 파일을 로드하여 reviewed-v2.jsonl의 selected_guide_codes와 union으로 Guide 체크박스 default를 결정. SR이 사용자의 정답 SR list에 있으면 해당 default_guides가 자동 체크됨.",
+  "_format": "rules는 sr_id 별로 default_guides (short_code 형식). rationale은 사람용 메모.",
+  "rules": [
+    {
+      "sr_id": "SR-WORKPLACE-001",
+      "default_guides": ["G11"],
+      "rationale": "작업장이 정리가 안되어 있고 자재가 어수선하게 널려있다 → G-11-2017 작업장 정리정돈 가이드"
+    }
+  ]
+}

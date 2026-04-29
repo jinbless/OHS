@@ -23,9 +23,19 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql://kosha:1229@localhost/kosha"
 
     # Fuseki SPARQL (OWL DL inference engine)
-    FUSEKI_ENDPOINT: str = "http://kosha-fuseki:3030/kosha/sparql"
+    # Phase 0.5 환경 분리:
+    #   docker container 내부:    http://kosha-fuseki:3030/kosha/sparql
+    #   host 머신 (eval/dev):     http://localhost:3030/kosha/sparql
+    # default를 localhost로 → host eval에서 즉시 동작. docker 내부에서는 환경변수로 override.
+    FUSEKI_ENDPOINT: str = "http://localhost:3030/kosha/sparql"
     FUSEKI_TIMEOUT: int = 5
     FUSEKI_ENABLED: bool = True
+
+    # Phase 3: SHE rollout feature flags (사용자 비판 #12)
+    # 기본 false → Phase 3 단계적 활성화. eval 환경 먼저 true → 검증 후 prod true.
+    OHS_ENABLE_SHE: bool = False
+    OHS_ENABLE_HYBRID_SEARCH: bool = False
+    OHS_ENABLE_SHE_SPARQL_CHAIN: bool = False
 
     class Config:
         env_file = ".env"

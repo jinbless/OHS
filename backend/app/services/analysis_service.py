@@ -17,7 +17,7 @@ from app.services.search_enhancer import (
     rewrite_queries_batch,
     rerank_results,
 )
-from app.models.analysis import AnalysisResponse, NormContext, LinkedGuideSummary, SparqlEnrichmentSummary
+from app.models.analysis import AnalysisResponse, NormContext, LinkedGuideSummary, SparqlEnrichmentSummary, RecommendedSR
 from app.models.guide import GuideMatch, GuideArticleRef
 from app.models.hazard import (
     Hazard, RiskLevel, HazardCategory, NormSummary,
@@ -29,6 +29,7 @@ from app.utils.exceptions import OpenAIAPIError
 from app.services.hazard_normalizer import normalize_faceted_hazards
 from app.services import hazard_rule_engine
 from app.services.divergence_detector import detect_divergence, save_gaps_to_db
+from app.services import she_matcher  # Phase 3 Layer 0 (feature-flagged)
 
 logger = logging.getLogger(__name__)
 
@@ -215,6 +216,7 @@ class AnalysisService:
         code_gap_warnings = []
         penalties_list = []
         faceted_ci_data = []
+        recommended_srs_list = []  # Phase 0.5: scope outside try block
 
         try:
             # Track A: 자유 분류 수집
@@ -269,6 +271,43 @@ class AnalysisService:
                 except Exception as e:
                     logger.warning(f"Gap DB 저장 실패: {e}")
 
+            # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            # [Phase 3 Layer 0] SHE Router (feature-flagged: OHS_ENABLE_SHE)
+            # GPT가 인지한 상황(situation) → KG의 SHE 매칭 → SR/Guide 자동 follow
+            # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            she_matches = []
+            try:
+                she_matches = she_matcher.match_she(
+                    db=db,
+                    accident_types=canonical["accident_types"],
+                    hazardous_agents=canonical["hazardous_agents"],
+                    work_contexts=canonical["work_contexts"],
+                    work_activity=None,  # Phase 3 Track 4 (DUAL_TRACK_SCHEMA 8축 추가) 후에 채울 예정
+                    top_n=3,
+                    min_matched_dims=2,
+                )
+                if she_matches:
+                    logger.warning(
+                        f"[Layer0/SHE] {len(she_matches)} matches: "
+                        f"{[(m.she_id, round(m.match_score, 2), m.applies_sr_ids[:3]) for m in she_matches]}"
+                    )
+            except Exception as e:
+                logger.warning(f"[Layer0/SHE] match failed (graceful skip): {e}")
+
+            # SHE-derived SR을 recommended_srs에 누적 (Layer 0)
+            she_sr_ids: set[str] = set()
+            for m in she_matches:
+                for sr_id in m.applies_sr_ids:
+                    if sr_id not in she_sr_ids:
+                        she_sr_ids.add(sr_id)
+                        recommended_srs_list.append({
+                            "identifier": sr_id,
+                            "source": "she_derived",
+                            "layer": 0,
+                            "confidence": m.match_score,
+                            "title": None,
+                        })
+
             # Faceted SR → CI → Penalty 조회
             sr_results = hazard_rule_engine.query_sr_for_facets(
                 db,
@@ -277,6 +316,20 @@ class AnalysisService:
                 canonical["work_contexts"],
             )
             sr_ids = [sr["identifier"] for sr in sr_results]
+            # SHE-derived SR을 Layer 1 후보 앞단에 병합 (중복 제외)
+            for she_sr in she_sr_ids:
+                if she_sr not in sr_ids:
+                    sr_ids.insert(0, she_sr)  # Layer 0 SHE는 우선
+
+            # Phase 0.5: recommended_srs 누적 (Layer 1 primary)
+            for sr in sr_results:
+                recommended_srs_list.append({
+                    "identifier": sr["identifier"],
+                    "source": "primary",
+                    "layer": 1,  # PG @> facets
+                    "confidence": float(sr.get("score", 1.0)) if isinstance(sr, dict) else 1.0,
+                    "title": sr.get("title") if isinstance(sr, dict) else None,
+                })
 
             # [Phase 5] SPARQL enrichment (Fuseki 추론 보강)
             sparql_enrichment_data = None
@@ -287,12 +340,19 @@ class AnalysisService:
                     canonical["hazardous_agents"],
                     canonical["work_contexts"],
                 )
-                # SPARQL로 발견된 추가 SR을 sr_ids에 병합
+                # SPARQL로 발견된 추가 SR을 sr_ids에 병합 + recommended_srs에 누적
                 if sparql_enrichment_data:
                     for co_sr in sparql_enrichment_data.get("co_applicable_srs", []):
                         co_id = co_sr.get("sr_id")
                         if co_id and co_id not in sr_ids:
                             sr_ids.append(co_id)
+                            recommended_srs_list.append({
+                                "identifier": co_id,
+                                "source": "coApplicable",
+                                "layer": 4,  # SPARQL
+                                "confidence": 0.7,
+                                "title": co_sr.get("title"),
+                            })
             except Exception as e:
                 logger.warning(f"[Phase5] SPARQL enrichment failed (PG-only fallback): {e}")
 
@@ -840,6 +900,8 @@ class AnalysisService:
             penalties=penalties_list,
             # Phase 5: SPARQL enrichment
             sparql_enrichment=SparqlEnrichmentSummary(**sparql_enrichment_data) if sparql_enrichment_data else None,
+            # Phase 0.5: recommended_srs (source/layer/confidence 노출)
+            recommended_srs=[RecommendedSR(**r) for r in recommended_srs_list],
         )
 
         # DB에 저장

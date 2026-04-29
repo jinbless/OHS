@@ -16,6 +16,22 @@ class TextAnalysisRequest(BaseModel):
     industry_sector: Optional[str] = None
 
 
+class RecommendedSR(BaseModel):
+    """Phase 0.5 — 추천된 SR을 source/layer로 분리해서 노출.
+
+    이전: 응답에 SR ID가 sparql_enrichment.co_applicable_srs로만 노출.
+    문제: primary SR (hazard_rule_engine.query_sr_for_facets 결과)이 평가에 안 잡힘 →
+          evaluate_catalog.py SR Recall 0%의 진짜 원인 일부.
+    해결: primary/coApplicable/she_derived/embedding/rerank 전 source의 SR을
+    명시적으로 응답에 노출 → evaluate_catalog.py가 정확한 metric 측정 가능.
+    """
+    identifier: str            # 예: SR-FALL-001
+    source: str                # "primary" | "coApplicable" | "she_derived" | "embedding" | "rerank"
+    layer: int                 # 0=SHE, 1=PG @>, 2=embedding, 3=rerank, 4=SPARQL
+    confidence: float = 1.0    # 0.0~1.0
+    title: Optional[str] = None  # 가독성용 (선택)
+
+
 class LinkedGuideSummary(BaseModel):
     guide_code: str
     title: str
@@ -60,6 +76,8 @@ class AnalysisResponse(BaseModel):
     penalties: List[PenaltyInfo] = []
     # Phase 5: SPARQL enrichment
     sparql_enrichment: Optional[SparqlEnrichmentSummary] = None
+    # Phase 0.5: 추천 SR 명시적 노출 (source/layer/confidence 포함)
+    recommended_srs: List[RecommendedSR] = []
 
     class Config:
         from_attributes = True

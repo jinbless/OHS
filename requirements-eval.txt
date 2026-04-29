@@ -1,0 +1,18 @@
+# Phase 0.5 — Eval/Labeling 전용 의존성 (사용자 비판 #9)
+# Production backend (OHS/backend/requirements.txt)와 분리.
+# 이유: Streamlit/rapidfuzz는 docker production image에 불필요 (image 비대화 방지).
+
+# Streamlit ground truth labeling app (Phase 2.5)
+streamlit>=1.40.0
+rapidfuzz>=3.10.0
+
+# Anthropic SDK (LLM provider wrapper Phase 2 SR inversion + Phase 3 reranker)
+# production은 OHS/backend/requirements.txt에 별도 추가 (Phase 3 시점)
+anthropic>=0.40.0
+
+# Catalog evaluation
+# (이미 OHS/backend/requirements.txt에 있는 openai/psycopg2-binary 재활용)
+
+# Pytest for smoke test (Phase 0.5)
+pytest>=8.0.0
+pytest-asyncio>=0.24.0

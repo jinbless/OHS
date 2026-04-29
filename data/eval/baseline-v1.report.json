@@ -1,0 +1,6545 @@
+{
+  "generated_at": "2026-04-27T20:08:40",
+  "input_file": "C:\\project\\arch-bot\\OHS\\data\\eval\\scenarios-v1.jsonl",
+  "total_elapsed_s": 881.5132917000001,
+  "aggregate": {
+    "overall": {
+      "n_total": 100,
+      "n_valid": 100,
+      "n_error": 0,
+      "guide_recall_5": 0.08355870279146141,
+      "guide_recall_10": 0.08355870279146141,
+      "guide_precision_5": 0.04,
+      "guide_f1": 0.044263772175536883,
+      "sr_recall_5": 0.0,
+      "sr_recall_10": 0.0,
+      "forced_fit_rate": 1.0,
+      "forced_fit_avg_count": 4.67,
+      "wc_match_rate": 0.83,
+      "latency_p50_s": 33.41714030000003,
+      "latency_p95_s": 47.070023899999796,
+      "work_context_f1_variance": 0.0024495577101610808
+    },
+    "by_work_context": {
+      "SCAFFOLD": {
+        "n": 11,
+        "guide_f1_mean": 0.0,
+        "guide_f1_stdev": 0.0
+      },
+      "CONFINED_SPACE": {
+        "n": 11,
+        "guide_f1_mean": 0.02597402597402598,
+        "guide_f1_stdev": 0.08614609845078962
+      },
+      "EXCAVATION": {
+        "n": 11,
+        "guide_f1_mean": 0.0,
+        "guide_f1_stdev": 0.0
+      },
+      "MACHINE": {
+        "n": 11,
+        "guide_f1_mean": 0.0,
+        "guide_f1_stdev": 0.0
+      },
+      "CRANE": {
+        "n": 11,
+        "guide_f1_mean": 0.11255411255411257,
+        "guide_f1_stdev": 0.156886843796218
+      },
+      "CONVEYOR": {
+        "n": 6,
+        "guide_f1_mean": 0.0925925925925926,
+        "guide_f1_stdev": 0.1476844595361251
+      },
+      "CONSTRUCTION_EQUIP": {
+        "n": 11,
+        "guide_f1_mean": 0.09660894660894662,
+        "guide_f1_stdev": 0.14335191696447994
+      },
+      "MATERIAL_HANDLING": {
+        "n": 11,
+        "guide_f1_mean": 0.10160427807486631,
+        "guide_f1_stdev": 0.15284516388453315
+      },
+      "GENERAL_WORKPLACE": {
+        "n": 11,
+        "guide_f1_mean": 0.01515151515151515,
+        "guide_f1_stdev": 0.0502518907629606
+      },
+      "ETC": {
+        "n": 6,
+        "guide_f1_mean": 0.0,
+        "guide_f1_stdev": 0.0
+      }
+    },
+    "by_source": {
+      "PA11": {
+        "n": 42,
+        "guide_f1_mean": 0.007936507936507938
+      },
+      "SR_REGISTRY": {
+        "n": 36,
+        "guide_f1_mean": 0.08988613964104161
+      },
+      "GUIDE_INTERLINK": {
+        "n": 15,
+        "guide_f1_mean": 0.05714285714285715
+      },
+      "FACETED": {
+        "n": 7,
+        "guide_f1_mean": 0.0
+      }
+    },
+    "errors": []
+  },
+  "per_scenario": [
+    {
+      "scenario_id": "SC-0001",
+      "work_context": "SCAFFOLD",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 6,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "D-C-11-2026",
+          "D-C-3-2025",
+          "A-G-18-2026",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "DC11",
+          "DC3",
+          "AG18",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 37
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM6"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 37.27526409999973
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "CRUSH",
+          "ERGONOMIC",
+          "COLLAPSE"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0002",
+      "work_context": "SCAFFOLD",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 10,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026",
+          "B-E-3-2025"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "DC10",
+          "BE3"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM38"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 37.427320200000395
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "CRUSH",
+          "CUT",
+          "COLLISION"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0003",
+      "work_context": "SCAFFOLD",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 14,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C52"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 39.67451290000008
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0004",
+      "work_context": "SCAFFOLD",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 12,
+        "guide": 9
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "D-C-10-2026",
+          "D-C-11-2026",
+          "D-C-3-2025"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "DC10",
+          "DC11",
+          "DC3"
+        ],
+        "srs": [],
+        "ci_count": 36
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG20",
+          "BM6",
+          "C11",
+          "C52",
+          "C59",
+          "C96",
+          "C98",
+          "DC7",
+          "P62"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 35.20962530000088
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "COLLAPSE",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0005",
+      "work_context": "SCAFFOLD",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 6,
+        "guide": 3
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-32-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM32",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM38",
+          "C11",
+          "DC7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 28.259161399999357
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0006",
+      "work_context": "SCAFFOLD",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 2,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "D-C-10-2026",
+          "D-C-11-2026",
+          "D-C-3-2025"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "DC10",
+          "DC11",
+          "DC3"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C93",
+          "DC7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 26.470434199999545
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "COLLAPSE",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0007",
+      "work_context": "SCAFFOLD",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 25,
+        "ci": 1934,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C29",
+          "DC7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 29.390556199999992
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "STEELWORK",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0008",
+      "work_context": "SCAFFOLD",
+      "source": "FACETED",
+      "ground_truth_size": {
+        "sr": 17,
+        "ci": 6,
+        "guide": 0
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "D-C-3-2025",
+          "D-C-7-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC10",
+          "DC3",
+          "DC7"
+        ],
+        "srs": [],
+        "ci_count": 37
+      },
+      "ground_truth_normalized": {
+        "guides": []
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 33.56838450000032
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "CRUSH",
+          "ERGONOMIC",
+          "COLLAPSE"
+        ],
+        "hazardous_agents": [
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0009",
+      "work_context": "SCAFFOLD",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 25,
+        "ci": 1934,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-11-2026",
+          "D-C-3-2025",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC11",
+          "DC3",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C26",
+          "DC7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 46.86275129999922
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "CRUSH",
+          "CUT",
+          "COLLAPSE",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0010",
+      "work_context": "SCAFFOLD",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 25,
+        "ci": 1854,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C11",
+          "DC7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 28.996608399999786
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0011",
+      "work_context": "SCAFFOLD",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 23,
+        "ci": 1787,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-32-2026",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BM32",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C25",
+          "DC7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 28.143552499999714
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0012",
+      "work_context": "CONFINED_SPACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 11,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "E-G-18-2026",
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "EG18",
+          "AG18",
+          "BE3",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 36
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "H73"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 39.81998130000011
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "HEAT_COLD",
+          "NOISE",
+          "ELECTRICITY",
+          "DUST",
+          "BIOLOGICAL",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0013",
+      "work_context": "CONFINED_SPACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 22,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "E-G-18-2026",
+          "B-M-9-2025",
+          "P-28-2012",
+          "A-G-18-2026",
+          "C-82-2020"
+        ],
+        "guides_normalized": [
+          "EG18",
+          "BM9",
+          "P28",
+          "AG18",
+          "C82"
+        ],
+        "srs": [],
+        "ci_count": 38
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG14"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 34.68811909999931
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "COLLISION",
+          "CUT",
+          "FALL",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0014",
+      "work_context": "CONFINED_SPACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 8,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "E-G-18-2026",
+          "P-28-2012",
+          "X-68-2015",
+          "A-G-18-2026",
+          "B-M-32-2026"
+        ],
+        "guides_normalized": [
+          "EG18",
+          "P28",
+          "X68",
+          "AG18",
+          "BM32"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "CC59"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 29.510283900000104
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "SLIP",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "ELECTRICITY",
+          "TOXIC",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0015",
+      "work_context": "CONFINED_SPACE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 6,
+        "guide": 4
+      },
+      "recommended": {
+        "guides_raw": [
+          "E-G-18-2026",
+          "B-M-9-2025",
+          "D-C-11-2026",
+          "D-C-12-2026",
+          "D-C-3-2025"
+        ],
+        "guides_normalized": [
+          "EG18",
+          "BM9",
+          "DC11",
+          "DC12",
+          "DC3"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "D57",
+          "G41",
+          "M150",
+          "P60"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 36.476413800000046
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLAPSE",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD",
+          "BIOLOGICAL",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0016",
+      "work_context": "CONFINED_SPACE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-3-2025",
+          "E-G-18-2026",
+          "G-29-2011"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC3",
+          "EG18",
+          "G29"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C93"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 30.864677700000357
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLAPSE",
+          "FALL",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "HEAT_COLD",
+          "NOISE",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "EXCAVATION",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0017",
+      "work_context": "CONFINED_SPACE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 7,
+        "guide": 7
+      },
+      "recommended": {
+        "guides_raw": [
+          "E-G-18-2026",
+          "D-C-10-2026",
+          "P-28-2012",
+          "B-M-9-2025",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "EG18",
+          "DC10",
+          "P28",
+          "BM9",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 38
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG14",
+          "C64",
+          "C91",
+          "DC11",
+          "EG23",
+          "H155",
+          "H197"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 27.753980299999967
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0018",
+      "work_context": "CONFINED_SPACE",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 11,
+        "ci": 1123,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "E-G-18-2026",
+          "P-28-2012",
+          "A-G-18-2026",
+          "B-M-32-2026",
+          "C-82-2020"
+        ],
+        "guides_normalized": [
+          "EG18",
+          "P28",
+          "AG18",
+          "BM32",
+          "C82"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "CC50",
+          "CC68"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 31.238349400000516
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "HEAT_COLD",
+          "NOISE",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0019",
+      "work_context": "CONFINED_SPACE",
+      "source": "FACETED",
+      "ground_truth_size": {
+        "sr": 26,
+        "ci": 381,
+        "guide": 0
+      },
+      "recommended": {
+        "guides_raw": [
+          "E-G-18-2026",
+          "P-28-2012",
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-82-2020"
+        ],
+        "guides_normalized": [
+          "EG18",
+          "P28",
+          "AG18",
+          "BM9",
+          "C82"
+        ],
+        "srs": [],
+        "ci_count": 35
+      },
+      "ground_truth_normalized": {
+        "guides": []
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 37.766431699999885
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "FALL",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE",
+          "HEAT_COLD",
+          "ELECTRICITY",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0020",
+      "work_context": "CONFINED_SPACE",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 9,
+        "ci": 1727,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "E-G-18-2026",
+          "A-G-18-2026",
+          "C-82-2020",
+          "B-M-32-2026",
+          "C-C-70-2025"
+        ],
+        "guides_normalized": [
+          "EG18",
+          "AG18",
+          "C82",
+          "BM32",
+          "CC70"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "CC56",
+          "CC60"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 38.29654959999971
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "SLIP",
+          "COLLISION",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "TOXIC",
+          "FIRE",
+          "HEAT_COLD",
+          "DUST"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0021",
+      "work_context": "CONFINED_SPACE",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 13,
+        "ci": 1275,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "D-C-10-2026",
+          "E-G-18-2026",
+          "P-28-2012",
+          "B-M-9-2025",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "DC10",
+          "EG18",
+          "P28",
+          "BM9",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 38
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "EG18",
+          "H59"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.5,
+        "guide_recall_10": 0.5,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.28571428571428575,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 30.270818799999688
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0022",
+      "work_context": "CONFINED_SPACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 9,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "C-C-70-2025",
+          "E-G-18-2026",
+          "P-28-2012",
+          "A-G-18-2026",
+          "B-M-32-2026"
+        ],
+        "guides_normalized": [
+          "CC70",
+          "EG18",
+          "P28",
+          "AG18",
+          "BM32"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "H155"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 7,
+        "wc_match": true,
+        "latency_s": 30.704813600000307
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "COLLISION",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "CONFINED_SPACE",
+          "MACHINE",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0023",
+      "work_context": "EXCAVATION",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 8,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "D-C-3-2025",
+          "G-29-2011"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC10",
+          "DC3",
+          "G29"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "A51"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 44.0489948000004
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLAPSE",
+          "COLLISION",
+          "FALLING_OBJECT",
+          "SLIP",
+          "ERGONOMIC",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE",
+          "DUST",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MACHINE",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0024",
+      "work_context": "EXCAVATION",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 4,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "D-C-3-2025",
+          "D-C-11-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC10",
+          "DC3",
+          "DC11"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "DC5"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 27.36210570000003
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLAPSE",
+          "FALL",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0025",
+      "work_context": "EXCAVATION",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 3,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "C-C-16-2026",
+          "D-C-12-2026",
+          "D-C-3-2025",
+          "G-29-2011"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "CC16",
+          "DC12",
+          "DC3",
+          "G29"
+        ],
+        "srs": [],
+        "ci_count": 27
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "A33"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 46.44871939999939
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "COLLISION",
+          "FALL",
+          "ERGONOMIC",
+          "FALLING_OBJECT",
+          "CUT",
+          "COLLAPSE"
+        ],
+        "hazardous_agents": [
+          "CHEMICAL",
+          "FIRE",
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0026",
+      "work_context": "EXCAVATION",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "D-C-11-2026",
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "D-C-3-2025"
+        ],
+        "guides_normalized": [
+          "DC11",
+          "AG18",
+          "BM9",
+          "DC10",
+          "DC3"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG3"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 38.603173500000594
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLAPSE",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0027",
+      "work_context": "EXCAVATION",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "D-C-11-2026",
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "G-29-2011",
+          "D-C-3-2025"
+        ],
+        "guides_normalized": [
+          "DC11",
+          "AG18",
+          "BM9",
+          "G29",
+          "DC3"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M6"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 47.070023899999796
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "COLLAPSE",
+          "CRUSH",
+          "COLLISION",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "DUST",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0028",
+      "work_context": "EXCAVATION",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "D-C-3-2025",
+          "B-M-17-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC10",
+          "DC3",
+          "BM17"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "DC8"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 38.707739200000105
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLAPSE",
+          "FALL",
+          "COLLISION",
+          "ERGONOMIC",
+          "FALLING_OBJECT",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE",
+          "MACHINE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0029",
+      "work_context": "EXCAVATION",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 10,
+        "ci": 858,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "D-C-3-2025",
+          "D-C-11-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC10",
+          "DC3",
+          "DC11"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C17",
+          "C66"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 32.80527709999933
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "COLLAPSE",
+          "FALLING_OBJECT",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0030",
+      "work_context": "EXCAVATION",
+      "source": "FACETED",
+      "ground_truth_size": {
+        "sr": 27,
+        "ci": 100,
+        "guide": 0
+      },
+      "recommended": {
+        "guides_raw": [
+          "D-C-11-2026",
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-3-2025",
+          "G-29-2011"
+        ],
+        "guides_normalized": [
+          "DC11",
+          "AG18",
+          "BM9",
+          "DC3",
+          "G29"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": []
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 30.099444200000107
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "COLLAPSE",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MACHINE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0031",
+      "work_context": "EXCAVATION",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 5,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "D-C-10-2026",
+          "D-C-3-2025",
+          "G-29-2011"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "DC10",
+          "DC3",
+          "G29"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C66"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 7,
+        "wc_match": true,
+        "latency_s": 36.63178400000015
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLAPSE",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "SLIP",
+          "ERGONOMIC",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0032",
+      "work_context": "EXCAVATION",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 2,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "D-C-3-2025",
+          "D-20-2017"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC10",
+          "DC3",
+          "D20"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "A74"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 32.16452720000052
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLAPSE",
+          "FALLING_OBJECT",
+          "CRUSH",
+          "SLIP",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "FIRE",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0033",
+      "work_context": "EXCAVATION",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 4,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "D-C-11-2026",
+          "D-C-3-2025"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "DC10",
+          "DC11",
+          "DC3"
+        ],
+        "srs": [],
+        "ci_count": 36
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "A16"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 27.947751999999127
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "COLLAPSE",
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC",
+          "SLIP"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "TOXIC",
+          "DUST"
+        ],
+        "work_contexts": [
+          "EXCAVATION",
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0034",
+      "work_context": "MACHINE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 3,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "C-71-2012",
+          "M-121-2012"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "BE3",
+          "C71",
+          "M121"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M177"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 29.712175099999513
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "COLLISION",
+          "CUT",
+          "SLIP",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0035",
+      "work_context": "MACHINE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 13,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-21-2026",
+          "B-E-3-2025",
+          "E-164-2017",
+          "E-170-2023",
+          "B-M-17-2026"
+        ],
+        "guides_normalized": [
+          "BE21",
+          "BE3",
+          "E164",
+          "E170",
+          "BM17"
+        ],
+        "srs": [],
+        "ci_count": 38
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM30"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 37.714378300000135
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "SLIP",
+          "COLLISION",
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0036",
+      "work_context": "MACHINE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 9,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "B-M-17-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "BM17"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M187"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 33.477375700000266
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "CUT",
+          "FALLING_OBJECT",
+          "SLIP",
+          "COLLISION",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0037",
+      "work_context": "MACHINE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 17,
+        "guide": 7
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "DC10",
+          "AG18",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM14",
+          "BM33",
+          "BM37",
+          "BM39",
+          "C78",
+          "E3",
+          "M187"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 34.53115869999965
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "CRUSH",
+          "COLLISION",
+          "SLIP",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0038",
+      "work_context": "MACHINE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 3,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 36
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM31",
+          "BM36"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 7,
+        "wc_match": true,
+        "latency_s": 31.769932100000005
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "SLIP",
+          "CUT",
+          "COLLISION",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0039",
+      "work_context": "MACHINE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 5,
+        "guide": 4
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-10-2026",
+          "E-164-2017",
+          "B-E-19-2026",
+          "B-E-21-2026",
+          "E-170-2023"
+        ],
+        "guides_normalized": [
+          "BE10",
+          "E164",
+          "BE19",
+          "BE21",
+          "E170"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM31",
+          "H204",
+          "M61",
+          "P161"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 35.492946099999244
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "DUST"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0040",
+      "work_context": "MACHINE",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 6,
+        "ci": 1467,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BE9",
+          "E188"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 24.24401140000009
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "SLIP",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "FIRE",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0041",
+      "work_context": "MACHINE",
+      "source": "FACETED",
+      "ground_truth_size": {
+        "sr": 8,
+        "ci": 36,
+        "guide": 0
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-C-16-2026",
+          "C-C-94-2026",
+          "H-111-2019"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "CC16",
+          "CC94",
+          "H111"
+        ],
+        "srs": [],
+        "ci_count": 26
+      },
+      "ground_truth_normalized": {
+        "guides": []
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 32.45545159999983
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CUT",
+          "FALLING_OBJECT",
+          "SLIP",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "CHEMICAL",
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0042",
+      "work_context": "MACHINE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 2,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "M-188-2015",
+          "C-71-2012",
+          "D-C-10-2026",
+          "M-128-2012",
+          "H-122-2013"
+        ],
+        "guides_normalized": [
+          "M188",
+          "C71",
+          "DC10",
+          "M128",
+          "H122"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "H204"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 22.807872400000633
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "CUT",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0043",
+      "work_context": "MACHINE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 7,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-21-2026",
+          "D-C-10-2026",
+          "E-13-2012",
+          "B-E-19-2026",
+          "G-126-2018"
+        ],
+        "guides_normalized": [
+          "BE21",
+          "DC10",
+          "E13",
+          "BE19",
+          "G126"
+        ],
+        "srs": [],
+        "ci_count": 25
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "E25"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 2,
+        "wc_match": true,
+        "latency_s": 31.29109199999948
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC",
+          "SLIP"
+        ],
+        "hazardous_agents": [
+          "CHEMICAL",
+          "FIRE",
+          "ARC_FLASH",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0044",
+      "work_context": "MACHINE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 2,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "H-111-2019",
+          "H-121-2013",
+          "A-G-18-2026",
+          "C-C-16-2026",
+          "C-C-94-2026"
+        ],
+        "guides_normalized": [
+          "H111",
+          "H121",
+          "AG18",
+          "CC16",
+          "CC94"
+        ],
+        "srs": [],
+        "ci_count": 24
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM25"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 26.885748500000773
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "SLIP",
+          "ERGONOMIC",
+          "CUT",
+          "COLLISION"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "CHEMICAL",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0045",
+      "work_context": "CRANE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 10,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "DC10",
+          "AG18",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M82"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 24.031490500000473
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "FALL",
+          "COLLISION",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "FIRE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0046",
+      "work_context": "CRANE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 10,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "DC10"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 1.0,
+        "guide_recall_10": 1.0,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.33333333333333337,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 40.61923079999997
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0047",
+      "work_context": "CRANE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 4,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "B-E-3-2025",
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "BE3",
+          "DC10",
+          "AG18",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M91"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 28.654418199999782
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0048",
+      "work_context": "CRANE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "B-E-3-2025",
+          "D-C-10-2026",
+          "C-71-2012",
+          "B-M-8-2025"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "BE3",
+          "DC10",
+          "C71",
+          "BM8"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 32.423011200000474
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "FIRE"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0049",
+      "work_context": "CRANE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 2,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026",
+          "B-M-8-2025"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10",
+          "BM8"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M89"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 32.72794239999985
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "COLLISION",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0050",
+      "work_context": "CRANE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 2,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026",
+          "C-85-2013"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10",
+          "C85"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C85"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 1.0,
+        "guide_recall_10": 1.0,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.33333333333333337,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 33.41714030000003
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0051",
+      "work_context": "CRANE",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 10,
+        "ci": 747,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "DC10",
+          "M155"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.5,
+        "guide_recall_10": 0.5,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.28571428571428575,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 22.361036100000092
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0052",
+      "work_context": "CRANE",
+      "source": "FACETED",
+      "ground_truth_size": {
+        "sr": 10,
+        "ci": 8,
+        "guide": 0
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "C-71-2012",
+          "B-M-17-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "DC10",
+          "C71",
+          "BM17"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": []
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 32.34857309999916
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0053",
+      "work_context": "CRANE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 15,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "B-E-3-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "BE3",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C85"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 8,
+        "wc_match": true,
+        "latency_s": 40.62010910000026
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "CRUSH",
+          "COLLISION",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "FIRE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0054",
+      "work_context": "CRANE",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 10,
+        "ci": 747,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026",
+          "G-9-2013"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10",
+          "G9"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C48",
+          "DC10"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.5,
+        "guide_recall_10": 0.5,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.28571428571428575,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 41.840559700000085
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0055",
+      "work_context": "CRANE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 6,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "C-71-2012",
+          "B-M-17-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "DC10",
+          "C71",
+          "BM17"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "E16"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 35.26743400000032
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "SLIP",
+          "COLLISION",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "ELECTRICITY",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0056",
+      "work_context": "CONVEYOR",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 2,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "C-82-2020",
+          "A-G-13-2026"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "C71",
+          "C82",
+          "AG13"
+        ],
+        "srs": [],
+        "ci_count": 37
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 27.51179880000018
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "SLIP",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "CONVEYOR",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0057",
+      "work_context": "CONVEYOR",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 2,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-32-2026",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BM32",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM33"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 23.599354899999526
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "SLIP",
+          "FALLING_OBJECT"
+        ],
+        "hazardous_agents": [
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "CONVEYOR",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0058",
+      "work_context": "CONVEYOR",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 38
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM33"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 27.32286920000024
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "CUT",
+          "FALLING_OBJECT",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "DUST"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "CONVEYOR",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0059",
+      "work_context": "CONVEYOR",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026",
+          "B-M-33-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10",
+          "BM33"
+        ],
+        "srs": [],
+        "ci_count": 36
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM33"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 1.0,
+        "guide_recall_10": 1.0,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.33333333333333337,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 25.364448500000435
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "FALLING_OBJECT",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "CONVEYOR",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0060",
+      "work_context": "CONVEYOR",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 5,
+        "guide": 4
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "B-M-33-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71",
+          "BM33"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM16",
+          "BM31",
+          "BM33",
+          "M7"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.25,
+        "guide_recall_10": 0.25,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.22222222222222224,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 22.759236099999725
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "FALLING_OBJECT",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "CONVEYOR",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0061",
+      "work_context": "CONVEYOR",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 2,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-21-2026",
+          "E-164-2017",
+          "E-170-2023",
+          "A-G-18-2026",
+          "B-M-17-2026"
+        ],
+        "guides_normalized": [
+          "BE21",
+          "E164",
+          "E170",
+          "AG18",
+          "BM17"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM33"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 20.766840199999933
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "SLIP",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CONVEYOR",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0062",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 6,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 42
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BE11"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": false,
+        "latency_s": 33.32687810000061
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "SLIP",
+          "FALLING_OBJECT",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ARC_FLASH",
+          "NOISE",
+          "DUST"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE",
+          "STEELWORK"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0063",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 8,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "DC10",
+          "AG18",
+          "BE3",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "G20"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": false,
+        "latency_s": 30.06177740000021
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "ERGONOMIC",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0064",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 3,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M166"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": false,
+        "latency_s": 21.022629099999904
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "CRUSH",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0065",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 26,
+        "guide": 16
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "G-111-2014"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "G111"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM22",
+          "BM33",
+          "BM7",
+          "C05",
+          "C114",
+          "C71",
+          "C75",
+          "C82",
+          "C93",
+          "DC10",
+          "DC11",
+          "DC2",
+          "G131",
+          "M171",
+          "X36",
+          "X65"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.125,
+        "guide_recall_10": 0.125,
+        "guide_precision_5": 0.4,
+        "guide_f1": 0.19047619047619047,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 2,
+        "wc_match": false,
+        "latency_s": 28.442090200000166
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0066",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 42,
+        "guide": 4
+      },
+      "recommended": {
+        "guides_raw": [
+          "D-C-10-2026",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "DC10",
+          "BM9",
+          "AG18",
+          "BE3",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM9",
+          "C85",
+          "G91",
+          "M166"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.25,
+        "guide_recall_10": 0.25,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.22222222222222224,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": false,
+        "latency_s": 50.41419719999976
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "FALL",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0067",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 3,
+        "guide": 3
+      },
+      "recommended": {
+        "guides_raw": [
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "DC10",
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM9",
+          "C114",
+          "C85"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.3333333333333333,
+        "guide_recall_10": 0.3333333333333333,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.25,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": false,
+        "latency_s": 42.76971910000066
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0068",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 7,
+        "ci": 910,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "C-82-2020",
+          "P-49-2012"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "C71",
+          "C82",
+          "P49"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BE10",
+          "BE11"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": false,
+        "latency_s": 36.17253549999987
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "CRUSH",
+          "COLLISION",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "DUST"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0069",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "FACETED",
+      "ground_truth_size": {
+        "sr": 10,
+        "ci": 95,
+        "guide": 0
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "C-71-2012",
+          "C-82-2020"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "DC10",
+          "AG18",
+          "C71",
+          "C82"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": []
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": false,
+        "latency_s": 36.27634109999963
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE",
+          "SCAFFOLD"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0070",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 80,
+        "guide": 5
+      },
+      "recommended": {
+        "guides_raw": [
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "DC10",
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BE16",
+          "C71",
+          "DC10",
+          "DC11",
+          "DC2"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.4,
+        "guide_recall_10": 0.4,
+        "guide_precision_5": 0.4,
+        "guide_f1": 0.4000000000000001,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": false,
+        "latency_s": 37.51443629999994
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "FALL",
+          "CRUSH",
+          "COLLISION",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE",
+          "VEHICLE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0071",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 5,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "D-C-11-2026",
+          "D-C-3-2025",
+          "C-26-2017",
+          "C-27-2011"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "DC11",
+          "DC3",
+          "C26",
+          "C27"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "G91"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": false,
+        "latency_s": 36.95347660000061
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "FALLING_OBJECT",
+          "SLIP",
+          "CRUSH",
+          "COLLAPSE"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "VEHICLE",
+          "EXCAVATION",
+          "CRANE",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0072",
+      "work_context": "CONSTRUCTION_EQUIP",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 4,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "C-71-2012",
+          "C-82-2020",
+          "B-M-9-2025",
+          "B-M-17-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "C71",
+          "C82",
+          "BM9",
+          "BM17"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M171"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": false,
+        "latency_s": 28.34123610000006
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "FALL",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING",
+          "VEHICLE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0073",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 2,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026",
+          "B-M-17-2026"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "C71",
+          "C82",
+          "DC10",
+          "BM17"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "G10"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 29.69693509999979
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "SLIP"
+        ],
+        "hazardous_agents": [
+          "NOISE"
+        ],
+        "work_contexts": [
+          "VEHICLE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0074",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 9,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "C-71-2012"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "DC10",
+          "AG18",
+          "C71"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "G126"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 41.889068399999815
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "SLIP",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD",
+          "FIRE",
+          "ELECTRICITY"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0075",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 13,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "E80"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 36.87085449999995
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "CRUSH",
+          "COLLISION",
+          "ERGONOMIC",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0076",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 15,
+        "guide": 7
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG18",
+          "C2",
+          "C21",
+          "C82",
+          "C89",
+          "C93",
+          "G116"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.2857142857142857,
+        "guide_recall_10": 0.2857142857142857,
+        "guide_precision_5": 0.4,
+        "guide_f1": 0.3333333333333333,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 33.934629100000166
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "ERGONOMIC",
+          "FALLING_OBJECT",
+          "COLLISION"
+        ],
+        "hazardous_agents": [
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0077",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG18"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 1.0,
+        "guide_recall_10": 1.0,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.33333333333333337,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 26.324267199999667
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "VEHICLE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0078",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 110,
+        "guide": 29
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "BE3",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG17",
+          "AG18",
+          "AG9",
+          "BM32",
+          "BM35",
+          "BM7",
+          "BM8",
+          "C114",
+          "C2",
+          "C21",
+          "C36",
+          "C56",
+          "C64",
+          "C68",
+          "C71",
+          "C80",
+          "C82",
+          "C84",
+          "C85",
+          "DC11",
+          "DC3",
+          "G116",
+          "G126",
+          "G20",
+          "G82",
+          "G88",
+          "M153",
+          "P160",
+          "X66"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.06896551724137931,
+        "guide_recall_10": 0.06896551724137931,
+        "guide_precision_5": 0.4,
+        "guide_f1": 0.1176470588235294,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 44.26159910000024
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "SLIP",
+          "CRUSH",
+          "COLLISION",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0079",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 5,
+        "ci": 1603,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "D-C-10-2026",
+          "A-G-18-2026",
+          "C-71-2012",
+          "C-82-2020"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "DC10",
+          "AG18",
+          "C71",
+          "C82"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "D27",
+          "D42"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 37.17330510000011
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "CRUSH",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "CRANE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0080",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "FACETED",
+      "ground_truth_size": {
+        "sr": 4,
+        "ci": 55,
+        "guide": 0
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": []
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 38.47663069999999
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "SLIP",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MATERIAL_HANDLING",
+          "VEHICLE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0081",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "AG18",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG18"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 1.0,
+        "guide_recall_10": 1.0,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.33333333333333337,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 30.54882540000017
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "FALLING_OBJECT",
+          "SLIP",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "NOISE"
+        ],
+        "work_contexts": [
+          "VEHICLE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0082",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 3,
+        "ci": 349,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026",
+          "P-49-2012"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10",
+          "P49"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BE22",
+          "E94"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 56.13496419999956
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "FALLING_OBJECT",
+          "ERGONOMIC",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "VEHICLE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0083",
+      "work_context": "MATERIAL_HANDLING",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 9,
+        "guide": 7
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026",
+          "M-1-2013"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "C71",
+          "C82",
+          "DC10",
+          "M1"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG18",
+          "BE22",
+          "E3",
+          "M168",
+          "M25",
+          "P131",
+          "P62"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 40.478541499999665
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "FALLING_OBJECT",
+          "CRUSH",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "NOISE"
+        ],
+        "work_contexts": [
+          "VEHICLE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0084",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 4,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-19-2026",
+          "B-E-21-2026",
+          "D-C-10-2026",
+          "G-126-2018",
+          "P-139-2013"
+        ],
+        "guides_normalized": [
+          "BE19",
+          "BE21",
+          "DC10",
+          "G126",
+          "P139"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "P22"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 58.55143270000008
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CUT",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "ARC_FLASH",
+          "FIRE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0085",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 5,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "H178"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 60.82870889999958
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "TOXIC",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0086",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 4,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M103"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": true,
+        "latency_s": 33.17675949999921
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALLING_OBJECT",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "TOXIC",
+          "CORROSION",
+          "FIRE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0087",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 4,
+        "guide": 4
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "A-G-18-2026",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "BE3",
+          "BM9",
+          "AG18",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "CC34",
+          "EG1",
+          "F2",
+          "G10"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": true,
+        "latency_s": 28.661991599999965
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "CUT",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD",
+          "FIRE"
+        ],
+        "work_contexts": [
+          "SCAFFOLD",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0088",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 1,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "C93"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 31.056835899999896
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "FALLING_OBJECT",
+          "SLIP",
+          "COLLISION",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0089",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 2,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "C-C-16-2026",
+          "C-C-94-2026",
+          "H-111-2019",
+          "H-121-2013"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "CC16",
+          "CC94",
+          "H111",
+          "H121"
+        ],
+        "srs": [],
+        "ci_count": 25
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "H178",
+          "H221"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 8,
+        "wc_match": true,
+        "latency_s": 32.95992449999994
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "SLIP",
+          "FALLING_OBJECT",
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC",
+          "COLLISION"
+        ],
+        "hazardous_agents": [
+          "CHEMICAL",
+          "FIRE",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0090",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "GUIDE_INTERLINK",
+      "ground_truth_size": {
+        "sr": 6,
+        "ci": 331,
+        "guide": 2
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-32-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM32",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 36
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "G87",
+          "H176"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 39.22367669999949
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CUT",
+          "FALLING_OBJECT",
+          "ERGONOMIC",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "TOXIC",
+          "CORROSION"
+        ],
+        "work_contexts": [
+          "GENERAL_WORKPLACE",
+          "MACHINE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0091",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 2,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-10-2026",
+          "B-E-19-2026",
+          "B-E-21-2026",
+          "E-164-2017",
+          "E-170-2023"
+        ],
+        "guides_normalized": [
+          "BE10",
+          "BE19",
+          "BE21",
+          "E164",
+          "E170"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "CC31"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 28.912436600000547
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "FIRE",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "GENERAL_WORKPLACE",
+          "MACHINE",
+          "SCAFFOLD"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0092",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 6,
+        "guide": 6
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-10-2026",
+          "B-E-19-2026",
+          "B-E-21-2026",
+          "E-164-2017",
+          "E-170-2023"
+        ],
+        "guides_normalized": [
+          "BE10",
+          "BE19",
+          "BE21",
+          "E164",
+          "E170"
+        ],
+        "srs": [],
+        "ci_count": 39
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM16",
+          "CC32",
+          "M187",
+          "P22",
+          "P30",
+          "P43"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 35.19213800000034
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "CUT",
+          "ERGONOMIC",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "ELECTRICITY",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0093",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 5,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 36
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "P3"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 3,
+        "wc_match": true,
+        "latency_s": 38.80682979999983
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CUT",
+          "CRUSH",
+          "ERGONOMIC",
+          "FALLING_OBJECT",
+          "COLLISION",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "ARC_FLASH",
+          "NOISE",
+          "DUST",
+          "TOXIC"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0094",
+      "work_context": "GENERAL_WORKPLACE",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 7,
+        "guide": 7
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-32-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM32",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 34
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "AG18",
+          "BM29",
+          "C93",
+          "CC31",
+          "CC32",
+          "DC7",
+          "P161"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.14285714285714285,
+        "guide_recall_10": 0.14285714285714285,
+        "guide_precision_5": 0.2,
+        "guide_f1": 0.16666666666666666,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 5,
+        "wc_match": true,
+        "latency_s": 26.6248029999997
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "FALL",
+          "FALLING_OBJECT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0095",
+      "work_context": "ETC",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 113,
+        "guide": 23
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-E-21-2026",
+          "B-E-19-2026",
+          "D-C-10-2026",
+          "G-126-2018",
+          "P-139-2013"
+        ],
+        "guides_normalized": [
+          "BE21",
+          "BE19",
+          "DC10",
+          "G126",
+          "P139"
+        ],
+        "srs": [],
+        "ci_count": 35
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BE4",
+          "BE6",
+          "BM38",
+          "C108",
+          "C93",
+          "E163",
+          "E164",
+          "E170",
+          "E2",
+          "E20",
+          "E25",
+          "E31",
+          "E4",
+          "E41",
+          "E44",
+          "E57",
+          "E66",
+          "E77",
+          "E80",
+          "G55",
+          "G89",
+          "M183",
+          "X44"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": false,
+        "latency_s": 31.75352589999966
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "ERGONOMIC",
+          "CRUSH"
+        ],
+        "hazardous_agents": [
+          "ARC_FLASH",
+          "FIRE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0096",
+      "work_context": "ETC",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 7,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 41
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "CC19"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": false,
+        "latency_s": 39.76961029999984
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "COLLISION",
+          "CRUSH",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "TOXIC",
+          "CORROSION",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0097",
+      "work_context": "ETC",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 4,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-82-2020",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "C71",
+          "C82",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "BM26"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 4,
+        "wc_match": false,
+        "latency_s": 35.49392540000008
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "FALLING_OBJECT",
+          "CUT",
+          "ERGONOMIC",
+          "FALL"
+        ],
+        "hazardous_agents": [
+          "DUST",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0098",
+      "work_context": "ETC",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 2,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-M-9-2025",
+          "C-C-16-2026",
+          "C-C-94-2026",
+          "H-111-2019"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BM9",
+          "CC16",
+          "CC94",
+          "H111"
+        ],
+        "srs": [],
+        "ci_count": 25
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M113"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 7,
+        "wc_match": false,
+        "latency_s": 50.669249800000216
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "CUT",
+          "FALLING_OBJECT",
+          "SLIP",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "FIRE",
+          "CHEMICAL",
+          "HEAT_COLD",
+          "NOISE"
+        ],
+        "work_contexts": [
+          "MATERIAL_HANDLING",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0099",
+      "work_context": "ETC",
+      "source": "SR_REGISTRY",
+      "ground_truth_size": {
+        "sr": 1,
+        "ci": 4,
+        "guide": 3
+      },
+      "recommended": {
+        "guides_raw": [
+          "A-G-18-2026",
+          "B-E-3-2025",
+          "B-M-9-2025",
+          "C-71-2012",
+          "D-C-10-2026"
+        ],
+        "guides_normalized": [
+          "AG18",
+          "BE3",
+          "BM9",
+          "C71",
+          "DC10"
+        ],
+        "srs": [],
+        "ci_count": 36
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "H109",
+          "H70",
+          "P32"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 6,
+        "wc_match": false,
+        "latency_s": 41.09392019999996
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "SLIP",
+          "FALLING_OBJECT",
+          "CUT",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "TOXIC",
+          "CORROSION",
+          "FIRE",
+          "NOISE",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "GENERAL_WORKPLACE",
+          "MATERIAL_HANDLING",
+          "PRESSURE_VESSEL"
+        ]
+      }
+    },
+    {
+      "scenario_id": "SC-0100",
+      "work_context": "ETC",
+      "source": "PA11",
+      "ground_truth_size": {
+        "sr": 2,
+        "ci": 0,
+        "guide": 1
+      },
+      "recommended": {
+        "guides_raw": [
+          "B-M-9-2025",
+          "C-71-2012",
+          "C-85-2013",
+          "D-C-10-2026",
+          "M-166-2013"
+        ],
+        "guides_normalized": [
+          "BM9",
+          "C71",
+          "C85",
+          "DC10",
+          "M166"
+        ],
+        "srs": [],
+        "ci_count": 40
+      },
+      "ground_truth_normalized": {
+        "guides": [
+          "M181"
+        ]
+      },
+      "metrics": {
+        "guide_recall_5": 0.0,
+        "guide_recall_10": 0.0,
+        "guide_precision_5": 0.0,
+        "guide_f1": 0.0,
+        "sr_recall_5": 0.0,
+        "sr_recall_10": 0.0,
+        "forced_fit": true,
+        "forced_fit_count": 7,
+        "wc_match": false,
+        "latency_s": 40.41618509999989
+      },
+      "canonical_hazards": {
+        "accident_types": [
+          "CRUSH",
+          "SLIP",
+          "COLLISION",
+          "ERGONOMIC"
+        ],
+        "hazardous_agents": [
+          "NOISE",
+          "DUST",
+          "HEAT_COLD"
+        ],
+        "work_contexts": [
+          "MACHINE",
+          "GENERAL_WORKPLACE"
+        ]
+      }
+    }
+  ]
+}
