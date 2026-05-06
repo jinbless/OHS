@@ -95,9 +95,9 @@ WORK_CONTEXT_CODE_TO_URI: dict[str, str] = {
 # Namespace prefixes (mirror sparql_queries.PREFIXES)
 # ────────────────────────────────────────────────────────────────────────
 NAMESPACES = {
-    "hazard":  "https://cashtoss.info/ontology/hazard#",
-    "agent":   "https://cashtoss.info/ontology/agent#",
-    "context": "https://cashtoss.info/ontology/context#",
+    "hazard":  "https://cashtoss.info/ontology/risk/hazard#",
+    "agent":   "https://cashtoss.info/ontology/risk/agent#",
+    "context": "https://cashtoss.info/ontology/risk/context#",
 }
 
 

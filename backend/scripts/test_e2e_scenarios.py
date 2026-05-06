@@ -107,7 +107,7 @@ def run_scenario(scenario: dict, db) -> dict:
     normalized = normalize_faceted_hazards(scenario["gpt_faceted"], desc)
 
     # 2. Rule Engine
-    canonical = apply_rules(normalized, db)
+    canonical = apply_rules(normalized, db, allow_context_only_inference=False)
 
     # 3. SR 조회
     srs = query_sr_for_facets(

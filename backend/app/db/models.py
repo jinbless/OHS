@@ -81,6 +81,7 @@ class PgSafetyRequirement(Base):
     binding_force = Column(String(15), nullable=False)
     addresses_hazard = Column(JSONB)
     has_sanction = Column(JSONB)
+    applicable_industry = Column(JSONB)
     accident_types = Column(JSONB)
     hazardous_agents = Column(JSONB)
     work_contexts = Column(JSONB)
@@ -100,27 +101,6 @@ class PgArticle(Base):
     section = Column(Text)
     paragraph_count = Column(Integer, nullable=False, default=0)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-
-class PgPenaltyRoute(Base):
-    """penalty_routes — composite PK: (law_type, article_code)"""
-    __tablename__ = "penalty_routes"
-    __table_args__ = {"extend_existing": True}
-
-    law_type = Column(String(10), primary_key=True)
-    article_code = Column(String(20), primary_key=True)
-    title = Column(Text, nullable=False)
-    has_penalty = Column(Boolean, nullable=False, default=False)
-    has_administrative_fine = Column(Boolean, nullable=False, default=False)
-    criminal_employer_law = Column(Text)
-    criminal_employer_penalty = Column(Text)
-    criminal_death_law = Column(Text)
-    criminal_death_penalty = Column(Text)
-    criminal_serious_law = Column(Text)
-    criminal_serious_death = Column(Text)
-    criminal_serious_injury = Column(Text)
-    admin_law = Column(Text)
-    admin_max_fine = Column(Text)
 
 
 class PgCiSrMapping(Base):

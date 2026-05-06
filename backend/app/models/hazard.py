@@ -61,6 +61,37 @@ class PenaltyInfo(BaseModel):
     admin_max_fine: Optional[str] = None
 
 
+class PenaltyCandidate(BaseModel):
+    """Condition-aware penalty candidate from pen:PenaltyRule."""
+    penalty_rule_id: str
+    exposure_type: str  # direct_candidate | conditional
+    condition_label: str
+    subject_role: Optional[str] = None
+    accident_outcome: Optional[str] = None
+    violated_norm_id: Optional[str] = None
+    violated_article_id: Optional[str] = None
+    delegated_from_article_id: Optional[str] = None
+    penalty_article_id: Optional[str] = None
+    sanction_type: Optional[str] = None
+    penalty_description: Optional[str] = None
+    severity_score: Optional[int] = None
+    basis_text: Optional[str] = None
+    source_sr_id: Optional[str] = None
+
+
+class PenaltyPath(BaseModel):
+    """Business-facing penalty notice grouped into coarse outcome paths."""
+    path_type: str  # general_incident | death | serious_accident
+    title: str
+    notice_level: str  # photo_based | external_fact_required | conditional
+    summary: str
+    penalty_rule_ids: List[str] = []
+    penalty_descriptions: List[str] = []
+    article_refs: List[dict] = []
+    max_severity_score: Optional[int] = None
+    source_sr_ids: List[str] = []
+
+
 class Hazard(BaseModel):
     id: str
     category: HazardCategory

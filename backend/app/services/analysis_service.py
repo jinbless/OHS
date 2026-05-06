@@ -17,11 +17,20 @@ from app.services.search_enhancer import (
     rewrite_queries_batch,
     rerank_results,
 )
-from app.models.analysis import AnalysisResponse, NormContext, LinkedGuideSummary, SparqlEnrichmentSummary, RecommendedSR
+from app.models.analysis import (
+    ActionRecommendation,
+    AnalysisResponse,
+    IndustryContextSummary,
+    LinkedGuideSummary,
+    NormContext,
+    RecommendedSR,
+    SparqlEnrichmentSummary,
+)
 from app.models.guide import GuideMatch, GuideArticleRef
 from app.models.hazard import (
     Hazard, RiskLevel, HazardCategory, NormSummary,
     FacetedHazardCodes, GptFreeObservation, CodeGapWarning, PenaltyInfo,
+    PenaltyCandidate, PenaltyPath,
 )
 from app.models.checklist import Checklist, ChecklistItem
 from app.db import crud
@@ -30,6 +39,7 @@ from app.services.hazard_normalizer import normalize_faceted_hazards
 from app.services import hazard_rule_engine
 from app.services.divergence_detector import detect_divergence, save_gaps_to_db
 from app.services import she_matcher  # Phase 3 Layer 0 (feature-flagged)
+from app.services.industry_context import infer_industry_context
 
 logger = logging.getLogger(__name__)
 
@@ -117,7 +127,8 @@ class AnalysisService:
             db=db,
             result=result,
             analysis_type="image",
-            input_preview=filename
+            input_preview=filename,
+            declared_industry_text=workplace_type,
         )
 
     async def analyze_text(
@@ -145,7 +156,8 @@ class AnalysisService:
             result=result,
             analysis_type="text",
             input_preview=input_preview,
-            full_description=description
+            full_description=description,
+            declared_industry_text=industry_sector or workplace_type,
         )
 
     # category_code → HazardCategory 매핑
@@ -188,13 +200,155 @@ class AnalysisService:
                 return severity_priority[sev]
         return "medium"
 
+    def _derive_finding_status(
+        self,
+        she_matches: list,
+        code_gap_warnings: list,
+        canonical_hazards: Optional[FacetedHazardCodes],
+        sr_ids: list[str],
+        observable_violation_signal: bool = True,
+    ) -> str:
+        """Return a conservative app:FindingStatus code for the API."""
+        if code_gap_warnings:
+            return "needs_clarification"
+        actionable_she = [
+            match for match in she_matches
+            if observable_violation_signal
+            and getattr(match, "match_status", "confirmed") in she_matcher.ACTIONABLE_MATCH_STATUSES
+        ]
+        if not observable_violation_signal and not actionable_she:
+            return "not_determined"
+        confirmed_she = [
+            match for match in actionable_she
+            if getattr(match, "match_status", "confirmed") == "confirmed"
+        ]
+        if confirmed_she and sr_ids:
+            return "suspected"
+        if actionable_she and sr_ids:
+            return "needs_clarification"
+        if canonical_hazards and sr_ids:
+            return "suspected"
+        return "not_determined"
+
+    def _derive_penalty_exposure_status(
+        self,
+        penalty_candidates: list[PenaltyCandidate],
+        penalties: list[PenaltyInfo],
+        finding_status: str,
+    ) -> str:
+        """Penalty exposure shown to users should stay conditional by default."""
+        if not penalty_candidates and not penalties:
+            return "no_penalty"
+        if finding_status == "confirmed" and any(
+            item.exposure_type == "direct_candidate" for item in penalty_candidates
+        ):
+            return "direct"
+        return "conditional"
+
+    def _build_action_recommendations(
+        self,
+        recommended_srs_list: list[dict],
+        sr_results: list[dict],
+        sr_linked_guides: list[dict],
+        related_guides: list[GuideMatch],
+        faceted_ci_data: list[dict],
+        max_items: int = 8,
+    ) -> list[ActionRecommendation]:
+        """Build guide/SR-centered recommendations for the response."""
+        sr_title_map = {
+            sr.get("identifier"): sr.get("title")
+            for sr in sr_results
+            if sr.get("identifier")
+        }
+
+        guide_candidates: list[dict] = []
+        guide_candidates.extend(g for g in sr_linked_guides if g.get("guide_code"))
+        guide_candidates.extend({
+            "guide_code": guide.guide_code,
+            "title": guide.title,
+            "relevance_score": guide.relevance_score,
+        } for guide in related_guides)
+
+        unique_guides = []
+        seen_guides = set()
+        for guide in guide_candidates:
+            code = guide.get("guide_code")
+            if code and code not in seen_guides:
+                seen_guides.add(code)
+                unique_guides.append(guide)
+
+        ci_candidates = [
+            ci for ci in faceted_ci_data
+            if ci.get("identifier") or ci.get("text")
+        ]
+
+        source_reason = {
+            "she_derived": "SHE 위험상황 패턴에서 직접 연결된 안전요구사항입니다.",
+            "primary": "사진 관찰 특징과 정규화 코드로 검색된 안전요구사항입니다.",
+            "coApplicable": "SPARQL 보강으로 함께 검토할 필요가 있는 안전요구사항입니다.",
+            "embedding": "의미 검색으로 보강된 안전요구사항입니다.",
+            "rerank": "후보 재정렬 과정에서 상위로 선택된 안전요구사항입니다.",
+        }
+
+        recommendations: list[ActionRecommendation] = []
+        seen_srs = set()
+        for rec in recommended_srs_list:
+            sr_id = rec.get("identifier")
+            if not sr_id or sr_id in seen_srs:
+                continue
+            seen_srs.add(sr_id)
+
+            guide = unique_guides[0] if unique_guides else {}
+            ci = ci_candidates[len(recommendations)] if len(ci_candidates) > len(recommendations) else {}
+            source = rec.get("source", "candidate")
+            recommendations.append(ActionRecommendation(
+                rank=len(recommendations) + 1,
+                source=source,
+                match_reason=source_reason.get(source, "후보 지식 연결을 통해 추천된 안전요구사항입니다."),
+                requirement_id=sr_id,
+                requirement_title=rec.get("title") or sr_title_map.get(sr_id),
+                guide_code=guide.get("guide_code"),
+                guide_title=guide.get("title"),
+                checklist_id=ci.get("identifier"),
+                checklist_text=ci.get("text"),
+                confidence=float(rec.get("confidence", 1.0) or 1.0),
+                display_group="immediate_action" if ci else "legal_basis",
+                urgency="immediate" if ci else "reference",
+            ))
+            if len(recommendations) >= max_items:
+                return recommendations
+
+        if not recommendations and unique_guides:
+            for guide in unique_guides[:max_items]:
+                recommendations.append(ActionRecommendation(
+                    rank=len(recommendations) + 1,
+                    source="guide_candidate",
+                    match_reason="안전요구사항 직접 매칭은 약하지만 사진 설명과 관련된 KOSHA 가이드 후보입니다.",
+                    guide_code=guide.get("guide_code"),
+                    guide_title=guide.get("title"),
+                    confidence=float(guide.get("relevance_score", 0.7) or 0.7),
+                    display_group="standard_procedure",
+                    urgency="planned",
+                ))
+
+        return recommendations
+
+    def _format_recommendation_line(self, rec: ActionRecommendation) -> str:
+        title = rec.requirement_title or rec.guide_title or rec.checklist_text
+        if rec.requirement_id and title:
+            return f"{rec.requirement_id}: {title}"
+        if rec.guide_code and rec.guide_title:
+            return f"{rec.guide_code}: {rec.guide_title}"
+        return title or rec.match_reason
+
     async def _create_response(
         self,
         db: Session,
         result: dict,
         analysis_type: str,
         input_preview: str,
-        full_description: str = None
+        full_description: str = None,
+        declared_industry_text: str | None = None,
     ) -> AnalysisResponse:
         """GPT 분석 결과를 응답 형식으로 변환하고 DB에 저장
 
@@ -215,8 +369,22 @@ class AnalysisService:
         canonical_hazards = None
         code_gap_warnings = []
         penalties_list = []
+        penalty_candidates_list = []
+        penalty_paths_list = []
         faceted_ci_data = []
         recommended_srs_list = []  # Phase 0.5: scope outside try block
+        she_matches = []
+        she_sr_ids = set()
+        direct_she_sr_ids = set()
+        sr_results = []
+        sr_ids = []
+        sr_linked_guides = []
+        penalty_data = []
+        penalty_candidate_data = []
+        penalty_path_data = []
+        divergences = []
+        observable_violation_signal = True
+        industry_context_data = None
 
         try:
             # Track A: 자유 분류 수집
@@ -234,9 +402,21 @@ class AnalysisService:
             context_text = " ".join(
                 fh.get("description", "") for fh in result.get("free_hazards", [])
             ) + " " + (full_description or input_preview or "")
+            visual_cues = []
+            for fh in result.get("free_hazards", []):
+                if fh.get("visual_evidence"):
+                    visual_cues.append(fh.get("visual_evidence"))
+                if fh.get("description"):
+                    visual_cues.append(fh.get("description"))
+            if full_description or input_preview:
+                visual_cues.append(full_description or input_preview)
 
             normalized = normalize_faceted_hazards(gpt_faceted, context_text)
-            canonical = hazard_rule_engine.apply_rules(normalized, db)
+            canonical = hazard_rule_engine.apply_rules(
+                normalized,
+                db,
+                allow_context_only_inference=False,
+            )
 
             canonical_hazards = FacetedHazardCodes(
                 accident_types=canonical["accident_types"],
@@ -249,6 +429,30 @@ class AnalysisService:
             logger.warning(
                 f"[Phase3] Canonical: AT={canonical['accident_types']}, "
                 f"AG={canonical['hazardous_agents']}, WC={canonical['work_contexts']}"
+            )
+            industry_context = infer_industry_context(
+                work_contexts=canonical["work_contexts"],
+                text=context_text,
+                declared=declared_industry_text,
+            )
+            industry_context_data = industry_context.to_dict()
+            logger.warning(
+                f"[Industry] primary={industry_context.primary_industry}, "
+                f"active={industry_context.active_industries}, "
+                f"needs_confirmation={industry_context.needs_confirmation}"
+            )
+            high_severity_observation = any(
+                fh.get("severity") == "HIGH" and float(fh.get("confidence", 0) or 0) >= 0.7
+                for fh in result.get("free_hazards", [])
+            )
+            observable_violation_signal = she_matcher.has_observable_violation_signal(
+                accident_types=normalized.get("accident_types", []),
+                hazardous_agents=normalized.get("hazardous_agents", []),
+                work_contexts=normalized.get("work_contexts", []),
+                ppe_states=normalized.get("ppe_states", []),
+                environmental=normalized.get("environmental", []),
+                high_severity_observation=high_severity_observation,
+                visual_cues=[context_text],
             )
 
             # Divergence detection
@@ -282,6 +486,9 @@ class AnalysisService:
                     accident_types=canonical["accident_types"],
                     hazardous_agents=canonical["hazardous_agents"],
                     work_contexts=canonical["work_contexts"],
+                    visual_cues=visual_cues,
+                    industry_contexts=industry_context.active_industries,
+                    min_agent_only_visual_score=0.15,
                     work_activity=None,  # Phase 3 Track 4 (DUAL_TRACK_SCHEMA 8축 추가) 후에 채울 예정
                     top_n=3,
                     min_matched_dims=2,
@@ -289,32 +496,50 @@ class AnalysisService:
                 if she_matches:
                     logger.warning(
                         f"[Layer0/SHE] {len(she_matches)} matches: "
-                        f"{[(m.she_id, round(m.match_score, 2), m.applies_sr_ids[:3]) for m in she_matches]}"
+                        f"{[(m.she_id, m.match_status, round(m.match_score, 2), m.applies_sr_ids[:3]) for m in she_matches]}"
                     )
             except Exception as e:
                 logger.warning(f"[Layer0/SHE] match failed (graceful skip): {e}")
 
             # SHE-derived SR을 recommended_srs에 누적 (Layer 0)
             she_sr_ids: set[str] = set()
+            direct_she_sr_ids: set[str] = set()
+            actionable_she_matches = [
+                m for m in she_matches
+                if observable_violation_signal
+                and m.match_status in she_matcher.ACTIONABLE_MATCH_STATUSES
+            ]
             for m in she_matches:
-                for sr_id in m.applies_sr_ids:
-                    if sr_id not in she_sr_ids:
-                        she_sr_ids.add(sr_id)
-                        recommended_srs_list.append({
-                            "identifier": sr_id,
-                            "source": "she_derived",
-                            "layer": 0,
-                            "confidence": m.match_score,
-                            "title": None,
-                        })
+                if she_matcher.is_direct_penalty_match(m):
+                    direct_she_sr_ids.update(m.applies_sr_ids)
+
+            if actionable_she_matches:
+                for m in actionable_she_matches:
+                    for sr_id in m.applies_sr_ids:
+                        if sr_id not in she_sr_ids:
+                            she_sr_ids.add(sr_id)
+                            recommended_srs_list.append({
+                                "identifier": sr_id,
+                                "source": "she_derived",
+                                "layer": 0,
+                                "confidence": m.match_score,
+                                "title": None,
+                            })
+            elif she_matches:
+                logger.warning(
+                    "[Layer0/SHE] candidates kept as context only: no observable violation signal"
+                )
 
             # Faceted SR → CI → Penalty 조회
-            sr_results = hazard_rule_engine.query_sr_for_facets(
-                db,
-                canonical["accident_types"],
-                canonical["hazardous_agents"],
-                canonical["work_contexts"],
-            )
+            sr_results = []
+            if actionable_she_matches or observable_violation_signal:
+                sr_results = hazard_rule_engine.query_sr_for_facets(
+                    db,
+                    canonical["accident_types"],
+                    canonical["hazardous_agents"],
+                    canonical["work_contexts"],
+                    industry_contexts=industry_context.active_industries,
+                )
             sr_ids = [sr["identifier"] for sr in sr_results]
             # SHE-derived SR을 Layer 1 후보 앞단에 병합 (중복 제외)
             for she_sr in she_sr_ids:
@@ -360,12 +585,29 @@ class AnalysisService:
             faceted_ci_data = hazard_rule_engine.get_checklist_from_srs(db, sr_ids, limit=30)
 
             # [Phase 6] SR→CI→Guide 역추적으로 KOSHA Guide 후보 확보
-            sr_linked_guides = hazard_rule_engine.get_guides_from_srs(db, sr_ids, limit=5)
+            sr_linked_guides = hazard_rule_engine.get_guides_from_srs(
+                db,
+                sr_ids,
+                limit=5,
+                industry_contexts=industry_context.active_industries,
+            )
             if sr_linked_guides:
                 logger.warning(f"[Phase6] SR→CI→Guide: {[g['guide_code'] for g in sr_linked_guides]}")
 
             # Penalty 조회
-            penalty_data = hazard_rule_engine.get_penalties_for_srs(db, sr_ids)
+            penalty_candidate_data = hazard_rule_engine.get_penalty_candidates_for_srs(
+                sr_ids,
+                direct_sr_ids=list(direct_she_sr_ids),
+            )
+            penalty_candidates_list = [
+                PenaltyCandidate(**item) for item in penalty_candidate_data
+            ]
+
+            penalty_data = hazard_rule_engine.summarize_penalty_candidates(
+                penalty_candidate_data
+            )
+            if not penalty_data:
+                penalty_data = hazard_rule_engine.get_penalties_for_srs(db, sr_ids)
             for p in penalty_data:
                 penalties_list.append(PenaltyInfo(
                     article_code=p["article_code"],
@@ -869,6 +1111,37 @@ class AnalysisService:
         )
 
         # 관련 KOSHA 숏폼영상 (hazard_code 직접 매칭)
+        finding_status = self._derive_finding_status(
+            she_matches=she_matches,
+            code_gap_warnings=code_gap_warnings,
+            canonical_hazards=canonical_hazards,
+            sr_ids=sr_ids,
+            observable_violation_signal=observable_violation_signal,
+        )
+        penalty_path_data = hazard_rule_engine.build_penalty_paths(
+            penalty_candidate_data,
+            finding_status=finding_status,
+        )
+        penalty_paths_list = [
+            PenaltyPath(**item) for item in penalty_path_data
+        ]
+        penalty_exposure_status = self._derive_penalty_exposure_status(
+            penalty_candidates=penalty_candidates_list,
+            penalties=penalties_list,
+            finding_status=finding_status,
+        )
+        action_recommendations = self._build_action_recommendations(
+            recommended_srs_list=recommended_srs_list,
+            sr_results=sr_results,
+            sr_linked_guides=sr_linked_guides,
+            related_guides=related_guides,
+            faceted_ci_data=faceted_ci_data,
+        )
+        for rec in action_recommendations[:3]:
+            line = self._format_recommendation_line(rec)
+            if line and line not in recommendations:
+                recommendations.append(line)
+
         try:
             resources = video_service.find_related_videos(
                 db=db,
@@ -898,10 +1171,16 @@ class AnalysisService:
             decision_type="deterministic_rule" if canonical_hazards else "embedding_fallback",
             code_gap_warnings=code_gap_warnings,
             penalties=penalties_list,
+            penalty_candidates=penalty_candidates_list,
+            penalty_paths=penalty_paths_list,
             # Phase 5: SPARQL enrichment
             sparql_enrichment=SparqlEnrichmentSummary(**sparql_enrichment_data) if sparql_enrichment_data else None,
             # Phase 0.5: recommended_srs (source/layer/confidence 노출)
             recommended_srs=[RecommendedSR(**r) for r in recommended_srs_list],
+            finding_status=finding_status,
+            penalty_exposure_status=penalty_exposure_status,
+            action_recommendations=action_recommendations,
+            industry_context=IndustryContextSummary(**industry_context_data) if industry_context_data else None,
         )
 
         # DB에 저장
