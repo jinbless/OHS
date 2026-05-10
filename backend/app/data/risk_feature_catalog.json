@@ -1,0 +1,377 @@
+{
+  "version": "3.0",
+  "description": "risk:RiskFeature catalog generated for OHS product runtime",
+  "axes": {
+    "accident_type": {
+      "label": "사고 유형",
+      "codes": {
+        "FALL": {
+          "label": "추락",
+          "sub": [
+            "SLIP"
+          ]
+        },
+        "COLLISION": {
+          "label": "충돌"
+        },
+        "FALLING_OBJECT": {
+          "label": "낙하물"
+        },
+        "CRUSH": {
+          "label": "끼임(압착)"
+        },
+        "CUT": {
+          "label": "절단"
+        },
+        "COLLAPSE": {
+          "label": "붕괴"
+        },
+        "ERGONOMIC": {
+          "label": "근골격계",
+          "sub": [
+            "REPETITIVE",
+            "HEAVY_LIFTING",
+            "POSTURE"
+          ]
+        },
+        "BURN": {
+          "label": "화상"
+        },
+        "ELECTRIC_SHOCK": {
+          "label": "감전"
+        },
+        "EXPLOSION": {
+          "label": "폭발"
+        },
+        "CHEMICAL_EXPOSURE": {
+          "label": "화학물질 노출"
+        },
+        "COLD_EXPOSURE": {
+          "label": "저온 노출"
+        },
+        "FOOD_CONTAMINATION": {
+          "label": "식품 오염"
+        }
+      }
+    },
+    "hazardous_agent": {
+      "label": "유해 인자",
+      "codes": {
+        "CHEMICAL": {
+          "label": "화학물질",
+          "sub": [
+            "DUST",
+            "TOXIC",
+            "CORROSION",
+            "RADIATION"
+          ]
+        },
+        "FIRE": {
+          "label": "화재·폭발"
+        },
+        "ELECTRICITY": {
+          "label": "전기",
+          "sub": [
+            "ARC_FLASH"
+          ]
+        },
+        "NOISE": {
+          "label": "소음·진동"
+        },
+        "HEAT_COLD": {
+          "label": "온도"
+        },
+        "BIOLOGICAL": {
+          "label": "생물학적"
+        }
+      }
+    },
+    "work_context": {
+      "label": "작업 맥락",
+      "codes": {
+        "SCAFFOLD": {
+          "label": "비계"
+        },
+        "CONFINED_SPACE": {
+          "label": "밀폐공간"
+        },
+        "EXCAVATION": {
+          "label": "굴착"
+        },
+        "MACHINE": {
+          "label": "기계"
+        },
+        "VEHICLE": {
+          "label": "차량"
+        },
+        "CRANE": {
+          "label": "양중기"
+        },
+        "RAIL": {
+          "label": "철도"
+        },
+        "CONVEYOR": {
+          "label": "컨베이어"
+        },
+        "ROBOT": {
+          "label": "로봇"
+        },
+        "PRESSURE_VESSEL": {
+          "label": "압력용기"
+        },
+        "STEELWORK": {
+          "label": "철골"
+        },
+        "MATERIAL_HANDLING": {
+          "label": "자재취급"
+        },
+        "GENERAL_WORKPLACE": {
+          "label": "일반사업장"
+        },
+        "DEMOLITION": {
+          "label": "해체"
+        },
+        "LOGGING": {
+          "label": "벌목"
+        },
+        "PAINTING": {
+          "label": "painting"
+        },
+        "GRINDING": {
+          "label": "grinding"
+        },
+        "ROPE_ACCESS": {
+          "label": "rope access"
+        },
+        "ELECTRICAL_WORK": {
+          "label": "electrical work"
+        },
+        "CHEMICAL_WORK": {
+          "label": "chemical work"
+        },
+        "WELDING": {
+          "label": "welding"
+        },
+        "LADDER": {
+          "label": "ladder"
+        },
+        "KITCHEN_COOKING": {
+          "label": "주방 조리"
+        },
+        "FOOD_PREP": {
+          "label": "식재료 전처리"
+        },
+        "DEEP_FRYING": {
+          "label": "튀김 조리"
+        },
+        "GAS_APPLIANCE": {
+          "label": "가스기기"
+        },
+        "HOT_BEVERAGE": {
+          "label": "고온 음료"
+        },
+        "CLEANING_WET": {
+          "label": "물청소"
+        },
+        "COLD_STORAGE": {
+          "label": "냉장·냉동 창고"
+        },
+        "SERVING_FLOOR": {
+          "label": "홀 서빙 동선"
+        },
+        "DELIVERY_RIDER": {
+          "label": "배달 운행"
+        },
+        "STORAGE_SHELF": {
+          "label": "선반 적재"
+        },
+        "LIFT_WORK": {
+          "label": "자동차 리프트 작업"
+        },
+        "OIL_DRAIN": {
+          "label": "오일 교환·폐오일 취급"
+        },
+        "TIRE_CHANGE": {
+          "label": "타이어 교체·공기압 작업"
+        },
+        "WELDING_REPAIR": {
+          "label": "차체 용접·수리"
+        },
+        "EV_BATTERY": {
+          "label": "전기차 고전압 배터리 작업"
+        },
+        "HAIR_CHEMICAL": {
+          "label": "미용 화학약품 작업"
+        },
+        "NAIL_CHEMICAL": {
+          "label": "네일 화학약품 작업"
+        },
+        "HOT_TOOL": {
+          "label": "고온 미용기구 작업"
+        },
+        "SKIN_DEVICE": {
+          "label": "피부·광선 장비 작업"
+        },
+        "HAIR_WASH": {
+          "label": "샴푸·세정 작업"
+        },
+        "SHELF_STOCKING": {
+          "label": "매장 선반 진열"
+        },
+        "NIGHT_SOLO": {
+          "label": "야간 단독 근무"
+        },
+        "COLD_DISPLAY": {
+          "label": "냉장 진열대 작업"
+        },
+        "BOX_HANDLING": {
+          "label": "박스 운반·적재"
+        },
+        "CASHIER_AREA": {
+          "label": "계산대 주변 작업"
+        },
+        "SAWING": {
+          "label": "톱 절단 작업"
+        },
+        "SANDING": {
+          "label": "샌딩·연마 작업"
+        },
+        "PAINTING_WOODWORK": {
+          "label": "목공 도장 작업"
+        },
+        "LADDER_INTERIOR": {
+          "label": "실내 사다리 작업"
+        },
+        "NAIL_GUN": {
+          "label": "타카·네일건 작업"
+        },
+        "DRY_CLEANING_SOLVENT": {
+          "label": "드라이클리닝 용제 작업"
+        },
+        "PRESS_MACHINE": {
+          "label": "프레스 기계 작업"
+        },
+        "WASHING_MACHINE": {
+          "label": "세탁기 작업"
+        },
+        "STEAM_IRON": {
+          "label": "스팀 다리미 작업"
+        },
+        "CHEMICAL_SPOTTING": {
+          "label": "얼룩 제거 화학작업"
+        },
+        "GARMENT_SORTING": {
+          "label": "세탁물 분류"
+        },
+        "HIGH_PRESSURE_WASH": {
+          "label": "고압 세척"
+        },
+        "CHEMICAL_APPLICATION": {
+          "label": "세차 화학약품 도포"
+        },
+        "WAX_POLISHING": {
+          "label": "왁스/광택 작업"
+        },
+        "CONVEYOR_WASH": {
+          "label": "컨베이어 세차"
+        },
+        "INTERIOR_CLEANING": {
+          "label": "차량 내부 청소"
+        },
+        "WET_FLOOR_WORK": {
+          "label": "젖은 바닥 작업"
+        },
+        "DOG_GROOMING": {
+          "label": "강아지 미용"
+        },
+        "CAT_HANDLING": {
+          "label": "고양이 취급"
+        },
+        "PET_BATHING": {
+          "label": "반려동물 목욕"
+        },
+        "DRYER_OPERATION": {
+          "label": "건조기 작업"
+        },
+        "CAGE_CLEANING": {
+          "label": "케이지 청소"
+        },
+        "ANIMAL_FEEDING": {
+          "label": "동물 급식"
+        },
+        "FORKLIFT_OPERATION": {
+          "label": "지게차 작업"
+        },
+        "HEAVY_LIFTING": {
+          "label": "중량물 취급"
+        },
+        "HIGH_SHELF_WORK": {
+          "label": "높은 선반 작업"
+        },
+        "LOADING_DOCK": {
+          "label": "하역 도크"
+        },
+        "PACKAGE_SORTING": {
+          "label": "택배 분류"
+        },
+        "CONVEYOR_BELT": {
+          "label": "컨베이어 벨트"
+        },
+        "PESTICIDE_SPRAY": {
+          "label": "농약 살포"
+        },
+        "FARM_MACHINERY": {
+          "label": "농기계 작업"
+        },
+        "GREENHOUSE_WORK": {
+          "label": "온실 작업"
+        },
+        "HARVEST_WORK": {
+          "label": "수확 작업"
+        },
+        "IRRIGATION": {
+          "label": "관개 작업"
+        },
+        "FERTILIZER_HANDLING": {
+          "label": "비료 취급"
+        },
+        "ELECTRICAL_OVERLOAD": {
+          "label": "전기 과부하"
+        },
+        "FIRE_EVACUATION": {
+          "label": "화재 대피"
+        },
+        "VENTILATION_POOR": {
+          "label": "환기 불량 작업"
+        },
+        "CLEANING_NIGHT": {
+          "label": "야간 청소"
+        },
+        "CROWD_MANAGEMENT": {
+          "label": "과밀 인원 관리"
+        },
+        "NOISE_EXPOSURE": {
+          "label": "소음 노출 작업"
+        },
+        "FUEL_DISPENSING": {
+          "label": "주유 작업"
+        },
+        "STATIC_ELECTRICITY": {
+          "label": "정전기 위험 작업"
+        },
+        "FUEL_SPILL": {
+          "label": "연료 유출 작업"
+        },
+        "UNDERGROUND_TANK": {
+          "label": "지하 탱크 작업"
+        },
+        "VAPOR_EXPOSURE": {
+          "label": "유증기 노출"
+        },
+        "NIGHT_SOLO_WORK": {
+          "label": "야간 단독 작업"
+        }
+      }
+    }
+  }
+}

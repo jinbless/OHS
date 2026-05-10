@@ -1,0 +1,117 @@
+{
+  "generated_at": "2026-05-10T04:53:59.521644+00:00",
+  "method": "codex_manual_broad_sr_policy_export",
+  "source": "koshaontology/pipe-B/data/manual-enrichment-domain-guard-broad-sr-policy.json",
+  "policy_version": "2026-05-09-broad-sr-runtime-guard",
+  "purpose": "Prevent broad SR candidates from becoming the primary reason a Guide is recommended as a standard procedure.",
+  "broad_sr_ids": [
+    "SR-PPE-002",
+    "SR-CHEMICAL-024",
+    "SR-CHEMICAL-025",
+    "SR-CHEMICAL-026",
+    "SR-FIRE_EXPLOSION-015",
+    "SR-MGMT-004",
+    "SR-ELECTRIC-024",
+    "SR-FIRE_EXPLOSION-019",
+    "SR-ELECTRIC-011",
+    "SR-FIRE_EXPLOSION-008",
+    "SR-FIRE_EXPLOSION-001",
+    "SR-FIRE_EXPLOSION-037"
+  ],
+  "secondary_score_multiplier": 0.35,
+  "runtime_rules": [
+    "A broad SR candidate must not create a standard procedure by itself.",
+    "A broad SR candidate may only boost a Guide after at least one guide-specific signal matches: required_context_terms, visual_trigger_candidates, non-generic feature, WorkProcess text, or industry_alignment.",
+    "For document, measurement, health-screening, and risk-method Guides, broad SR candidates are review-only unless the photo/text context also matches the Guide-specific domain boundary.",
+    "For exclusive Guides, broad SR candidates are ignored when the Guide domain boundary is not matched.",
+    "Broad SR contribution should be capped as a secondary score component, recommended multiplier <= 0.35.",
+    "Broad SRs may support immediate actions only when a matched WorkProcess or ChecklistItem carries the same concrete cue."
+  ],
+  "broad_sr_candidates": [
+    {
+      "sr_id": "SR-PPE-002",
+      "title": "보호구의 지급 등",
+      "count": 275,
+      "distinct_domain_families": 251,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-CHEMICAL-024",
+      "title": "유해성 등의 주지",
+      "count": 268,
+      "distinct_domain_families": 244,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-CHEMICAL-025",
+      "title": "호흡용 보호구의 지급 등",
+      "count": 199,
+      "distinct_domain_families": 185,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-CHEMICAL-026",
+      "title": "보호복 등의 비치 등",
+      "count": 185,
+      "distinct_domain_families": 162,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-FIRE_EXPLOSION-015",
+      "title": "위험물 등이 있는 장소에서 화기 등의 사용 금지",
+      "count": 126,
+      "distinct_domain_families": 119,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-MGMT-004",
+      "title": "사전조사 및 작업계획서의 작성 등",
+      "count": 106,
+      "distinct_domain_families": 106,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-ELECTRIC-024",
+      "title": "정전기로 인한 화재 폭발 등 방지",
+      "count": 87,
+      "distinct_domain_families": 87,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-FIRE_EXPLOSION-019",
+      "title": "소화설비",
+      "count": 83,
+      "distinct_domain_families": 83,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-ELECTRIC-011",
+      "title": "폭발위험장소에서 사용하는 전기 기계ㆍ기구의 선정 등",
+      "count": 80,
+      "distinct_domain_families": 80,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-FIRE_EXPLOSION-008",
+      "title": "폭발 또는 화재 등의 예방",
+      "count": 67,
+      "distinct_domain_families": 67,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-FIRE_EXPLOSION-001",
+      "title": "위험물질 등의 제조 등 작업 시의 조치",
+      "count": 58,
+      "distinct_domain_families": 58,
+      "policy": "secondary_signal_only"
+    },
+    {
+      "sr_id": "SR-FIRE_EXPLOSION-037",
+      "title": "안전밸브 등의 설치",
+      "count": 52,
+      "distinct_domain_families": 52,
+      "policy": "secondary_signal_only"
+    }
+  ],
+  "legal_asserted_use": false
+}

@@ -13,9 +13,7 @@ Why PG (not Fuseki)?
   - PG she_catalog (645 SHE, JSONB GIN) 이미 적재 + JSONB feature 매칭 ~10ms
   - sr-registry CI/Guide 자동 follow는 PG she_sr_mapping/she_ci_mapping 활용
 
-Feature flag (사용자 비판 #12):
-  OHS_ENABLE_SHE=false (default) → Layer 0 skip, 기존 4-layer 유지
-  OHS_ENABLE_SHE=true            → Layer 0 active
+SHE matching is the default product route.
 
 Future (Phase 3 Track 4):
   GPT DUAL_TRACK_SCHEMA에 situational_features 8축 추가 (사용자 비판 #11)
@@ -32,11 +30,11 @@ from typing import Any
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-from app.config import settings
 from app.services.industry_context import (
     industry_hints_for_features,
     score_industry_alignment,
 )
+from app.services.she_match_models import SHEMatchResult
 
 logger = logging.getLogger(__name__)
 
@@ -137,6 +135,7 @@ HAZARDOUS_AGENT_QUERY_EXPANSIONS = {
 }
 
 ACTIONABLE_MATCH_STATUSES = {"confirmed", "candidate"}
+CONFIRMING_VISUAL_SCORE = 0.2
 
 UNCERTAINTY_TERMS = (
     "확인 불가", "불명", "판단 곤란", "판단 어려", "가능성", "일시적",
@@ -161,15 +160,38 @@ CONFIRMATION_ONLY_TERMS = UNCERTAINTY_TERMS + (
     "수 있다", "수 있음", "일 수", "잠재", "단정", "기준 이내", "허용 범위",
     "초과 여부", "착용 여부", "작동 여부", "설치 여부", "미설치 시",
     "미착용 시", "누출이라면", "젖어 있다면", "건조됐는지", "정상이라면",
+    "처럼 보", "보이는 듯", "시도", "하려고", "하려 하", "열려 하고",
+    "열려고", "꺼내려고", "올리려", "개방 시도", "조작 시도",
+    "일반 마스크", "면마스크", "장갑만", "마스크는 착용 중", "장갑은 착용 중",
+    "입실하기", "잔류 중", "아직", "수 분 이상", "연락이 되지",
+    "같은 버킷", "섞어 사용", "일반 쓰레기봉투", "만료된 약품", "마스크는 미착용",
+)
+
+SCOPE_CONFIRMATION_CONTEXT_TERMS = (
+    "복지관", "복지센터", "지역아동센터", "청소년", "수련관",
+    "정신건강", "재활치료", "연구소", "연구원", "대학원생", "대학",
+    "실험실", "동물병원", "동물보호", "수의", "호스피스", "병실",
+    "의료기기", "약품 연구개발",
+)
+
+SCOPE_CONFIRMATION_UNSAFE_TERMS = (
+    "섞어 사용", "패드 없이", "빼지 않고", "장갑 없이", "마스크 없이",
+    "스파크가 발생", "전원을 내리지 않고", "차단기는 내리지",
+    "펼치지 않은 채", "빠져 있다", "측정을 하지", "완료되기 전에",
+    "자리를 비우", "모니터링 장치", "방치",
 )
 
 DIRECT_VISIBLE_UNSAFE_TERMS = (
-    "없음", "없고", "없는 상태", "부재", "미설치", "미체결", "미착용",
-    "노출", "손상", "파손", "풀려", "꺼져", "OFF", "고여", "기름",
-    "차단", "막혀", "방치", "균열", "개방", "열려", "누출", "연기",
+    "없음", "없는 상태", "부재", "미설치", "미체결", "미착용",
+    "노출", "손상", "파손", "풀려", "OFF", "고여", "기름",
+    "막혀", "방치", "누출", "연기",
     "불꽃", "화염", "아크", "스파크", "젖어", "미끄러", "과적", "돌출",
     "붕락", "무너", "흘러내린", "회전 중", "가동 중", "움직이고",
     "접근하고", "접근 중", "가까이", "보호구 없이", "무보호",
+    "미차단", "차단하지 않고", "빼지 않고", "분리하지 않고",
+    "전원을 내리지 않고", "차단기를 내리지", "혼합", "섞어",
+    "패드 없이", "발판 없이", "장갑 없이", "마스크 없이", "발끝으로",
+    "고정 해제", "잠금 해제",
     "unguarded", "exposed", "damaged", "broken", "missing", "blocked",
     "leaking", "spill", "running", "active operation",
 )
@@ -179,6 +201,9 @@ DIRECT_UNSAFE_CONDITIONAL_TERMS = (
     "가능", "가능성", "잠재", "추정", "단정", "여부", "불명", "불분명",
     "불확실", "확인 불가", "확인불가", "확인 어려", "사진만으로",
     "사진으로", "프레임 밖", "화면 밖", "가려", "기준 이내", "허용 범위",
+    "처럼 보", "보이는 듯", "시도", "하려고", "하려 하", "열려 하고",
+    "열려고", "꺼내려고", "올리려", "아직",
+    "같은 버킷", "섞어 사용", "마스크는 미착용",
 )
 
 STRONG_UNSAFE_OBSERVATION_TERMS = (
@@ -336,7 +361,7 @@ def _has_safe_administrative_visual_context(text: str) -> bool:
 
 
 def _has_benign_routine_cleaning_context(text: str) -> bool:
-    """Detect everyday cleaning/washing scenes that should not become hazards."""
+    """Detect everyday cleaning/washing scenes that should stay non-risk."""
     return (
         _contains_any(text, BENIGN_ROUTINE_CLEANING_TERMS)
         and not _contains_any(text, ROUTINE_CLEANING_UNSAFE_TERMS)
@@ -394,25 +419,29 @@ def _has_direct_visible_unsafe_evidence(text: str) -> bool:
     return False
 
 
+def _has_scope_confirmation_evidence(text: str) -> bool:
+    """Detect visible hazards whose applicability should stay confirm-first.
+
+    The safety pattern remains useful for SR/Guide routing, but welfare,
+    healthcare, research, and similar institutional settings often need a
+    separate scope check before the UI presents them as photo-confirmed
+    violations.
+    """
+    return (
+        _contains_any(text, SCOPE_CONFIRMATION_CONTEXT_TERMS)
+        and _contains_any(text, SCOPE_CONFIRMATION_UNSAFE_TERMS)
+    )
+
+
 def is_direct_penalty_match(match: Any) -> bool:
     """Whether a SHE match is strong enough for direct penalty exposure.
 
-    Candidate SHE still helps find SR/Guide.  Only weak/ambiguous candidates
-    are excluded from direct penalty exposure.
+    Candidate SHE still helps find SR/Guide. Direct penalty exposure is kept to
+    confirmed matches so confirmation-required candidates do not look like
+    photo-established violations.
     """
     status = getattr(match, "match_status", "")
-    reasons = set(getattr(match, "status_reasons", []) or [])
-    if status == "confirmed":
-        return True
-    if status != "candidate":
-        return False
-    if "confirmation_required" in reasons:
-        return False
-    return (
-        "accident_type_match" in reasons
-        or "accident_agent_match" in reasons
-        or "unsafe_state" in reasons
-    )
+    return status == "confirmed"
 
 
 def has_observable_violation_signal(
@@ -518,6 +547,8 @@ def _weak_visual_suppression(
     uncertain = _contains_any(text, UNCERTAINTY_TERMS)
     confirmation_only = _contains_any(text, CONFIRMATION_ONLY_TERMS)
     direct_visible_unsafe = _has_direct_visible_unsafe_evidence(text)
+    if _has_scope_confirmation_evidence(text):
+        return True, ["scope_confirmation_required"]
     safe_normal = _has_safe_normal_visual_evidence(text)
     if safe_normal and strong_unsafe and uncertain:
         return True, ["mixed_safe_and_unsafe_visual_evidence"]
@@ -585,6 +616,7 @@ def _classify_match_status(
     unsafe_env = any(state in UNSAFE_ENVIRONMENTAL_STATES for state in environmental)
     normal_cue = _has_normal_cue(ppe_states)
     visual_text = " ".join(visual_cues)
+    direct_visible_unsafe = _has_direct_visible_unsafe_evidence(visual_text)
     if _has_benign_routine_cleaning_context(visual_text) and not unsafe_ppe:
         return "context_only", ["benign_routine_cleaning_context"]
     if _has_benign_ground_level_handling_context(visual_text) and not unsafe_ppe:
@@ -651,11 +683,15 @@ def _classify_match_status(
             return "candidate", reasons + weak_reasons + ["confirmation_required"]
         if len(matched_dims) >= 3:
             reasons.append("three_axis_match")
-            return "confirmed", reasons
+            if direct_visible_unsafe or visual_score >= CONFIRMING_VISUAL_SCORE:
+                return "confirmed", reasons
+            return "candidate", reasons + ["confirmation_required", "indirect_three_axis_match"]
         if unsafe_state:
             reasons.append("unsafe_state")
-            return "confirmed", reasons
-        if visual_score >= 0.3:
+            if direct_visible_unsafe or visual_score >= CONFIRMING_VISUAL_SCORE:
+                return "confirmed", reasons
+            return "candidate", reasons + ["confirmation_required", "indirect_unsafe_state"]
+        if visual_score >= CONFIRMING_VISUAL_SCORE:
             reasons.append("visual_support")
             return "confirmed", reasons
         return "candidate", reasons
@@ -675,7 +711,7 @@ def _classify_match_status(
             return "candidate", reasons + weak_reasons + ["confirmation_required"]
         if _contains_any(" ".join(visual_cues), UNCERTAINTY_TERMS):
             return "candidate", reasons + ["confirmation_required"]
-        if visual_score >= 0.5:
+        if visual_score >= CONFIRMING_VISUAL_SCORE:
             reasons.append("visual_support")
             return "confirmed", reasons
         return "candidate", reasons
@@ -732,64 +768,6 @@ def _visual_trigger_score(visual_cues: list[str], visual_triggers: list[str]) ->
     return round(best, 3)
 
 
-class SHEMatchResult:
-    """1 매칭된 SHE."""
-    def __init__(
-        self,
-        she_id: str,
-        name: str,
-        features: dict,
-        broadness: float,
-        match_score: float,
-        matched_dims: list[str],
-        visual_score: float,
-        match_status: str,
-        status_reasons: list[str],
-        industry_hints: list[str],
-        industry_alignment: str,
-        industry_reasons: list[str],
-        source_sr_ids: list[str],
-        applies_sr_ids: list[str],
-        applies_ci_ids: list[str],
-        source_guides: list[str],
-    ):
-        self.she_id = she_id
-        self.name = name
-        self.features = features
-        self.broadness = broadness
-        self.match_score = match_score      # 0.0~1.0
-        self.matched_dims = matched_dims    # 일치한 feature dim 이름
-        self.visual_score = visual_score
-        self.match_status = match_status
-        self.status_reasons = status_reasons
-        self.industry_hints = industry_hints
-        self.industry_alignment = industry_alignment
-        self.industry_reasons = industry_reasons
-        self.source_sr_ids = source_sr_ids
-        self.applies_sr_ids = applies_sr_ids
-        self.applies_ci_ids = applies_ci_ids
-        self.source_guides = source_guides
-
-    def to_dict(self) -> dict:
-        return {
-            "she_id": self.she_id,
-            "name": self.name,
-            "features": self.features,
-            "broadness": self.broadness,
-            "match_score": self.match_score,
-            "matched_dims": self.matched_dims,
-            "visual_score": self.visual_score,
-            "match_status": self.match_status,
-            "status_reasons": self.status_reasons,
-            "industry_hints": self.industry_hints,
-            "industry_alignment": self.industry_alignment,
-            "industry_reasons": self.industry_reasons,
-            "applies_sr_ids": self.applies_sr_ids,
-            "applies_ci_count": len(self.applies_ci_ids),
-            "source_guides": self.source_guides,
-        }
-
-
 def match_she(
     db: Session,
     accident_types: list[str] | None = None,
@@ -823,9 +801,6 @@ def match_she(
       4. broadness 가중 (specific SHE 우선)
       5. top_n 반환
     """
-    if not settings.OHS_ENABLE_SHE:
-        return []
-
     accident_types = accident_types or []
     hazardous_agents = _expand_hazardous_agents_for_she_query(hazardous_agents or [])
     work_contexts = work_contexts or []

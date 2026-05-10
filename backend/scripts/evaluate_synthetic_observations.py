@@ -18,7 +18,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-os.environ.setdefault("OHS_ENABLE_SHE", "true")
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
 PROJECT_ROOT = Path(__file__).resolve().parents[3]

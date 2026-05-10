@@ -33,6 +33,32 @@ def create_analysis_record(
     return db_record
 
 
+def create_product_analysis_record(
+    db: Session,
+    analysis_id: str,
+    analysis_type: str,
+    overall_risk_level: str,
+    summary: str,
+    input_preview: str,
+    result_json: dict,
+    observations: list[dict],
+    risk_features: list[dict],
+) -> AnalysisRecord:
+    """Persist the current product response while preserving legacy columns."""
+    return create_analysis_record(
+        db=db,
+        analysis_id=analysis_id,
+        analysis_type=analysis_type,
+        overall_risk_level=overall_risk_level,
+        summary=summary,
+        input_preview=input_preview,
+        result_json=result_json,
+        gpt_free_hazards=observations,
+        coded_hazards=risk_features,
+        divergence_report=None,
+    )
+
+
 def get_analysis_record(db: Session, analysis_id: str) -> Optional[AnalysisRecord]:
     return db.query(AnalysisRecord).filter(AnalysisRecord.id == analysis_id).first()
 

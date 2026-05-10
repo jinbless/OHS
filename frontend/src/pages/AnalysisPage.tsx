@@ -1,52 +1,19 @@
 import React, { useState } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import ImageUploader from '../components/analysis/ImageUploader';
 import TextInput from '../components/analysis/TextInput';
 import Loading from '../components/common/Loading';
 import ErrorMessage from '../components/common/ErrorMessage';
-import { analysisApi } from '../api/analysisApi';
-import { useAnalysisStore } from '../store';
-import { TextAnalysisRequest } from '../types/analysis';
+import { useRunAnalysis } from '../hooks/useRunAnalysis';
 
 type AnalysisType = 'image' | 'text';
 
 const AnalysisPage: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const initialType = (searchParams.get('type') as AnalysisType) || 'image';
 
   const [analysisType, setAnalysisType] = useState<AnalysisType>(initialType);
-  const { isLoading, error, setLoading, setError, setCurrentAnalysis } = useAnalysisStore();
-
-  const handleImageAnalysis = async (file: File) => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const result = await analysisApi.analyzeImage(file);
-      setCurrentAnalysis(result);
-      navigate(`/result/${result.analysis_id}`);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : '분석 중 오류가 발생했습니다.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleTextAnalysis = async (request: TextAnalysisRequest) => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const result = await analysisApi.analyzeText(request);
-      setCurrentAnalysis(result);
-      navigate(`/result/${result.analysis_id}`);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : '분석 중 오류가 발생했습니다.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { isLoading, error, clearError, analyzeImage, analyzeText } = useRunAnalysis();
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -83,7 +50,7 @@ const AnalysisPage: React.FC = () => {
       {/* 에러 메시지 */}
       {error && (
         <div className="mb-4 md:mb-6">
-          <ErrorMessage message={error} onRetry={() => setError(null)} />
+          <ErrorMessage message={error} onRetry={clearError} />
         </div>
       )}
 
@@ -93,9 +60,9 @@ const AnalysisPage: React.FC = () => {
       ) : (
         <div className="card">
           {analysisType === 'image' ? (
-            <ImageUploader onFileSelect={handleImageAnalysis} isLoading={isLoading} />
+            <ImageUploader onFileSelect={analyzeImage} isLoading={isLoading} />
           ) : (
-            <TextInput onSubmit={handleTextAnalysis} isLoading={isLoading} />
+            <TextInput onSubmit={analyzeText} isLoading={isLoading} />
           )}
         </div>
       )}

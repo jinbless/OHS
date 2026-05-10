@@ -1,21 +1,28 @@
 from app.integrations.prompts.prompt_builder import build_system_prompt
 
-# Phase 4: 온톨로지 JSON 기반 동적 생성 (hazard_taxonomy.json + article_chapters.json)
 SYSTEM_PROMPT = build_system_prompt()
 
-IMAGE_ANALYSIS_PROMPT = """이 작업현장 이미지를 분석하여 산업재해 위험요소를 식별해주세요.
+IMAGE_ANALYSIS_PROMPT = """Analyze the workplace image as an observation extractor.
 
-작업장 유형: {workplace_type}
-추가 정보: {additional_context}
+Workplace type: {workplace_type}
+Additional context: {additional_context}
 
-이미지에서 보이는 모든 잠재적 위험요소를 상세히 분석하고,
-각 위험요소에 대한 예방 조치와 점검 항목을 제시해주세요."""
+Return only what is visible or strongly implied by visible evidence:
+- visual_observations: factual observations
+- visual_cues: short matching cues such as missing guardrail, exposed cable, wet floor
+- risk_feature_candidates: candidate accident type, hazardous agent, or work context
 
-TEXT_ANALYSIS_PROMPT = """다음 작업 상황에서 발생할 수 있는 산업재해 위험요소를 분석해주세요.
+Do not choose legal articles, penalties, KOSHA guide numbers, or final violations."""
 
-상황 설명: {description}
-작업장 유형: {workplace_type}
-산업 분야: {industry_sector}
+TEXT_ANALYSIS_PROMPT = """Analyze the workplace description as an observation extractor.
 
-설명된 상황에서 발생 가능한 모든 위험요소를 식별하고,
-각 위험요소에 대한 예방 조치와 점검 항목을 제시해주세요."""
+Description: {description}
+Workplace type: {workplace_type}
+Industry sector: {industry_sector}
+
+Return only observable facts and risk feature candidates:
+- visual_observations
+- visual_cues
+- risk_feature_candidates
+
+Do not choose legal articles, penalties, KOSHA guide numbers, or final violations."""

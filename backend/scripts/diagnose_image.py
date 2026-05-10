@@ -302,7 +302,8 @@ async def main(image_path: str):
 
     free = result.get("free_hazards", [])
     faceted = result.get("faceted_hazards", {})
-    risks = result.get("risks", [])
+    observations = result.get("visual_observations", [])
+    candidates = result.get("risk_feature_candidates", [])
     print(f"\n  Track A (free_hazards): {len(free)}건")
     for f in free[:6]:
         print(f"    [{f.get('severity')}] {f.get('label')}: {f.get('description')[:80]}")
@@ -319,9 +320,12 @@ async def main(image_path: str):
         for n in forced:
             print(f"        - {n}")
 
-    print(f"\n  risks (호환 필드): {len(risks)}건")
-    for r in risks[:5]:
-        print(f"    [{r.get('severity')}] {r.get('category_code')}/{r.get('category_name')}: {r.get('description')[:60]}")
+    print(f"\n  visual_observations: {len(observations)}건")
+    for obs in observations[:5]:
+        print(f"    [{obs.get('severity')}] {obs.get('text', '')[:80]}")
+    print(f"\n  risk_feature_candidates: {len(candidates)}건")
+    for cand in candidates[:5]:
+        print(f"    [{cand.get('axis')}] {cand.get('text', '')[:80]}")
 
     # ── Step 2: Faceted 정규화 ──
     hr("[2/8] hazard_normalizer.normalize_faceted_hazards")

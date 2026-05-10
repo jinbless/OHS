@@ -9,7 +9,7 @@ const HomePage: React.FC = () => {
           🛡️ 산업안전 위험요소 분석
         </h1>
         <p className="text-base md:text-xl text-gray-600 px-2">
-          AI가 작업현장의 위험요소를 분석하고 안전한 작업을 위한 가이드를 제공합니다
+          사진 속 관찰 사실을 위험상황 패턴과 연결해 즉시 조치와 표준 개선 절차를 안내합니다
         </p>
       </div>
 
@@ -18,12 +18,12 @@ const HomePage: React.FC = () => {
           <div className="text-3xl md:text-4xl mb-3 md:mb-4">📷</div>
           <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-2">이미지 분석</h2>
           <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4">
-            작업현장 사진을 업로드하면 AI가 이미지에서 위험요소를 식별합니다
+            작업현장 사진을 업로드하면 보이는 사실과 시각 단서를 기준으로 위험상황을 분석합니다
           </p>
           <ul className="text-xs md:text-sm text-gray-500 space-y-1 mb-4">
-            <li>• 시각적 위험요소 자동 인식</li>
-            <li>• 위치 기반 위험 분석</li>
-            <li>• 현장 상황 종합 평가</li>
+            <li>• 관찰 사실과 시각 단서 추출</li>
+            <li>• 위험 특징 정규화</li>
+            <li>• SHE 패턴 기반 상황 매칭</li>
           </ul>
           <Link
             to="/analysis?type=image"
@@ -37,12 +37,12 @@ const HomePage: React.FC = () => {
           <div className="text-3xl md:text-4xl mb-3 md:mb-4">📝</div>
           <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-2">텍스트 분석</h2>
           <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4">
-            작업 상황을 텍스트로 설명하면 AI가 잠재적 위험요소를 분석합니다
+            작업 상황을 텍스트로 설명하면 사진 분석과 같은 판단 흐름으로 위험 후보를 정리합니다
           </p>
           <ul className="text-xs md:text-sm text-gray-500 space-y-1 mb-4">
-            <li>• 작업 내용 기반 위험 평가</li>
-            <li>• 상황별 맞춤 분석</li>
-            <li>• 사전 위험성 검토</li>
+            <li>• 작업 맥락과 위험 단서 정리</li>
+            <li>• 관련 안전요구사항 후보 연결</li>
+            <li>• 추가 확인이 필요한 내용 분리</li>
           </ul>
           <Link
             to="/analysis?type=text"
@@ -61,22 +61,22 @@ const HomePage: React.FC = () => {
           <div className="flex items-start gap-3">
             <span className="text-xl md:text-2xl">⚠️</span>
             <div>
-              <h4 className="font-medium text-gray-900 text-sm md:text-base">위험요소 목록</h4>
-              <p className="text-xs md:text-sm text-gray-600">식별된 위험요소와 위험 수준</p>
+              <h4 className="font-medium text-gray-900 text-sm md:text-base">위험 요약</h4>
+              <p className="text-xs md:text-sm text-gray-600">관찰 사실과 정규화된 위험 특징</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-xl md:text-2xl">✅</span>
             <div>
-              <h4 className="font-medium text-gray-900 text-sm md:text-base">점검 체크리스트</h4>
-              <p className="text-xs md:text-sm text-gray-600">작업 전 확인해야 할 항목</p>
+              <h4 className="font-medium text-gray-900 text-sm md:text-base">즉시 조치</h4>
+              <p className="text-xs md:text-sm text-gray-600">먼저 줄여야 할 위험과 체크포인트</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-xl md:text-2xl">📚</span>
             <div>
-              <h4 className="font-medium text-gray-900 text-sm md:text-base">교육 자료</h4>
-              <p className="text-xs md:text-sm text-gray-600">관련 리플릿 및 동영상 링크</p>
+              <h4 className="font-medium text-gray-900 text-sm md:text-base">표준 절차와 벌칙 안내</h4>
+              <p className="text-xs md:text-sm text-gray-600">KOSHA Guide와 조건별 벌칙 경로</p>
             </div>
           </div>
         </div>

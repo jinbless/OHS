@@ -1,7 +1,7 @@
-"""Track B GPT 출력을 정규화하여 canonical faceted hazard codes로 변환.
+"""LLM 위험 특징 후보를 risk:RiskFeature 계열 코드로 정규화한다.
 
-입력: GPT faceted_hazards (accident_types[], hazardous_agents[], work_contexts[])
-출력: 정규화된 FacetedHazards (유효한 코드만 + alias 해석)
+입력: visual_cues/risk_feature_candidates
+출력: SHE/SR 매칭에 사용할 사고유형, 유해인자, 작업맥락 코드
 """
 import json
 import logging
@@ -90,11 +90,10 @@ TEXT_WORK_CONTEXT_HINTS.update({
     "NIGHT_SOLO_WORK": ["야간 단독", "심야 단독"],
 })
 
-
 def _load_aliases() -> dict:
     global _ALIASES
     if _ALIASES is None:
-        path = Path(__file__).parent.parent / "data" / "hazard_aliases.json"
+        path = Path(__file__).parent.parent / "data" / "risk_feature_aliases.json"
         with open(path, "r", encoding="utf-8") as f:
             _ALIASES = json.load(f)
     return _ALIASES
@@ -103,7 +102,7 @@ def _load_aliases() -> dict:
 def _load_taxonomy() -> dict:
     global _TAXONOMY
     if _TAXONOMY is None:
-        path = Path(__file__).parent.parent / "data" / "hazard_taxonomy.json"
+        path = Path(__file__).parent.parent / "data" / "risk_feature_catalog.json"
         with open(path, "r", encoding="utf-8") as f:
             _TAXONOMY = json.load(f)
     return _TAXONOMY
@@ -123,34 +122,55 @@ def _get_valid_codes(axis: str) -> set:
 
 def _resolve_alias_code(raw_code: str, axis: str) -> Optional[str]:
     """GPT가 반환한 코드를 정규화. 유효하면 그대로, alias면 해석, 무효면 None."""
-    upper = raw_code.upper().strip()
+    raw_text = str(raw_code or "").strip()
+    upper = raw_text.upper()
+    lower = raw_text.lower()
     valid = _get_valid_codes(axis)
 
     # 직접 매칭
     if upper in valid:
         return upper
 
-    # 레거시 코드 변환
-    tax = _load_taxonomy()
-    legacy = tax.get("legacy_migration", {}).get(upper)
-    if legacy and legacy.get("axis") == axis:
-        return legacy["code"]
-
-    # alias 매핑 (Tier 1)
+    # alias 매핑 (Tier 1): exact first, conservative contained-term fallback second.
     aliases = _load_aliases()
     tier1 = aliases.get("tier1", {}).get(axis, {})
     for code, terms in tier1.items():
-        if upper in [t.upper() for t in terms] or raw_code in terms:
+        if upper in [str(t).upper() for t in terms] or raw_text in terms:
             return code
 
     return None
+
+
+def normalize_risk_feature_candidates(
+    candidates: list[dict],
+    context_text: str = "",
+) -> dict:
+    """LLM 후보 목록을 기존 faceted 내부 구조로 변환 후 정규화한다."""
+    faceted = {
+        "accident_types": [],
+        "hazardous_agents": [],
+        "work_contexts": [],
+        "forced_fit_notes": [],
+    }
+    axis_to_field = {
+        "accident_type": "accident_types",
+        "hazardous_agent": "hazardous_agents",
+        "work_context": "work_contexts",
+    }
+    for item in candidates or []:
+        axis = item.get("axis")
+        field = axis_to_field.get(axis)
+        text = item.get("text")
+        if field and text:
+            faceted[field].append(text)
+    return normalize_faceted_hazards(faceted, context_text=context_text)
 
 
 def normalize_faceted_hazards(
     gpt_faceted: dict,
     context_text: str = "",
 ) -> dict:
-    """GPT Track B 출력을 정규화.
+    """위험 특징 후보를 정규화.
 
     Returns:
         {

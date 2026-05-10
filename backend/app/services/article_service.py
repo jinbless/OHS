@@ -354,7 +354,7 @@ class ArticleService:
     def search_articles_with_filter(
         self,
         query_text: str,
-        hazard_categories: List[str] = None,
+        risk_feature_codes: List[str] = None,
         n_results: int = 10,
         min_score: float = 0.45,
     ) -> List[dict]:
@@ -386,7 +386,6 @@ class ArticleService:
                 include=["metadatas", "distances"],
             )
             if chroma_results and chroma_results["metadatas"] and chroma_results["metadatas"][0]:
-                cats = set(hazard_categories) if hazard_categories else set()
                 for i, meta in enumerate(chroma_results["metadatas"][0]):
                     art_num_str = meta.get("article_number", "")
                     if not art_num_str:
@@ -400,12 +399,6 @@ class ArticleService:
                     # 편/장/절 메타데이터 기반 부스트
                     chapter = meta.get("chapter", "")
                     in_category = False
-                    if cats and chapter:
-                        for cat in cats:
-                            if self._is_chapter_match(chapter, cat):
-                                in_category = True
-                                score = min(0.99, score + 0.15)
-                                break
 
                     if art_num_str not in results_map or results_map[art_num_str]["score"] < score:
                         results_map[art_num_str] = {

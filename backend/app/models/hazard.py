@@ -1,15 +1,7 @@
-from pydantic import BaseModel
 from enum import Enum
-from typing import List, Optional
+from typing import Any, List, Optional
 
-
-class HazardCategory(str, Enum):
-    PHYSICAL = "physical"
-    CHEMICAL = "chemical"
-    BIOLOGICAL = "biological"
-    ERGONOMIC = "ergonomic"
-    ELECTRICAL = "electrical"
-    ENVIRONMENTAL = "environmental"
+from pydantic import BaseModel
 
 
 class RiskLevel(str, Enum):
@@ -19,87 +11,99 @@ class RiskLevel(str, Enum):
     LOW = "low"
 
 
-class NormSummary(BaseModel):
-    """위험요소에 연결된 규범명제 요약"""
-    article_number: str
-    legal_effect: str
-    action: Optional[str] = None
-    full_text: str
-
-
-class FacetedHazardCodes(BaseModel):
-    """Faceted 3축 canonical hazard codes (결정론적)"""
-    accident_types: List[str] = []
-    hazardous_agents: List[str] = []
-    work_contexts: List[str] = []
-    applied_rules: List[str] = []
+class VisualCue(BaseModel):
+    text: str
+    cue_type: str = "visual"
     confidence: float = 0.0
 
 
-class GptFreeObservation(BaseModel):
-    """Track A: GPT 자유 관찰"""
-    label: str
-    description: str
-    confidence: float
-    visual_evidence: Optional[str] = None
+class VisualObservation(BaseModel):
+    observation_id: str
+    text: str
+    confidence: float = 0.0
     severity: str = "MEDIUM"
+    visual_cues: List[VisualCue] = []
 
 
-class CodeGapWarning(BaseModel):
-    """코드 체계 gap 경고"""
-    gap_type: str  # UNMAPPED / FORCED_FIT
-    gpt_free_label: Optional[str] = None
-    description: str
+class RiskFeature(BaseModel):
+    axis: str
+    code: str
+    label: Optional[str] = None
+    source_text: Optional[str] = None
+    confidence: float = 0.0
 
 
-class PenaltyInfo(BaseModel):
-    """벌칙 경로 정보"""
-    article_code: str
+class SituationMatch(BaseModel):
+    pattern_id: str
+    title: Optional[str] = None
+    status: str = "candidate"
+    score: float = 0.0
+    matched_features: List[str] = []
+    visual_trigger_hits: List[str] = []
+    applies_sr_ids: List[str] = []
+    applies_ci_ids: List[str] = []
+
+
+class Finding(BaseModel):
+    finding_id: str
+    status: str
+    summary: str
+    evidence_strength: str = "medium"
+    observation_ids: List[str] = []
+    situation_pattern_ids: List[str] = []
+    sr_ids: List[str] = []
+
+
+class CorrectiveAction(BaseModel):
+    action_id: str
     title: str
-    criminal_employer_penalty: Optional[str] = None
-    criminal_death_penalty: Optional[str] = None
-    admin_max_fine: Optional[str] = None
+    description: Optional[str] = None
+    source_type: str
+    source_id: Optional[str] = None
+    urgency: str = "reference"
+    confidence: float = 0.0
 
 
-class PenaltyCandidate(BaseModel):
-    """Condition-aware penalty candidate from pen:PenaltyRule."""
-    penalty_rule_id: str
-    exposure_type: str  # direct_candidate | conditional
-    condition_label: str
-    subject_role: Optional[str] = None
-    accident_outcome: Optional[str] = None
-    violated_norm_id: Optional[str] = None
-    violated_article_id: Optional[str] = None
-    delegated_from_article_id: Optional[str] = None
-    penalty_article_id: Optional[str] = None
-    sanction_type: Optional[str] = None
-    penalty_description: Optional[str] = None
-    severity_score: Optional[int] = None
-    basis_text: Optional[str] = None
-    source_sr_id: Optional[str] = None
+class ProcedureStep(BaseModel):
+    step_id: str
+    order: int
+    title: str
+    safety_measures: Optional[str] = None
+    source_section: Optional[str] = None
+    source_sr_ids: List[str] = []
+
+
+class StandardProcedure(BaseModel):
+    procedure_id: str
+    title: str
+    description: Optional[str] = None
+    guide_code: Optional[str] = None
+    work_process: Optional[str] = None
+    steps: List[ProcedureStep] = []
+    source_sr_ids: List[str] = []
+    source_ci_ids: List[str] = []
+    evidence_summary: Optional[str] = None
+    confidence: float = 0.0
 
 
 class PenaltyPath(BaseModel):
-    """Business-facing penalty notice grouped into coarse outcome paths."""
-    path_type: str  # general_incident | death | serious_accident
+    path_type: str
     title: str
-    notice_level: str  # photo_based | external_fact_required | conditional
+    notice_level: str
     summary: str
     penalty_rule_ids: List[str] = []
     penalty_descriptions: List[str] = []
-    article_refs: List[dict] = []
+    article_refs: List[dict[str, Any]] = []
     max_severity_score: Optional[int] = None
     source_sr_ids: List[str] = []
 
 
-class Hazard(BaseModel):
-    id: str
-    category: HazardCategory
-    name: str
-    description: str
-    risk_level: RiskLevel
-    location: Optional[str] = None
-    potential_consequences: List[str]
-    preventive_measures: List[str]
-    legal_reference: Optional[str] = None
-    related_norms: List[NormSummary] = []
+class ReasoningTrace(BaseModel):
+    observations: List[str] = []
+    risk_features: List[str] = []
+    situation_patterns: List[str] = []
+    safety_requirements: List[str] = []
+    articles: List[str] = []
+    guides: List[str] = []
+    checklist_items: List[str] = []
+    penalty_rules: List[str] = []
